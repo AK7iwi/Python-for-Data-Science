@@ -20,7 +20,11 @@ b) Formatting
 
 ex02:
 
+type functions
 
+ex03:
+
+None in pyhton = NULL in C
 
 I) MODULE01:
 

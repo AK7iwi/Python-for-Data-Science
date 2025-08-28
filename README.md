@@ -20,11 +20,21 @@ b) Formatting
 
 ex02:
 
-type functions
+type functions to recover object's type
 
 ex03:
 
 None in pyhton = NULL in C
+
+ex04:
+
+sys.argv: gets command line arguments
+
+Error handling:
+try/except system (like try/catch in c++)
+raise AssertionError like throw in c++
+
+__name__ = __main__
 
 I) MODULE01:
 

@@ -8,33 +8,47 @@ In Python, there's a distinction:
 
 0) MODULE 00:
 
-ex00:
+--ex00:
 
-Tuple: tuples are immutable so need to reasign to modify
+I) Tuple: tuples are immutable so need to reasign to modify
 
-ex01:
+--ex01:
 
-F-string (formatted string literal): 
-a) Allow you to embed expressions inside string literals using curly braces {}
-b) Formatting
+I) F-string (formatted string literal): 
+ a) Allow you to embed expressions inside string literals using curly braces {}
+ b) Formatting
 
-ex02:
+--ex02:
 
-type functions to recover object's type
+I) Type functions to recover object's type
 
-ex03:
+--ex03:
 
-None in pyhton = NULL in C
+I) None in pyhton = NULL in C (to check)
 
-ex04:
+--ex04:
 
-sys.argv: gets command line arguments
+I) sys.argv: gets command line arguments
 
-Error handling:
+II) Error handling:
 try/except system (like try/catch in c++)
 raise AssertionError like throw in c++
 
-__name__ = __main__
+III) __name__ = __main__
+
+- __name__
+
+a) Special built-in variable in Python
+b) It contains the name of the current module
+
+What values can __name__ have?
+
+When the script is run directly: __name__ = "__main__"
+When the script is imported as a module: __name__ = "module_name"
+
+--ex05:
+
+
 
 I) MODULE01:
 

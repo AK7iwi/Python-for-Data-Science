@@ -11,6 +11,7 @@ In Python, there's a distinction:
 --ex00:
 
 I) Tuple: tuples are immutable so need to reasign to modify
+II) Set: unordered
 
 --ex01:
 
@@ -20,7 +21,10 @@ I) F-string (formatted string literal):
 
 --ex02:
 
-I) Type functions to recover object's type
+I) isinstance() and type() built-in functions
+
+a) isinstance(): Return whether an object is an instance of a class or of a subclass thereof
+b) Type: Return object's type
 
 --ex03:
 
@@ -47,6 +51,12 @@ When the script is run directly: __name__ = "__main__"
 When the script is imported as a module: __name__ = "module_name"
 
 --ex05:
+
+Norme: flake8
+pip install flake8
+(Add the local bin directory to your PATH if need as user)
+
+script vs module:
 
 
 

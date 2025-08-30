@@ -216,7 +216,10 @@ for i in range(3):
 
 The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects.
 
----
+### ex06 - ft_filter
+
+
+
 
 ## MODULE 01
 

@@ -12,7 +12,7 @@ def count_characters(text):
     digit_count = sum(1 for char in text if char.isdigit())
     space_count = sum(1 for char in text if char.isspace())
     punct_count = sum(1 for char in text if char in string.punctuation)
-    
+
     return upper_count, lower_count, digit_count, space_count, punct_count
 
 
@@ -32,10 +32,12 @@ def main():
         else:
             # More than one argument
             raise AssertionError("more than one argument is provided")
-        
+
         # Count characters
-        upper_count, lower_count, digit_count, space_count, punct_count = count_characters(text)
-        
+        upper_count, lower_count, digit_count, space_count, punct_count = (
+            count_characters(text)
+        )
+
         # Print results
         print(f"The text contains {len(text)} characters:")
         print(f"{upper_count} upper letters")
@@ -43,9 +45,9 @@ def main():
         print(f"{punct_count} punctuation marks")
         print(f"{space_count} spaces")
         print(f"{digit_count} digits")
-        
+
         return 0
-        
+
     except Exception as e:
         print(f"AssertionError: {e}")
         return 1

@@ -1,64 +1,231 @@
+# Data Science Pool - Python Learning Guide
 
-General:
+## General Concepts
 
 In Python, there's a distinction:
 
-- Built-in functions are functions like print(), len(), max(), min(), etc. that are available globally
-- Methods are functions that belong to specific objects/classes, like list.append(), set.add(), dict.keys(), etc.
+- **Built-in functions** are functions like `print()`, `len()`, `max()`, `min()`, etc. that are available globally
+- **Methods** are functions that belong to specific objects/classes, like `list.append()`, `set.add()`, `dict.keys()`, etc.
 
-0) MODULE 00:
+---
 
---ex00:
+## MODULE 00
 
-I) Tuple: tuples are immutable so need to reasign to modify
-II) Set: unordered
+### ex00 - Basic Data Types
 
---ex01:
+#### I) Tuple
+- Tuples are immutable, so you need to reassign to modify them
+- Example: `my_tuple = (1, 2, 3)`
 
-I) F-string (formatted string literal): 
- a) Allow you to embed expressions inside string literals using curly braces {}
- b) Formatting
+#### II) Set
+- Sets are unordered collections of unique elements
+- Example: `my_set = {1, 2, 3}`
 
---ex02:
+### ex01 - String Formatting
 
-I) isinstance() and type() built-in functions
+#### I) F-string (formatted string literal)
+- Allow you to embed expressions inside string literals using curly braces `{}`
+- Formatting: `f"Hello {name}, you are {age} years old"`
 
-a) isinstance(): Return whether an object is an instance of a class or of a subclass thereof
-b) Type: Return object's type
+### ex02 - Type Checking
 
---ex03:
+#### I) `isinstance()` and `type()` built-in functions
 
-I) None in pyhton = NULL in C (to check)
+**a) `isinstance()`**
+- Returns whether an object is an instance of a class or of a subclass thereof
+- Example: `isinstance(x, int)`
 
---ex04:
+**b) `type()`**
+- Returns the object's type
+- Example: `type(x)`
 
-I) sys.argv: gets command line arguments
+### ex03 - Null Values
 
-II) Error handling:
-try/except system (like try/catch in c++)
-raise AssertionError like throw in c++
+#### I) `None` in Python = `NULL` in C
+- Used to represent absence of a value
+- Check with: `if value is None:`
 
-III) __name__ = __main__
+### ex04 - Command Line Arguments and Error Handling
 
-- __name__
+#### I) `sys.argv`
+- Gets command line arguments
+- Example: `python script.py arg1 arg2`
 
-a) Special built-in variable in Python
-b) It contains the name of the current module
+#### II) Error Handling
+- **try/except system** (like try/catch in C++)
+- **raise AssertionError** like throw in C++
 
-What values can __name__ have?
+#### III) `__name__ = "__main__"`
 
-When the script is run directly: __name__ = "__main__"
-When the script is imported as a module: __name__ = "module_name"
+**`__name__`**
+- Special built-in variable in Python
+- Contains the name of the current module
 
---ex05:
+**What values can `__name__` have?**
+- When the script is run directly: `__name__ = "__main__"`
+- When the script is imported as a module: `__name__ = "module_name"`
 
-Norme: flake8
+### ex05 - Code Quality and Loops
+
+#### I) Norme: flake8
+```bash
 pip install flake8
-(Add the local bin directory to your PATH if need as user)
+# Add the local bin directory to your PATH if needed as user
+```
 
-script vs module:
+#### II) Script vs Module
+- **Script**: File run directly with `python filename.py`
+- **Module**: File imported into another script
 
+#### III) `input()`
+- Gets user input from console
+- Example: `name = input("Enter your name: ")`
 
+#### IV) "for" Loop Syntax
 
-I) MODULE01:
+## Basic `for` Loop Syntax
+
+The basic syntax for a `for` loop in Python is:
+
+```python
+for item in iterable:
+    # code block to execute
+```
+
+## Common Examples
+
+### 1. Looping through a list:
+```python
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+```
+
+### 2. Looping through a range:
+```python
+for i in range(5):
+    print(i)  # prints 0, 1, 2, 3, 4
+```
+
+### 3. Looping through a string:
+```python
+for char in "Hello":
+    print(char)  # prints H, e, l, l, o
+```
+
+## `for` Loop with Conditions
+
+### 1. Using `if` statements inside the loop:
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers:
+    if num % 2 == 0:
+        print(f"{num} is even")
+    else:
+        print(f"{num} is odd")
+```
+
+### 2. Using `continue` to skip iterations:
+```python
+for i in range(10):
+    if i == 5:
+        continue  # skip when i equals 5
+    print(i)
+```
+
+### 3. Using `break` to exit the loop:
+```python
+for i in range(10):
+    if i == 5:
+        break  # exit loop when i equals 5
+    print(i)
+```
+
+## List Comprehensions with Conditions
+
+### 1. Basic list comprehension:
+```python
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers]
+```
+
+### 2. List comprehension with condition:
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+even_squares = [x**2 for x in numbers if x % 2 == 0]
+```
+
+### 3. List comprehension with if-else:
+```python
+numbers = [1, 2, 3, 4, 5]
+result = ["even" if x % 2 == 0 else "odd" for x in numbers]
+```
+
+## Dictionary Looping
+
+### 1. Looping through keys:
+```python
+person = {"name": "John", "age": 30, "city": "New York"}
+for key in person:
+    print(key)
+```
+
+### 2. Looping through items:
+```python
+person = {"name": "John", "age": 30, "city": "New York"}
+for key, value in person.items():
+    print(f"{key}: {value}")
+```
+
+## Enumerate (with index)
+
+```python
+fruits = ["apple", "banana", "cherry"]
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+```
+
+## Nested Loops
+
+```python
+for i in range(3):
+    for j in range(3):
+        print(f"i={i}, j={j}")
+```
+
+## Control Flow Keywords
+
+### `continue`
+- Skips the current iteration and continues with the next one
+- Example: Skip even numbers in a loop
+
+### `break`
+- Exits the loop entirely
+- Example: Stop when a condition is met
+
+## Real-world Example
+
+```python
+text = "Hello World"
+upper_count = sum(1 for char in text if char.isupper())
+print(f"Uppercase letters: {upper_count}")
+```
+
+This uses a generator expression with a condition inside a `sum()` function, which is a concise way to count items that meet a condition.
+
+The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects!
+
+---
+
+## MODULE 01
+
+[Content for Module 01 will go here]
+
+---
+
+## Additional Resources
+
+- [Python Official Documentation](https://docs.python.org/)
+- [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
+- [Real Python Tutorials](https://realpython.com/)
 

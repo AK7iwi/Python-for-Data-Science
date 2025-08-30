@@ -13,13 +13,17 @@ In Python, there's a distinction:
 
 ### ex00 - Basic Data Types
 
-#### I) Tuple
+#### I) List 
+
+#### II) Tuple
 - Tuples are immutable, so you need to reassign to modify them
 - Example: `my_tuple = (1, 2, 3)`
 
-#### II) Set
+#### III) Set
 - Sets are unordered collections of unique elements
 - Example: `my_set = {1, 2, 3}`
+
+#### IV) Dict
 
 ### ex01 - String Formatting
 
@@ -80,8 +84,14 @@ pip install flake8
 #### III) `input()`
 - Gets user input from console
 - Example: `name = input("Enter your name: ")`
+- Synthax
 
-#### IV) "for" Loop Syntax
+#### IV) `sum`
+- Built-in function that adds all items in an iterable
+- Returns the sum of all items plus the optional start value
+- Syntax: `sum(iterable, start=0)`
+
+#### V) "for" Loop Syntax
 
 ## Basic `for` Loop Syntax
 
@@ -203,23 +213,13 @@ for i in range(3):
 - Exits the loop entirely
 - Example: Stop when a condition is met
 
-## Real-world Example
 
-```python
-text = "Hello World"
-upper_count = sum(1 for char in text if char.isupper())
-print(f"Uppercase letters: {upper_count}")
-```
-
-This uses a generator expression with a condition inside a `sum()` function, which is a concise way to count items that meet a condition.
-
-The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects!
+The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects.
 
 ---
 
 ## MODULE 01
 
-[Content for Module 01 will go here]
 
 ---
 

@@ -229,3 +229,8 @@ The `for` loop is one of Python's most fundamental constructs and is used extens
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
 - [Real Python Tutorials](https://realpython.com/)
 
+
+
+#############to add
+
+- general formule of "for"

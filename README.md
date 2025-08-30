@@ -218,6 +218,121 @@ The `for` loop is one of Python's most fundamental constructs and is used extens
 
 ### ex06 - ft_filter
 
+## I) Lambda Functions
+
+**What is `lambda`?**
+
+`lambda` is a keyword that creates **anonymous functions** (functions without a name) in Python.
+
+**Basic Syntax:**
+```python
+lambda arguments: expression
+```
+
+**Comparison: Regular Function vs Lambda**
+
+**Regular Function:**
+```python
+def add_five(x):
+    return x + 5
+
+result = add_five(3)  # result = 8
+```
+
+**Lambda Function (equivalent):**
+```python
+add_five = lambda x: x + 5
+
+result = add_five(3)  # result = 8
+```
+
+**Key Characteristics:**
+
+1. **Anonymous** - No function name (unless assigned to a variable)
+2. **Single expression** - Can only contain one expression
+3. **Implicit return** - The expression is automatically returned
+4. **Concise** - Shorter than regular functions
+
+**Examples:**
+
+**1. Simple lambda:**
+```python
+# Regular function
+def square(x):
+    return x ** 2
+
+# Lambda equivalent
+square = lambda x: x ** 2
+
+print(square(5))  # 25
+```
+
+**2. Lambda with multiple arguments:**
+```python
+# Regular function
+def add(x, y):
+    return x + y
+
+# Lambda equivalent
+add = lambda x, y: x + y
+
+print(add(3, 4))  # 7
+```
+
+**3. Lambda with no arguments:**
+```python
+# Regular function
+def get_five():
+    return 5
+
+# Lambda equivalent
+get_five = lambda: 5
+
+print(get_five())  # 5
+```
+
+**Common Use Cases:**
+
+**1. In `filter()` function:**
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # [2, 4, 6]
+```
+
+**2. In `map()` function:**
+```python
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # [1, 4, 9, 16, 25]
+```
+
+**3. In `sorted()` function:**
+```python
+students = [('Alice', 20), ('Bob', 18), ('Charlie', 22)]
+sorted_by_age = sorted(students, key=lambda student: student[1])
+print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
+```
+
+**When to Use Lambda:**
+
+**Use lambda when:**
+- ✅ Function is simple (one expression)
+- ✅ Function is used only once
+- ✅ Function is passed as an argument to another function
+
+**Don't use lambda when:**
+- ❌ Function is complex (multiple expressions)
+- ❌ Function needs to be reused multiple times
+- ❌ Function needs documentation or type hints
+
+**Limitations:**
+- Can only contain **one expression**
+- Cannot contain **multiple statements**
+- Cannot have **docstrings**
+- Cannot have **type hints**
+
+Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
 
 
 
@@ -237,3 +352,6 @@ The `for` loop is one of Python's most fundamental constructs and is used extens
 #############to add
 
 - general formule of "for"
+- lib used: sys,...
+- built-in used
+

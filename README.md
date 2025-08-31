@@ -334,6 +334,9 @@ print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
 
 Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
 
+###ex07 - 
+
+
 
 
 ## MODULE 01

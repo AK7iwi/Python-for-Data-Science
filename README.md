@@ -218,7 +218,7 @@ The `for` loop is one of Python's most fundamental constructs and is used extens
 
 ### ex06 - ft_filter
 
-## I) Lambda Functions
+#### I) Lambda Functions
 
 **What is `lambda`?**
 
@@ -334,9 +334,59 @@ print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
 
 Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
 
-###ex07 - 
+###ex07 - Morse encryption
 
 
+#### I) rstrip() removes trailing whitespace (spaces, tabs, newlines) from the right side of a string.
+
+
+### ex08
+
+
+#### I) ljust
+
+#### II) yield
+
+yield is a keyword that creates a generator function. It allows a function to return values one at a time instead of all at once
+
+Comparison: return vs yield
+
+return - Returns all values at once:
+
+def get_numbers():
+    return [1, 2, 3, 4, 5]
+
+numbers = get_numbers()  # Returns the entire list at once
+print(numbers)  # [1, 2, 3, 4, 5]
+
+
+yield - Returns values one by one:
+
+def get_numbers():
+    yield 1
+    yield 2
+    yield 3
+    yield 4
+    yield 5
+
+numbers = get_numbers()  # Returns a generator object
+print(numbers)
+
+
+How yield works:
+
+def count_up_to(n):
+    for i in range(n):
+        yield i  # Pauses here and returns i
+
+# Usage:
+for num in count_up_to(5):
+    print(num)
+# Output: 0, 1, 2, 3, 4
+
+### ex09
+
+### III) enumarate
 
 
 ## MODULE 01
@@ -351,10 +401,10 @@ Lambda functions are perfect for simple, one-time operations like filtering, map
 - [Real Python Tutorials](https://realpython.com/)
 
 
-
 #############to add
 
 - general formule of "for"
 - lib used: sys,...
 - built-in used
+- logic use: list comprehension, wich for loop, which tech is used 
 

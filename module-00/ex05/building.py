@@ -11,7 +11,7 @@ def count_characters(text):
     lower_count = sum(1 for char in text if char.islower())
     digit_count = sum(1 for char in text if char.isdigit())
     space_count = sum(1 for char in text if char.isspace())
-    punct_count = sum(1 for char in text if char in string.punctuation)
+    punct_count = sum(1 for char in text if char in string.punctuation) #else
 
     return upper_count, lower_count, digit_count, space_count, punct_count
 

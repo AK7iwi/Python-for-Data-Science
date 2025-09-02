@@ -419,8 +419,6 @@ list of package:
 python3 -m pip list
 
 
-III)
-
 IV)
 
 ## MODULE 01

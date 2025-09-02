@@ -392,7 +392,27 @@ for num in count_up_to(5):
 
 I) https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
-II) cmd to build/install
+II) cmd to build/install + verify all good
+
+build: 
+
+python -m build
+
+install: 
+
+pip install ./dist/ft_package-0.0.1.tar.gz
+
+verify:
+
+pip show -v ft_package
+
+"unbuild":
+
+rm -rf build/ dist/ *.egg-info
+
+uninstall:
+
+pip uninstall package_name
 
 III)
 

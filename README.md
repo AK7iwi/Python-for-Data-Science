@@ -396,15 +396,15 @@ II) cmd to build/install + verify all good
 
 build: 
 
-python -m build
+python3 -m build
 
 install: 
 
-pip install ./dist/ft_package-0.0.1.tar.gz
+python3 -m pip install ./dist/ft_package-0.0.1.tar.gz
 
 verify:
 
-pip show -v ft_package
+python3 -m pip show -v ft_package
 
 "unbuild":
 
@@ -412,7 +412,12 @@ rm -rf build/ dist/ *.egg-info
 
 uninstall:
 
-pip uninstall package_name
+python3 -m pip uninstall package_name
+
+list of package:
+
+python3 -m pip list
+
 
 III)
 

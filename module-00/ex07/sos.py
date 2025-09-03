@@ -4,6 +4,16 @@ import sys
 def get_dict():
     """
     Returns the nested morse code dictionary.
+
+    Args:
+        None
+
+    Returns:
+        dict: The morse code dictionary mapping characters to their morse
+              representations
+
+    Raises:
+        None
     """
     # Dictionary representing the morse code chart
     NESTED_MORSE = {
@@ -49,12 +59,40 @@ def get_dict():
     return NESTED_MORSE
 
 
+def validate_argument():
+    """
+    Validate command line arguments and return the string to encrypt.
+
+    Args:
+        None
+
+    Returns:
+        str: The string argument to convert to morse code
+
+    Raises:
+        AssertionError: If the arguments are bad (wrong number)
+    """
+    if len(sys.argv) != 2:
+        raise AssertionError("the arguments are bad")
+
+    arg = sys.argv[1]
+    return arg
+
+
 def encrypt(message):
     """
     Encrypts a message using the morse code chart.
     Converts alphanumeric characters and spaces to morse code.
-    """
 
+    Args:
+        message (str): The message to encrypt to morse code
+
+    Returns:
+        str: The encrypted message in morse code
+
+    Raises:
+        AssertionError: If the message contains invalid characters
+    """
     NESTED_MORSE = get_dict()
     encrypted_message = ""
     for char in message.upper():
@@ -70,12 +108,18 @@ def main():
     """
     Main function that converts a string to morse code.
     Takes one string argument containing alphanumeric characters and spaces.
+
+    Args:
+        None
+
+    Returns:
+        int: 0 on success, 1 on error
+
+    Raises:
+        None
     """
     try:
-        if len(sys.argv) != 2:
-            raise AssertionError("the arguments are bad")
-
-        arg = sys.argv[1]
+        arg = validate_argument()
 
         encrypted_message = encrypt(arg)
         print(encrypted_message)

@@ -1,7 +1,15 @@
 def all_thing_is_obj(object: any) -> int:
     """
     Print the type of the given object and return 42.
-    Handles different data types with specific formatting.
+
+    Args:
+        object (any): The object whose type will be printed
+
+    Returns:
+        int: Always returns 42
+
+    Raises:
+        None
     """
     try:
         if isinstance(object, list):

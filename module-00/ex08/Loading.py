@@ -2,6 +2,15 @@ def ft_tqdm(lst: range) -> None:
     """
     Custom progress bar function that mimics tqdm behavior.
     Uses yield operator to iterate through the range and display progress.
+
+    Args:
+        lst (range): The range to iterate through and display progress for
+
+    Returns:
+        generator: A generator that yields each item from the range
+
+    Raises:
+        None
     """
     total = len(lst)
 

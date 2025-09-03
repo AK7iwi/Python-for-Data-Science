@@ -13,17 +13,21 @@ In Python, there's a distinction:
 
 ### ex00 - Basic Data Types
 
-#### I) List 
+I) Basic data types
 
-#### II) Tuple
+a) List 
+
+b) Tuple
 - Tuples are immutable, so you need to reassign to modify them
 - Example: `my_tuple = (1, 2, 3)`
 
-#### III) Set
+c) Set
 - Sets are unordered collections of unique elements
 - Example: `my_set = {1, 2, 3}`
 
-#### IV) Dict
+d) Dict
+
+#### II) print
 
 ### ex01 - String Formatting
 
@@ -91,7 +95,11 @@ pip install flake8
 - Returns the sum of all items plus the optional start value
 - Syntax: `sum(iterable, start=0)`
 
-#### V) "for" Loop Syntax
+#### V) string library 
+
+string library is built-in
+
+#### VI) "for" Loop Syntax
 
 ## Basic `for` Loop Syntax
 

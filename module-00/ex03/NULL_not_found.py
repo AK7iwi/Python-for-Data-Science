@@ -1,7 +1,15 @@
 def NULL_not_found(object: any) -> int:
     """
     Check the type of null-like objects and print their information.
-    Returns 0 for recognized null types, 1 for unrecognized types.
+
+    Args:
+        object (any): The object to check for null-like properties
+
+    Returns:
+        int: 0 for recognized null types, 1 for unrecognized types
+
+    Raises:
+        None
     """
     try:
         if object is None:

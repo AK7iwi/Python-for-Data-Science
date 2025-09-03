@@ -9,9 +9,9 @@ In Python, there's a distinction:
 
 ---
 
-## MODULE 00
+## MODULE 00 - Starting
 
-### ex00 - Basic Data Types
+### ex00: First python script (+Basic Data Types)
 
 I) Basic data types
 
@@ -438,10 +438,3 @@ IV)
 - [Python Official Documentation](https://docs.python.org/)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
 - [Real Python Tutorials](https://realpython.com/)
-
-#############to add
-
-- general formule of "for"
-- lib used: sys,...
-- built-in used
-- logic use: list comprehension, wich for loop, which tech is used 

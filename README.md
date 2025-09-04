@@ -123,13 +123,39 @@ No external libraries used.
 
 <div align="center">
 
-### ex03 - Null Values
+### ex03 - NULL not found
 
 </div>
 
-#### I) `None` in Python = `NULL` in C
-- Used to represent absence of a value
-- Check with: `if value is None:`
+#### I) Libraries used
+No external libraries used.
+
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `isinstance()` (already used in ex02)
+- `type()` (already used in ex02)
+- `str()` - Converts object to string
+- `float()` - Converts to float type
+- `f"string"` (already used in ex01)
+
+#### III) New theory points
+- **None value**: `None` represents absence of value (like NULL in C)
+- **NaN (Not a Number)**: `float("NaN")` creates a special float value
+- **Boolean False**: `False` as a null-like value
+- **Zero as null**: Integer `0` representing empty/nothing
+- **Empty string**: `""` representing no text
+- **Identity operator**: `is` vs `==` for object comparison
+- **String conversion**: `str(object)` to convert values for comparison
+
+#### IV) Logic used for the exercise
+1. **Define function** to check different null-like values
+2. **Use `is` operator** to check for `None` (identity comparison)
+3. **Check for NaN** using `isinstance()` and string conversion
+4. **Check for False** using `is` operator for boolean identity
+5. **Check for zero** using `==` operator for value comparison
+6. **Check for empty string** using `==` operator
+7. **Return different codes** (0 for recognized, 1 for unrecognized)
+8. **Test with various null-like values** to demonstrate different cases
 
 <div align="center">
 
@@ -137,23 +163,40 @@ No external libraries used.
 
 </div>
 
-#### I) `sys.argv`
-- Gets command line arguments
-- Example: `python script.py arg1 arg2`
+#### I) Libraries used
+- `sys` - Built-in library for system-specific parameters and functions
 
-#### II) Error Handling
-- **try/except system** (like try/catch in C++)
-- **raise AssertionError** like throw in C++
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `len()` - Returns length of a sequence
+- `int()` - Converts string to integer
+- `raise` - Raises an exception (like throw in C++)
+- `f"string"` (already used in ex01)
 
-#### III) `__name__ = "__main__"`
+#### III) New theory points
+- **`sys.argv`**
+  - Gets command line arguments
+  - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
+- **Exception/error handling**
+  - **try/except system** with specific exception types (like try/catch in C++)
+  - **ValueError**: Built-in exception for conversion errors
+  - **AssertionError**: Custom exception for validation errors
+- **`__name__ = "__main__"`**
+  - **`__name__`**: Special built-in variable in Python that contains the name of the current module
+  -  What values can `__name__` have?
+    - When the script is run directly: `__name__ = "__main__"`
+    - When the script is imported as a module: `__name__ = "module_name"`
+- **Modulo operator**: `%` for checking odd/even numbers
 
-**`__name__`**
-- Special built-in variable in Python
-- Contains the name of the current module
-
-**What values can `__name__` have?**
-- When the script is run directly: `__name__ = "__main__"`
-- When the script is imported as a module: `__name__ = "module_name"`
+#### IV) Logic used for the exercise
+1. **Import sys module** to access command line arguments
+2. **Validate argument count** using `len(sys.argv)` - must be exactly 2
+3. **Check for too many arguments** and raise AssertionError if found
+4. **Extract argument** from `sys.argv[1]` (first user argument)
+5. **Convert string to integer** using `int()` with try/except for ValueError
+6. **Check odd/even** using modulo operator `% 2`
+7. **Handle errors** with specific exception messages
+8. **Use `if __name__ == "__main__"`** for script execution control
 
 <div align="center">
 

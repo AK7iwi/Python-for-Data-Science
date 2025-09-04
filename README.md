@@ -1,6 +1,14 @@
+<div align="center">
+
 # Data Science Pool - Python Learning Guide
 
+</div>
+
+<div align="center">
+
 ## General Concepts
+
+</div>
 
 In Python, there's a distinction:
 

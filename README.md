@@ -40,11 +40,35 @@ No external libraries used.
    - Dictionary: Key-based assignment
 3. **Displaying** the results to show how each modification affects the data structure
 
-### ex01 - String Formatting
+### ex01 - First use of package
 
-#### I) F-string (formatted string literal)
-- Allow you to embed expressions inside string literals using curly braces `{}`
-- Formatting: `f"Hello {name}, you are {age} years old"`
+#### I) Libraries used
+- `time` - Built-in library for time operations
+- `datetime` - Built-in library for date/time manipulation
+
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `time.time()` - Returns seconds since epoch
+- `datetime.now()` - Returns current date and time
+- `strftime()` - Formats datetime objects
+- `f"string"` - Check next point
+
+#### III) New theory points
+- **F-string (formatted string literal)**
+  - Allow you to embed expressions inside string literals using curly braces `{}`
+    - `f"Hello {name}, you are {age} years old"`
+  - Can format numbers with specifiers:
+    - `{value:,.4f}` - Comma separator with 4 decimal places
+    - `{value:.2e}` - Scientific notation
+- **Exception handling**: `try/except` blocks
+
+#### IV) Logic used for the exercise
+1. **Get current time** using `time.time()` and `datetime.now()`
+2. **Format time values** using f-string specifiers for different representations
+3. **Return formatted values** as tuple from function
+4. **Display results** with descriptive output
+5. **Handle errors** with try/except blocks
+6. **Use `if __name__ == "__main__"`** for script execution
 
 ### ex02 - Type Checking
 
@@ -451,3 +475,4 @@ IV)
 - [Python Official Documentation](https://docs.python.org/)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
 - [Real Python Tutorials](https://realpython.com/)
+

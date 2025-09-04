@@ -25,7 +25,7 @@ In Python, there's a distinction:
 
 <div align="center">
 
-### ex00: First python script
+### Exercice 00: First python script
 
 </div>
 
@@ -58,7 +58,7 @@ No external libraries used.
 
 <div align="center">
 
-### ex01 - First use of package
+### Exercice 01: First use of package
 
 </div>
 
@@ -92,7 +92,7 @@ No external libraries used.
 
 <div align="center">
 
-### ex02 - First function python
+### Exercice 02: First function python
 
 </div>
 
@@ -123,7 +123,7 @@ No external libraries used.
 
 <div align="center">
 
-### ex03 - NULL not found
+### Exercice 03: NULL not found
 
 </div>
 
@@ -159,7 +159,7 @@ No external libraries used.
 
 <div align="center">
 
-### ex04 - Command Line Arguments and Error Handling
+### Exercice 04: The Even and the Odd
 
 </div>
 
@@ -200,19 +200,34 @@ No external libraries used.
 
 <div align="center">
 
-### ex05 - Code Quality and Loops
+### Interlude
 
 </div>
 
-#### I) Norme: flake8
+#### I) Script vs Module
+- **Script**: File run directly with `python filename.py`
+- **Module**: File imported into another script
+
+#### II) Norme: flake8
 ```bash
 pip install flake8
 # Add the local bin directory to your PATH if needed as user
 ```
 
-#### II) Script vs Module
-- **Script**: File run directly with `python filename.py`
-- **Module**: File imported into another script
+**Adding to PATH explanation:**
+- When you install packages with `pip install --user`, they are installed in your user directory
+- The executable files (like `flake8`) are placed in `~/.local/bin/` (Linux/Mac)
+- You need to add this directory to your PATH environment variable so the system can find the executable
+- **Linux/Mac**: Add `export PATH="$HOME/.local/bin:$PATH"` to your `~/.bashrc` or `~/.zshrc`
+- **Alternative method**: You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
+- After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
+
+<div align="center">
+
+### Exercice 05: First standalone program python
+
+</div>
+
 
 #### III) `input()`
 - Gets user input from console

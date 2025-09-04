@@ -11,23 +11,34 @@ In Python, there's a distinction:
 
 ## MODULE 00 - Starting
 
-### ex00: First python script (+Basic Data Types)
+### ex00: First python script
 
-I) Basic data types
+#### I) Libraries used
+No external libraries used.
 
-a) List 
+#### II) Built-in functions and methods used
+- `print()` - Built-in function to display output
+- `list[index]` - List indexing and assignment
+- `tuple` - Tuple creation and reassignment
+- `set.remove()` - Method to remove element from set
+- `set.add()` - Method to add element to set
+- `dict[key]` - Dictionary key access and assignment
 
-b) Tuple
-- Tuples are immutable, so you need to reassign to modify them
-- Example: `my_tuple = (1, 2, 3)`
+#### III) New theory points
+- **Basic Data Types**: Introduction to Python's four main collection types
+  - **List**: Mutable, ordered collection `["item1", "item2"]`
+  - **Tuple**: Immutable, ordered collection `("item1", "item2")`
+  - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
+  - **Dictionary**: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
 
-c) Set
-- Sets are unordered collections of unique elements
-- Example: `my_set = {1, 2, 3}`
-
-d) Dict
-
-#### II) print
+#### IV) Logic used for the exercise
+1. **Creating** each data type with sample data
+2. **Modifying** each type using their appropriate methods:
+   - List: Direct index assignment (mutable)
+   - Tuple: Complete reassignment (immutable)
+   - Set: Using `remove()` and `add()` methods
+   - Dictionary: Key-based assignment
+3. **Displaying** the results to show how each modification affects the data structure
 
 ### ex01 - String Formatting
 
@@ -342,6 +353,8 @@ print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
 - Cannot have **type hints**
 
 Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
+
+#### II) __doc__ 
 
 ### ex07 - Morse encryption
 

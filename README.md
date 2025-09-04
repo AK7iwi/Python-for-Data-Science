@@ -9,7 +9,11 @@ In Python, there's a distinction:
 
 ---
 
+<div align="center">
+
 ## MODULE 00 - Starting
+
+</div>
 
 <div align="center">
 
@@ -44,7 +48,11 @@ No external libraries used.
    - Dictionary: Key-based assignment
 3. **Displaying** the results to show how each modification affects the data structure
 
+<div align="center">
+
 ### ex01 - First use of package
+
+</div>
 
 #### I) Libraries used
 - `time` - Built-in library for time operations
@@ -74,7 +82,11 @@ No external libraries used.
 5. **Handle errors** with try/except blocks
 6. **Use `if __name__ == "__main__"`** for script execution
 
+<div align="center">
+
 ### ex02 - Type Checking
+
+</div>
 
 #### I) `isinstance()` and `type()` built-in functions
 
@@ -86,13 +98,21 @@ No external libraries used.
 - Returns the object's type
 - Example: `type(x)`
 
+<div align="center">
+
 ### ex03 - Null Values
+
+</div>
 
 #### I) `None` in Python = `NULL` in C
 - Used to represent absence of a value
 - Check with: `if value is None:`
 
+<div align="center">
+
 ### ex04 - Command Line Arguments and Error Handling
+
+</div>
 
 #### I) `sys.argv`
 - Gets command line arguments
@@ -112,7 +132,11 @@ No external libraries used.
 - When the script is run directly: `__name__ = "__main__"`
 - When the script is imported as a module: `__name__ = "module_name"`
 
+<div align="center">
+
 ### ex05 - Code Quality and Loops
+
+</div>
 
 #### I) Norme: flake8
 ```bash
@@ -264,7 +288,11 @@ for i in range(3):
 
 The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects.
 
+<div align="center">
+
 ### ex06 - ft_filter
+
+</div>
 
 #### I) Lambda Functions
 
@@ -384,11 +412,19 @@ Lambda functions are perfect for simple, one-time operations like filtering, map
 
 #### II) __doc__ 
 
+<div align="center">
+
 ### ex07 - Morse encryption
+
+</div>
 
 #### I) rstrip() removes trailing whitespace (spaces, tabs, newlines) from the right side of a string.
 
+<div align="center">
+
 ### ex08
+
+</div>
 
 #### I) ljust
 
@@ -437,7 +473,11 @@ for num in count_up_to(5):
 
 #### III) enumerate
 
+<div align="center">
+
 ### ex09
+
+</div>
 
 I) https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
@@ -470,7 +510,11 @@ python3 -m pip list
 
 IV)
 
+<div align="center">
+
 ## MODULE 01
+
+</div>
 
 ---
 

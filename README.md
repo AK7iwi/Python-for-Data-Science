@@ -33,12 +33,12 @@ In Python, there's a distinction:
 No external libraries used.
 
 #### II) Built-in functions and methods used
-- `print()` - Built-in function to display output
-- `list[index]` - List indexing and assignment
-- `tuple` - Tuple creation and reassignment
-- `set.remove()` - Method to remove element from set
-- `set.add()` - Method to add element to set
-- `dict[key]` - Dictionary key access and assignment
+- `print()` - **Built-in function** to display output
+- `list[index]` - **Method** for list indexing and assignment
+- `tuple` - **Built-in type** for tuple creation and reassignment
+- `set.remove()` - **Method** to remove element from set
+- `set.add()` - **Method** to add element to set
+- `dict[key]` - **Method** for dictionary key access and assignment
 
 #### III) New theory points
 - **Basic Data Types**: Introduction to Python's four main collection types
@@ -68,10 +68,9 @@ No external libraries used.
 
 #### II) Built-in functions and methods used
 - `print()` (already used in ex00)
-- `time.time()` - Returns seconds since epoch
-- `datetime.now()` - Returns current date and time
-- `strftime()` - Formats datetime objects
-- `f"string"` - Check next point
+- `time.time()` - **Module function** that returns seconds since epoch
+- `datetime.now()` - **Module function** that returns current date and time
+- `strftime()` - **Method** that formats datetime objects
 
 #### III) New theory points
 - **F-string (formatted string literal)**
@@ -101,15 +100,13 @@ No external libraries used.
 
 #### II) Built-in functions and methods used
 - `print()` (already used in ex00)
-- `isinstance()` - Checks if object is instance of a class
-- `type()` - Returns the type of an object
-- `f"string"` (already used in ex01)
+- `isinstance()` - **Built-in function** that checks if object is instance of a class
+- `type()` - **Built-in function** that returns the type of an object
 
 #### III) New theory points
 - **Function definition**: `def function_name(parameter: type) -> return_type:`
 - **Type hints**: `object: any` and `-> int` for parameter and return type documentation
 - **Conditional statements**: `if/elif/else` structure
-- **Exception handling**: `try/except` blocks (already used in ex01)
 - **Function import**: `from module import function`
 
 #### IV) Logic used for the exercise
@@ -134,9 +131,8 @@ No external libraries used.
 - `print()` (already used in ex00)
 - `isinstance()` (already used in ex02)
 - `type()` (already used in ex02)
-- `str()` - Converts object to string
-- `float()` - Converts to float type
-- `f"string"` (already used in ex01)
+- `str()` - **Built-in function** that converts object to string
+- `float()` - **Built-in function** that converts to float type
 
 #### III) New theory points
 - **None value**: `None` represents absence of value (like NULL in C)
@@ -168,10 +164,9 @@ No external libraries used.
 
 #### II) Built-in functions and methods used
 - `print()` (already used in ex00)
-- `len()` - Returns length of a sequence
-- `int()` - Converts string to integer
-- `raise` - Raises an exception (like throw in C++)
-- `f"string"` (already used in ex01)
+- `len()` - **Built-in function** that returns length of a sequence
+- `int()` - **Built-in function** that converts string to integer
+- `raise` - **Built-in keyword** that raises an exception (like throw in C++)
 
 #### III) New theory points
 - **`sys.argv`**
@@ -228,22 +223,35 @@ pip install flake8
 
 </div>
 
+#### I) Libraries used
+- `sys` (already used in ex04)
+- `string` - Built-in library for string constants and utilities
 
-#### III) `input()`
-- Gets user input from console
-- Example: `name = input("Enter your name: ")`
-- Synthax
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `len()` (already used in ex04)
+- `input()` - **Built-in function** that gets user input from console
+- `sum()` - **Built-in function** that return the sum off all items plus the optional start value
+- `char.isupper()` - **Method** that checks if character is uppercase
+- `char.islower()` - **Method** that checks if character is lowercase
+- `char.isdigit()` - **Method** that checks if character is a digit
+- `char.isspace()` - **Method** that checks if character is whitespace
+- `string.punctuation` - **Built-in constant** containing all punctuation characters
 
-#### IV) `sum`
-- Built-in function that adds all items in an iterable
-- Returns the sum of all items plus the optional start value
-- Syntax: `sum(iterable, start=0)`
+#### III) New theory points
+- **`for`**
 
-#### V) string library 
 
-string library is built-in
+#### IV) Logic used for the exercise
+1. **Validate arguments** - Handle 0, 1, or multiple arguments
+2. **Get input** - Either from command line argument or user input prompt
+3. **Count character types** using generator expressions with `sum()`
+4. **Use string methods** to classify each character (upper, lower, digit, space, punctuation)
+5. **Return counts as tuple** from the counting function
+6. **Display formatted results** with character counts and total length
+7. **Handle errors** with try/except blocks for argument validation
 
-#### VI) "for" Loop Syntax
+#### VI) "for"
 
 ## Basic `for` Loop Syntax
 

@@ -92,19 +92,34 @@ No external libraries used.
 
 <div align="center">
 
-### ex02 - Type Checking
+### ex02 - First function python
 
 </div>
 
-#### I) `isinstance()` and `type()` built-in functions
+#### I) Libraries used
+No external libraries used.
 
-**a) `isinstance()`**
-- Returns whether an object is an instance of a class or of a subclass thereof
-- Example: `isinstance(x, int)`
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `isinstance()` - Checks if object is instance of a class
+- `type()` - Returns the type of an object
+- `f"string"` (already used in ex01)
 
-**b) `type()`**
-- Returns the object's type
-- Example: `type(x)`
+#### III) New theory points
+- **Function definition**: `def function_name(parameter: type) -> return_type:`
+- **Type hints**: `object: any` and `-> int` for parameter and return type documentation
+- **Conditional statements**: `if/elif/else` structure
+- **Exception handling**: `try/except` blocks (already used in ex01)
+- **Function import**: `from module import function`
+
+#### IV) Logic used for the exercise
+1. **Define a function** with type hints and documentation
+2. **Use isinstance()** to check object types (list, tuple, set, dict, str, int)
+3. **Print different messages** based on the object type
+4. **Handle special cases** (strings get special message, int returns "Type not found")
+5. **Return a value** (42) from the function
+6. **Import and test** the function with different data types
+7. **Handle errors** with try/except blocks
 
 <div align="center">
 

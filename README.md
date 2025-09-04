@@ -11,7 +11,7 @@ In Python, there's a distinction:
 
 ## MODULE 00 - Starting
 
-### ex00: First python script
+<center>### ex00: First python script</center>
 
 #### I) Libraries used
 No external libraries used.

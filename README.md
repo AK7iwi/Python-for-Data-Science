@@ -16,7 +16,7 @@ In Python, there's a distinction:
 - **Module functions** are functions that belong to a specific module and must be imported before use.
 - **Methods** are functions that belong to specific objects/classes, like `list.append()`, `set.add()`, `dict.keys()`, etc.
 
-For more details: https://github.com/AK7iwi/DOC/tree/main/python
+For more details about synthax and theory points: [Doc][Basic Doc]
 
 ---
 
@@ -616,3 +616,4 @@ IV)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
 - [Real Python Tutorials](https://realpython.com/)
 
+[Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python

@@ -13,7 +13,10 @@
 In Python, there's a distinction:
 
 - **Built-in functions** are functions like `print()`, `len()`, `max()`, `min()`, etc. that are available globally
+- **Module functions** are functions that belong to a specific module and must be imported before use.
 - **Methods** are functions that belong to specific objects/classes, like `list.append()`, `set.add()`, `dict.keys()`, etc.
+
+For more details: https://github.com/AK7iwi/DOC/tree/main/python
 
 ---
 
@@ -34,14 +37,11 @@ No external libraries used.
 
 #### II) Built-in functions and methods used
 - `print()` - **Built-in function** to display output
-- `list[index]` - **Method** for list indexing and assignment
-- `tuple` - **Built-in type** for tuple creation and reassignment
 - `set.remove()` - **Method** to remove element from set
 - `set.add()` - **Method** to add element to set
-- `dict[key]` - **Method** for dictionary key access and assignment
 
 #### III) New theory points
-- **Basic Data Types**: Introduction to Python's four main collection types
+- **Basic Data Types**:
   - **List**: Mutable, ordered collection `["item1", "item2"]`
   - **Tuple**: Immutable, ordered collection `("item1", "item2")`
   - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
@@ -69,7 +69,7 @@ No external libraries used.
 #### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `time.time()` - **Module function** that returns seconds since epoch
-- `datetime.now()` - **Module function** that returns current date and time
+- `datetime.now()` - **Class method** that returns current date and time
 - `strftime()` - **Method** that formats datetime objects
 
 #### III) New theory points
@@ -79,7 +79,7 @@ No external libraries used.
   - Can format numbers with specifiers:
     - `{value:,.4f}` - Comma separator with 4 decimal places
     - `{value:.2e}` - Scientific notation
-- **Exception handling**: `try/except` blocks
+- **Exception handling**: `try/except` blocks (check **Exercice 04**)
 
 #### IV) Logic used for the exercise
 1. **Get current time** using `time.time()` and `datetime.now()`
@@ -116,7 +116,7 @@ No external libraries used.
 4. **Handle special cases** (strings get special message, int returns "Type not found")
 5. **Return a value** (42) from the function
 6. **Import and test** the function with different data types
-7. **Handle errors** with try/except blocks
+7. **Handle errors** with try/except blocks (check **Exercice 04**)
 
 <div align="center">
 
@@ -166,7 +166,6 @@ No external libraries used.
 - `print()` (already used in ex00)
 - `len()` - **Built-in function** that returns length of a sequence
 - `int()` - **Built-in function** that converts string to integer
-- `raise` - **Built-in keyword** that raises an exception (like throw in C++)
 
 #### III) New theory points
 - **`sys.argv`**
@@ -174,6 +173,7 @@ No external libraries used.
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
 - **Exception/error handling**
   - **try/except system** with specific exception types (like try/catch in C++)
+  - **raise**: Built-in keyword that raises an exception (like throw in C++)
   - **ValueError**: Built-in exception for conversion errors
   - **AssertionError**: Custom exception for validation errors
 - **`__name__ = "__main__"`**
@@ -217,6 +217,9 @@ pip install flake8
 - **Alternative method**: You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
 - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
+
+#### III) __doc__
+
 <div align="center">
 
 ### Exercice 05: First standalone program python
@@ -236,7 +239,7 @@ pip install flake8
 - `char.islower()` - **Method** that checks if character is lowercase
 - `char.isdigit()` - **Method** that checks if character is a digit
 - `char.isspace()` - **Method** that checks if character is whitespace
-- `string.punctuation` - **Built-in constant** containing all punctuation characters
+- `string.punctuation` - **Module constant** containing all punctuation characters
 
 #### III) New theory points
 - **`for`**

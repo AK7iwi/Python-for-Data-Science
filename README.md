@@ -56,6 +56,7 @@ No external libraries used.
    - Dictionary: Key-based assignment
 3. **Displaying** the results to show how each modification affects the data structure
 
+
 <div align="center">
 
 ### Exercice 01: First use of package
@@ -82,6 +83,7 @@ No external libraries used.
     - `{value:,.4f}` - Comma separator with 4 decimal places
     - `{value:.2e}` - Scientific notation
 - **Exception handling**: `try/except` blocks (check [Doc][Basic Doc])
+- **Script execution**: `if __name__ == "__main__"` (check Exercice 05 or [Doc][Basic Doc] for details)
 
 #### IV) Logic used for the exercise
 1. **Get current time** using `time.time()` and `datetime.now()`
@@ -90,6 +92,7 @@ No external libraries used.
 4. **Display results** with descriptive output
 5. **Handle errors** with try/except blocks
 6. **Use `if __name__ == "__main__"`** for script execution
+
 
 <div align="center">
 

@@ -73,13 +73,15 @@ No external libraries used.
 - `strftime()` - **Method** that formats datetime objects
 
 #### III) New theory points
+- **Library import**: `import lib` or just a specific class `from lib import class`
+- **Basic function definition**: `def function_name(parameter):`
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
     - `f"Hello {name}, you are {age} years old"`
   - Can format numbers with specifiers:
     - `{value:,.4f}` - Comma separator with 4 decimal places
     - `{value:.2e}` - Scientific notation
-- **Exception handling**: `try/except` blocks (check **Exercice 04**)
+- **Exception handling**: `try/except` blocks (check [Doc][Basic Doc])
 
 #### IV) Logic used for the exercise
 1. **Get current time** using `time.time()` and `datetime.now()`

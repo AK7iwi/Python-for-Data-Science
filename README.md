@@ -56,7 +56,6 @@ No external libraries used.
    - Dictionary: Key-based assignment
 3. **Displaying** the results to show how each modification affects the data structure
 
-
 <div align="center">
 
 ### Exercice 01: First use of package
@@ -75,15 +74,18 @@ No external libraries used.
 
 #### III) New theory points
 - **Library import**: `import lib` or just a specific class `from lib import class`
-- **Basic function definition**: `def function_name(parameter):`
+- **Function definition**:
+    - Basic function: `def function_name(parameter):`
+    - Function definition with type: `def function_name(parameter: type) -> return_type:`
+    -Type hints: `object: any` and `-> int` for parameter and return type documentation
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
     - `f"Hello {name}, you are {age} years old"`
   - Can format numbers with specifiers:
     - `{value:,.4f}` - Comma separator with 4 decimal places
     - `{value:.2e}` - Scientific notation
-- **Exception handling**: `try/except` blocks (check [Doc][Basic Doc])
-- **Script execution**: `if __name__ == "__main__"` (check Exercice 05 or [Doc][Basic Doc] for details)
+- **Exception handling**: `try/except` blocks (check Interlude)
+- **Script execution**: `if __name__ == "__main__"` (check Interlude)
 
 #### IV) Logic used for the exercise
 1. **Get current time** using `time.time()` and `datetime.now()`
@@ -92,7 +94,6 @@ No external libraries used.
 4. **Display results** with descriptive output
 5. **Handle errors** with try/except blocks
 6. **Use `if __name__ == "__main__"`** for script execution
-
 
 <div align="center">
 
@@ -109,8 +110,6 @@ No external libraries used.
 - `type()` - **Built-in function** that returns the type of an object
 
 #### III) New theory points
-- **Function definition**: `def function_name(parameter: type) -> return_type:`
-- **Type hints**: `object: any` and `-> int` for parameter and return type documentation
 - **Conditional statements**: `if/elif/else` structure
 - **Function import**: `from module import function`
 
@@ -176,16 +175,6 @@ No external libraries used.
 - **`sys.argv`**
   - Gets command line arguments
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
-- **Exception/error handling**
-  - **try/except system** with specific exception types (like try/catch in C++)
-  - **raise**: Built-in keyword that raises an exception (like throw in C++)
-  - **ValueError**: Built-in exception for conversion errors
-  - **AssertionError**: Custom exception for validation errors
-- **`__name__ = "__main__"`**
-  - **`__name__`**: Special built-in variable in Python that contains the name of the current module
-  -  What values can `__name__` have?
-    - When the script is run directly: `__name__ = "__main__"`
-    - When the script is imported as a module: `__name__ = "module_name"`
 - **Modulo operator**: `%` for checking odd/even numbers
 
 #### IV) Logic used for the exercise
@@ -200,7 +189,7 @@ No external libraries used.
 
 <div align="center">
 
-### Interlude
+### Interlude: From now on you must follow these additional rules
 
 </div>
 
@@ -211,6 +200,8 @@ No external libraries used.
 #### II) Norme: flake8
 ```bash
 pip install flake8
+#or
+python3 - m pip install flake8
 # Add the local bin directory to your PATH if needed as user
 ```
 
@@ -223,7 +214,19 @@ pip install flake8
 - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
 
-#### III) __doc__
+#### III) Exception/Error handling
+- `try/except` system with specific exception types (like try/catch in C++)
+- `raise`: Built-in keyword that raises an exception (like throw in C++)
+- `ValueError`: Built-in exception for conversion errors
+- `AssertionError`: Custom exception for validation errors
+
+#### IV) **`__name__ = "__main__"`**
+  - **`__name__`**: Special built-in variable in Python that contains the name of the current module
+  What values can `__name__` have?
+  - When the script is run directly: `__name__ = "__main__"`
+  - When the script is imported as a module: `__name__ = "module_name"`
+
+#### V) __doc__
 
 <div align="center">
 
@@ -507,7 +510,6 @@ print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
 
 Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
 
-#### II) __doc__ 
 
 <div align="center">
 

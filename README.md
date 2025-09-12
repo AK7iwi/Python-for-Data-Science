@@ -120,7 +120,7 @@ No external libraries used.
 4. **Handle special cases** (strings get special message, int returns "Type not found")
 5. **Return a value** (42) from the function
 6. **Import and test** the function with different data types
-7. **Handle errors** with try/except blocks (check **Exercice 04**)
+7. **Handle errors** with try/except blocks
 
 <div align="center">
 
@@ -172,10 +172,8 @@ No external libraries used.
 - `int()` - **Built-in function** that converts string to integer
 
 #### III) New theory points
-- **`sys.argv`**
-  - Gets command line arguments
+- **Gets command line arguments**: `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
-- **Modulo operator**: `%` for checking odd/even numbers
 
 #### IV) Logic used for the exercise
 1. **Import sys module** to access command line arguments
@@ -213,20 +211,19 @@ python3 - m pip install flake8
 - **Alternative method**: You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
 - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
-
 #### III) Exception/Error handling
 - `try/except` system with specific exception types (like try/catch in C++)
 - `raise`: Built-in keyword that raises an exception (like throw in C++)
 - `ValueError`: Built-in exception for conversion errors
 - `AssertionError`: Custom exception for validation errors
 
-#### IV) **`__name__ = "__main__"`**
-  - **`__name__`**: Special built-in variable in Python that contains the name of the current module
-  What values can `__name__` have?
-  - When the script is run directly: `__name__ = "__main__"`
-  - When the script is imported as a module: `__name__ = "module_name"`
+#### IV) `__name__`
+
+Special built-in variable in Python that contains the name of the current module
 
 #### V) __doc__
+
+Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
 
 <div align="center">
 
@@ -250,8 +247,9 @@ python3 - m pip install flake8
 - `string.punctuation` - **Module constant** containing all punctuation characters
 
 #### III) New theory points
-- **`for`**
-
+- **Loop to iterate over sequences**: `for`
+  - `for` - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
+  - Basic syntax: `for item in iterable:`
 
 #### IV) Logic used for the exercise
 1. **Validate arguments** - Handle 0, 1, or multiple arguments
@@ -262,254 +260,49 @@ python3 - m pip install flake8
 6. **Display formatted results** with character counts and total length
 7. **Handle errors** with try/except blocks for argument validation
 
-#### VI) "for"
-
-## Basic `for` Loop Syntax
-
-The basic syntax for a `for` loop in Python is:
-
-```python
-for item in iterable:
-    # code block to execute
-```
-
-## Common Examples
-
-### 1. Looping through a list:
-```python
-fruits = ["apple", "banana", "cherry"]
-for fruit in fruits:
-    print(fruit)
-```
-
-### 2. Looping through a range:
-```python
-for i in range(5):
-    print(i)  # prints 0, 1, 2, 3, 4
-```
-
-### 3. Looping through a string:
-```python
-for char in "Hello":
-    print(char)  # prints H, e, l, l, o
-```
-
-## `for` Loop with Conditions
-
-### 1. Using `if` statements inside the loop:
-```python
-numbers = [1, 2, 3, 4, 5, 6]
-for num in numbers:
-    if num % 2 == 0:
-        print(f"{num} is even")
-    else:
-        print(f"{num} is odd")
-```
-
-### 2. Using `continue` to skip iterations:
-
-`continue`:
-
-- Skips the current iteration and continues with the next one
-- Example: Skip even numbers in a loop
-
-```python
-for i in range(10):
-    if i == 5:
-        continue  # skip when i equals 5
-    print(i)
-```
-
-### 3. Using `break` to exit the loop:
-
-`break`:
-
-- Exits the loop entirely
-- Example: Stop when a condition is met
-
-```python
-for i in range(10):
-    if i == 5:
-        break  # exit loop when i equals 5
-    print(i)
-```
-
-## List Comprehensions with Conditions
-
-### 1. Basic list comprehension:
-```python
-numbers = [1, 2, 3, 4, 5]
-squares = [x**2 for x in numbers]
-```
-
-### 2. List comprehension with condition:
-```python
-numbers = [1, 2, 3, 4, 5, 6]
-even_squares = [x**2 for x in numbers if x % 2 == 0]
-```
-
-### 3. List comprehension with if-else:
-```python
-numbers = [1, 2, 3, 4, 5]
-result = ["even" if x % 2 == 0 else "odd" for x in numbers]
-```
-
-## Dictionary Looping
-
-### 1. Looping through keys:
-```python
-person = {"name": "John", "age": 30, "city": "New York"}
-for key in person:
-    print(key)
-```
-
-### 2. Looping through items:
-```python
-person = {"name": "John", "age": 30, "city": "New York"}
-for key, value in person.items():
-    print(f"{key}: {value}")
-```
-
-## Enumerate (with index)
-
-```python
-fruits = ["apple", "banana", "cherry"]
-for index, fruit in enumerate(fruits):
-    print(f"{index}: {fruit}")
-```
-
-## Nested Loops
-
-```python
-for i in range(3):
-    for j in range(3):
-        print(f"i={i}, j={j}")
-```
-
-The `for` loop is one of Python's most fundamental constructs and is used extensively for iterating over sequences, collections, and other iterable objects.
-
 <div align="center">
 
-### ex06 - ft_filter
+### Exercice 06: ft_filter
 
 </div>
 
-#### I) Lambda Functions
+#### I) Libraries used
+- `sys` (already used in ex04)
 
-**What is `lambda`?**
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `len()` (already used in ex04)
+- `int()` (already used in ex04)
+- `lambda` - **Built-in keyword** that creates anonymous functions
+- `filter()` - **Built-in function** that filters iterable based on function
+- `str.split()` - **Method** that splits string into list of words
 
-`lambda` is a keyword that creates **anonymous functions** (functions without a name) in Python.
+#### III) New theory points
+- **Lambda functions**
+  - Anonymous functions created with `lambda` keyword
+  - Syntax: `lambda arguments: expression`
+  - Used for simple, one-time operations
+  - Example: `lambda x: len(x) > 5`
+- **Higher-order functions**
+  - Functions that take other functions as parameters
+  - `filter(function, iterable)` pattern
+- **List comprehension**
+  - Concise way to create lists from iterables
+  - Syntax: `[expression for item in iterable if condition]`
+  - More efficient than traditional loops for simple operations
+  - Example: `[item for item in iterable if function(item)]`
 
-**Basic Syntax:**
-```python
-lambda arguments: expression
-```
-
-**Comparison: Regular Function vs Lambda**
-
-**Regular Function:**
-```python
-def add_five(x):
-    return x + 5
-
-result = add_five(3)  # result = 8
-```
-
-**Lambda Function (equivalent):**
-```python
-add_five = lambda x: x + 5
-
-result = add_five(3)  # result = 8
-```
-
-**Key Characteristics:**
-
-1. **Anonymous** - No function name (unless assigned to a variable)
-2. **Single expression** - Can only contain one expression
-3. **Implicit return** - The expression is automatically returned
-4. **Concise** - Shorter than regular functions
-
-**Examples:**
-
-**1. Simple lambda:**
-```python
-# Regular function
-def square(x):
-    return x ** 2
-
-# Lambda equivalent
-square = lambda x: x ** 2
-
-print(square(5))  # 25
-```
-
-**2. Lambda with multiple arguments:**
-```python
-# Regular function
-def add(x, y):
-    return x + y
-
-# Lambda equivalent
-add = lambda x, y: x + y
-
-print(add(3, 4))  # 7
-```
-
-**3. Lambda with no arguments:**
-```python
-# Regular function
-def get_five():
-    return 5
-
-# Lambda equivalent
-get_five = lambda: 5
-
-print(get_five())  # 5
-```
-
-**Common Use Cases:**
-
-**1. In `filter()` function:**
-```python
-numbers = [1, 2, 3, 4, 5, 6]
-even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
-print(even_numbers)  # [2, 4, 6]
-```
-
-**2. In `map()` function:**
-```python
-numbers = [1, 2, 3, 4, 5]
-squared = list(map(lambda x: x ** 2, numbers))
-print(squared)  # [1, 4, 9, 16, 25]
-```
-
-**3. In `sorted()` function:**
-```python
-students = [('Alice', 20), ('Bob', 18), ('Charlie', 22)]
-sorted_by_age = sorted(students, key=lambda student: student[1])
-print(sorted_by_age)  # [('Bob', 18), ('Alice', 20), ('Charlie', 22)]
-```
-
-**When to Use Lambda:**
-
-**Use lambda when:**
-- ✅ Function is simple (one expression)
-- ✅ Function is used only once
-- ✅ Function is passed as an argument to another function
-
-**Don't use lambda when:**
-- ❌ Function is complex (multiple expressions)
-- ❌ Function needs to be reused multiple times
-- ❌ Function needs documentation or type hints
-
-**Limitations:**
-- Can only contain **one expression**
-- Cannot contain **multiple statements**
-- Cannot have **docstrings**
-- Cannot have **type hints**
-
-Lambda functions are perfect for simple, one-time operations like filtering, mapping, or sorting.
-
+#### IV) Logic used for the exercise
+1. **Create custom filter function** `ft_filter()` that mimics built-in `filter()`
+2. **Handle two cases** in the filter function:
+   - When function is `None`: filter out falsy values
+   - When function is provided: apply function to each item
+3. **Use list comprehensions** for filtering logic
+4. **Validate command line arguments** - must be exactly 2 (string and integer)
+5. **Convert string to integer** with error handling
+6. **Use lambda function** with `ft_filter()` to filter words by length
+7. **Split string into words** using `str.split()` method
+8. **Display function documentation** using `__doc__` attribute
 
 <div align="center">
 
@@ -570,8 +363,6 @@ for num in count_up_to(5):
 # Output: 0, 1, 2, 3, 4
 ```
 
-#### III) enumerate
-
 <div align="center">
 
 ### ex09
@@ -621,6 +412,6 @@ IV)
 
 - [Python Official Documentation](https://docs.python.org/)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
-- [Real Python Tutorials](https://realpython.com/)
+- [Built-in exceptions](https://docs.python.org/3/library/exceptions.html)
 
 [Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python

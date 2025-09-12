@@ -48,7 +48,6 @@ def print_results(text, upper_count, lower_count, digit_count, space_count,
     Raises:
         None
     """
-    # Print results
     print(f"The text contains {len(text)} characters:")
     print(f"{upper_count} upper letters")
     print(f"{lower_count} lower letters")

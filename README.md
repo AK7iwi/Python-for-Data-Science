@@ -306,11 +306,38 @@ Special built-in variable that contains the documentation string (docstring) of 
 
 <div align="center">
 
-### ex07 - Morse encryption
+### Exercice 07: Dictionaries SoS
 
 </div>
 
-#### I) rstrip() removes trailing whitespace (spaces, tabs, newlines) from the right side of a string.
+#### I) Libraries used
+- `sys` (already used in ex04)
+
+#### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `len()` (already used in ex04)
+- `f"string"` (already used in ex01)
+- `str.upper()` - **Method** that converts string to uppercase
+- `str.rstrip()` - **Method** that removes trailing whitespace
+
+#### III) New theory points
+- **Dictionary mapping**
+  - Using dictionaries to map characters to their representations
+  - Key-value pairs for character-to-morse code conversion
+- **String concatenation in loops**
+  - Building strings by concatenating in loops
+  - Pattern: `result += new_part`
+
+#### IV) Logic used for the exercise
+1. **Create morse code dictionary** with character-to-morse mappings
+2. **Validate command line arguments** - must be exactly 1 string argument
+3. **Convert input to uppercase** using `str.upper()` for case-insensitive processing
+4. **Iterate through each character** in the input string
+5. **Check if character exists** in morse dictionary using `in` operator
+6. **Convert valid characters** to morse code using dictionary lookup
+7. **Handle invalid characters** by raising AssertionError
+8. **Remove trailing whitespace** using `str.rstrip()` from final result
+9. **Display encrypted message** and handle errors with try/except blocks
 
 <div align="center">
 

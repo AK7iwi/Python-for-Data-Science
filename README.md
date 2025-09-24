@@ -4,7 +4,7 @@
 
 </div>
 
-## General Concepts
+## 1. General Concepts
 
 In Python, there's a distinction:
 
@@ -14,7 +14,7 @@ In Python, there's a distinction:
 
 For more details about synthax and theory points: [Doc][Basic Doc]
 
-## Summary 
+## 2. Summary 
 
 ### [Module 00 - Starting](./module-00/README.md)
 - ex00: First python script
@@ -26,7 +26,6 @@ For more details about synthax and theory points: [Doc][Basic Doc]
 - ex06: ft_filter
 - ex07: Dictionaries SoS
 - ex08: Loading ...
-
-## Additional Resources
+- ex09: 
 
 [Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python

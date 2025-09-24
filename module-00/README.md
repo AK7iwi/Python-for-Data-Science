@@ -15,9 +15,17 @@
 [7. Exercice 05: First standalone program python](#7-exercice-05-first-standalone-program-python)  
 [8. Exercice 06: ft_filter](#8-exercice-06-ft_filter)  
 [9. Exercice 07: Dictionaries SoS](#9-exercice-07-dictionaries-sos)  
-[10. Exercice 08: Loading ...](#10-exxercice-08-loading-)  
-[11. ex09](#11-ex09)  
-[Additional Resources](#additional-resources)  
+[10. Exercice 08: Loading ...](#10-exercice-08-loading-)  
+[11. Exercice 09: My first package creation](#11-exercice-09-my-first-package-creation)  
+[Additional Resources](#additional-resources)
+
+## Warning
+
+This learning guide follows a progressive and logical structure where concepts are introduced when they are most relevant to the exercise context.
+
+**So:**
+- **Theory points and some advanced concepts** may be used before their detailed explanation appears in later exercises
+- **Cross-references** like "(already used in ex00)" indicate when a concept was previously introduced
 
 ## 1. Exercice 00: First python script
 
@@ -63,7 +71,7 @@ No external libraries used.
 - **Function definition**:
     - Basic function: `def function_name(parameter):`
     - Function definition with type: `def function_name(parameter: type) -> return_type:`
-    -Type hints: `object: any` and `-> int` for parameter and return type documentation
+    - Type hints: `object: any` and `-> int` for parameter and return type documentation
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
     - `f"Hello {name}, you are {age} years old"`
@@ -306,37 +314,79 @@ Special built-in variable that contains the documentation string (docstring) of 
 
 ## 10. Exercice 08: Loading ...
 
+### I) Libraries used
+- `time` (already used in ex01)
+- `tqdm` - External library for progress bars (for comparison)
 
-## 11. ex09
+### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `len()` (already used in ex04)
+- `enumerate()` - **Built-in function** that returns index and value pairs
+- `str.ljust()` - **Method** that left-justifies string with padding
+- `yield` - **Built-in keyword** that creates generator functions
+- `range()` - **Built-in function** that creates sequence of numbers
+- `sleep()` - **Module function** that pauses execution
+
+### III) New theory points
+- **Generator functions**
+  - Functions that use `yield` instead of `return`
+  - Create iterators that can be paused and resumed
+  - Memory efficient for large data sets
+- **Enumerate function**
+  - `enumerate(iterable)` returns (index, value) pairs
+  - Useful for tracking position in loops
+
+### IV) Logic used for the exercise
+1. **Create generator function** `ft_tqdm()` that yields items from range
+2. **Calculate progress metrics** - percentage and bar width
+3. **Build visual progress bar** using string concatenation and padding
+4. **Use carriage return** `\r` to overwrite the same line
+5. **Yield each item** from the range while displaying progress
+6. **Compare with real tqdm** library to show functionality
+7. **Handle progress display** with percentage, bar, and item count
+8. **Add sleep delays** to demonstrate real-time progress updates
 
 
-I) https://packaging.python.org/en/latest/tutorials/packaging-projects/
+## 11. Exercice 09: My first package creation
 
-II) cmd to build/install + verify all good
+### I) Libraries used
+- `setuptools` - Built-in library for package building
+- `wheel` - Built-in library for package distribution
 
-build: 
+### II) Built-in functions and methods used
+- `print()` (already used in ex00)
+- `list.count()` - **Method** that counts occurrences of item in list
+- `import` - **Built-in keyword** for importing modules
+- `from ... import` - **Built-in keyword** for specific imports
 
-python3 -m build
+### III) New theory points
+- **Package structure**
+  - `__init__.py` file makes directory a Python package
+  - `__all__` list defines public API of the package
+  - `__version__` variable stores package version
+- **Package configuration**
+  - `pyproject.toml` file for modern Python packaging
+  - Project metadata (name, version, description, license)
+  - Build system requirements and classifiers
+- **Package distribution**
+  - Building packages with `python -m build`
+  - Installing local packages with `pip install`
+  - Package verification and management
+- **Relative imports**
+  - `from .core import function` for same-package imports
+  - Using dots to indicate relative module location
 
-install: 
-
-python3 -m pip install ./dist/ft_package-0.0.1.tar.gz
-
-verify:
-
-python3 -m pip show -v ft_package
-
-"unbuild":
-
-rm -rf build/ dist/ *.egg-info
-
-uninstall:
-
-python3 -m pip uninstall package_name
-
-list of package:
-
-python3 -m pip list
+### IV) Logic used for the exercise
+1. **Create package structure** with `ft_package/` directory
+2. **Add `__init__.py`** to make it a proper Python package
+3. **Define core functionality** in `core.py` with `count_in_list()` function
+4. **Configure package metadata** in `pyproject.toml` file
+5. **Set up package imports** in `__init__.py` with `__all__` and `__version__`
+6. **Build the package** using `python -m build` command
+7. **Install the package** locally with `pip install ./dist/ft_package-0.0.1.tar.gz`
+8. **Test the package** by importing and using the functions
+9. **Verify installation** with `pip show -v ft_package`
+10. **Clean up** with uninstall and remove build artifacts
 
 
 ---
@@ -346,3 +396,4 @@ python3 -m pip list
 - [Python Official Documentation](https://docs.python.org/)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
 - [Built-in exceptions](https://docs.python.org/3/library/exceptions.html)
+- [Create a package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)

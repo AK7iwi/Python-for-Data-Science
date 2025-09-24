@@ -1,27 +1,27 @@
 <div align="center">
 
-## MODULE 00 - Starting
+# MODULE 00 - Starting
 
 </div>
 
-### 1. Exercice 00: First python script
+## 1. Exercice 00: First python script
 
-#### I) Libraries used
+### I) Libraries used
 No external libraries used.
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()`: **Built-in function** to display output
 - `set.remove()`: **Method** to remove element from set
 - `set.add()`: **Method** to add element to set
 
-#### III) New theory points
+### III) New theory points
 - **Basic Data Types**:
   - **List**: Mutable, ordered collection `["item1", "item2"]`
   - **Tuple**: Immutable, ordered collection `("item1", "item2")`
   - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
   - **Dictionary**: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Creating** each data type with sample data
 2. **Modifying** each type using their appropriate methods:
    - List: Direct index assignment (mutable)
@@ -31,19 +31,19 @@ No external libraries used.
 3. **Displaying** the results to show how each modification affects the data structure
 
 
-### 2. Exercice 01: First use of package
+## 2. Exercice 01: First use of package
 
-#### I) Libraries used
+### I) Libraries used
 - `time`: Built-in library for time operations
 - `datetime`: Built-in library for date/time manipulation
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `time.time()`: **Module function** that returns seconds since epoch
 - `datetime.now()`: **Class method** that returns current date and time
 - `strftime()`: **Method** that formats datetime objects
 
-#### III) New theory points
+### III) New theory points
 - **Library import**: `import lib` or just a specific class `from lib import class`
 - **Function definition**:
     - Basic function: `def function_name(parameter):`
@@ -58,7 +58,7 @@ No external libraries used.
 - **Exception handling**: `try/except` blocks (check Interlude)
 - **Script execution**: `if __name__ == "__main__"` (check Interlude)
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Get current time** using `time.time()` and `datetime.now()`
 2. **Format time values** using f-string specifiers for different representations
 3. **Return formatted values** as tuple from function
@@ -67,21 +67,21 @@ No external libraries used.
 6. **Use `if __name__ == "__main__"`** for script execution
 
 
-### 3. Exercice 02: First function python
+## 3. Exercice 02: First function python
 
-#### I) Libraries used
+### I) Libraries used
 No external libraries used.
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `isinstance()`: **Built-in function** that checks if object is instance of a class
 - `type()`: **Built-in function** that returns the type of an object
 
-#### III) New theory points
+### III) New theory points
 - **Conditional statements**: `if/elif/else` structure
 - **Function import**: `from module import function`
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Define a function** with type hints and documentation
 2. **Use isinstance()** to check object types (list, tuple, set, dict, str, int)
 3. **Print different messages** based on the object type
@@ -91,19 +91,19 @@ No external libraries used.
 7. **Handle errors** with try/except blocks
 
 
-### 4. Exercice 03: NULL not found
+## 4. Exercice 03: NULL not found
 
-#### I) Libraries used
+### I) Libraries used
 No external libraries used.
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `isinstance()` (already used in ex02)
 - `type()` (already used in ex02)
 - `str()`: **Built-in function** that converts object to string
 - `float()`: **Built-in function** that converts to float type
 
-#### III) New theory points
+### III) New theory points
 - **None value**: `None` represents absence of value (like NULL in C)
 - **NaN (Not a Number)**: `float("NaN")` creates a special float value
 - **Boolean False**: `False` as a null-like value
@@ -112,7 +112,7 @@ No external libraries used.
 - **Identity operator**: `is` vs `==` for object comparison
 - **String conversion**: `str(object)` to convert values for comparison
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Define function** to check different null-like values
 2. **Use `is` operator** to check for `None` (identity comparison)
 3. **Check for NaN** using `isinstance()` and string conversion
@@ -123,21 +123,21 @@ No external libraries used.
 8. **Test with various null-like values** to demonstrate different cases
 
 
-### 5. Exercice 04: The Even and the Odd
+## 5. Exercice 04: The Even and the Odd
 
-#### I) Libraries used
+### I) Libraries used
 - `sys` - Built-in library for system-specific parameters and functions
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `len()`: **Built-in function** that returns length of a sequence
 - `int()`: **Built-in function** that converts string to integer
 
-#### III) New theory points
+### III) New theory points
 - **Gets command line arguments**: `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Import sys module** to access command line arguments
 2. **Validate argument count** using `len(sys.argv)` - must be exactly 2
 3. **Check for too many arguments** and raise AssertionError if found
@@ -148,13 +148,13 @@ No external libraries used.
 8. **Use `if __name__ == "__main__"`** for script execution control
 
 
-### 6. Interlude: From now on you must follow these additional rules
+## 6. Interlude: From now on you must follow these additional rules
 
-#### I) Script vs Module
+### I) Script vs Module
 - **Script**: File run directly with `python filename.py`
 - **Module**: File imported into another script
 
-#### II) Norme: flake8
+### II) Norme: flake8
 ```bash
 pip install flake8
 #or
@@ -170,28 +170,28 @@ python3 - m pip install flake8
 - **Alternative method**: You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
 - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
-#### III) Exception/Error handling
+### III) Exception/Error handling
 - `try/except` system with specific exception types (like try/catch in C++)
 - `raise`: Built-in keyword that raises an exception (like throw in C++)
 - `ValueError`: Built-in exception for conversion errors
 - `AssertionError`: Custom exception for validation errors
 
-#### IV) `__name__`
+### IV) `__name__`
 
 Special built-in variable in Python that contains the name of the current module
 
-#### V) __doc__
+### V) __doc__
 
 Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
 
 
-### 7. Exercice 05: First standalone program python
+## 7. Exercice 05: First standalone program python
 
-#### I) Libraries used
+### I) Libraries used
 - `sys` (already used in ex04)
 - `string`: Built-in library for string constants and utilities
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `len()` (already used in ex04)
 - `input()`: **Built-in function** that gets user input from console
@@ -202,12 +202,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `char.isspace()`: **Method** that checks if character is whitespace
 - `string.punctuation`: **Module constant** containing all punctuation characters
 
-#### III) New theory points
+### III) New theory points
 - **Loop to iterate over sequences**: `for`
   - `for` - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Validate arguments** - Handle 0, 1, or multiple arguments
 2. **Get input** - Either from command line argument or user input prompt
 3. **Count character types** using generator expressions with `sum()`
@@ -217,12 +217,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 7. **Handle errors** with try/except blocks for argument validation
 
 
-### 8. Exercice 06: ft_filter
+## 8. Exercice 06: ft_filter
 
-#### I) Libraries used
+### I) Libraries used
 - `sys` (already used in ex04)
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `len()` (already used in ex04)
 - `int()` (already used in ex04)
@@ -230,7 +230,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `lambda`: **Built-in keyword** that creates anonymous functions
 - `str.split()`: **Method** that splits string into list of words
 
-#### III) New theory points
+### III) New theory points
 - **Lambda functions**
   - Anonymous functions created with `lambda` keyword
   - Syntax: `lambda arguments: expression`
@@ -245,7 +245,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - More efficient than traditional loops for simple operations
   - Example: `[item for item in iterable if function(item)]`
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Create custom filter function** `ft_filter()` that mimics built-in `filter()`
 2. **Handle two cases** in the filter function:
    - When function is `None`: filter out falsy values
@@ -258,18 +258,18 @@ Special built-in variable that contains the documentation string (docstring) of 
 8. **Display function documentation** using `__doc__` attribute
 
 
-### 9. Exercice 07: Dictionaries SoS
+## 9. Exercice 07: Dictionaries SoS
 
-#### I) Libraries used
+### I) Libraries used
 - `sys` (already used in ex04)
 
-#### II) Built-in functions and methods used
+### II) Built-in functions and methods used
 - `print()` (already used in ex00)
 - `len()` (already used in ex04)
 - `str.upper()`: **Method** that converts string to uppercase
 - `str.rstrip()`: **Method** that removes trailing whitespace
 
-#### III) New theory points
+### III) New theory points
 - **Dictionary mapping**
   - Using dictionaries to map characters to their representations
   - Key-value pairs for character-to-morse code conversion
@@ -277,7 +277,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Building strings by concatenating in loops
   - Pattern: `result += new_part`
 
-#### IV) Logic used for the exercise
+### IV) Logic used for the exercise
 1. **Create morse code dictionary** with character-to-morse mappings
 2. **Validate command line arguments** - must be exactly 1 string argument
 3. **Convert input to uppercase** using `str.upper()` for case-insensitive processing
@@ -289,10 +289,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 9. **Display encrypted message** and handle errors with try/except blocks
 
 
-### 10. Exxercice 08: Loading ...
+## 10. Exxercice 08: Loading ...
 
 
-### 11. ex09
+## 11. ex09
 
 
 I) https://packaging.python.org/en/latest/tutorials/packaging-projects/

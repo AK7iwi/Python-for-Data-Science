@@ -4,11 +4,7 @@
 
 </div>
 
-<div align="center">
-
-### Exercice 00: First python script
-
-</div>
+### 1. Exercice 00: First python script
 
 #### I) Libraries used
 No external libraries used.
@@ -34,11 +30,8 @@ No external libraries used.
    - Dictionary: Key-based assignment
 3. **Displaying** the results to show how each modification affects the data structure
 
-<div align="center">
 
-### Exercice 01: First use of package
-
-</div>
+### 2. Exercice 01: First use of package
 
 #### I) Libraries used
 - `time`: Built-in library for time operations
@@ -73,11 +66,8 @@ No external libraries used.
 5. **Handle errors** with try/except blocks
 6. **Use `if __name__ == "__main__"`** for script execution
 
-<div align="center">
 
-### Exercice 02: First function python
-
-</div>
+### 3. Exercice 02: First function python
 
 #### I) Libraries used
 No external libraries used.
@@ -100,11 +90,8 @@ No external libraries used.
 6. **Import and test** the function with different data types
 7. **Handle errors** with try/except blocks
 
-<div align="center">
 
-### Exercice 03: NULL not found
-
-</div>
+### 4. Exercice 03: NULL not found
 
 #### I) Libraries used
 No external libraries used.
@@ -135,11 +122,8 @@ No external libraries used.
 7. **Return different codes** (0 for recognized, 1 for unrecognized)
 8. **Test with various null-like values** to demonstrate different cases
 
-<div align="center">
 
-### Exercice 04: The Even and the Odd
-
-</div>
+### 5. Exercice 04: The Even and the Odd
 
 #### I) Libraries used
 - `sys` - Built-in library for system-specific parameters and functions
@@ -163,11 +147,8 @@ No external libraries used.
 7. **Handle errors** with specific exception messages
 8. **Use `if __name__ == "__main__"`** for script execution control
 
-<div align="center">
 
-### Interlude: From now on you must follow these additional rules
-
-</div>
+### 6. Interlude: From now on you must follow these additional rules
 
 #### I) Script vs Module
 - **Script**: File run directly with `python filename.py`
@@ -203,11 +184,8 @@ Special built-in variable in Python that contains the name of the current module
 
 Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
 
-<div align="center">
 
-### Exercice 05: First standalone program python
-
-</div>
+### 7. Exercice 05: First standalone program python
 
 #### I) Libraries used
 - `sys` (already used in ex04)
@@ -238,11 +216,8 @@ Special built-in variable that contains the documentation string (docstring) of 
 6. **Display formatted results** with character counts and total length
 7. **Handle errors** with try/except blocks for argument validation
 
-<div align="center">
 
-### Exercice 06: ft_filter
-
-</div>
+### 8. Exercice 06: ft_filter
 
 #### I) Libraries used
 - `sys` (already used in ex04)
@@ -282,11 +257,8 @@ Special built-in variable that contains the documentation string (docstring) of 
 7. **Split string into words** using `str.split()` method
 8. **Display function documentation** using `__doc__` attribute
 
-<div align="center">
 
-### Exercice 07: Dictionaries SoS
-
-</div>
+### 9. Exercice 07: Dictionaries SoS
 
 #### I) Libraries used
 - `sys` (already used in ex04)
@@ -316,18 +288,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 8. **Remove trailing whitespace** using `str.rstrip()` from final result
 9. **Display encrypted message** and handle errors with try/except blocks
 
-<div align="center">
 
-### Exxercice 08: Loading ...
-
-</div>
+### 10. Exxercice 08: Loading ...
 
 
-<div align="center">
+### 11. ex09
 
-### ex09
-
-</div>
 
 I) https://packaging.python.org/en/latest/tutorials/packaging-projects/
 

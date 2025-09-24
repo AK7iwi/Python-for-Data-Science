@@ -16,16 +16,7 @@ For more details about synthax and theory points: [Doc][Basic Doc]
 
 ## 2. Summary 
 
-### [Module 00 - Starting](./module-00/README.md)
-- ex00: First python script
-- ex01: First use of package
-- ex02: First function python
-- ex03: NULL not found
-- ex04: The Even and the Odd
-- ex05: First standalone program python
-- ex06: ft_filter
-- ex07: Dictionaries SoS
-- ex08: Loading ...
-- ex09: 
+### I. [Module 00 - Starting](./module-00/README.md)
+
 
 [Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python

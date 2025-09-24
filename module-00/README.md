@@ -6,18 +6,18 @@
 
 ## Summary
 
-- [1. Exercice 00: First python script](#1-exercice-00-first-python-script)
-- [2. Exercice 01: First use of package](#2-exercice-01-first-use-of-package)
-- [3. Exercice 02: First function python](#3-exercice-02-first-function-python)
-- [4. Exercice 03: NULL not found](#4-exercice-03-null-not-found)
-- [5. Exercice 04: The Even and the Odd](#5-exercice-04-the-even-and-the-odd)
-- [6. Interlude: From now on you must follow these additional rules](#6-interlude-from-now-on-you-must-follow-these-additional-rules)
-- [7. Exercice 05: First standalone program python](#7-exercice-05-first-standalone-program-python)
-- [8. Exercice 06: ft_filter](#8-exercice-06-ft_filter)
-- [9. Exercice 07: Dictionaries SoS](#9-exercice-07-dictionaries-sos)
-- [10. Exxercice 08: Loading ...](#10-exxercice-08-loading-)
-- [11. ex09](#11-ex09)
-- [Additional Resources](#additional-resources)
+[1. Exercice 00: First python script](#1-exercice-00-first-python-script)
+[2. Exercice 01: First use of package](#2-exercice-01-first-use-of-package)
+[3. Exercice 02: First function python](#3-exercice-02-first-function-python)
+[4. Exercice 03: NULL not found](#4-exercice-03-null-not-found)
+[5. Exercice 04: The Even and the Odd](#5-exercice-04-the-even-and-the-odd)
+[6. Interlude: From now on you must follow these additional rules](#6-interlude-from-now-on-you-must-follow-these-additional-rules)
+[7. Exercice 05: First standalone program python](#7-exercice-05-first-standalone-program-python)
+[8. Exercice 06: ft_filter](#8-exercice-06-ft_filter)
+[9. Exercice 07: Dictionaries SoS](#9-exercice-07-dictionaries-sos)
+[10. Exercice 08: Loading ...](#10-exxercice-08-loading-)
+[11. ex09](#11-ex09)
+[Additional Resources](#additional-resources)
 
 ## 1. Exercice 00: First python script
 
@@ -304,7 +304,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 9. **Display encrypted message** and handle errors with try/except blocks
 
 
-## 10. Exxercice 08: Loading ...
+## 10. Exercice 08: Loading ...
 
 
 ## 11. ex09

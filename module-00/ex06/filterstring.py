@@ -2,7 +2,7 @@ import sys
 from ft_filter import ft_filter
 
 
-def validate_arguments():
+def validate_arguments() -> tuple[str, int]:
     """
     Validate command line arguments and return the string and integer.
 

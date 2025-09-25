@@ -1,4 +1,4 @@
-def ft_filter(function, iterable):
+def ft_filter(function, iterable: list) -> list:
     """
     Custom filter function that behaves like the built-in filter.
 

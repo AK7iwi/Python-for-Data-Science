@@ -1,7 +1,27 @@
 import sys
 
 
-def validate_argument():
+def check_odd_even(number: int) -> None:
+    """
+    Check if a number is odd or even and print the result.
+
+    Args:
+        number (int): The number to check
+
+    Returns:
+        None: This function only prints to stdout
+
+    Raises:
+        None
+    """
+    # Check if odd or even
+    if number % 2 == 0:
+        print("I'm Even.")
+    else:
+        print("I'm Odd.")
+
+
+def validate_argument() -> int | None:
     """
     Validate command line arguments and return the number.
 
@@ -30,26 +50,6 @@ def validate_argument():
         raise AssertionError("argument is not an integer")
 
     return number
-
-
-def check_odd_even(number):
-    """
-    Check if a number is odd or even and print the result.
-
-    Args:
-        number (int): The number to check
-
-    Returns:
-        None: This function only prints to stdout
-
-    Raises:
-        None
-    """
-    # Check if odd or even
-    if number % 2 == 0:
-        print("I'm Even.")
-    else:
-        print("I'm Odd.")
 
 
 def main():

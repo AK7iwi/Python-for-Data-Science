@@ -23,7 +23,7 @@
 
 This learning guide follows a progressive and logical structure where concepts are introduced when they are most relevant to the exercise context.
 
-**So:**
+So:
 - **Theory points and some advanced concepts** may be used before their detailed explanation appears in later exercises
 - **Cross-references** like "(already used in ex00)" indicate when a concept was previously introduced
 
@@ -33,9 +33,9 @@ This learning guide follows a progressive and logical structure where concepts a
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `print()`: **Built-in function** to display output
 - `set.remove()`: **Method** to remove element from set
 - `set.add()`: **Method** to add element to set
+- `print()`: **Built-in function** to display output
 
 ### III) New theory points
 - **Basic Data Types**:
@@ -61,33 +61,26 @@ No external libraries used.
 - `datetime`: Built-in library for date/time manipulation
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
 - `time.time()`: **Module function** that returns seconds since epoch
 - `datetime.now()`: **Class method** that returns current date and time
 - `strftime()`: **Method** that formats datetime objects
+- `print()`: (already used in ex00)
 
 ### III) New theory points
 - **Library import**: `import lib` or just a specific class `from lib import class`
-- **Function definition**:
-    - Basic function: `def function_name(parameter):`
-    - Function definition with type: `def function_name(parameter: type) -> return_type:`
-    - Type hints: `object: any` and `-> int` for parameter and return type documentation
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
     - `f"Hello {name}, you are {age} years old"`
   - Can format numbers with specifiers:
     - `{value:,.4f}`: Comma separator with 4 decimal places
     - `{value:.2e}`: Scientific notation
-- **Exception handling**: `try/except` blocks (check Interlude)
-- **Script execution**: `if __name__ == "__main__"` (check Interlude)
 
 ### IV) Logic used for the exercise
-1. **Get current time** using `time.time()` and `datetime.now()`
-2. **Format time values** using f-string specifiers for different representations
-3. **Return formatted values** as tuple from function
-4. **Display results** with descriptive output
-5. **Handle errors** with try/except blocks
-6. **Use `if __name__ == "__main__"`** for script execution
+1. **Import required libraries** using `import time` and `from datetime import datetime`
+2. **Get current time** using `time.time()` and `datetime.now()`
+3. **Format time values** using f-string specifiers for different representations
+4. **Return formatted values** as tuple from function
+5. **Display results** with descriptive output
 
 
 ## 3. Exercice 02: First function python
@@ -96,13 +89,17 @@ No external libraries used.
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
 - `isinstance()`: **Built-in function** that checks if object is instance of a class
 - `type()`: **Built-in function** that returns the type of an object
+- `print()`: (already used in ex00)
 
 ### III) New theory points
-- **Conditional statements**: `if/elif/else` structure
+- **Function definition**:
+    - Basic function: `def function_name(parameter):`
+    - Function definition with type: `def function_name(parameter: type) -> return_type:`
+    - Type hints: `object: any` and `-> int` for parameter and return type documentation
 - **Function import**: `from module import function`
+- **Conditional statements**: `if/elif/else` structure
 
 ### IV) Logic used for the exercise
 1. **Define a function** with type hints and documentation
@@ -111,7 +108,6 @@ No external libraries used.
 4. **Handle special cases** (strings get special message, int returns "Type not found")
 5. **Return a value** (42) from the function
 6. **Import and test** the function with different data types
-7. **Handle errors** with try/except blocks
 
 
 ## 4. Exercice 03: NULL not found
@@ -120,9 +116,9 @@ No external libraries used.
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `isinstance()` (already used in ex02)
-- `type()` (already used in ex02)
+- `print()`: (already used in ex00)
+- `isinstance()`: (already used in ex02)
+- `type()`: (already used in ex02)
 - `str()`: **Built-in function** that converts object to string
 - `float()`: **Built-in function** that converts to float type
 
@@ -149,16 +145,17 @@ No external libraries used.
 ## 5. Exercice 04: The Even and the Odd
 
 ### I) Libraries used
-- `sys` - Built-in library for system-specific parameters and functions
+- `sys`: Built-in library for system-specific parameters and functions
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
+- `print()`: (already used in ex00)
 - `len()`: **Built-in function** that returns length of a sequence
 - `int()`: **Built-in function** that converts string to integer
 
 ### III) New theory points
 - **Gets command line arguments**: `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
+- **Exception/Error handling**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point III)
 
 ### IV) Logic used for the exercise
 1. **Import sys module** to access command line arguments
@@ -168,7 +165,6 @@ No external libraries used.
 5. **Convert string to integer** using `int()` with try/except for ValueError
 6. **Check odd/even** using modulo operator `% 2`
 7. **Handle errors** with specific exception messages
-8. **Use `if __name__ == "__main__"`** for script execution control
 
 
 ## 6. Interlude: From now on you must follow these additional rules
@@ -180,7 +176,7 @@ No external libraries used.
 ### II) Norme: flake8
 ```bash
 pip install flake8
-#or
+# or
 python3 - m pip install flake8
 # Add the local bin directory to your PATH if needed as user
 ```
@@ -203,6 +199,9 @@ python3 - m pip install flake8
 
 Special built-in variable in Python that contains the name of the current module
 
+```python
+if __name__ == "__main__"
+```
 ### V) __doc__
 
 Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
@@ -211,12 +210,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 ## 7. Exercice 05: First standalone program python
 
 ### I) Libraries used
-- `sys` (already used in ex04)
+- `sys`: (already used in ex04)
 - `string`: Built-in library for string constants and utilities
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `len()` (already used in ex04)
+- `print()`: (already used in ex00)
+- `len()`: (already used in ex04)
 - `input()`: **Built-in function** that gets user input from console
 - `sum()`: **Built-in function** that return the sum off all items plus the optional start value
 - `char.isupper()`: **Method** that checks if character is uppercase
@@ -226,8 +225,9 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `string.punctuation`: **Module constant** containing all punctuation characters
 
 ### III) New theory points
+- **Using `if __name__ == "__main__"`**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point IV)
 - **Loop to iterate over sequences**: `for`
-  - `for` - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
+  - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
 
 ### IV) Logic used for the exercise
@@ -237,21 +237,20 @@ Special built-in variable that contains the documentation string (docstring) of 
 4. **Use string methods** to classify each character (upper, lower, digit, space, punctuation)
 5. **Return counts as tuple** from the counting function
 6. **Display formatted results** with character counts and total length
-7. **Handle errors** with try/except blocks for argument validation
 
 
 ## 8. Exercice 06: ft_filter
 
 ### I) Libraries used
-- `sys` (already used in ex04)
+- `sys`: (already used in ex04)
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `len()` (already used in ex04)
-- `int()` (already used in ex04)
-- `filter()`: **Built-in function** that filters iterable based on function
+- `len()`: (already used in ex04)
+- `int()`: (already used in ex04)
+- `print()`: (already used in ex00)
 - `lambda`: **Built-in keyword** that creates anonymous functions
 - `str.split()`: **Method** that splits string into list of words
+- `filter()`: **Built-in function** that filters iterable based on function
 
 ### III) New theory points
 - **Lambda functions**
@@ -278,17 +277,17 @@ Special built-in variable that contains the documentation string (docstring) of 
 5. **Convert string to integer** with error handling
 6. **Use lambda function** with `ft_filter()` to filter words by length
 7. **Split string into words** using `str.split()` method
-8. **Display function documentation** using `__doc__` attribute
+8. **Display function documentation** using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point V)
 
 
 ## 9. Exercice 07: Dictionaries SoS
 
 ### I) Libraries used
-- `sys` (already used in ex04)
+- `sys`: (already used in ex04)
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `len()` (already used in ex04)
+- `print()`: (already used in ex00)
+- `len()`: (already used in ex04)
 - `str.upper()`: **Method** that converts string to uppercase
 - `str.rstrip()`: **Method** that removes trailing whitespace
 
@@ -309,23 +308,21 @@ Special built-in variable that contains the documentation string (docstring) of 
 6. **Convert valid characters** to morse code using dictionary lookup
 7. **Handle invalid characters** by raising AssertionError
 8. **Remove trailing whitespace** using `str.rstrip()` from final result
-9. **Display encrypted message** and handle errors with try/except blocks
 
 
 ## 10. Exercice 08: Loading ...
 
 ### I) Libraries used
-- `time` (already used in ex01)
-- `tqdm` - External library for progress bars (for comparison)
+- `time`: (already used in ex01)
+- `tqdm`: External library for progress bars (for comparison)
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `len()` (already used in ex04)
-- `enumerate()` - **Built-in function** that returns index and value pairs
-- `str.ljust()` - **Method** that left-justifies string with padding
-- `yield` - **Built-in keyword** that creates generator functions
-- `range()` - **Built-in function** that creates sequence of numbers
-- `sleep()` - **Module function** that pauses execution
+- `print()`: (already used in ex00)
+- `len()`: (already used in ex04)
+- `enumerate()`: **Built-in function** that returns index and value pairs
+- `yield`: **Built-in keyword** that creates generator functions
+- `range()`: **Built-in function** that creates sequence of numbers
+- `sleep()`: **Module function** that pauses execution
 
 ### III) New theory points
 - **Generator functions**
@@ -350,14 +347,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 ## 11. Exercice 09: My first package creation
 
 ### I) Libraries used
-- `setuptools` - Built-in library for package building
-- `wheel` - Built-in library for package distribution
+- `setuptools`: Built-in library for package building
+- `wheel`: Built-in library for package distribution
 
 ### II) Built-in functions and methods used
-- `print()` (already used in ex00)
-- `list.count()` - **Method** that counts occurrences of item in list
-- `import` - **Built-in keyword** for importing modules
-- `from ... import` - **Built-in keyword** for specific imports
+- `print()`: (already used in ex00)
+- `list.count()`: **Method** that counts occurrences of item in list
 
 ### III) New theory points
 - **Package structure**
@@ -375,6 +370,13 @@ Special built-in variable that contains the documentation string (docstring) of 
 - **Relative imports**
   - `from .core import function` for same-package imports
   - Using dots to indicate relative module location
+- **Command summary**
+  - **Build**: python -m build
+  - **Install**: python -m pip install ./dist/ft_package-0.0.1.tar.gz
+  - **Verify**: python -m pip show -v ft_package
+  - **Unbuild**: rm -rf build/ dist/ *.egg-info
+  - **Uninstall**: python -m pip uninstall ft_package
+  - **List of installed packages**: python -m pip list
 
 ### IV) Logic used for the exercise
 1. **Create package structure** with `ft_package/` directory
@@ -388,12 +390,12 @@ Special built-in variable that contains the documentation string (docstring) of 
 9. **Verify installation** with `pip show -v ft_package`
 10. **Clean up** with uninstall and remove build artifacts
 
-
 ---
 
 ## Additional Resources
 
 - [Python Official Documentation](https://docs.python.org/)
 - [Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
+- [Type Hints in Python](https://www.geeksforgeeks.org/python/type-hints-in-python/)
 - [Built-in exceptions](https://docs.python.org/3/library/exceptions.html)
 - [Create a package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)

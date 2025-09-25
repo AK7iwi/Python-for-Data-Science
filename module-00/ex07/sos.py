@@ -1,7 +1,7 @@
 import sys
 
 
-def get_dict():
+def get_dict() -> dict[str, str]:
     """
     Returns the nested morse code dictionary.
 
@@ -59,27 +59,7 @@ def get_dict():
     return NESTED_MORSE
 
 
-def validate_argument():
-    """
-    Validate command line arguments and return the string to encrypt.
-
-    Args:
-        None
-
-    Returns:
-        str: The string argument to convert to morse code
-
-    Raises:
-        AssertionError: If the arguments are bad (wrong number)
-    """
-    if len(sys.argv) != 2:
-        raise AssertionError("the arguments are bad")
-
-    arg = sys.argv[1]
-    return arg
-
-
-def encrypt(message):
+def encrypt(message: str) -> str:
     """
     Encrypts a message using the morse code chart.
     Converts alphanumeric characters and spaces to morse code.
@@ -102,6 +82,26 @@ def encrypt(message):
             raise AssertionError("the arguments are bad")
 
     return encrypted_message.rstrip()
+
+
+def validate_argument() -> str:
+    """
+    Validate command line arguments and return the string to encrypt.
+
+    Args:
+        None
+
+    Returns:
+        str: The string argument to convert to morse code
+
+    Raises:
+        AssertionError: If the arguments are bad (wrong number)
+    """
+    if len(sys.argv) != 2:
+        raise AssertionError("the arguments are bad")
+
+    arg = sys.argv[1]
+    return arg
 
 
 def main():

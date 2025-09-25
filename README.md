@@ -16,7 +16,7 @@ For more details about synthax and theory points: [Doc][Basic Doc]
 
 ## 2. Summary 
 
-### I. [Module 00 - Starting](./module-00/README.md)
+### [I. Module 00 - Starting](./module-00/README.md)
 
 
 [Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python

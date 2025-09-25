@@ -2,7 +2,28 @@ import time
 from datetime import datetime
 
 
-def format_time():
+def display_results(formatted_seconds: str, scientific_notation: str,
+                    formatted_date: str) -> None:
+    """
+    Display the formatted time results.
+
+    Args:
+        formatted_seconds (str): Formatted seconds since epoch
+        scientific_notation (str): Scientific notation of seconds
+        formatted_date (str): Formatted current date
+
+    Returns:
+        None: This function only prints to stdout
+
+    Raises:
+        None
+    """
+    print(f"Seconds since January 1, 1970: {formatted_seconds} "
+          f"or {scientific_notation} in scientific notation")
+    print(formatted_date)
+
+
+def format_time() -> tuple[str, str, str]:
     """
     Format current time in seconds since epoch and current date.
 
@@ -32,26 +53,6 @@ def format_time():
     formatted_date = current_date.strftime("%b %d %Y")
 
     return formatted_seconds, scientific_notation, formatted_date
-
-
-def display_results(formatted_seconds, scientific_notation, formatted_date):
-    """
-    Display the formatted time results.
-
-    Args:
-        formatted_seconds (str): Formatted seconds since epoch
-        scientific_notation (str): Scientific notation of seconds
-        formatted_date (str): Formatted current date
-
-    Returns:
-        None: This function only prints to stdout
-
-    Raises:
-        None
-    """
-    print(f"Seconds since January 1, 1970: {formatted_seconds} "
-          f"or {scientific_notation} in scientific notation")
-    print(formatted_date)
 
 
 def main():

@@ -24,8 +24,8 @@
 This learning guide follows a progressive and logical structure where concepts are introduced when they are most relevant to the exercise context.
 
 So:
-- **Theory points and some advanced concepts** may be used before their detailed explanation appears in later exercises
-- **Cross-references** like "(already used in ex00)" indicate when a concept was previously introduced
+- Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
+- Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
 
 ## 1. Exercice 00: First python script
 
@@ -155,7 +155,7 @@ No external libraries used.
 ### III) New theory points
 - **Gets command line arguments**: `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
-- **Exception/Error handling**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point III)
+- **Exception/Error handling**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
 
 ### IV) Logic used for the exercise
 1. **Import sys module** to access command line arguments
@@ -202,7 +202,7 @@ Special built-in variable in Python that contains the name of the current module
 ```python
 if __name__ == "__main__"
 ```
-### V) __doc__
+### V) `__doc__`
 
 Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
 
@@ -225,7 +225,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `string.punctuation`: **Module constant** containing all punctuation characters
 
 ### III) New theory points
-- **Using `if __name__ == "__main__"`**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point IV)
+- **Using `if __name__ == "__main__"`**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
 - **Loop to iterate over sequences**: `for`
   - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
@@ -277,7 +277,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 5. **Convert string to integer** with error handling
 6. **Use lambda function** with `ft_filter()` to filter words by length
 7. **Split string into words** using `str.split()` method
-8. **Display function documentation** using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules)(point V)
+8. **Display function documentation** using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point V)
 
 
 ## 9. Exercice 07: Dictionaries SoS

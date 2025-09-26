@@ -394,8 +394,8 @@ Special built-in variable that contains the documentation string (docstring) of 
 
 ## Additional Resources
 
-[Python Official Documentation](https://docs.python.org/)
-[Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)
-[Type Hints in Python](https://www.geeksforgeeks.org/python/type-hints-in-python/)
-[Built-in exceptions](https://docs.python.org/3/library/exceptions.html)
-[Create a package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+[Python Official Documentation](https://docs.python.org/)  
+[Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)  
+[Type Hints in Python](https://www.geeksforgeeks.org/python/type-hints-in-python/)  
+[Built-in exceptions](https://docs.python.org/3/library/exceptions.html)  
+[Create a package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)  

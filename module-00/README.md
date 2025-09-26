@@ -173,11 +173,11 @@ No external libraries used.
 - **Script**: File run directly with `python filename.py`
 - **Module**: File imported into another script
 
-### II) Norme: flake8
+### II) Norme: Flake8
 ```bash
 pip install flake8
 # or
-python3 - m pip install flake8
+python -m pip install flake8
 # Add the local bin directory to your PATH if needed as user
 ```
 
@@ -396,7 +396,15 @@ Special built-in variable that contains the documentation string (docstring) of 
 ## Additional Resources
 
 [Python Official Documentation](https://docs.python.org/)  
-[Python Style Guide (PEP 8)](https://www.python.org/dev/peps/pep-0008/)  
+[Python Style Guide](https://www.python.org/dev/peps/pep-0008/)  
+[Flake8 Doc](https://flake8.pycqa.org/en/latest/)  
 [Type Hints in Python](https://www.geeksforgeeks.org/python/type-hints-in-python/)  
-[Built-in exceptions](https://docs.python.org/3/library/exceptions.html)  
-[Create a package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)  
+[Built-in Exceptions](https://docs.python.org/3/library/exceptions.html)  
+[Create a Package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)  
+
+[Python Official Documentation]: https://docs.python.org/
+[Built-in Exceptions]: https://docs.python.org/3/library/exceptions.html
+[Flake8 Doc]: https://flake8.pycqa.org/en/latest/
+[Type Hints in Python]: https://www.geeksforgeeks.org/python/type-hints-in-python/
+[Built-in Exceptions]: https://docs.python.org/3/library/exceptions.html
+[Create a Package]: https://packaging.python.org/en/latest/tutorials/packaging-projects/

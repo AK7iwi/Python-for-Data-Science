@@ -308,6 +308,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 6. **Convert valid characters** to morse code using dictionary lookup
 7. **Handle invalid characters** by raising AssertionError
 8. **Remove trailing whitespace** using `str.rstrip()` from final result
+9. **Display encrypted message**
 
 
 ## 10. Exercice 08: Loading ...

@@ -26,6 +26,7 @@ This learning guide follows a progressive and logical structure where concepts a
 So:
 - Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
 - Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
+- There is additional resources at the end if you want to explore a concept in more depth
 
 ## 1. Exercice 00: First python script
 

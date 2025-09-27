@@ -38,7 +38,7 @@ def validate_argument() -> int | None:
     if len(sys.argv) != 2:
         if len(sys.argv) > 2:
             raise AssertionError("more than one argument is provided")
-        return
+        return None
 
     # Get the argument
     arg = sys.argv[1]
@@ -69,7 +69,7 @@ def main():
     try:
         # Validate argument
         number = validate_argument()
-        if number is not None:  # Only proceed if we got a valid number
+        if number is not None:
             check_odd_even(number)
 
     except Exception as e:

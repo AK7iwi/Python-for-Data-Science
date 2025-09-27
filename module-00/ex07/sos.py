@@ -101,6 +101,7 @@ def validate_argument() -> str:
         raise AssertionError("the arguments are bad")
 
     arg = sys.argv[1]
+
     return arg
 
 

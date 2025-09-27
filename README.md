@@ -13,11 +13,12 @@ In Python, there's a distinction:
 - **Methods** are functions that belong to specific objects/classes, like `list.append()`, `set.add()`, `dict.keys()`, etc.
 
 
-For more details about synthax and theory points: [Doc][Basic Doc]
+For more details about synthax, theory points and general concepts: [Python Official Documentation][Python Official Documentation] or [My Personal Doc][My Personal Doc]
 
 ## 2. Summary 
 
 ### [I. Module 00 - Starting](./module-00/README.md)
 
 
-[Basic Doc]: https://github.com/AK7iwi/DOC/tree/main/python
+[Python Official Documentation]: https://docs.python.org/
+[My Personal Doc]: https://github.com/AK7iwi/DOC/tree/main/python

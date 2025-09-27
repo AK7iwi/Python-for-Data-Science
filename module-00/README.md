@@ -403,7 +403,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 [Create a Package](https://packaging.python.org/en/latest/tutorials/packaging-projects/)  
 
 [Python Official Documentation]: https://docs.python.org/
-[Built-in Exceptions]: https://docs.python.org/3/library/exceptions.html
+[Python Style Guide]: https://www.python.org/dev/peps/pep-0008/
 [Flake8 Doc]: https://flake8.pycqa.org/en/latest/
 [Type Hints in Python]: https://www.geeksforgeeks.org/python/type-hints-in-python/
 [Built-in Exceptions]: https://docs.python.org/3/library/exceptions.html

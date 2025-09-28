@@ -12,10 +12,19 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
         list[int | float]: List of BMI values
         
     Raises:
-        ValueError: If lists are not the same size or contain invalid values
         TypeError: If lists contain non-numeric values
+        ValueError: If lists are not the same size or contain invalid values
     """
-    # Convert to numpy arrays
+    # Check if all elements are numeric before converting to numpy
+    for i, h in enumerate(height):
+        if not isinstance(h, (int, float)):
+            raise TypeError(f"Height at index {i} must be int or float")
+
+    for i, w in enumerate(weight):
+        if not isinstance(w, (int, float)):
+            raise TypeError(f"Weight at index {i} must be int or float")
+
+     # Convert to numpy arrays
     h_array = np.array(height)
     w_array = np.array(weight)
     
@@ -34,6 +43,7 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
     bmi_array = w_array / (h_array ** 2)
     
     return bmi_array.tolist()
+
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """

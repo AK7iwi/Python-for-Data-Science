@@ -1,5 +1,25 @@
 import numpy as np
 
+
+def check_type(values: list, name: str) -> None:
+    """
+    Check if all values in the list are numeric (int or float).
+    
+    Args:
+        values (list): List of values to check
+        name (str): Name of the parameter for error messages
+
+    Returns:
+        None
+        
+    Raises:
+        TypeError: If any value is not int or float
+    """
+    for i, value in enumerate(values):
+        if not isinstance(value, (int, float)):
+            raise TypeError(f"{name} at index {i} must be int or float")
+
+
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """
     Calculate BMI values from height and weight lists.
@@ -16,15 +36,10 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
         ValueError: If lists are not the same size or contain invalid values
     """
     # Check if all elements are numeric before converting to numpy
-    for i, h in enumerate(height):
-        if not isinstance(h, (int, float)):
-            raise TypeError(f"Height at index {i} must be int or float")
-
-    for i, w in enumerate(weight):
-        if not isinstance(w, (int, float)):
-            raise TypeError(f"Weight at index {i} must be int or float")
-
-     # Convert to numpy arrays
+    check_type(height, "Height")
+    check_type(weight, "Weight")
+    
+    # Convert to numpy arrays
     h_array = np.array(height)
     w_array = np.array(weight)
     

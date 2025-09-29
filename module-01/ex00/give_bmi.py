@@ -15,7 +15,7 @@ def check_type(values: list) -> None:
     Raises:
         TypeError: If any value is not int or float
     """
-    for i, value in enumerate(values):
+    for value in values:
         if not isinstance(value, (int, float)):
             raise TypeError("All values must be int or float")
 

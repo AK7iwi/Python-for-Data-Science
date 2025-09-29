@@ -121,10 +121,9 @@ def main():
     """
     try:
         arg = validate_argument()
-
         encrypted_message = encrypt(arg)
         print(encrypted_message)
-
+        
         return 0
 
     except Exception as e:

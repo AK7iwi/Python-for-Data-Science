@@ -48,15 +48,10 @@ def main():
         None
     """
     try:
-        # Validate argument
         string_arg, integer_arg = validate_arguments()
-
-        # Filter the string
         result = ft_filter(lambda x: len(x) > integer_arg, string_arg.split())
-
-        # Print result
         print(result)
-
+        
         return 0
 
     except Exception as e:

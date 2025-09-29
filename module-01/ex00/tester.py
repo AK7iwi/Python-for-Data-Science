@@ -17,7 +17,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -35,7 +35,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -53,7 +53,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -71,7 +71,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -89,7 +89,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -107,14 +107,14 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
 print("--------------------------------")
 
-# Test 4: Invalid input with infinite
-print("Test 4: Invalid input with infinite values")
+# Test 4a: Invalid input with infinite
+print("Test 4a: Invalid input with infinite values")
 
 height = [2.71, float('inf'), 1.81]
 weight = [165.3, 38.4, 57]
@@ -125,7 +125,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -143,14 +143,14 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
 print("--------------------------------")
 
-# Test 5: Invalid input with negative values
-print("Test 5: Invalid input with negative values")
+# Test 5a: Invalid input with negative values
+print("Test 5a: Invalid input with negative values")
 
 height = [2.71, 1.15, 1.81]
 weight = [-5, 38.4, 57]
@@ -161,7 +161,7 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
@@ -179,19 +179,19 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
 print("--------------------------------")
 
-#Test apply_limit
+# Test apply_limit
 print("--------------------------------")
 print("Test apply_limit")
 print("--------------------------------")
 
-# Test 1: Valid input
-print("Test 1: Valid input")
+# Test 1a: Valid input
+print("Test 1a: Valid input")
 
 height = [2.71, 1.15]
 weight = [165.3, 38.4]
@@ -202,14 +202,32 @@ try:
 
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
-    
+
 except Exception as e:
     print(f"Error: {e}")
 
 print("--------------------------------")
 
-# Test 2: Invalid input with non-integer values
-print("Test 2: Invalid input with non-numeric values")
+# Test 1b: Valid input
+print("Test 1b: Valid input")
+
+height = [2.71, 1.15]
+weight = [165.3, 38.4]
+limit = 15
+
+try:
+    bmi = give_bmi(height, weight)
+
+    print(bmi, type(bmi))
+    print(apply_limit(bmi, limit))
+
+except Exception as e:
+    print(f"Error: {e}")
+
+print("--------------------------------")
+
+# Test 2a: Invalid input with non-integer values
+print("Test 2a: Invalid input with non-numeric values")
 
 height = [2.71, 1.15]
 weight = [165.3, 38.4]

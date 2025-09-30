@@ -78,7 +78,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         ValueError: If limit is negative
     """
     validate_params(bmi, "BMI")
-    
+
     if not isinstance(limit, int):
         raise TypeError("Limit must be an integer")
     if limit < 0:

@@ -4,15 +4,15 @@ import numpy as np
 def validate_slice_indices(start: int, end: int, array_length: int) -> None:
     """
     Validate that start and end indices are valid for slicing.
-    
+
     Args:
         start (int): Start index for slicing
         end (int): End index for slicing
         array_length (int): Length of the array to slice
-        
+
     Returns:
         None
-        
+
     Raises:
         TypeError: If start or end are not integers
         ValueError: If indices are out of bounds
@@ -21,41 +21,38 @@ def validate_slice_indices(start: int, end: int, array_length: int) -> None:
         raise TypeError("Start must be an integer")
     if not isinstance(end, int):
         raise TypeError("End must be an integer")
-    
-    # Check bounds for positive indices
-    if start >= 0 and start >= array_length:
-        raise ValueError(f"Start index {start} is out of bounds (max: {array_length - 1})")
-    if end > 0 and end >= array_length:
-        raise ValueError(f"End index {end} is out of bounds (max: {array_length - 1})")
-    
-    # Check bounds for negative indices
-    if start < 0 and abs(start) > array_length:
-        raise ValueError(f"Start index {start} is out of bounds (min: {-array_length})")
-    if end < 0 and abs(end) > array_length:
-        raise ValueError(f"End index {end} is out of bounds (min: {-array_length})")
 
-    if start == end:
-        raise ValueError("Start and end indices cannot be the same")
-    if start == array_length - 1:
-        raise ValueError("Start index cannot be the last index")
-    if end == 0:
-        raise ValueError("End index cannot be 0")
-    
+    # Normalize negative indices to positive
+    start_normalized = start if start >= 0 else array_length + start
+    end_normalized = end if end >= 0 else array_length + end
+
+    # Check bounds
+    if start_normalized < 0 or start_normalized >= array_length:
+        raise ValueError(f"Start index {start} is out of bounds "
+                         f"(min: {-array_length}, max: {array_length - 1})")
+    if end_normalized < 0 or end_normalized > array_length:
+        raise ValueError(f"End index {end} is out of bounds "
+                         f"(min: {-array_length}, max: {array_length - 1})")
+
+    # The general condition: end must be greater than start
+    if end_normalized < start_normalized:
+        raise ValueError("End index must be greater than start index")
 
 
 def validate_2d_array(family: list) -> None:
     """
     Validate that the input is a proper 2D array.
-    
+
     Args:
         family (list): The 2D list to validate
-        
+
     Returns:
         None
-        
+
     Raises:
         TypeError: If family is not a list or contains non-lists
-        ValueError: If family is empty or rows have different sizes
+        ValueError: If family is empty or contains empty rows or rows have
+                   different sizes
     """
     if not isinstance(family, list):
         raise TypeError("Family must be a list")
@@ -75,15 +72,15 @@ def validate_2d_array(family: list) -> None:
 def slice_me(family: list, start: int, end: int) -> list:
     """
     Slice a 2D array and return the truncated version.
-    
+
     Args:
         family (list): 2D list to slice
         start (int): Start index for slicing
         end (int): End index for slicing
-        
+
     Returns:
         list: Sliced 2D array as a list
-        
+
     Raises:
         None
     """
@@ -92,7 +89,7 @@ def slice_me(family: list, start: int, end: int) -> list:
 
     family_array = np.array(family)
     print(f"My shape is : {family_array.shape}")
-    
+
     sliced_array = family_array[start:end]
     print(f"My new shape is : {sliced_array.shape}")
 

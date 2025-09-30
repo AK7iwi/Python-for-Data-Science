@@ -51,7 +51,7 @@ def main():
         string_arg, integer_arg = validate_arguments()
         result = ft_filter(lambda x: len(x) > integer_arg, string_arg.split())
         print(result)
-        
+
         return 0
 
     except Exception as e:

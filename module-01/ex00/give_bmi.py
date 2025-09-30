@@ -14,8 +14,8 @@ def check_params(values: list, name: str) -> None:
         None
 
     Raises:
-        TypeError: If any value is not int or float
-        ValueError: If the list is empty
+        TypeError: If any value is not int or float or the "list" is not a list
+        ValueError: If the list is empty or any value is not finite or positive
     """
     # Check if the list is a list and not empty
     if not isinstance(values, list):
@@ -46,8 +46,7 @@ def give_bmi(height: list[int | float],
         list[int | float]: List of BMI values
 
     Raises:
-        TypeError: If lists contain non-numeric values
-        ValueError: If lists are not the same size or contain invalid values
+        ValueError: If lists are not the same size
     """
     # Check if lists are valid
     check_params(height, "Height")
@@ -77,7 +76,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         list[bool]: List of booleans (True if BMI > limit)
 
     Raises:
-        TypeError: If bmi contains non-numeric values or limit is not int
+        TypeError: If limit is not an integer
         ValueError: If limit is negative
     """
     # Check if BMI is valid

@@ -32,7 +32,7 @@ def validate_slice_indices(start: int, end: int, array_length: int) -> None:
                          f"(min: {-array_length}, max: {array_length - 1})")
     if end_normalized < 0 or end_normalized > array_length:
         raise ValueError(f"End index {end} is out of bounds "
-                         f"(min: {-array_length}, max: {array_length - 1})")
+                         f"(min: {-array_length}, max: {array_length})")
 
     # The general condition: end must be greater than start
     if end_normalized < start_normalized:

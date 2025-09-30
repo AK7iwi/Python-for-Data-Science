@@ -244,7 +244,7 @@ family = [[1.80, 78.4],
           [1.88, 75.2]]
 
 try:
-    print(slice_me(family, 1, 4))
+    print(slice_me(family, 1, 5))
 
 except Exception as e:
     print(f"Error: {e}")

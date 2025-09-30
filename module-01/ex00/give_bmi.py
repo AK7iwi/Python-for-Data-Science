@@ -2,7 +2,7 @@ import numpy as np
 import math
 
 
-def check_params(values: list, name: str) -> None:
+def validate_params(values: list, name: str) -> None:
     """
     Check if all values in the list are numeric (int or float).
 
@@ -48,11 +48,9 @@ def give_bmi(height: list[int | float],
     Raises:
         ValueError: If lists are not the same size
     """
-    # Check if lists are valid
-    check_params(height, "Height")
-    check_params(weight, "Weight")
+    validate_params(height, "Height")
+    validate_params(weight, "Weight")
 
-    # Check if lists have the same length
     if len(height) != len(weight):
         raise ValueError("Height and weight lists must have the same size")
 
@@ -79,9 +77,8 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         TypeError: If limit is not an integer
         ValueError: If limit is negative
     """
-    # Check if BMI is valid
-    check_params(bmi, "BMI")
-    # Check if the limit is an integer and positive
+    validate_params(bmi, "BMI")
+    
     if not isinstance(limit, int):
         raise TypeError("Limit must be an integer")
     if limit < 0:

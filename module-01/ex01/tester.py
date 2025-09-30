@@ -125,3 +125,16 @@ except Exception as e:
     print(f"Error: {e}")
 
 print("--------------------------------")
+
+# Test 6: Invalid input with empty rows
+print("Test 6: Invalid input with empty rows")
+
+family = [[], [], []]
+
+try:
+    print(slice_me(family, 0, 2))
+
+except Exception as e:
+    print(f"Error: {e}")
+
+# Test 7: 

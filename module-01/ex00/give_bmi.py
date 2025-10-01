@@ -54,9 +54,11 @@ def give_bmi(height: list[int | float],
     if len(height) != len(weight):
         raise ValueError("Height and weight lists must have the same size")
 
-    # Convert to numpy arrays and calculate BMI
+    # Convert to numpy arrays
     h_array = np.array(height)
     w_array = np.array(weight)
+
+    # Calculate BMI
     bmi_array = w_array / (h_array ** 2)
 
     return bmi_array.tolist()
@@ -79,6 +81,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
     validate_params(bmi, "BMI")
 
+    # Refacto
     if not isinstance(limit, int):
         raise TypeError("Limit must be an integer")
     if limit < 0:

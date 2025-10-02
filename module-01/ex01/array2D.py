@@ -20,7 +20,6 @@ def validate_indices_bounds(start: int, end: int, array_length: int) -> None:
     start_normalized = start if start >= 0 else array_length + start
     end_normalized = end if end >= 0 else array_length + end
 
-    # Check bounds
     # not `>=` for end to allow the last index value
     if start_normalized < 0 or start_normalized >= array_length:
         raise ValueError(f"Start index {start} is out of bounds "
@@ -28,8 +27,6 @@ def validate_indices_bounds(start: int, end: int, array_length: int) -> None:
     if end_normalized < 0 or end_normalized > array_length:
         raise ValueError(f"End index {end} is out of bounds "
                          f"(min: {-array_length}, max: {array_length})")
-
-    # The general condition: end must be greater than start
     if end_normalized < start_normalized:
         raise ValueError("End index must be greater than start index")
 
@@ -69,7 +66,6 @@ def validate_slice_indices(start: int, end: int, array_length: int) -> None:
     """
     validate_indice_type(start, "Start")
     validate_indice_type(end, "End")
-
     validate_indices_bounds(start, end, array_length)
 
 

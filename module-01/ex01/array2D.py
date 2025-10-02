@@ -71,7 +71,7 @@ def validate_slice_indices(start: int, end: int, array_length: int) -> None:
 
 def validate_2d_array_content(family: list) -> None:
     """
-    Validate that the input contains only lists, no empty rows and has the
+    Validate that the 2D array contains only lists, no empty rows and has the
     same size for all rows.
 
     Args:
@@ -96,7 +96,7 @@ def validate_2d_array_content(family: list) -> None:
 
 def validate_2d_array_structure(family: list) -> None:
     """
-    Validate that the input is a valid list of lists.
+    Validate that the 2D array is a valid list of lists.
 
     Args:
         family (list): The 2D list to validate

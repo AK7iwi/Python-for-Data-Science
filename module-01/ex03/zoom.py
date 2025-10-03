@@ -107,11 +107,8 @@ def main():
         None
     """
     try:
-        # Load the image
-        print("Loading image...")
         image = ft_load("animal.jpeg")
         
-        # Print image information
         print("\n" + "="*50)
         print_image_info(image)
         print("="*50)
@@ -128,17 +125,16 @@ def main():
         
         print(f"\nZooming to area: ({start_x}, {start_y}) to ({end_x}, {end_y})")
         
-        # Zoom the image
         zoomed_image = zoom_image(image, start_x, start_y, end_x, end_y)
         
-        # Display original image
         display_image_with_scale(image, "Original Image")
-        
-        # Display zoomed image
         display_image_with_scale(zoomed_image, "Zoomed Image")
         
     except Exception as e:
         print(f"Error: {e}")
+        return 1
+
+    return 0
 
 
 if __name__ == "__main__":

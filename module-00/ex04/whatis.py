@@ -14,7 +14,6 @@ def check_odd_even(number: int) -> None:
     Raises:
         None
     """
-    # Check if odd or even
     if number % 2 == 0:
         print("I'm Even.")
     else:
@@ -43,7 +42,6 @@ def validate_argument() -> int | None:
     # Get the argument
     arg = sys.argv[1]
 
-    # Check if argument is an integer
     try:
         number = int(arg)
     except ValueError:
@@ -67,7 +65,6 @@ def main():
         None
     """
     try:
-        # Validate argument
         number = validate_argument()
         if number is not None:
             check_odd_even(number)

@@ -35,10 +35,10 @@ def validate_image_format(path: str) -> None:
     """
     supported_formats = {'.jpg', '.jpeg', '.JPG', '.JPEG'}
     file_extension = os.path.splitext(path)[1]
-    
+
     if file_extension not in supported_formats:
         raise ValueError(f"Unsupported image format: {file_extension}. "
-                        f"Supported formats: JPG, JPEG")
+                         f"Supported formats: JPG, JPEG")
 
 
 def validate_path_string(path: str) -> None:
@@ -93,16 +93,16 @@ def ft_load(path: str) -> np.ndarray:
         None
     """
     validate_path(path)
-    
+
     # Load image using PIL
     image = Image.open(path)
-        
+
     # Convert to RGB if not already
     if image.mode != 'RGB':
         image = image.convert('RGB')
-        
+
     image_array = np.array(image)
     print(f"The shape of image is: {image_array.shape}")
     print(image_array)
-        
+
     return image_array

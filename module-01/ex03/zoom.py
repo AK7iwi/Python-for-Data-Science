@@ -3,6 +3,29 @@ import matplotlib.pyplot as plt
 from load_image import ft_load
 
 
+def display_image_with_scale(image: np.ndarray, title: str) -> None:
+    """
+    Display image with scale on x and y axis.
+
+    Args:
+        image (np.ndarray): The image to display
+        title (str): Title for the plot
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    plt.figure(figsize=(10, 8))
+    plt.imshow(image)
+    plt.title(title)
+    plt.xlabel('X axis (pixels)')
+    plt.ylabel('Y axis (pixels)')
+    plt.colorbar(label='Pixel intensity')
+    plt.show()
+
+
 def validate_zoom_parameters(start_x: int, start_y: int, 
                            end_x: int, end_y: int, 
                            image_shape: tuple) -> None:
@@ -34,25 +57,6 @@ def validate_zoom_parameters(start_x: int, start_y: int,
         raise ValueError(f"End y ({end_y}) must be > start_y and <= {height}")
 
 
-def print_image_info(image: np.ndarray) -> None:
-    """
-    Print detailed information about the image.
-
-    Args:
-        image (np.ndarray): The image array
-
-    Returns:
-        None
-    """
-    height, width, channels = image.shape
-    
-    print(f"Image dimensions:")
-    print(f"  Width (X axis): {width} pixels")
-    print(f"  Height (Y axis): {height} pixels")
-    print(f"  Number of channels: {channels}")
-    print(f"  Total pixels: {height * width}")
-
-
 def zoom_image(image: np.ndarray, start_x: int, start_y: int, 
                end_x: int, end_y: int) -> np.ndarray:
     """
@@ -67,43 +71,54 @@ def zoom_image(image: np.ndarray, start_x: int, start_y: int,
 
     Returns:
         np.ndarray: The zoomed image
+
+    Raises:
+        None
     """
     validate_zoom_parameters(start_x, start_y, end_x, end_y, image.shape)
     
     # Crop the image
     zoomed = image[start_y:end_y, start_x:end_x]
-    
+
     print(f"New shape after slicing: {zoomed.shape}")
     print(zoomed)
     
     return zoomed
 
 
-def display_image_with_scale(image: np.ndarray, title: str) -> None:
+def print_image_info(image: np.ndarray) -> None:
     """
-    Display image with scale on x and y axis.
+    Print detailed information about the image.
 
     Args:
-        image (np.ndarray): The image to display
-        title (str): Title for the plot
+        image (np.ndarray): The image array
 
     Returns:
         None
+
+    Raises:
+        None
     """
-    plt.figure(figsize=(10, 8))
-    plt.imshow(image)
-    plt.title(title)
-    plt.xlabel('X axis (pixels)')
-    plt.ylabel('Y axis (pixels)')
-    plt.colorbar(label='Pixel intensity')
-    plt.show()
+    height, width, channels = image.shape
+    
+    print(f"Image dimensions:")
+    print(f"-Width (X axis): {width} pixels")
+    print(f"-Height (Y axis): {height} pixels")
+    print(f"-Number of channels: {channels}")
+    print(f"-Total pixels: {height * width}")
 
 
 def main():
     """
     Main function to load, analyze, and zoom an image.
 
+    Args:
+        None
+
     Returns:
+        int: 0 on success, 1 on error
+
+    Raises:
         None
     """
     try:
@@ -116,7 +131,7 @@ def main():
         # Define zoom area (center portion)
         height, width = image.shape[:2]
         center_x, center_y = width // 2, height // 2
-        zoom_size = min(width, height) // 2  # Half of the smaller dimension
+        zoom_size = min(width, height) // 2
         
         start_x = center_x - zoom_size // 2
         start_y = center_y - zoom_size // 2
@@ -124,9 +139,8 @@ def main():
         end_y = center_y + zoom_size // 2
         
         print(f"\nZooming to area: ({start_x}, {start_y}) to ({end_x}, {end_y})")
-        
         zoomed_image = zoom_image(image, start_x, start_y, end_x, end_y)
-        
+
         display_image_with_scale(image, "Original Image")
         display_image_with_scale(zoomed_image, "Zoomed Image")
         

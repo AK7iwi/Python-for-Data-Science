@@ -26,37 +26,6 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
     plt.show()
 
 
-def validate_zoom_parameters(start_x: int, start_y: int,
-                             end_x: int, end_y: int,
-                             image_shape: tuple) -> None:
-    """
-    Validate that zoom parameters are within image bounds.
-
-    Args:
-        start_x (int): Start x coordinate
-        start_y (int): Start y coordinate
-        end_x (int): End x coordinate
-        end_y (int): End y coordinate
-        image_shape (tuple): Shape of the image (height, width, channels)
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If parameters are out of bounds
-    """
-    height, width = image_shape[:2]
-
-    if start_x < 0 or start_x >= width:
-        raise ValueError(f"Start x ({start_x}) out of bounds [0, {width-1}]")
-    if start_y < 0 or start_y >= height:
-        raise ValueError(f"Start y ({start_y}) out of bounds [0, {height-1}]")
-    if end_x <= start_x or end_x > width:
-        raise ValueError(f"End x ({end_x}) must be > start_x and <= {width}")
-    if end_y <= start_y or end_y > height:
-        raise ValueError(f"End y ({end_y}) must be > start_y and <= {height}")
-
-
 def zoom_image(image: np.ndarray, start_x: int, start_y: int,
                end_x: int, end_y: int) -> np.ndarray:
     """
@@ -75,8 +44,6 @@ def zoom_image(image: np.ndarray, start_x: int, start_y: int,
     Raises:
         None
     """
-    validate_zoom_parameters(start_x, start_y, end_x, end_y, image.shape)
-
     # Crop the image
     zoomed = image[start_y:end_y, start_x:end_x]
 
@@ -182,7 +149,7 @@ def main():
         grayscale_image = convert_to_grayscale(image)
         zoomed_image = zoom_image(grayscale_image, start_x, start_y,
                                   end_x, end_y)
-
+                                  
         display_image_with_scale(zoomed_image, "Zoomed Image")
 
     except Exception as e:

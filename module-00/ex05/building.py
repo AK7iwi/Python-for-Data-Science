@@ -103,8 +103,7 @@ def main():
     try:
         text = validate_argument()
         upper_count, lower_count, digit_count, space_count, punct_count = (
-            count_characters(text)
-        )
+            count_characters(text))
         print_results(text, upper_count, lower_count, digit_count, space_count,
                       punct_count)
 

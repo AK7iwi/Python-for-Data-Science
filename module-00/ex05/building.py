@@ -101,24 +101,18 @@ def main():
         None
     """
     try:
-        # Validate argument
         text = validate_argument()
-
-        # Count characters
         upper_count, lower_count, digit_count, space_count, punct_count = (
             count_characters(text)
         )
-
-        # Print results
         print_results(text, upper_count, lower_count, digit_count, space_count,
                       punct_count)
-
-        return 0
 
     except Exception as e:
         print(f"AssertionError: {e}")
         return 1
 
+    return 0
 
 if __name__ == "__main__":
     main()

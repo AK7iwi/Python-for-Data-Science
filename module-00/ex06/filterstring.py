@@ -52,12 +52,11 @@ def main():
         result = ft_filter(lambda x: len(x) > integer_arg, string_arg.split())
         print(result)
 
-        return 0
-
     except Exception as e:
         print(f"AssertionError: {e}")
         return 1
 
+    return 0
 
 if __name__ == "__main__":
     main()

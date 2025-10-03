@@ -17,8 +17,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1b: Valid input (containing non-numeric values)
-print("Test 1b: Valid input (containing non-numeric values)")
+# Test 1b: Valid input : data (family) containing non-numeric values
+print("Test 1b: Valid input : data (family) containing non-numeric values")
 
 family = [[1.80, 78.4],
           [2.15, "valid"],
@@ -33,8 +33,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1c: Valid input (with start and end indices being the same)
-print("Test 1c: Valid input with start and end indices being the same")
+# Test 1c: Valid input : with start and end indices being the same
+print("Test 1c: Valid input : with start and end indices being the same")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -49,8 +49,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1d: Valid input (with start index being the last index)
-print("Test 1d: Valid input (with start index being the last index)")
+# Test 1d: Valid input : with start index being the last index
+print("Test 1d: Valid input : with start index being the last index")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -65,8 +65,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1e: Valid input (with end index being the first index)
-print("Test 1e: Valid input with end index being the first index")
+# Test 1e: Valid input : with end index being the first index
+print("Test 1e: Valid input : with end index being the first index")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -81,8 +81,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 2a: Invalid family parameter (non-list type)
-print("Test 2a: Invalid family parameter (non-list type)")
+# Test 2a: Invalid data parameter: family is not a list
+print("Test 2a: Invalid data parameter: family is not a list")
 
 family = {1.80: 78.4,
           2.15: 102.7,
@@ -97,8 +97,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 2b: Invalid family parameter (non-list type)
-print("Test 2b: Invalid family parameter (non-list type)")
+# Test 2b: Invalid data parameter: family is not a list
+print("Test 2b: Invalid data parameter: family is not a list")
 
 family = ([1.80, 78.4],
           [2.15, 102.7],
@@ -113,8 +113,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 3: Invalid family parameter (empty list)
-print("Test 3: Invalid family parameter (empty list)")
+# Test 3: Invalid data parameter: family is an empty list
+print("Test 3: Invalid data parameter: family is an empty list")
 
 family = []
 
@@ -126,8 +126,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 4a: Invalid family parameter (containing non-list elements)
-print("Test 4a: Invalid family parameter (containing non-list elements)")
+# Test 4a: Invalid data parameter: family contains non-list elements
+print("Test 4a: Invalid data parameter: family contains non-list elements")
 
 family = [[1.80, 78.4],
           "invalid",
@@ -142,8 +142,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 4b: Invalid family parameter (containing non-list elements)
-print("Test 4b: Invalid family parameter (containing non-list elements)")
+# Test 4b: Invalid data parameter: family contains non-list elements
+print("Test 4b: Invalid data parameter: family contains non-list elements")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -158,8 +158,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 5: Invalid family parameter (containing empty rows)
-print("Test 5: Invalid family parameter (containing empty rows)")
+# Test 5: Invalid data parameter: family contains empty rows
+print("Test 5: Invalid data parameter: family contains empty rows")
 
 family = [[], [], []]
 
@@ -171,8 +171,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 6: Invalid family parameter (containing different size rows)
-print("Test 6: Invalid family parameter (containing different size rows)")
+# Test 6: Invalid data parameter: family contains different size rows
+print("Test 6: Invalid data parameter: family contains different size rows")
 
 family = [[1.80],
           [2.15, 102.7],
@@ -187,8 +187,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 7a: Invalid start parameter (non-integer value)
-print("Test 7a: Invalid start parameter (non-integer value)")
+# Test 7a: Invalid start parameter: non-integer value
+print("Test 7a: Invalid start parameter: non-integer value")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -203,8 +203,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 7b: Invalid end parameter (non-integer value)
-print("Test 7b: Invalid end parameter (non-integer value)")
+# Test 7b: Invalid end parameter: non-integer value
+print("Test 7b: Invalid end parameter: non-integer value")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -219,8 +219,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 8a: Invalid start parameter (out of bounds)
-print("Test 8a: Invalid start parameter (out of bounds)")
+# Test 8a: Invalid start parameter: out of bounds
+print("Test 8a: Invalid start parameter: out of bounds")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -235,8 +235,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 8b: Invalid end parameter (out of bounds)
-print("Test 8b: Invalid end parameter (out of bounds)")
+# Test 8b: Invalid end parameter: out of bounds
+print("Test 8b: Invalid end parameter: out of bounds")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],
@@ -251,8 +251,8 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 9: Invalid end parameter (end index smaller than start index)
-print("Test 9: Invalid end parameter (end index smaller than start index)")
+# Test 9: Invalid end parameter: end index smaller than start index
+print("Test 9: Invalid end parameter: end index smaller than start index")
 
 family = [[1.80, 78.4],
           [2.15, 102.7],

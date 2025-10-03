@@ -23,8 +23,10 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1b - Valid input: measurement parameter (height and weight) containing both integer and float values
-print("Test 1b - Valid input: measurement parameter (height and weight) containing both integer and float values")
+# Test 1b: Valid input: measurement parameter (height and weight)
+# containing both integer and float values
+print("Test 1b: Valid input: measurement parameter (height and weight) "
+      "containing both integer and float values")
 
 height = [2, 1, 1.81]
 weight = [165.3, 38, 57]
@@ -96,7 +98,8 @@ except Exception as e:
 print("--------------------------------")
 
 # Test 4a - Invalid measurement parameter: height contains non-numeric values
-print("Test 4a - Invalid measurement parameter: height contains non-numeric values")
+print("Test 4a - Invalid measurement parameter: height contains "
+      "non-numeric values")
 
 height = [2.71, 1.15, "invalid"]
 weight = [165.3, 38.4, 57]
@@ -114,7 +117,8 @@ except Exception as e:
 print("--------------------------------")
 
 # Test 4b - Invalid measurement parameter: weight contains non-numeric values
-print("Test 4b - Invalid measurement parameter: weight contains non-numeric values")
+print("Test 4b - Invalid measurement parameter: weight contains "
+      "non-numeric values")
 
 height = [2.71, 1.15, 1.81]
 weight = [165.3, [35, 89], "invalid"]
@@ -132,7 +136,8 @@ except Exception as e:
 print("--------------------------------")
 
 # Test 5a - Invalid measurement parameter: height contains infinite values
-print("Test 5a - Invalid measurement parameter: height contains infinite values")
+print("Test 5a - Invalid measurement parameter: height contains "
+      "infinite values")
 
 height = [2.71, float('inf'), 1.81]
 weight = [165.3, 38.4, 57]
@@ -168,7 +173,8 @@ except Exception as e:
 print("--------------------------------")
 
 # Test 6a - Invalid measurement parameter: weight contains negative values
-print("Test 6a - Invalid measurement parameter: weight contains negative values")
+print("Test 6a - Invalid measurement parameter: weight contains "
+      "negative values")
 
 height = [2.71, 1.15, 1.81]
 weight = [-5, 38.4, 57]
@@ -203,8 +209,10 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 7 - Invalid measurement parameter: height and weight have different lengths
-print("Test 7 - Invalid measurement parameter: height and weight have different lengths")
+# Test 7 - Invalid measurement parameter: height and weight have
+# different lengths
+print("Test 7 - Invalid measurement parameter: height and weight have "
+      "different lengths")
 
 height = [2.71, 1.15, 1.81]
 weight = [165.3, 38.4]

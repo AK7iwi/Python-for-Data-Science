@@ -97,7 +97,6 @@ def ft_load(path: str) -> np.ndarray:
     # Load image using PIL
     image = Image.open(path)
 
-    # Convert to RGB if not already
     if image.mode != 'RGB':
         image = image.convert('RGB')
 

@@ -18,7 +18,7 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
         None
     """
     plt.figure(figsize=(10, 8))
-    plt.imshow(image)
+    plt.imshow(image, cmap='gray')
     plt.title(title)
     plt.xlabel('X axis (pixels)')
     plt.ylabel('Y axis (pixels)')
@@ -86,6 +86,57 @@ def zoom_image(image: np.ndarray, start_x: int, start_y: int,
     return zoomed
 
 
+def convert_to_grayscale(image: np.ndarray) -> np.ndarray:
+    """
+    Convert RGB image to grayscale using numpy.
+
+    Args:
+        image (np.ndarray): RGB image array
+
+    Returns:
+        np.ndarray: Grayscale image array
+
+    Raises:
+        None
+    """
+    # Check if image is already grayscale
+    if len(image.shape) == 2:
+        return image
+    
+    # Convert RGB to grayscale using standard formula
+    grayscale = np.dot(image[...,:3], [0.299, 0.587, 0.114])
+    grayscale = grayscale.astype(np.uint8)
+    
+    return grayscale
+
+
+def define_zoom_area(image: np.ndarray) -> tuple:
+    """
+    Define the zoom area for the center portion of the image.
+
+    Args:
+        image (np.ndarray): The image to define zoom area for
+
+    Returns:
+        tuple: (start_x, start_y, end_x, end_y) coordinates
+
+    Raises:
+        None
+    """
+    height, width = image.shape[:2]
+    center_x, center_y = width // 2, height // 2
+    zoom_size = min(width, height) // 2
+    
+    start_x = center_x - zoom_size // 2
+    start_y = center_y - zoom_size // 2
+    end_x = center_x + zoom_size // 2
+    end_y = center_y + zoom_size // 2
+    
+    print(f"\nZooming to area: ({start_x}, {start_y}) to ({end_x}, {end_y})")
+    
+    return start_x, start_y, end_x, end_y
+
+
 def print_image_info(image: np.ndarray) -> None:
     """
     Print detailed information about the image.
@@ -101,11 +152,13 @@ def print_image_info(image: np.ndarray) -> None:
     """
     height, width, channels = image.shape
     
+    print("\n" + "="*50)
     print(f"Image dimensions:")
     print(f"-Width (X axis): {width} pixels")
     print(f"-Height (Y axis): {height} pixels")
     print(f"-Number of channels: {channels}")
     print(f"-Total pixels: {height * width}")
+    print("="*50)
 
 
 def main():
@@ -123,25 +176,12 @@ def main():
     """
     try:
         image = ft_load("animal.jpeg")
-        
-        print("\n" + "="*50)
         print_image_info(image)
-        print("="*50)
-        
-        # Define zoom area (center portion)
-        height, width = image.shape[:2]
-        center_x, center_y = width // 2, height // 2
-        zoom_size = min(width, height) // 2
-        
-        start_x = center_x - zoom_size // 2
-        start_y = center_y - zoom_size // 2
-        end_x = center_x + zoom_size // 2
-        end_y = center_y + zoom_size // 2
-        
-        print(f"\nZooming to area: ({start_x}, {start_y}) to ({end_x}, {end_y})")
-        zoomed_image = zoom_image(image, start_x, start_y, end_x, end_y)
 
-        display_image_with_scale(image, "Original Image")
+        start_x, start_y, end_x, end_y = define_zoom_area(image)
+        grayscale_image = convert_to_grayscale(image)
+        zoomed_image = zoom_image(grayscale_image, start_x, start_y, end_x, end_y)
+
         display_image_with_scale(zoomed_image, "Zoomed Image")
         
     except Exception as e:

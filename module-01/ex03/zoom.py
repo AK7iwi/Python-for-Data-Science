@@ -47,9 +47,6 @@ def zoom_image(image: np.ndarray, start_x: int, start_y: int,
     # Crop the image
     zoomed = image[start_y:end_y, start_x:end_x]
 
-    print(f"New shape after slicing: {zoomed.shape}")
-    print(zoomed)
-
     return zoomed
 
 
@@ -99,8 +96,6 @@ def define_zoom_area(image: np.ndarray) -> tuple:
     end_x = center_x + zoom_size // 2
     end_y = center_y + zoom_size // 2
 
-    print(f"\nZooming to area: ({start_x}, {start_y}) to ({end_x}, {end_y})")
-
     return start_x, start_y, end_x, end_y
 
 
@@ -146,10 +141,15 @@ def main():
         print_image_info(image)
 
         start_x, start_y, end_x, end_y = define_zoom_area(image)
+        print(f"\nZooming to area: ({start_x}, {start_y}) to "
+              f"({end_x}, {end_y})")
+
         grayscale_image = convert_to_grayscale(image)
         zoomed_image = zoom_image(grayscale_image, start_x, start_y,
                                   end_x, end_y)
-                                  
+        print(f"New shape after slicing: {zoomed_image.shape}")
+        print(zoomed_image)
+
         display_image_with_scale(zoomed_image, "Zoomed Image")
 
     except Exception as e:

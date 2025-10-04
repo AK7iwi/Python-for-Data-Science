@@ -123,6 +123,22 @@ def print_image_info(image: np.ndarray) -> None:
     print("="*50)
 
 
+def load_image(path: str) -> np.ndarray:
+    """
+    Load an image.
+
+    Args:
+        path (str): Path to the image
+
+    Returns:
+        np.ndarray: The image
+
+    Raises:
+        None
+    """
+    return ft_load(path)
+
+
 def main():
     """
     Main function to load, analyze, and zoom an image.
@@ -137,8 +153,7 @@ def main():
         None
     """
     try:
-        #Refacto load_image
-        image = ft_load("animal.jpeg")
+        image = load_image("animal.jpeg")
         print_image_info(image)
 
         zoomed_image, start_x, start_y, end_x, end_y = zoom_image(image)

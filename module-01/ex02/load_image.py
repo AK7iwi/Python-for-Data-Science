@@ -3,6 +3,18 @@ import os
 from PIL import Image
 
 
+def load_image(path: str) -> np.ndarray:
+    """
+    Load an image file and return its RGB pixel content as a numpy array.
+    """
+    # Load image using PIL
+    image = Image.open(path)
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
+
+    return np.array(image)
+
+
 def validate_path_exists(path: str) -> None:
     """
     Validate that the file path exists.
@@ -60,6 +72,13 @@ def validate_path_string(path: str) -> None:
     if not path.strip():
         raise ValueError("Path cannot be empty")
 
+def print_info(image_array: np.ndarray) -> None:
+    """
+    Print information about the image array.
+    """
+    print(f"The shape of image is: {image_array.shape}")
+    print(image_array)
+
 
 def validate_path(path: str) -> None:
     """
@@ -94,15 +113,24 @@ def ft_load(path: str) -> np.ndarray:
     """
     validate_path(path)
 
-    # Load image using PIL
-    image = Image.open(path)
-
-    # Convert to RGB if not already
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-
+    #Refacto
+    image = load_image(path)
     image_array = np.array(image)
-    print(f"The shape of image is: {image_array.shape}")
-    print(image_array)
+
+    print_info(image_array)
 
     return image_array
+
+
+def main():
+    """
+    Main function to test the ft_load function.
+    """
+    try:
+        print(ft_load("landscape.jpg"))
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()

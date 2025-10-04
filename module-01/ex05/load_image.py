@@ -127,7 +127,7 @@ def main():
     Main function to test the ft_load function.
     """
     try:
-        print(ft_load("animal.jpeg"))
+        print(ft_load("landscape.jpg"))
     except Exception as e:
         print(f"Error: {e}")
 

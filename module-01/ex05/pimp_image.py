@@ -1,0 +1,167 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from load_image import ft_load
+
+def display_image(image: np.ndarray, title: str) -> None:
+    """
+    Display the image with matplotlib.
+
+    Args:
+        image (np.ndarray): The image to display
+        title (str): Title for the plot
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    plt.figure(figsize=(8, 6))
+    plt.imshow(image)
+    plt.title(title)
+    plt.axis('off')
+    plt.show()
+
+
+def ft_invert(array: np.ndarray) -> np.ndarray:
+    """
+    Inverts the color of the image received.
+
+    Args:
+        array (np.ndarray): The image array to invert
+
+    Returns:
+        np.ndarray: The inverted image array
+
+    Raises:
+        None
+    """
+    inverted = 255 - array
+
+    display_image(inverted, "Inverted Image")
+
+    return inverted
+
+
+def ft_red(array: np.ndarray) -> np.ndarray:
+    """
+    Applies a red filter to the image.
+
+    Args:
+        array (np.ndarray): The image array to filter
+
+    Returns:
+        np.ndarray: The red-filtered image array
+
+    Raises:
+        None
+    """
+    # Keep only red channel, set green and blue to 0
+    red_filtered = array.copy()
+    red_filtered[:, :, 1] = 0  # Green channel = 0
+    red_filtered[:, :, 2] = 0  # Blue channel = 0
+
+    display_image(red_filtered, "Red Filter")
+
+    return red_filtered
+
+
+def ft_green(array: np.ndarray) -> np.ndarray:
+    """
+    Applies a green filter to the image.
+
+    Args:
+        array (np.ndarray): The image array to filter
+
+    Returns:
+        np.ndarray: The green-filtered image array
+
+    Raises:
+        None
+    """
+    # Keep only green channel, set red and blue to 0
+    green_filtered = array.copy()
+    green_filtered[:, :, 0] = 0  # Red channel = 0
+    green_filtered[:, :, 2] = 0  # Blue channel = 0
+
+    display_image(green_filtered, "Green Filter")
+
+    return green_filtered
+
+
+def ft_blue(array: np.ndarray) -> np.ndarray:
+    """
+    Applies a blue filter to the image.
+
+    Args:
+        array (np.ndarray): The image array to filter
+
+    Returns:
+        np.ndarray: The blue-filtered image array
+
+    Raises:
+        None
+    """
+    # Keep only blue channel, set red and green to 0
+    blue_filtered = array.copy()
+    blue_filtered[:, :, 0] = 0  # Red channel = 0
+    blue_filtered[:, :, 1] = 0  # Green channel = 0
+
+    display_image(blue_filtered, "Blue Filter")
+
+    return blue_filtered
+
+
+def ft_grey(array: np.ndarray) -> np.ndarray:
+    """
+    Converts the image to grayscale.
+
+    Args:
+        array (np.ndarray): The image array to convert
+
+    Returns:
+        np.ndarray: The grayscale image array
+
+    Raises:
+        None
+    """
+    # Convert to grayscale using standard formula
+    # 0.299*R + 0.587*G + 0.114*B
+    grayscale = np.dot(array, [0.299, 0.587, 0.114])
+    grayscale = grayscale.astype(np.uint8)
+    
+    # Convert to 3D array to maintain shape
+    grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)
+
+    display_image(grayscale_3d, "Grayscale Image")
+
+    return grayscale_3d
+
+
+def main():
+    """
+    Main function to test all filter functions.
+
+    Returns:
+        int: 0 on success, 1 on error
+
+    Raises:
+        None
+    """
+    try:
+        array = ft_load("landscape.jpg")
+        ft_invert(array)
+        ft_red(array)
+        ft_green(array)
+        ft_blue(array)
+        ft_grey(array)
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        return 1
+
+    return 0
+
+
+if __name__ == "__main__":
+    main()

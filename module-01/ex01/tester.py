@@ -20,10 +20,10 @@ print("--------------------------------")
 # Test 1b - Valid input: 2D array containing non-numeric values
 print("Test 1b - Valid input: 2D array containing non-numeric values")
 
-family = [[1.80, 78.4],
-          [2.15, "valid"],
-          [2.10, 98],
-          [1.88, 75.2]]
+family = [[1.80, 78.4, "2"],
+          [2.15, "valid", 5],
+          [2.10, 98, 31],
+          [1.88, 75.2, 22]]
 
 try:
     print(slice_me(family, 1, -1))

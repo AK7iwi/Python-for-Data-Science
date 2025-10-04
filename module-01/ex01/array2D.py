@@ -131,6 +131,33 @@ def validate_2d_array(family: list) -> None:
     validate_2d_array_content(family)
 
 
+def print_info(family_array: np.ndarray, sliced_array: np.ndarray) -> None:
+
+    """
+    Print information about the arrays.
+    """
+    print(f"My shape is : {family_array.shape}")
+    print(f"My new shape is : {sliced_array.shape}")
+
+
+def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Slice a 2D array and return the truncated version.
+    """
+    family_array = np.array(family)
+    sliced_array = family_array[start:end]
+
+    return family_array, sliced_array
+
+
+def validate_data(family: list, start: int, end: int) -> None:
+    """
+    Validate that the data is a proper 2D array.
+    """
+    validate_2d_array(family)
+    validate_slice_indices(start, end, len(family))
+
+
 def slice_me(family: list, start: int, end: int) -> list:
     """
     Slice a 2D array and return the truncated version.
@@ -146,13 +173,29 @@ def slice_me(family: list, start: int, end: int) -> list:
     Raises:
         None
     """
-    validate_2d_array(family)
-    validate_slice_indices(start, end, len(family))
-
-    family_array = np.array(family)
-    print(f"My shape is : {family_array.shape}")
-
-    sliced_array = family_array[start:end]
-    print(f"My new shape is : {sliced_array.shape}")
+    validate_data(family, start, end)
+    family_array, sliced_array = slice_array(family, start, end)
+    print_info(family_array, sliced_array)
 
     return sliced_array.tolist()
+
+
+def main():
+    """
+    Main function to test the slice_me function.
+    """
+    family = [[1.80, 78.4],
+          [2.15, 102.7],
+          [2.10, 98.5],
+          [1.88, 75.2]]
+
+    try:
+        print(slice_me(family, 0, 2))
+        print(slice_me(family, 1, -2))
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()

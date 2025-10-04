@@ -2,6 +2,25 @@ import numpy as np
 import math
 
 
+def validate_data_length(height: list[int | float],
+                         weight: list[int | float]) -> None:
+    """
+    Validate that the height and weight lists have the same length.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the height and weight lists have different lengths
+    """
+    if len(height) != len(weight):
+        raise ValueError("Height and weight lists must have the same size")
+
+
 def validate_data_content(values: list, name: str) -> None:
     """
     Validate that the data is a list of int or float
@@ -52,18 +71,7 @@ def validate_data(values: list, name: str) -> None:
     """
     Validate that the data is a list of int or float and is finite
     and positive.
-
-    Args:
-        values (list): List of values to check
-        name (str): Name of the parameter for error messages
-
-    Returns:
-        None
-
-    Raises:
-        None
     """
-
     validate_data_structure(values, name)
     validate_data_content(values, name)
 
@@ -105,10 +113,46 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     validate_limit(limit)
     validate_data(bmi, "BMI")
 
-    bmi_array = np.array(bmi)
+    return (np.array(bmi) > limit).tolist()
 
-    # Vectorized comparison
-    return (bmi_array > limit).tolist()
+
+def calculate_bmi(height: list[int | float],
+                  weight: list[int | float]) -> list[int | float]:
+    """
+    Calculate BMI values from height and weight lists.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        list[int | float]: List of BMI values
+
+    Raises:
+        None
+    """
+    return np.array(weight) / (np.array(height) ** 2)
+
+
+def validate_measurement(height: list[int | float],
+                  weight: list[int | float]) -> None:
+    """
+    Validate that the data is a list of int or float and is finite
+    and positive.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    validate_data(height, "Height")
+    validate_data(weight, "Weight")
+    validate_data_length(height, weight)
 
 
 def give_bmi(height: list[int | float],
@@ -126,17 +170,28 @@ def give_bmi(height: list[int | float],
     Raises:
         ValueError: If lists are not the same size
     """
-    validate_data(height, "Height")
-    validate_data(weight, "Weight")
-
-    if len(height) != len(weight):
-        raise ValueError("Height and weight lists must have the same size")
-
-    # Convert to numpy arrays
-    h_array = np.array(height)
-    w_array = np.array(weight)
-
-    # Calculate BMI
-    bmi_array = w_array / (h_array ** 2)
+    validate_measurement(height, weight)
+    bmi_array = calculate_bmi(height, weight)
 
     return bmi_array.tolist()
+
+
+def main():
+    """
+    Main function to test the give_bmi function.
+    """
+    height = [2.71, 1.15]
+    weight = [165.3, 38.4]
+    limit = 26
+
+    try:
+        bmi = give_bmi(height, weight)
+        print(bmi)
+        print(apply_limit(bmi, limit))
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()

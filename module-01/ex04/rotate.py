@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from load_image import ft_load
+from zoom import zoom_center_square_to_grayscale
 
 def display_image(image: np.ndarray, title: str) -> None:
     """
@@ -17,45 +17,11 @@ def display_image(image: np.ndarray, title: str) -> None:
         None
     """
     plt.figure(figsize=(8, 8))
-    
-    # Check if grayscale or color
-    if len(image.shape) == 2:
-        plt.imshow(image, cmap='gray')
-    else:
-        plt.imshow(image)
-    
+    plt.imshow(image, cmap='gray')
     plt.title(title)
-    plt.axis('off')
+    plt.xlabel('X axis (pixels)')
+    plt.ylabel('Y axis (pixels)')
     plt.show()
-
-
-def cut_square(image: np.ndarray) -> np.ndarray:
-    """
-    Cut a square part from the center of the image.
-
-    Args:
-        image (np.ndarray): The image to cut
-
-    Returns:
-        np.ndarray: Square portion of the image
-
-    Raises:
-        None
-    """
-    height, width = image.shape[:2]
-    
-    size = min(height, width)
-    
-    center_y, center_x = height // 2, width // 2
-    
-    start_y = center_y - size // 2
-    end_y = center_y + size // 2
-    start_x = center_x - size // 2
-    end_x = center_x + size // 2
-    
-    square = image[start_y:end_y, start_x:end_x]
-    
-    return square
 
 
 def manual_transpose(image: np.ndarray) -> np.ndarray:
@@ -72,19 +38,33 @@ def manual_transpose(image: np.ndarray) -> np.ndarray:
         None
     """
     rows, cols = image.shape[:2]
-    
+
     if len(image.shape) == 2:
-        transposed = np.zeros((cols, rows), dtype=image.dtype)
-        for i in range(rows):
-            for j in range(cols):
-                transposed[j, i] = image[i, j]
+        channels = 1
     else:
-        transposed = np.zeros((cols, rows, image.shape[2]), dtype=image.dtype)
-        for i in range(rows):
-            for j in range(cols):
-                transposed[j, i] = image[i, j]
+        channels = image.shape[2]
+    
+    transposed = np.zeros((cols, rows, channels), dtype=image.dtype)
+    for i in range(rows):
+        for j in range(cols):
+            transposed[j, i] = image[i, j]
     
     return transposed
+
+
+def rotate_image(zoomed_image: np.ndarray) -> np.ndarray:
+    """
+    Rotate a 2D array (no library allowed).
+
+    Args:
+        image (np.ndarray): The image to rotate
+
+    Returns:
+        np.ndarray: Rotated image
+    """
+    transposed_image = manual_transpose(zoomed_image)
+
+    return transposed_image
 
 
 def main():
@@ -98,13 +78,11 @@ def main():
         None
     """
     try:
-        image = ft_load("animal.jpeg")
+        _, zoomed_image, *_ = zoom_center_square_to_grayscale("animal.jpeg")
+        transposed_image = rotate_image(zoomed_image)
         
-        square_image = cut_square(image)
-        print(f"Square image shape: {square_image.shape}")
-        
-        transposed_image = manual_transpose(square_image)
-        
+        print(f"Square image shape: {transposed_image.shape}")
+        print(zoomed_image)
         print(f"New shape after Transpose: {transposed_image.shape}")
         print(transposed_image)
         

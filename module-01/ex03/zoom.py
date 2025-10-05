@@ -26,28 +26,33 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
     plt.show()
 
 
-def convert_to_grayscale(image: np.ndarray) -> np.ndarray:
+def print_image_info(image: np.ndarray) -> None:
     """
-    Convert RGB image to grayscale using numpy.
+    Print detailed information about the image.
 
     Args:
-        image (np.ndarray): RGB image array
+        image (np.ndarray): The image array
 
     Returns:
-        np.ndarray: Grayscale image array
+        None
 
     Raises:
         None
     """
-    # Check if image is already grayscale
+    height, width = image.shape[:2]
     if len(image.shape) == 2:
-        return image
+        channels = 1
+    else:
+        channels = image.shape[2]
 
-    # Convert RGB to grayscale using standard formula
-    grayscale = np.dot(image[..., :3], [0.299, 0.587, 0.114])
-    grayscale = grayscale.astype(np.uint8)
-
-    return grayscale
+    print("="*50)
+    print("Image dimensions:")
+    print(f"-Width (X axis): {width} pixels")
+    print(f"-Height (Y axis): {height} pixels")
+    print(f"-Number of channels: {channels}")
+    print(f"-Total pixels: {height * width}")
+    print("="*50)
+    print(image)
 
 
 def define_zoom_area(image: np.ndarray) -> tuple:
@@ -75,7 +80,31 @@ def define_zoom_area(image: np.ndarray) -> tuple:
     return start_x, start_y, end_x, end_y
 
 
-def zoom_image(image: np.ndarray) -> tuple:
+def convert_to_grayscale(image: np.ndarray) -> np.ndarray:
+    """
+    Convert RGB image to grayscale using numpy.
+
+    Args:
+        image (np.ndarray): RGB image array
+
+    Returns:
+        np.ndarray: Grayscale image array
+
+    Raises:
+        None
+    """
+    # Check if image is already grayscale
+    if len(image.shape) == 2:
+        return image
+
+    # Convert RGB to grayscale using standard formula
+    grayscale = np.dot(image[..., :3], [0.299, 0.587, 0.114])
+    grayscale = grayscale.astype(np.uint8)
+
+    return grayscale
+
+
+def zoom_center_square(image: np.ndarray) -> tuple:
     """
     Zoom (crop) a portion of the image.
 
@@ -94,33 +123,33 @@ def zoom_image(image: np.ndarray) -> tuple:
     """
 
     start_x, start_y, end_x, end_y = define_zoom_area(image)
-    zoomed = image[start_y:end_y, start_x:end_x]
+    zoomed_image = image[start_y:end_y, start_x:end_x]
 
-    return zoomed, start_x, start_y, end_x, end_y
+    return zoomed_image, start_x, start_y, end_x, end_y
 
 
-def print_image_info(image: np.ndarray) -> None:
+def zoom_center_square_to_grayscale(path: str) -> tuple:
     """
-    Print detailed information about the original image.
+    Zoom (crop) a portion of the image.
 
     Args:
-        image (np.ndarray): The original image array
+        image (np.ndarray): The image to zoom
+        start_x (int): Start x coordinate
+        start_y (int): Start y coordinate
+        end_x (int): End x coordinate
+        end_y (int): End y coordinate
 
     Returns:
-        None
+        np.ndarray: The zoomed image
 
     Raises:
         None
     """
-    height, width, channels = image.shape
+    image = ft_load(path)    
+    zoomed_image, start_x, start_y, end_x, end_y = zoom_center_square(image)
+    zoomed_grayscaled_image = convert_to_grayscale(zoomed_image)
 
-    print("\n" + "="*50)
-    print("Image dimensions:")
-    print(f"-Width (X axis): {width} pixels")
-    print(f"-Height (Y axis): {height} pixels")
-    print(f"-Number of channels: {channels}")
-    print(f"-Total pixels: {height * width}")
-    print("="*50)
+    return image, zoomed_grayscaled_image, start_x, start_y, end_x, end_y
 
 
 def main():
@@ -137,20 +166,15 @@ def main():
         None
     """
     try:
-        #Refacto load_image
-        image = ft_load("animal.jpeg")
-        print_image_info(image)
+        image, zoomed_image, start_x, start_y, end_x, end_y = zoom_center_square_to_grayscale("animal.jpeg")
 
-        zoomed_image, start_x, start_y, end_x, end_y = zoom_image(image)
+        print_image_info(image)
         print(f"\nZooming to area: ({start_x}, {start_y}) to "
               f"({end_x}, {end_y})")
+        print(f"New shape after slicing: {zoomed_image.shape}")
+        print_image_info(zoomed_image)
 
-        grayscale_image = convert_to_grayscale(zoomed_image)
-        print(f"New shape after zooming: {grayscale_image.shape}")
-
-        display_image_with_scale(grayscale_image, "Zoomed Image")
-
-        print(grayscale_image)
+        display_image_with_scale(zoomed_image, "Zoomed Image")
 
     except Exception as e:
         print(f"Error: {e}")

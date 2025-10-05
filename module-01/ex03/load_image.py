@@ -2,27 +2,6 @@ import numpy as np
 import os
 from PIL import Image
 
-
-def print_info(image_array: np.ndarray) -> None:
-    """
-    Print information about the image array.
-    """
-    print(f"The shape of image is: {image_array.shape}")
-    print(image_array)
-
-
-def load_image(path: str) -> np.ndarray:
-    """
-    Load an image file and return its RGB pixel content as a numpy array.
-    """
-    # Load image using PIL
-    image = Image.open(path)
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-
-    return np.array(image)
-
-
 def validate_path_exists(path: str) -> None:
     """
     Validate that the file path exists.
@@ -81,6 +60,25 @@ def validate_path_string(path: str) -> None:
         raise ValueError("Path cannot be empty")
 
 
+def print_info(image_array: np.ndarray) -> None:
+    """
+    Print information about the image array.
+    """
+    print(f"The shape of image is: {image_array.shape}")
+
+
+def load_image(path: str) -> np.ndarray:
+    """
+    Load an image file and return its RGB pixel content as a numpy array.
+    """
+    # Load image using PIL
+    image = Image.open(path)
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
+
+    return np.array(image)
+
+
 def validate_path(path: str) -> None:
     """
     Validate that the path is a valid image file path.
@@ -113,13 +111,10 @@ def ft_load(path: str) -> np.ndarray:
         None
     """
     validate_path(path)
-
     image = load_image(path)
-    image_array = np.array(image)
+    print_info(image)
 
-    print_info(image_array)
-
-    return image_array
+    return image
 
 
 def main():
@@ -127,7 +122,7 @@ def main():
     Main function to test the ft_load function.
     """
     try:
-        print(ft_load("animal.jpeg"))
+        print(ft_load("landscape.jpg"))
     except Exception as e:
         print(f"Error: {e}")
 

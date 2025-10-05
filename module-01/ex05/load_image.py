@@ -2,6 +2,7 @@ import numpy as np
 import os
 from PIL import Image
 
+
 def validate_path_exists(path: str) -> None:
     """
     Validate that the file path exists.
@@ -65,6 +66,7 @@ def print_info(image_array: np.ndarray) -> None:
     Print information about the image array.
     """
     print(f"The shape of image is: {image_array.shape}")
+    print(image_array)
 
 
 def load_image(path: str) -> np.ndarray:

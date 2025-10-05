@@ -145,7 +145,7 @@ def zoom_center_square_to_grayscale(path: str) -> tuple:
     Raises:
         None
     """
-    image = ft_load(path)    
+    image = ft_load(path)
     zoomed_image, start_x, start_y, end_x, end_y = zoom_center_square(image)
     zoomed_grayscaled_image = convert_to_grayscale(zoomed_image)
 
@@ -166,7 +166,8 @@ def main():
         None
     """
     try:
-        image, zoomed_image, start_x, start_y, end_x, end_y = zoom_center_square_to_grayscale("animal.jpeg")
+        image, zoomed_image, start_x, start_y, end_x, end_y = \
+            zoom_center_square_to_grayscale("animal.jpeg")
 
         print_image_info(image)
         print(f"\nZooming to area: ({start_x}, {start_y}) to "

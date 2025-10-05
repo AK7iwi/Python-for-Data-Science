@@ -135,7 +135,7 @@ def calculate_bmi(height: list[int | float],
 
 
 def validate_measurement(height: list[int | float],
-                  weight: list[int | float]) -> None:
+                         weight: list[int | float]) -> None:
     """
     Validate that the data is a list of int or float and is finite
     and positive.

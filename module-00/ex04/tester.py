@@ -2,7 +2,7 @@ from whatis import validate_argument, check_odd_even
 
 
 def main():
-    try:    
+    try:
         number = validate_argument()
         if number is not None:
             check_odd_even(number)

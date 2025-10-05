@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
 
+
 def display_image(image: np.ndarray, title: str) -> None:
     """
     Display the image with matplotlib.
@@ -129,7 +130,7 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
     # 0.299*R + 0.587*G + 0.114*B
     grayscale = np.dot(array, [0.299, 0.587, 0.114])
     grayscale = grayscale.astype(np.uint8)
-    
+
     # Convert to 3D array to maintain shape
     grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)
 
@@ -155,7 +156,7 @@ def main():
         ft_green(array)
         ft_blue(array)
         ft_grey(array)
-        
+
     except Exception as e:
         print(f"Error: {e}")
         return 1

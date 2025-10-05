@@ -2,6 +2,7 @@ import numpy as np
 import os
 from PIL import Image
 
+
 def validate_path_exists(path: str) -> None:
     """
     Validate that the file path exists.

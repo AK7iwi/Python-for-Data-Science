@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from zoom import zoom_center_square_to_grayscale
 
+
 def display_image(image: np.ndarray, title: str) -> None:
     """
     Display the image with matplotlib.
@@ -43,12 +44,12 @@ def manual_transpose(image: np.ndarray) -> np.ndarray:
         channels = 1
     else:
         channels = image.shape[2]
-    
+
     transposed = np.zeros((cols, rows, channels), dtype=image.dtype)
     for i in range(rows):
         for j in range(cols):
             transposed[j, i] = image[i, j]
-    
+
     return transposed
 
 
@@ -61,6 +62,9 @@ def rotate_image(zoomed_image: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: Rotated image
+
+    Raises:
+        None
     """
     transposed_image = manual_transpose(zoomed_image)
 
@@ -80,14 +84,14 @@ def main():
     try:
         _, zoomed_image, *_ = zoom_center_square_to_grayscale("animal.jpeg")
         transposed_image = rotate_image(zoomed_image)
-        
+
         print(f"Square image shape: {transposed_image.shape}")
         print(zoomed_image)
         print(f"New shape after Transpose: {transposed_image.shape}")
         print(transposed_image)
-        
+
         display_image(transposed_image, "Transposed Image")
-        
+
     except Exception as e:
         print(f"Error: {e}")
         return 1

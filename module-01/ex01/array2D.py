@@ -140,7 +140,8 @@ def print_info(family_array: np.ndarray, sliced_array: np.ndarray) -> None:
     print(f"My new shape is : {sliced_array.shape}")
 
 
-def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray, np.ndarray]:
+def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray,
+                                                             np.ndarray]:
     """
     Slice a 2D array and return the truncated version.
     """
@@ -185,9 +186,9 @@ def main():
     Main function to test the slice_me function.
     """
     family = [[1.80, 78.4],
-          [2.15, 102.7],
-          [2.10, 98.5],
-          [1.88, 75.2]]
+              [2.15, 102.7],
+              [2.10, 98.5],
+              [1.88, 75.2]]
 
     try:
         print(slice_me(family, 0, 2))

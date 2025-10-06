@@ -217,7 +217,7 @@ def slice_me(family: list, start: int, end: int) -> list:
 
 def validate_args() -> None:
     """
-    Validate the arguments.
+    Validate the number of arguments.
 
     Args:
         None

@@ -1,5 +1,6 @@
-import numpy as np
+import sys
 import os
+import numpy as np
 from PIL import Image
 
 
@@ -64,16 +65,32 @@ def validate_path_string(path: str) -> None:
 def print_info(image_array: np.ndarray) -> None:
     """
     Print information about the image array.
+
+    Args:
+        image_array (np.ndarray): The image array to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
     """
     print(f"The shape of image is: {image_array.shape}")
-    print(image_array)
 
 
 def load_image(path: str) -> np.ndarray:
     """
     Load an image file and return its RGB pixel content as a numpy array.
+
+    Args:
+        path (str): Path to the image file
+
+    Returns:
+        np.ndarray: RGB pixel array of the image
+
+    Raises:
+        None
     """
-    # Load image using PIL
     image = Image.open(path)
     if image.mode != 'RGB':
         image = image.convert('RGB')
@@ -119,15 +136,38 @@ def ft_load(path: str) -> np.ndarray:
     return image
 
 
-def main():
+def validate_args() -> None:
+    """
+    Validate the number of arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
+
+
+def main() -> int:
     """
     Main function to test the ft_load function.
     """
     try:
+        validate_args()
+
         print(ft_load("landscape.jpg"))
+        return 0
+
     except Exception as e:
         print(f"Error: {e}")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

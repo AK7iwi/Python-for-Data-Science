@@ -189,7 +189,7 @@ def give_bmi(height: list[int | float],
 
 def validate_args() -> None:
     """
-    Validate the arguments.
+    Validate the number of arguments.
 
     Args:
         None

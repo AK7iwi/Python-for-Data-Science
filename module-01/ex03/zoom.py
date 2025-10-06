@@ -1,15 +1,15 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
 
 
-def display_image_with_scale(image: np.ndarray, title: str) -> None:
+def print_info(image: np.ndarray) -> None:
     """
-    Display image with scale on x and y axis.
+    Print information about the image.
 
     Args:
-        image (np.ndarray): The image to display
-        title (str): Title for the plot
+        image (np.ndarray): The image to print information about
 
     Returns:
         None
@@ -17,13 +17,7 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
     Raises:
         None
     """
-    plt.figure(figsize=(10, 8))
-    plt.imshow(image, cmap='gray')
-    plt.title(title)
-    plt.xlabel('X axis (pixels)')
-    plt.ylabel('Y axis (pixels)')
-    plt.colorbar(label='Pixel intensity')
-    plt.show()
+    print(f"New shape after slicing: {image.shape}")
 
 
 def print_image_info(image: np.ndarray) -> None:
@@ -31,7 +25,7 @@ def print_image_info(image: np.ndarray) -> None:
     Print detailed information about the image.
 
     Args:
-        image (np.ndarray): The image array
+        image (np.ndarray): The image to print information about
 
     Returns:
         None
@@ -104,16 +98,12 @@ def convert_to_grayscale(image: np.ndarray) -> np.ndarray:
     return grayscale
 
 
-def zoom_center_square(image: np.ndarray) -> tuple:
+def zoom_center_square(image: np.ndarray) -> np.ndarray:
     """
     Zoom (crop) a portion of the image.
 
     Args:
         image (np.ndarray): The image to zoom
-        start_x (int): Start x coordinate
-        start_y (int): Start y coordinate
-        end_x (int): End x coordinate
-        end_y (int): End y coordinate
 
     Returns:
         np.ndarray: The zoomed image
@@ -125,36 +115,76 @@ def zoom_center_square(image: np.ndarray) -> tuple:
     start_x, start_y, end_x, end_y = define_zoom_area(image)
     zoomed_image = image[start_y:end_y, start_x:end_x]
 
-    return zoomed_image, start_x, start_y, end_x, end_y
+    print(f"\nZooming to area: ({start_x}, {start_y}) to "
+          f"({end_x}, {end_y})")
+
+    return zoomed_image
 
 
-def zoom_center_square_to_grayscale(path: str) -> tuple:
+def display_image_with_scale(image: np.ndarray, title: str) -> None:
     """
-    Zoom (crop) a portion of the image.
+    Display image with scale on x and y axis.
 
     Args:
-        image (np.ndarray): The image to zoom
-        start_x (int): Start x coordinate
-        start_y (int): Start y coordinate
-        end_x (int): End x coordinate
-        end_y (int): End y coordinate
+        image (np.ndarray): The image to display
+        title (str): Title for the plot
 
     Returns:
-        np.ndarray: The zoomed image
+        None
 
     Raises:
         None
     """
-    image = ft_load(path)
-    zoomed_image, start_x, start_y, end_x, end_y = zoom_center_square(image)
-    zoomed_grayscaled_image = convert_to_grayscale(zoomed_image)
+    plt.figure(figsize=(10, 8))
+    plt.imshow(image, cmap='gray')
+    plt.title(title)
+    plt.xlabel('X axis (pixels)')
+    plt.ylabel('Y axis (pixels)')
+    plt.colorbar(label='Pixel intensity')
+    plt.show()
 
-    return image, zoomed_grayscaled_image, start_x, start_y, end_x, end_y
 
-
-def main():
+def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     """
-    Main function to load, analyze, and zoom an image.
+    Zoom (crop) a portion of the image and convert to grayscale.
+
+    Args:
+        image (np.ndarray): The image to zoom
+
+    Returns:
+        np.ndarray: The zoomed grayscale image
+
+    Raises:
+        None
+    """
+    zoomed_image = zoom_center_square(image)
+    zoomed_grayscaled_image = convert_to_grayscale(zoomed_image)
+    print_info(zoomed_grayscaled_image)
+
+    return zoomed_grayscaled_image
+
+
+def validate_args() -> None:
+    """
+    Validate the number of arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
+
+
+def main() -> int:
+    """
+    Main function to load, analyze, zoom and display an image.
 
     Args:
         None
@@ -166,23 +196,21 @@ def main():
         None
     """
     try:
-        image, zoomed_image, start_x, start_y, end_x, end_y = \
-            zoom_center_square_to_grayscale("animal.jpeg")
+        validate_args()
 
+        image = ft_load("animal.jpeg")
         print_image_info(image)
-        print(f"\nZooming to area: ({start_x}, {start_y}) to "
-              f"({end_x}, {end_y})")
-        print(f"New shape after slicing: {zoomed_image.shape}")
-        print_image_info(zoomed_image)
 
+        zoomed_image = zoom_center_square_to_grayscale(image)
+        print_image_info(zoomed_image)
         display_image_with_scale(zoomed_image, "Zoomed Image")
+
+        return 0
 
     except Exception as e:
         print(f"Error: {e}")
         return 1
 
-    return 0
-
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -3,23 +3,22 @@ import numpy as np
 import math
 
 
-def validate_data_length(height: list[int | float],
-                         weight: list[int | float]) -> None:
+def validate_args() -> None:
     """
-    Validate that the height and weight lists have the same length.
+    Validate the number of arguments.
 
     Args:
-        height (list[int | float]): List of heights in meters
-        weight (list[int | float]): List of weights in kilograms
+        None
 
     Returns:
         None
 
     Raises:
-        ValueError: If the height and weight lists have different lengths
+        ValueError: If the number of arguments is not 1
     """
-    if len(height) != len(weight):
-        raise ValueError("Height and weight lists must have the same size")
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
 
 
 def validate_data_content(values: list[int | float], name: str) -> None:
@@ -145,6 +144,25 @@ def calculate_bmi(height: list[int | float],
     return (np.array(weight) / (np.array(height) ** 2)).tolist()
 
 
+def validate_data_length(height: list[int | float],
+                         weight: list[int | float]) -> None:
+    """
+    Validate that the height and weight lists have the same length.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the height and weight lists have different lengths
+    """
+    if len(height) != len(weight):
+        raise ValueError("Height and weight lists must have the same size")
+
+
 def validate_measurement(height: list[int | float],
                          weight: list[int | float]) -> None:
     """
@@ -185,24 +203,6 @@ def give_bmi(height: list[int | float],
     bmi = calculate_bmi(height, weight)
 
     return bmi
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
 
 
 def main() -> int:

@@ -1,6 +1,26 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
+from load_image import ft_load
 from zoom import zoom_center_square_to_grayscale
+
+
+def validate_args() -> None:
+    """
+    Validate the number of arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
 
 
 def display_image(image: np.ndarray, title: str) -> None:
@@ -23,6 +43,23 @@ def display_image(image: np.ndarray, title: str) -> None:
     plt.xlabel('X axis (pixels)')
     plt.ylabel('Y axis (pixels)')
     plt.show()
+
+
+def print_info(image: np.ndarray) -> None:
+    """
+    Print information about the image.
+
+    Args:
+        image (np.ndarray): The image to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    print(f"New shape after Transpose: {image.shape}")
+    print(image)
 
 
 def manual_transpose(image: np.ndarray) -> np.ndarray:
@@ -53,7 +90,7 @@ def manual_transpose(image: np.ndarray) -> np.ndarray:
     return transposed
 
 
-def rotate_image(zoomed_image: np.ndarray) -> np.ndarray:
+def rotate_image(image: np.ndarray) -> np.ndarray:
     """
     Rotate a 2D array (no library allowed).
 
@@ -66,14 +103,19 @@ def rotate_image(zoomed_image: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    transposed_image = manual_transpose(zoomed_image)
+    transposed_image = manual_transpose(image)
+    print_info(transposed_image)
+    display_image(transposed_image, "Transposed Image")
 
     return transposed_image
 
 
-def main():
+def main() -> int:
     """
     Main function to load, cut, and transpose an image.
+
+    Args:
+        None
 
     Returns:
         int: 0 on success, 1 on error
@@ -82,22 +124,18 @@ def main():
         None
     """
     try:
-        _, zoomed_image, *_ = zoom_center_square_to_grayscale("animal.jpeg")
-        transposed_image = rotate_image(zoomed_image)
+        validate_args()
 
-        print(f"Square image shape: {transposed_image.shape}")
-        print(zoomed_image)
-        print(f"New shape after Transpose: {transposed_image.shape}")
-        print(transposed_image)
+        image = ft_load("animal.jpeg")
+        zoomed_image = zoom_center_square_to_grayscale(image)
+        rotate_image(zoomed_image)
 
-        display_image(transposed_image, "Transposed Image")
+        return 0
 
     except Exception as e:
         print(f"Error: {e}")
         return 1
 
-    return 0
-
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

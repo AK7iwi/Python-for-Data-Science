@@ -2,6 +2,65 @@ import sys
 import numpy as np
 
 
+def validate_args() -> None:
+    """
+    Validate the number of arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
+
+
+def print_info(family_array: np.ndarray, sliced_array: np.ndarray) -> None:
+
+    """
+    Print information about the arrays.
+
+    Args:
+        family_array (np.ndarray): The original array
+        sliced_array (np.ndarray): The sliced array
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    print(f"My shape is : {family_array.shape}")
+    print(f"My new shape is : {sliced_array.shape}")
+
+
+def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray,
+                                                             np.ndarray]:
+    """
+    Slice a 2D array and return the truncated version.
+
+    Args:
+        family (list): 2D list to slice
+        start (int): Start index for slicing
+        end (int): End index for slicing
+
+    Returns:
+        tuple[np.ndarray, np.ndarray]: The original and sliced arrays
+
+    Raises:
+        None
+    """
+    family_array = np.array(family)
+    sliced_array = family_array[start:end]
+
+    return family_array, sliced_array
+
+
 def validate_indices_bounds(start: int, end: int, array_length: int) -> None:
     """
     Validate that indices are within the bounds of the array.
@@ -132,47 +191,6 @@ def validate_2d_array(family: list) -> None:
     validate_2d_array_content(family)
 
 
-def print_info(family_array: np.ndarray, sliced_array: np.ndarray) -> None:
-
-    """
-    Print information about the arrays.
-
-    Args:
-        family_array (np.ndarray): The original array
-        sliced_array (np.ndarray): The sliced array
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    print(f"My shape is : {family_array.shape}")
-    print(f"My new shape is : {sliced_array.shape}")
-
-
-def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray,
-                                                             np.ndarray]:
-    """
-    Slice a 2D array and return the truncated version.
-
-    Args:
-        family (list): 2D list to slice
-        start (int): Start index for slicing
-        end (int): End index for slicing
-
-    Returns:
-        tuple[np.ndarray, np.ndarray]: The original and sliced arrays
-
-    Raises:
-        None
-    """
-    family_array = np.array(family)
-    sliced_array = family_array[start:end]
-
-    return family_array, sliced_array
-
-
 def validate_data(family: list, start: int, end: int) -> None:
     """
     Validate that the data is a proper 2D array and that the indices are valid
@@ -213,24 +231,6 @@ def slice_me(family: list, start: int, end: int) -> list:
     print_info(family_array, sliced_array)
 
     return sliced_array.tolist()
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
 
 
 def main() -> int:

@@ -1,6 +1,25 @@
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
+
+
+def validate_args() -> None:
+    """
+    Validate the number of arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
 
 
 def display_image(image: np.ndarray, title: str) -> None:
@@ -127,7 +146,7 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
         None
     """
     # Manual grayscale conversion using only = and /
-    grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3 
+    grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3
     grayscale = grayscale.astype(np.uint8)
     grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)
 
@@ -140,6 +159,9 @@ def main():
     """
     Main function to test all filter functions.
 
+    Args:
+        None
+
     Returns:
         int: 0 on success, 1 on error
 
@@ -147,19 +169,25 @@ def main():
         None
     """
     try:
+        validate_args()
+
         array = ft_load("landscape.jpg")
+        print(array)
+
         ft_invert(array)
         ft_red(array)
         ft_green(array)
         ft_blue(array)
         ft_grey(array)
 
+        print(ft_invert.__doc__)
+
+        return 0
+
     except Exception as e:
         print(f"Error: {e}")
         return 1
 
-    return 0
-
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

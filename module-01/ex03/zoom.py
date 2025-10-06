@@ -22,6 +22,29 @@ def validate_args() -> None:
         raise ValueError("Invalid number of arguments")
 
 
+def display_image_with_scale(image: np.ndarray, title: str) -> None:
+    """
+    Display image with scale on x and y axis.
+
+    Args:
+        image (np.ndarray): The image to display
+        title (str): Title for the plot
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    plt.figure(figsize=(10, 8))
+    plt.imshow(image, cmap='gray')
+    plt.title(title)
+    plt.xlabel('X axis (pixels)')
+    plt.ylabel('Y axis (pixels)')
+    plt.colorbar(label='Pixel intensity')
+    plt.show()
+
+
 def print_image_info(image: np.ndarray) -> None:
     """
     Print detailed information about the image.
@@ -66,29 +89,6 @@ def print_info(image: np.ndarray) -> None:
     """
     print(f"New shape after slicing: {image.shape}")
     print_image_info(image)
-
-
-def display_image_with_scale(image: np.ndarray, title: str) -> None:
-    """
-    Display image with scale on x and y axis.
-
-    Args:
-        image (np.ndarray): The image to display
-        title (str): Title for the plot
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    plt.figure(figsize=(10, 8))
-    plt.imshow(image, cmap='gray')
-    plt.title(title)
-    plt.xlabel('X axis (pixels)')
-    plt.ylabel('Y axis (pixels)')
-    plt.colorbar(label='Pixel intensity')
-    plt.show()
 
 
 def convert_to_grayscale(image: np.ndarray) -> np.ndarray:

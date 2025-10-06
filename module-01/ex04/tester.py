@@ -1,20 +1,14 @@
 from load_image import ft_load
-from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
+from zoom import zoom_center_square_to_grayscale
+from rotate import rotate_image
 
 # Test 1 - Valid input: Basic input
 print("Test 1 - Valid input: Basic input")
 
 try:
-    array = ft_load("landscape.jpg")
-    print(array)
-
-    ft_invert(array)
-    ft_red(array)
-    ft_green(array)
-    ft_blue(array)
-    ft_grey(array)
-
-    print(ft_invert.__doc__)
+    image = ft_load("animal.jpeg")
+    zoomed_image = zoom_center_square_to_grayscale(image)
+    rotate_image(zoomed_image)
 
 except Exception as e:
     print(f"Error: {e}")

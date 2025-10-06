@@ -209,7 +209,6 @@ def main() -> int:
     """
     Main function to test the give_bmi function.
     """
-
     height = [2.71, 1.15]
     weight = [165.3, 38.4]
     limit = 26
@@ -220,6 +219,7 @@ def main() -> int:
         bmi = give_bmi(height, weight)
         print(bmi)
         print(apply_limit(bmi, limit))
+
         return 0
 
     except Exception as e:

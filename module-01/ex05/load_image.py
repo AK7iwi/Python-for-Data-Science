@@ -162,6 +162,7 @@ def main() -> int:
         validate_args()
 
         print(ft_load("landscape.jpg"))
+
         return 0
 
     except Exception as e:

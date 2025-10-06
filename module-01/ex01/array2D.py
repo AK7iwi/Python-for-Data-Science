@@ -247,6 +247,7 @@ def main() -> int:
 
         print(slice_me(family, 0, 2))
         print(slice_me(family, 1, -2))
+
         return 0
 
     except Exception as e:

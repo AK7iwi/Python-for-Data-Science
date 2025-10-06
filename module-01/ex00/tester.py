@@ -23,9 +23,9 @@ except Exception as e:
 
 print("--------------------------------")
 
-# Test 1b: Valid input: measurement parameter (height and weight)
+# Test 1b - Valid input: measurement parameter (height and weight)
 # containing both integer and float values
-print("Test 1b: Valid input: measurement parameter (height and weight) "
+print("Test 1b - Valid input: measurement parameter (height and weight) "
       "containing both integer and float values")
 
 height = [2, 1, 1.81]

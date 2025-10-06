@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import math
 
@@ -21,13 +22,13 @@ def validate_data_length(height: list[int | float],
         raise ValueError("Height and weight lists must have the same size")
 
 
-def validate_data_content(values: list, name: str) -> None:
+def validate_data_content(values: list[int | float], name: str) -> None:
     """
     Validate that the data is a list of int or float
     and is finite and positive.
 
     Args:
-        values (list): The data to validate
+        values (list[int | float]): The data to validate
         name (str): The name of the parameter for error messages
 
     Returns:
@@ -46,12 +47,12 @@ def validate_data_content(values: list, name: str) -> None:
             raise ValueError(f"{name} at index {i} must be positive")
 
 
-def validate_data_structure(values: list, name: str) -> None:
+def validate_data_structure(values: list[int | float], name: str) -> None:
     """
     Validate that the data is a list and not empty.
 
     Args:
-        values (list): The data to validate
+        values (list[int | float]): The data to validate
         name (str): The name of the parameter for error messages
 
     Returns:
@@ -67,10 +68,20 @@ def validate_data_structure(values: list, name: str) -> None:
         raise ValueError(f"{name} cannot be empty")
 
 
-def validate_data(values: list, name: str) -> None:
+def validate_data(values: list[int | float], name: str) -> None:
     """
     Validate that the data is a list of int or float and is finite
     and positive.
+
+    Args:
+        values (list[int | float]): The data to validate
+        name (str): The name of the parameter for error messages
+
+    Returns:
+        None
+
+    Raises:
+        None
     """
     validate_data_structure(values, name)
     validate_data_content(values, name)
@@ -131,7 +142,7 @@ def calculate_bmi(height: list[int | float],
     Raises:
         None
     """
-    return np.array(weight) / (np.array(height) ** 2)
+    return (np.array(weight) / (np.array(height) ** 2)).tolist()
 
 
 def validate_measurement(height: list[int | float],
@@ -168,30 +179,53 @@ def give_bmi(height: list[int | float],
         list[int | float]: List of BMI values
 
     Raises:
-        ValueError: If lists are not the same size
+        None
     """
     validate_measurement(height, weight)
-    bmi_array = calculate_bmi(height, weight)
+    bmi = calculate_bmi(height, weight)
 
-    return bmi_array.tolist()
+    return bmi
 
 
-def main():
+def validate_args() -> None:
+    """
+    Validate the arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the number of arguments is not 1
+    """
+    args = sys.argv
+    if len(args) != 1:
+        raise ValueError("Invalid number of arguments")
+
+
+def main() -> int:
     """
     Main function to test the give_bmi function.
     """
+
     height = [2.71, 1.15]
     weight = [165.3, 38.4]
     limit = 26
 
     try:
+        validate_args()
+
         bmi = give_bmi(height, weight)
         print(bmi)
         print(apply_limit(bmi, limit))
+        return 0
 
     except Exception as e:
         print(f"Error: {e}")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -126,15 +126,12 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    # Convert to grayscale using standard formula
-    # 0.299*R + 0.587*G + 0.114*B
-    grayscale = np.dot(array, [0.299, 0.587, 0.114])
+    # Manual grayscale conversion using only = and /
+    grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3 
     grayscale = grayscale.astype(np.uint8)
-
-    # Convert to 3D array to maintain shape
     grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)
 
-    display_image(grayscale_3d, "Grayscale Image")
+    display_image(grayscale_3d, "Grey filter")
 
     return grayscale_3d
 

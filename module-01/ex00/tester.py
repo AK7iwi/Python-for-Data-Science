@@ -14,7 +14,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -34,7 +33,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -52,7 +50,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -70,7 +67,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -88,7 +84,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -107,7 +102,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -126,7 +120,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -145,7 +138,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -163,7 +155,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -182,7 +173,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -200,7 +190,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -220,7 +209,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -243,7 +231,6 @@ limit = 26
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -261,7 +248,6 @@ limit = 15
 
 try:
     bmi = give_bmi(height, weight)
-
     print(bmi, type(bmi))
     print(apply_limit(bmi, limit))
 
@@ -279,7 +265,6 @@ limit = 26.5
 
 try:
     bmi = give_bmi(height, weight)
-
     print(apply_limit(bmi, limit))
 
 except Exception as e:
@@ -296,7 +281,6 @@ limit = ["invalid", "list"]
 
 try:
     bmi = give_bmi(height, weight)
-
     print(apply_limit(bmi, limit))
 
 except Exception as e:
@@ -313,7 +297,6 @@ limit = -1
 
 try:
     bmi = give_bmi(height, weight)
-
     print(apply_limit(bmi, limit))
 
 except Exception as e:

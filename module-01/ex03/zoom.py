@@ -164,8 +164,6 @@ def validate_image_array(image: np.ndarray) -> None:
         raise TypeError("Image must be a numpy array")
     if len(image.shape) < 2:
         raise ValueError("Image must be at least 2D")
-    if image.size == 0:
-        raise ValueError("Image cannot be empty")
 
 
 def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:

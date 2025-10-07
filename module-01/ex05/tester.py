@@ -1,3 +1,4 @@
+import numpy as np
 from load_image import ft_load
 from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 
@@ -21,4 +22,38 @@ except Exception as e:
 
 print("--------------------------------")
 
-# All errors that can occur are handled by the load_image.py file
+# Test 2 - Invalid image array: non-numpy array
+print("Test 2 - Invalid image array: non-numpy array")
+
+try:
+    array = "invalid"
+    ft_invert(array)
+
+except Exception as e:
+    print(f"Error: {e}")
+
+print("--------------------------------")
+
+# Test 3a - Invalid image array: non-2D array
+print("Test 3a - Invalid image array: non-2D array")
+
+try:
+    array = np.array([1, 2, 3])
+    ft_invert(array)
+
+except Exception as e:
+    print(f"Error: {e}")
+
+print("--------------------------------")
+
+# Test 3b - Invalid image array: empty array
+print("Test 3b - Invalid image array: empty array")
+
+try:
+    array = np.array([])
+    ft_invert(array)
+
+except Exception as e:
+    print(f"Error: {e}")
+
+print("--------------------------------")

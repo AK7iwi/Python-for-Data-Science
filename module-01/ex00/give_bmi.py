@@ -106,7 +106,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     validate_limit(limit)
     validate_data(bmi, "BMI")
 
-    return (np.array(bmi) > limit).tolist()
+    return (np.asarray(bmi) > limit).tolist()
 
 
 def calculate_bmi(height: list[int | float],
@@ -124,7 +124,7 @@ def calculate_bmi(height: list[int | float],
     Raises:
         None
     """
-    return (np.array(weight) / (np.array(height) ** 2)).tolist()
+    return (np.asarray(weight) / (np.asarray(height) ** 2)).tolist()
 
 
 def validate_data_length(height: list[int | float],

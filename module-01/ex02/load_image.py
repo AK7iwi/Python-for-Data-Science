@@ -5,12 +5,12 @@ from PIL import Image
 from validate_args import validate_args
 
 
-def print_info(image_array: np.ndarray) -> None:
+def print_image_info(image: np.ndarray) -> None:
     """
-    Print information about the image array.
+    Print detailed information about the image.
 
     Args:
-        image_array (np.ndarray): The image array to print information about
+        image (np.ndarray): The image to print information about
 
     Returns:
         None
@@ -18,7 +18,20 @@ def print_info(image_array: np.ndarray) -> None:
     Raises:
         None
     """
-    print(f"The shape of image is: {image_array.shape}")
+    height, width = image.shape[:2]
+    if len(image.shape) == 2:
+        channels = 1
+    else:
+        channels = image.shape[2]
+
+    print("="*50)
+    print(f"The shape of image is: {image.shape}")
+    print("\nImage dimensions:")
+    print(f"-Width (X axis): {width} pixels")
+    print(f"-Height (Y axis): {height} pixels")
+    print(f"-Number of channels: {channels}")
+    print(f"-Total pixels: {height * width}")
+    print("="*50)
 
 
 def load_image(path: str) -> np.ndarray:
@@ -39,7 +52,7 @@ def load_image(path: str) -> np.ndarray:
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
-    return np.array(image)
+    return np.asarray(image)
 
 
 def validate_path_exists(path: str) -> None:
@@ -134,8 +147,7 @@ def ft_load(path: str) -> np.ndarray:
     validate_path(path)
 
     image = load_image(path)
-
-    print_info(image)
+    print_image_info(image)
 
     return image
 

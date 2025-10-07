@@ -1,8 +1,66 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-from load_image import ft_load
+from load_image import ft_load, print_image_info
 from validate_args import validate_args
+
+
+def validate_title(title: str) -> None:
+    """
+    Validate that the input is a valid title.
+
+    Args:
+        title (str): The title to validate
+
+    Returns:
+        None
+
+    Raises:
+        TypeError: If title is not a string
+        ValueError: If title is empty
+    """
+    if not isinstance(title, str):
+        raise TypeError("Title must be a string")
+    if title == "":
+        raise ValueError("Title must not be empty")
+
+
+def validate_image_array(image: np.ndarray) -> None:
+    """
+    Validate that the input is a valid image array.
+    
+    Args:
+        image (np.ndarray): The image to validate
+        
+    Raises:
+        TypeError: If image is not a numpy array
+        ValueError: If image is invalid
+    
+    Returns:
+        None
+    """
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    if len(image.shape) < 2:
+        raise ValueError("Image must be at least 2D")
+
+
+def validate_data(image: np.ndarray, title: str) -> None:
+    """
+    Validate that the input is a valid image array and title.
+
+    Args:
+        image (np.ndarray): The image to validate
+        title (str): The title to validate
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    validate_image_array(image)
+    validate_title(title)
 
 
 def display_image_with_scale(image: np.ndarray, title: str) -> None:
@@ -19,6 +77,8 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
     Raises:
         None
     """
+    validate_data(image, title)
+
     plt.figure(figsize=(10, 8))
     plt.imshow(image, cmap='gray')
     plt.title(title)
@@ -26,35 +86,6 @@ def display_image_with_scale(image: np.ndarray, title: str) -> None:
     plt.ylabel('Y axis (pixels)')
     plt.colorbar(label='Pixel intensity')
     plt.show()
-
-
-def print_image_info(image: np.ndarray) -> None:
-    """
-    Print detailed information about the image.
-
-    Args:
-        image (np.ndarray): The image to print information about
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    height, width = image.shape[:2]
-    if len(image.shape) == 2:
-        channels = 1
-    else:
-        channels = image.shape[2]
-
-    print("="*50)
-    print("Image dimensions:")
-    print(f"-Width (X axis): {width} pixels")
-    print(f"-Height (Y axis): {height} pixels")
-    print(f"-Number of channels: {channels}")
-    print(f"-Total pixels: {height * width}")
-    print("="*50)
-    print(image)
 
 
 def print_info(image: np.ndarray) -> None:
@@ -146,26 +177,6 @@ def zoom_center_square(image: np.ndarray) -> np.ndarray:
     return zoomed_image
 
 
-def validate_image_array(image: np.ndarray) -> None:
-    """
-    Validate that the input is a valid image array.
-    
-    Args:
-        image (np.ndarray): The image to validate
-        
-    Raises:
-        TypeError: If image is not a numpy array
-        ValueError: If image is invalid
-    
-    Returns:
-        None
-    """
-    if not isinstance(image, np.ndarray):
-        raise TypeError("Image must be a numpy array")
-    if len(image.shape) < 2:
-        raise ValueError("Image must be at least 2D")
-
-
 def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     """
     Zoom (crop) a portion of the image and convert to grayscale.
@@ -184,8 +195,6 @@ def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     zoomed_image = zoom_center_square(image)
     zoomed_grayscale_image = convert_to_grayscale(zoomed_image)
     print_info(zoomed_grayscale_image)
-
-    display_image_with_scale(zoomed_grayscale_image, "Zoomed Image")
 
     return zoomed_grayscale_image
 
@@ -207,8 +216,12 @@ def main() -> int:
         validate_args()
 
         image = ft_load("animal.jpeg")
-        print_image_info(image)
-        zoom_center_square_to_grayscale(image)
+        print(image)
+
+        zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
+        print(zoomed_grayscale_image)
+
+        display_image_with_scale(zoomed_grayscale_image, "Zoomed Image")
 
         return 0
 

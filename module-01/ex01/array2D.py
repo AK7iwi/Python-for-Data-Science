@@ -38,7 +38,7 @@ def slice_array(family: list, start: int, end: int) -> tuple[np.ndarray,
     Raises:
         None
     """
-    family_array = np.array(family)
+    family_array = np.asarray(family)
     sliced_array = family_array[start:end]
 
     return family_array, sliced_array

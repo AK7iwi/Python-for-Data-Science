@@ -26,6 +26,28 @@ def display_image(image: np.ndarray, title: str) -> None:
     plt.show()
 
 
+def validate_image_array(image: np.ndarray) -> None:
+    """
+    Validate that the input is a valid image array.
+    
+    Args:
+        image (np.ndarray): The image to validate
+        
+    Raises:
+        TypeError: If image is not a numpy array
+        ValueError: If image is invalid
+    
+    Returns:
+        None
+    """
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    if len(image.shape) < 2:
+        raise ValueError("Image must be at least 2D")
+    if image.size == 0:
+        raise ValueError("Image cannot be empty")
+
+
 def ft_invert(array: np.ndarray) -> np.ndarray:
     """
     Inverts the color of the image received.
@@ -39,6 +61,8 @@ def ft_invert(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(array)
+
     inverted = 255 - array
 
     display_image(inverted, "Inverted Image")
@@ -59,6 +83,8 @@ def ft_red(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(array)
+
     # Keep only red channel, set green and blue to 0
     red_filtered = array.copy()
     red_filtered[:, :, 1] = 0  # Green channel = 0
@@ -82,6 +108,8 @@ def ft_green(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(array)
+
     # Keep only green channel, set red and blue to 0
     green_filtered = array.copy()
     green_filtered[:, :, 0] = 0  # Red channel = 0
@@ -105,6 +133,8 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(array)
+
     # Keep only blue channel, set red and green to 0
     blue_filtered = array.copy()
     blue_filtered[:, :, 0] = 0  # Red channel = 0
@@ -128,6 +158,8 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(array)
+
     # Manual grayscale conversion using only = and /
     grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3
     grayscale = grayscale.astype(np.uint8)

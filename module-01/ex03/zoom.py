@@ -146,6 +146,28 @@ def zoom_center_square(image: np.ndarray) -> np.ndarray:
     return zoomed_image
 
 
+def validate_image_array(image: np.ndarray) -> None:
+    """
+    Validate that the input is a valid image array.
+    
+    Args:
+        image (np.ndarray): The image to validate
+        
+    Raises:
+        TypeError: If image is not a numpy array
+        ValueError: If image is invalid
+    
+    Returns:
+        None
+    """
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    if len(image.shape) < 2:
+        raise ValueError("Image must be at least 2D")
+    if image.size == 0:
+        raise ValueError("Image cannot be empty")
+
+
 def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     """
     Zoom (crop) a portion of the image and convert to grayscale.
@@ -159,9 +181,12 @@ def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(image)
+
     zoomed_image = zoom_center_square(image)
     zoomed_grayscale_image = convert_to_grayscale(zoomed_image)
     print_info(zoomed_grayscale_image)
+
     display_image_with_scale(zoomed_grayscale_image, "Zoomed Image")
 
     return zoomed_grayscale_image
@@ -185,7 +210,6 @@ def main() -> int:
 
         image = ft_load("animal.jpeg")
         print_image_info(image)
-
         zoom_center_square_to_grayscale(image)
 
         return 0

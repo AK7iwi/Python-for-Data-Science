@@ -73,6 +73,28 @@ def manual_transpose(image: np.ndarray) -> np.ndarray:
     return transposed
 
 
+def validate_image_array(image: np.ndarray) -> None:
+    """
+    Validate that the input is a valid image array.
+    
+    Args:
+        image (np.ndarray): The image to validate
+        
+    Raises:
+        TypeError: If image is not a numpy array
+        ValueError: If image is invalid
+    
+    Returns:
+        None
+    """
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    if len(image.shape) < 2:
+        raise ValueError("Image must be at least 2D")
+    if image.size == 0:
+        raise ValueError("Image cannot be empty")
+
+
 def rotate_image(image: np.ndarray) -> np.ndarray:
     """
     Rotate a 2D array (no library allowed).
@@ -86,8 +108,11 @@ def rotate_image(image: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
+    validate_image_array(image)
+
     transposed_image = manual_transpose(image)
     print_info(transposed_image)
+
     display_image(transposed_image, "Transposed Image")
 
     return transposed_image

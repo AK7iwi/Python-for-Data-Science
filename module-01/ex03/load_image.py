@@ -35,6 +35,7 @@ def load_image(path: str) -> np.ndarray:
         None
     """
     image = Image.open(path)
+
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
@@ -131,7 +132,9 @@ def ft_load(path: str) -> np.ndarray:
         None
     """
     validate_path(path)
+
     image = load_image(path)
+
     print_info(image)
 
     return image

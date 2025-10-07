@@ -2,24 +2,7 @@ import sys
 import os
 import numpy as np
 from PIL import Image
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
+from validate_args import validate_args
 
 
 def print_info(image_array: np.ndarray) -> None:

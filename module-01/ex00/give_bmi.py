@@ -1,24 +1,7 @@
 import sys
 import numpy as np
 import math
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
+from validate_args import validate_args
 
 
 def validate_data_content(values: list[int | float], name: str) -> None:

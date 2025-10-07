@@ -2,24 +2,7 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
+from validate_args import validate_args
 
 
 def display_image(image: np.ndarray, title: str) -> None:

@@ -1,23 +1,6 @@
 import sys
 import numpy as np
-
-
-def validate_args() -> None:
-    """
-    Validate the number of arguments.
-
-    Args:
-        None
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the number of arguments is not 1
-    """
-    args = sys.argv
-    if len(args) != 1:
-        raise ValueError("Invalid number of arguments")
+from validate_args import validate_args
 
 
 def print_info(family_array: np.ndarray, sliced_array: np.ndarray) -> None:

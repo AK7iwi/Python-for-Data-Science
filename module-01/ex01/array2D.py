@@ -135,8 +135,7 @@ def validate_2d_array(family: list) -> None:
 
 def validate_data(family: list, start: int, end: int) -> None:
     """
-    Validate that the data is a proper 2D array and that the indices are valid
-    for slicing.
+    Validate that the data of slice_me is valid.
 
     Args:
         family (list): 2D list to validate

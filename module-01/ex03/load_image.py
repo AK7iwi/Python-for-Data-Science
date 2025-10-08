@@ -5,72 +5,6 @@ from PIL import Image
 from validate_args import validate_args
 
 
-def print_image_info(image: np.ndarray) -> None:
-    """
-    Print detailed information about the image.
-
-    Args:
-        image (np.ndarray): The image to print information about
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    height, width = image.shape[:2]
-    if len(image.shape) == 2:
-        channels = 1
-    else:
-        channels = image.shape[2]
-
-    print("="*50)
-    print("Image dimensions:")
-    print(f"-Width (X axis): {width} pixels")
-    print(f"-Height (Y axis): {height} pixels")
-    print(f"-Number of channels: {channels}")
-    print(f"-Total pixels: {height * width}")
-    print("="*50)
-
-
-def print_info(image: np.ndarray) -> None:
-    """
-    Print information about the image.
-
-    Args:
-        image (np.ndarray): The image to print information about
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    print(f"The shape of image is: {image.shape}")
-    print_image_info(image)
-
-
-def load_image(path: str) -> np.ndarray:
-    """
-    Load an image file and return its RGB pixel content as a numpy array.
-
-    Args:
-        path (str): Path to the image file
-
-    Returns:
-        np.ndarray: RGB pixel array of the image
-
-    Raises:
-        None
-    """
-    image = Image.open(path)
-
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-
-    return np.asarray(image)
-
-
 def validate_path_exists(path: str) -> None:
     """
     Validate that the file path exists.
@@ -147,6 +81,72 @@ def validate_path(path: str) -> None:
     validate_path_exists(path)
 
 
+def print_image_info(image: np.ndarray) -> None:
+    """
+    Print detailed information about the image.
+
+    Args:
+        image (np.ndarray): The image to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    height, width = image.shape[:2]
+    if len(image.shape) == 2:
+        channels = 1
+    else:
+        channels = image.shape[2]
+
+    print("="*50)
+    print("Image dimensions:")
+    print(f"-Width (X axis): {width} pixels")
+    print(f"-Height (Y axis): {height} pixels")
+    print(f"-Number of channels: {channels}")
+    print(f"-Total pixels: {height * width}")
+    print("="*50)
+
+
+def print_info(image: np.ndarray) -> None:
+    """
+    Print information about the image.
+
+    Args:
+        image (np.ndarray): The image to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    print(f"The shape of image is: {image.shape}")
+    print_image_info(image)
+
+
+def load_image(path: str) -> np.ndarray:
+    """
+    Load an image file and return its RGB pixel content as a numpy array.
+
+    Args:
+        path (str): Path to the image file
+
+    Returns:
+        np.ndarray: RGB pixel array of the image
+
+    Raises:
+        None
+    """
+    image = Image.open(path)
+
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
+
+    return np.asarray(image)
+
+
 def ft_load(path: str) -> np.ndarray:
     """
     Load an image file and return its RGB pixel content as a numpy array.
@@ -175,7 +175,7 @@ def main() -> int:
     try:
         validate_args()
 
-        print(ft_load("landscape.jpg"))
+        print(ft_load("animal.jpeg"))
 
         return 0
 

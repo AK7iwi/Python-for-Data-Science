@@ -28,16 +28,16 @@ def validate_title(title: str) -> None:
 def validate_image_array(image: np.ndarray) -> None:
     """
     Validate that the input is a valid image array.
-    
+
     Args:
         image (np.ndarray): The image to validate
-        
+
+    Returns:
+        None
+
     Raises:
         TypeError: If image is not a numpy array
         ValueError: If image is invalid
-    
-    Returns:
-        None
     """
     if not isinstance(image, np.ndarray):
         raise TypeError("Image must be a numpy array")

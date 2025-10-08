@@ -25,6 +25,7 @@ def main() -> int:
     """
     try:
         validate_args()
+
         return 0
 
     except ValueError as e:

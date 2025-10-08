@@ -25,13 +25,29 @@ def print_image_info(image: np.ndarray) -> None:
         channels = image.shape[2]
 
     print("="*50)
-    print(f"The shape of image is: {image.shape}")
-    print("\nImage dimensions:")
+    print("Image dimensions:")
     print(f"-Width (X axis): {width} pixels")
     print(f"-Height (Y axis): {height} pixels")
     print(f"-Number of channels: {channels}")
     print(f"-Total pixels: {height * width}")
     print("="*50)
+
+
+def print_info(image: np.ndarray) -> None:
+    """
+    Print information about the image.
+
+    Args:
+        image (np.ndarray): The image to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    print(f"The shape of image is: {image.shape}")
+    print_image_info(image)
 
 
 def load_image(path: str) -> np.ndarray:
@@ -147,8 +163,7 @@ def ft_load(path: str) -> np.ndarray:
     validate_path(path)
 
     image = load_image(path)
-
-    print_image_info(image)
+    print_info(image)
 
     return image
 

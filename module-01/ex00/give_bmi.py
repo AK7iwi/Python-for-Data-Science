@@ -4,10 +4,10 @@ import math
 from validate_args import validate_args
 
 
-def validate_data_content(values: list[int | float], name: str) -> None:
+def validate_measurement_content(values: list[int | float], name: str) -> None:
     """
-    Validate that the data is a list of int or float
-    and is finite and positive.
+    Validate that the data is a list of int or float and is finite and
+    positive.
 
     Args:
         values (list[int | float]): The data to validate
@@ -29,7 +29,8 @@ def validate_data_content(values: list[int | float], name: str) -> None:
             raise ValueError(f"{name} at index {i} must be positive")
 
 
-def validate_data_structure(values: list[int | float], name: str) -> None:
+def validate_measurement_structure(values: list[int | float],
+                                   name: str) -> None:
     """
     Validate that the data is a list and not empty.
 
@@ -50,7 +51,7 @@ def validate_data_structure(values: list[int | float], name: str) -> None:
         raise ValueError(f"{name} cannot be empty")
 
 
-def validate_data(values: list[int | float], name: str) -> None:
+def validate_measurement(values: list[int | float], name: str) -> None:
     """
     Validate that the data is a list of int or float and is finite
     and positive.
@@ -65,8 +66,8 @@ def validate_data(values: list[int | float], name: str) -> None:
     Raises:
         None
     """
-    validate_data_structure(values, name)
-    validate_data_content(values, name)
+    validate_measurement_structure(values, name)
+    validate_measurement_content(values, name)
 
 
 def validate_limit(limit: int) -> None:
@@ -89,6 +90,67 @@ def validate_limit(limit: int) -> None:
         raise ValueError("Limit must be positive")
 
 
+def validate_data_limit(bmi: list[int | float], limit: int) -> None:
+    """
+    Validate that the limit is an integer and is positive.
+    Also validate that the data contains lists of integers or floats that
+    are finite and positive.
+
+    Args:
+        bmi (list[int | float]): List of BMI values
+        limit (int): The limit to validate
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    validate_limit(limit)
+    validate_measurement(bmi, "BMI")
+
+
+def validate_measurement_length(height: list[int | float],
+                                weight: list[int | float]) -> None:
+    """
+    Validate that the height and weight lists have the same length.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the height and weight lists have different lengths
+    """
+    if len(height) != len(weight):
+        raise ValueError("Height and weight lists must have the same size")
+
+
+def validate_data_bmi(height: list[int | float],
+                      weight: list[int | float]) -> None:
+    """
+    Validate that the data contains lists of integers or floats that are finite
+    and positive. Also validate that the height and weight lists have
+    the same length.
+
+    Args:
+        height (list[int | float]): List of heights in meters
+        weight (list[int | float]): List of weights in kilograms
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    validate_measurement(height, "Height")
+    validate_measurement(weight, "Weight")
+    validate_measurement_length(height, weight)
+
+
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
     Apply a limit to BMI values and return boolean list.
@@ -103,8 +165,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     Raises:
         None
     """
-    validate_limit(limit)
-    validate_data(bmi, "BMI")
+    validate_data_limit(bmi, limit)
 
     return (np.asarray(bmi) > limit).tolist()
 
@@ -127,46 +188,6 @@ def calculate_bmi(height: list[int | float],
     return (np.asarray(weight) / (np.asarray(height) ** 2)).tolist()
 
 
-def validate_data_length(height: list[int | float],
-                         weight: list[int | float]) -> None:
-    """
-    Validate that the height and weight lists have the same length.
-
-    Args:
-        height (list[int | float]): List of heights in meters
-        weight (list[int | float]): List of weights in kilograms
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If the height and weight lists have different lengths
-    """
-    if len(height) != len(weight):
-        raise ValueError("Height and weight lists must have the same size")
-
-
-def validate_measurement(height: list[int | float],
-                         weight: list[int | float]) -> None:
-    """
-    Validate that the data is a list of int or float and is finite
-    and positive.
-
-    Args:
-        height (list[int | float]): List of heights in meters
-        weight (list[int | float]): List of weights in kilograms
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    validate_data(height, "Height")
-    validate_data(weight, "Weight")
-    validate_data_length(height, weight)
-
-
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
     """
@@ -177,12 +198,13 @@ def give_bmi(height: list[int | float],
         weight (list[int | float]): List of weights in kilograms
 
     Returns:
-        list[int | float]: List of BMI values
+        bmi (list[int | float]): List of BMI values
 
     Raises:
         None
     """
-    validate_measurement(height, weight)
+    validate_data_bmi(height, weight)
+
     bmi = calculate_bmi(height, weight)
 
     return bmi
@@ -190,7 +212,7 @@ def give_bmi(height: list[int | float],
 
 def main() -> int:
     """
-    Main function to test the give_bmi function.
+    Main function to test give_bmi and apply_limit functions.
     """
     height = [2.71, 1.15]
     weight = [165.3, 38.4]

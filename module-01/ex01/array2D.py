@@ -210,6 +210,7 @@ def slice_me(family: list, start: int, end: int) -> list:
         None
     """
     validate_data(family, start, end)
+
     family_array, sliced_array = slice_array(family, start, end)
     print_info(family_array, sliced_array)
 

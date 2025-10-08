@@ -39,7 +39,7 @@ print("Test 3a - Invalid image array: non-2D array")
 
 try:
     array = np.array([1, 2, 3])
-    ft_invert(array)
+    ft_red(array)
 
 except Exception as e:
     print(f"Error: {e}")
@@ -51,7 +51,7 @@ print("Test 3b - Invalid image array: empty array")
 
 try:
     array = np.array([])
-    ft_invert(array)
+    ft_grey(array)
 
 except Exception as e:
     print(f"Error: {e}")

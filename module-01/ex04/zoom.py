@@ -63,7 +63,7 @@ def validate_data(image: np.ndarray, title: str) -> None:
     validate_title(title)
 
 
-def display_image_with_scale(image: np.ndarray, title: str) -> None:
+def display_image(image: np.ndarray, title: str) -> None:
     """
     Display image with scale on x and y axis.
 
@@ -221,7 +221,7 @@ def main() -> int:
         zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
         print(zoomed_grayscale_image)
 
-        display_image_with_scale(zoomed_grayscale_image, "Zoomed Image")
+        display_image(zoomed_grayscale_image, "Zoomed Image")
 
         return 0
 

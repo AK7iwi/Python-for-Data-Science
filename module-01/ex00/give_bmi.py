@@ -6,7 +6,7 @@ from validate_args import validate_args
 
 def validate_measurement_content(values: list[int | float], name: str) -> None:
     """
-    Validate that the data is a list of int or float and is finite and
+    Validate that the data is a list of ints or floats that are finite and
     positive.
 
     Args:
@@ -53,8 +53,7 @@ def validate_measurement_structure(values: list[int | float],
 
 def validate_measurement(values: list[int | float], name: str) -> None:
     """
-    Validate that the data is a list of int or float and is finite
-    and positive.
+    Validate measurement data.
 
     Args:
         values (list[int | float]): The data to validate
@@ -92,9 +91,7 @@ def validate_limit(limit: int) -> None:
 
 def validate_data_limit(bmi: list[int | float], limit: int) -> None:
     """
-    Validate that the limit is an integer and is positive.
-    Also validate that the data contains lists of integers or floats that
-    are finite and positive.
+    Validate that the data of apply_limit is valid.
 
     Args:
         bmi (list[int | float]): List of BMI values
@@ -132,9 +129,7 @@ def validate_measurement_length(height: list[int | float],
 def validate_data_bmi(height: list[int | float],
                       weight: list[int | float]) -> None:
     """
-    Validate that the data contains lists of integers or floats that are finite
-    and positive. Also validate that the height and weight lists have
-    the same length.
+    Validate that the data of give_bmi is valid.
 
     Args:
         height (list[int | float]): List of heights in meters

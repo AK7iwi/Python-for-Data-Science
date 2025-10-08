@@ -198,7 +198,7 @@ def give_bmi(height: list[int | float],
         weight (list[int | float]): List of weights in kilograms
 
     Returns:
-        bmi (list[int | float]): List of BMI values
+        list[int | float]: List of BMI values
 
     Raises:
         None

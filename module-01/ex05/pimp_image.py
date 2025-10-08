@@ -27,7 +27,7 @@ def validate_image_array(image: np.ndarray) -> None:
 
 def display_image(image: np.ndarray, title: str) -> None:
     """
-    Display the image.
+    Display the image with scale on x and y axis.
 
     Args:
         image (np.ndarray): The image to display

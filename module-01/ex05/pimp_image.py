@@ -5,13 +5,33 @@ from load_image import ft_load
 from validate_args import validate_args
 
 
+def validate_image_array(image: np.ndarray) -> None:
+    """
+    Validate that the input is a valid image array.
+    
+    Args:
+        image (np.ndarray): The image to validate
+
+    Returns:
+        None
+
+    Raises:
+        TypeError: If image is not a numpy array
+        ValueError: If image is invalid
+    """
+    if not isinstance(image, np.ndarray):
+        raise TypeError("Image must be a numpy array")
+    if len(image.shape) < 2:
+        raise ValueError("Image must be at least 2D")
+
+
 def display_image(image: np.ndarray, title: str) -> None:
     """
-    Display the image with matplotlib.
+    Display the image.
 
     Args:
         image (np.ndarray): The image to display
-        title (str): Title for the plot
+        title (str): Title for the 
 
     Returns:
         None
@@ -24,26 +44,6 @@ def display_image(image: np.ndarray, title: str) -> None:
     plt.title(title)
     plt.axis('off')
     plt.show()
-
-
-def validate_image_array(image: np.ndarray) -> None:
-    """
-    Validate that the input is a valid image array.
-    
-    Args:
-        image (np.ndarray): The image to validate
-        
-    Raises:
-        TypeError: If image is not a numpy array
-        ValueError: If image is invalid
-    
-    Returns:
-        None
-    """
-    if not isinstance(image, np.ndarray):
-        raise TypeError("Image must be a numpy array")
-    if len(image.shape) < 2:
-        raise ValueError("Image must be at least 2D")
 
 
 def ft_invert(array: np.ndarray) -> np.ndarray:
@@ -145,20 +145,20 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
 
 def ft_grey(array: np.ndarray) -> np.ndarray:
     """
-    Converts the image to grayscale.
+    Applies a grey filter to the image.
 
     Args:
         array (np.ndarray): The image array to convert
 
     Returns:
-        np.ndarray: The grayscale image array
+        np.ndarray: The grey-filtered image array
 
     Raises:
         None
     """
     validate_image_array(array)
 
-    # Manual grayscale conversion using only = and /
+    # Manual grayscale conversion
     grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3
     grayscale = grayscale.astype(np.uint8)
     grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)

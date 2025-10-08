@@ -29,14 +29,14 @@ def validate_title(title: str) -> None:
 def validate_image_array(image: np.ndarray) -> None:
     """
     Validate that the input is a valid image array.
-    
+
     Args:
         image (np.ndarray): The image to validate
-        
+
     Raises:
         TypeError: If image is not a numpy array
         ValueError: If image is invalid
-    
+
     Returns:
         None
     """
@@ -150,7 +150,6 @@ def rotate_image(image: np.ndarray) -> np.ndarray:
 
     transposed_image = manual_transpose(image)
     print_info(transposed_image)
-
 
     return transposed_image
 

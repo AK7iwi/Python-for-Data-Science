@@ -175,7 +175,7 @@ def main() -> int:
     try:
         validate_args()
 
-        print(ft_load("landscape.jpg"))
+        print(ft_load("animal.jpeg"))
 
         return 0
 

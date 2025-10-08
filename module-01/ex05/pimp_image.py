@@ -8,7 +8,7 @@ from validate_args import validate_args
 def validate_image_array(image: np.ndarray) -> None:
     """
     Validate that the input is a valid image array.
-    
+
     Args:
         image (np.ndarray): The image to validate
 
@@ -31,7 +31,7 @@ def display_image(image: np.ndarray, title: str) -> None:
 
     Args:
         image (np.ndarray): The image to display
-        title (str): Title for the 
+        title (str): Title for the plot
 
     Returns:
         None

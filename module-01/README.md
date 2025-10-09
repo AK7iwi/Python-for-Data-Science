@@ -4,11 +4,19 @@ Numpy:
 
 import numpy as np
 
+numpy 
+python -m pip install numpy 
+numpy important method
+
+
+array.copy() = Function to copy array that can be only apply on array, not on list 
 np.array = Function to create arrays
 np.asarray = Function to create arrays
 np.ndarray = Class/type of the array
 
-Diff between np.array/np.asarray:
+Justify wich method I use
+
+Diff between np.array/np.asarray/array.copy():
 
 Feature	np.array	np.asarray
 Always copies	✅ Yes	❌ No (reuses if possible)
@@ -46,7 +54,12 @@ print(my_array is arr1)     # False - different objects
 arr2 = np.asarray(my_array) # Same array
 print(my_array is arr2)     # True - same object
 
-
+ex00: With np.asarray because better performance than np.array and array.copy not applicable
+ex01: With np.asarray because better performance than np.array and array.copy not applicable
+ex02: With np.asarray because better performance than np.array and array.copy not applicable + I use PIL lib and PIL works with np.asarray
+ex03: \
+ex04: \
+ex05: array.copy() better performance than np.asarray and np.array
 
 Parsing with pure python before convert to numpy because convert numpy array change the values types 
 
@@ -92,10 +105,6 @@ ex00:
 two type of parameter:
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
 
-numpy 
-python -m pip install numpy 
-numpy important method 
-
 ex01: 
 
 Slicing method (compare np manip with List manipulation)
@@ -106,7 +115,7 @@ def slice_list(family: list, start: int, end: int) -> list:
     """
     Slice a 2D list using list slicing.
     """
-    # Slice each row, then slice each row
+    # Slice each row, then slice each row ??
     sliced = [row[start:end] for row in family[start:end]]
     return sliced
 

@@ -1,5 +1,8 @@
 README01:
 
+
+Explain about validate_args()
+
 Numpy:
 
 import numpy as np

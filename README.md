@@ -17,7 +17,7 @@ For more details about synthax, theory points and general concepts: [Python Offi
 
 ## 2. Summary 
 
-[I.  Module 00 - Starting](./module-00/README.md)  
+[I. Module 00 - Starting](./module-00/README.md)  
 [II. Module 01 - Array](./module-01/README.md)
 
 

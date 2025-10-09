@@ -19,6 +19,9 @@
 [11. Exercice 09: My first package creation](#11-exercice-09-my-first-package-creation)  
 [Additional Resources](#additional-resources)
 
+## Introduction 
+
+
 ## Warning
 
 This learning guide follows a progressive and logical structure where concepts are introduced when they are most relevant to the exercise context.

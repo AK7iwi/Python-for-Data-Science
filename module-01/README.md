@@ -7,12 +7,15 @@
 ## Summary
 
 [1. Exercice 00: Give my BMI](#1-exercice-00-give-my-bmi)  
-[2. Exercice 01: Array2D](#2-exercice-01-array2d)  
-[3. Exercice 02: Load image](#3-exercice-02-load-image)  
-[4. Exercice 03: Zoom](#4-exercice-03-zoom)  
-[5. Exercice 04: Rotate](#5-exercice-04-rotate)  
+[2. Exercice 01: 2D array](#2-exercice-01-2d-array)  
+[3. Exercice 02: load my image](#3-exercice-02-load-my-image)  
+[4. Exercice 03: zoom on me](#4-exercice-03-zoom-on-me)  
+[5. Exercice 04: rotate me](#5-exercice-04-rotate-me)  
 [6. Exercice 05: Pimp my image](#6-exercice-05-pimp-my-image)  
 [Additional Resources](#additional-resources)
+
+## Introduction
+
 
 ## Warning
 
@@ -61,7 +64,7 @@ So:
 6. **Handle comprehensive error cases** with specific exception messages
 
 
-## 2. Exercice 01: Array2D
+## 2. Exercice 01: 2D array
 
 ### I) Libraries used
 - `numpy`: (already used in ex00)
@@ -100,7 +103,7 @@ So:
 7. **Return sliced data as Python list** using `.tolist()`
 
 
-## 3. Exercice 02: Load image
+## 3. Exercice 02: load my image
 
 ### I) Libraries used
 - `numpy`: (already used in ex00)
@@ -142,7 +145,7 @@ So:
 6. **Return NumPy array** for further processing
 
 
-## 4. Exercice 03: Zoom
+## 4. Exercice 03: zoom on me
 
 ### I) Libraries used
 - `numpy`: (already used in ex00)
@@ -187,7 +190,7 @@ So:
 6. **Handle different image dimensions** and channel counts
 
 
-## 5. Exercice 04: Rotate
+## 5. Exercice 04: rotate me
 
 ### I) Libraries used
 - `numpy`: (already used in ex00)

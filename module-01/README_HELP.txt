@@ -103,10 +103,6 @@ result = arr8 * 2  # Works! Converts to numbers
 
 ---------------------------------------------------
 
-ex00:
-
-two type of parameter:
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
 
 ex01: 
 

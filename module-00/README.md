@@ -19,8 +19,6 @@
 [11. Exercice 09: My first package creation](#11-exercice-09-my-first-package-creation)  
 [Additional Resources](#additional-resources)
 
-## Introduction 
-
 
 ## Warning
 
@@ -30,6 +28,9 @@ So:
 - Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
 - Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
 - There are additional resources at the end if you want to explore a concept in more depth
+
+## Introduction
+
 
 ## 1. Exercice 00: First python script
 
@@ -41,14 +42,17 @@ No external libraries used.
 - `set.add()`: Method to add element to set
 - `print()`: Built-in function to display output
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Basic Data Types**
   - List: Mutable, ordered collection `["item1", "item2"]`
   - Tuple: Immutable, ordered collection `("item1", "item2")`
   - Set: Mutable, unordered collection of unique elements `{"item1", "item2"}`
   - Dictionary: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Creating each data type with sample data
 2. Modifying each type using their appropriate methods:
     - List: Direct index assignment (mutable)
@@ -70,7 +74,10 @@ No external libraries used.
 - `strftime()`: Method that formats datetime objects
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Library import**
   - `import lib` or just a specific class `from lib import class`
 - **F-string (formatted string literal)**
@@ -80,7 +87,7 @@ No external libraries used.
     - `{value:,.4f}`: Comma separator with 4 decimal places
     - `{value:.2e}`: Scientific notation
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Import required libraries using `import time` and `from datetime import datetime`
 2. Get current time using `time.time()` and `datetime.now()`
 3. Format time values using f-string specifiers for different representations
@@ -98,17 +105,20 @@ No external libraries used.
 - `type()`: Built-in function that returns the type of an object
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Function definition**
   - Basic function: `def function_name(parameter):`
   - Function definition with type: `def function_name(parameter: type) -> return_type:`
   - Type hints: `object: any` and `-> int` for parameter and return type documentation
 - **Function import**
   - `from module import function`
-- **Conditional statements** 
+- **Conditional statements**
   - `if/elif/else` structure
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Define a function with type hints and documentation
 2. Use isinstance() to check object types (list, tuple, set, dict, str, int)
 3. Print different messages based on the object type
@@ -129,7 +139,10 @@ No external libraries used.
 - `str()`: Built-in function that converts object to string
 - `float()`: Built-in function that converts to float type
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **None value**
   - `None` represents absence of value (like NULL in C)
 - **NaN (Not a Number)**
@@ -145,7 +158,7 @@ No external libraries used.
 - **String conversion**
   - `str(object)` to convert values for comparison
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Define function to check different null-like values
 2. Use `is` operator to check for `None` (identity comparison)
 3. Check for NaN using `isinstance()` and string conversion
@@ -166,14 +179,17 @@ No external libraries used.
 - `len()`: Built-in function that returns length of a sequence
 - `int()`: Built-in function that converts string to integer
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Gets command line arguments**
   - `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
 - **Exception/Error handling**
   - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Import sys module to access command line arguments
 2. Validate argument count using `len(sys.argv)` - must be exactly 2
 3. Check for too many arguments and raise AssertionError if found
@@ -245,7 +261,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `char.isspace()`: Method that checks if character is whitespace
 - `string.punctuation`: Module constant containing all punctuation characters
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Using `if __name__ == "__main__"`**
   - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
 - **Loop to iterate over sequences**
@@ -253,7 +272,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Validate arguments - Handle 0, 1, or multiple arguments
 2. Get input - Either from command line argument or user input prompt
 3. Count character types using generator expressions with `sum()`
@@ -275,7 +294,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `str.split()`: Method that splits string into list of words
 - `filter()`: Built-in function that filters iterable based on function
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Lambda functions**
   - Anonymous functions created with `lambda` keyword
   - Syntax: `lambda arguments: expression`
@@ -290,7 +312,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - More efficient than traditional loops for simple operations
   - Example: `[item for item in iterable if function(item)]`
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Create custom filter function `ft_filter()` that mimics built-in `filter()`
 2. Handle two cases in the filter function:
    - When function is `None`: filter out falsy values
@@ -314,7 +336,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `str.upper()`: Method that converts string to uppercase
 - `str.rstrip()`: Method that removes trailing whitespace
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Dictionary mapping**
   - Using dictionaries to map characters to their representations
   - Key-value pairs for character-to-morse code conversion
@@ -322,7 +347,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Building strings by concatenating in loops
   - Pattern: `result += new_part`
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Create morse code dictionary with character-to-morse mappings
 2. Validate command line arguments - must be exactly 1 string argument
 3. Convert input to uppercase using `str.upper()` for case-insensitive processing
@@ -348,7 +373,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `range()`: Built-in function that creates sequence of numbers
 - `sleep()`: Module function that pauses execution
 
-### III) New theory points
+### III) External functions
+- `tqdm()`: External function from tqdm library for creating progress bars
+
+### IV) New theory points
 - **Generator functions**
   - Functions that use `yield` instead of `return`
   - Create iterators that can be paused and resumed
@@ -357,7 +385,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - `enumerate(iterable)` returns (index, value) pairs
   - Useful for tracking position in loops
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Create generator function `ft_tqdm()` that yields items from range
 2. Calculate progress metrics - percentage and bar width
 3. Build visual progress bar using string concatenation and padding
@@ -378,7 +406,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `print()`: (already used in ex00)
 - `list.count()`: Method that counts occurrences of item in list
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Package structure**
   - `__init__.py` file makes directory a Python package
   - `__all__` list defines public API of the package
@@ -402,7 +433,7 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Uninstall: python -m pip uninstall ft_package
   - List of installed packages: python -m pip list
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Create package structure with `ft_package/` directory
 2. Add `__init__.py` to make it a proper Python package
 3. Define core functionality in `core.py` with `count_in_list()` function

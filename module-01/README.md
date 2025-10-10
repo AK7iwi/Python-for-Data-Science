@@ -14,8 +14,6 @@
 [6. Exercice 05: Pimp my image](#6-exercice-05-pimp-my-image)  
 [Additional Resources](#additional-resources)
 
-## Introduction
-
 
 ## Warning
 
@@ -25,6 +23,11 @@ So:
 - Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
 - Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
 - There are additional resources at the end if you want to explore a concept in more depth
+
+
+## Introduction
+
+Numpy, matplotlib, some reexplain 
 
 ## 1. Exercice 00: Give my BMI
 
@@ -37,17 +40,19 @@ So:
 - `isinstance()`: Built-in function that checks if object is instance of a class
 - `math.isfinite()`: Module function that checks if value is finite
 - `len()`: Built-in function that returns length of a sequence
-- `print()`: (already used in module00) //Explain 
+- `print()`: Built-in function to display output
+
+### III) 
 
 ### III) New theory points
-- **NumPy array operations**
-  - `np.asarray()`: Converts Python lists to NumPy arrays efficiently
-  - Vectorized operations: `array1 / array2` performs element-wise division
-  - Array broadcasting: Automatic expansion of arrays for operations
 - **Data validation patterns**
   - Type checking: `isinstance(value, (int, float))`
   - Finite value checking: `math.isfinite(value)`
   - Positive value validation: `value > 0`
+- **NumPy array operations**
+  - `np.asarray()`: Converts Python lists to NumPy arrays efficiently
+  - Vectorized operations: `array1 / array2` performs element-wise division
+  - Array broadcasting: Automatic expansion of arrays for operations
 - **BMI calculation formula**
   - BMI = weight / (height²)
   - Vectorized calculation using NumPy arrays
@@ -95,12 +100,12 @@ So:
 
 ### IV) Logic used for the exercise
 1. Validate 2D array structure - Check if input is proper list of lists
-2. **Validate array content** - Ensure consistent row sizes
-3. **Validate slice indices** - Check bounds and types
-4. **Convert to NumPy array** using `np.asarray()` for efficient slicing
-5. **Perform array slicing** using NumPy's optimized slicing
-6. **Display shape information** before and after slicing
-7. **Return sliced data as Python list** using `.tolist()`
+2. Validate array content - Ensure consistent row sizes
+3. Validate slice indices - Check bounds and types
+4. Convert to NumPy array using `np.asarray()` for efficient slicing
+5. Perform array slicing using NumPy's optimized slicing
+6. Display shape information before and after slicing
+7. Return sliced data as Python list using `.tolist()`
 
 
 ## 3. Exercice 02: load my image
@@ -112,10 +117,10 @@ So:
 - `sys`: (already used in ex00)
 
 ### II) Built-in functions and methods used
-- `os.path.exists()`: **Module function** that checks if file exists
-- `os.path.splitext()`: **Module function** that splits filename and extension
-- `Image.open()`: **Class method** that opens image files
-- `image.convert()`: **Method** that converts image color modes
+- `os.path.exists()`: Module function that checks if file exists
+- `os.path.splitext()`: Module function that splits filename and extension
+- `Image.open()`: Class method that opens image files
+- `image.convert()`: Method that converts image color modes
 - `print()`: (already used in ex00)
 
 ### III) New theory points
@@ -137,12 +142,12 @@ So:
   - Channel interpretation: RGB format
 
 ### IV) Logic used for the exercise
-1. **Validate file path** - Check existence, format, and string validity
-2. **Load image using PIL** with `Image.open()`
-3. **Convert to RGB mode** if necessary using `image.convert()`
-4. **Convert PIL Image to NumPy array** using `np.asarray()`
-5. **Display image information** including dimensions and channels
-6. **Return NumPy array** for further processing
+1. Validate file path - Check existence, format, and string validity
+2. Load image using PIL with `Image.open()`
+3. Convert to RGB mode if necessary using `image.convert()`
+4. Convert PIL Image to NumPy array using `np.asarray()`
+5. Display image information including dimensions and channels
+6. Return NumPy array for further processing
 
 
 ## 4. Exercice 03: zoom on me
@@ -153,13 +158,13 @@ So:
 - `sys`: (already used in ex00)
 
 ### II) Built-in functions and methods used
-- `plt.figure()`: **Function** that creates new figure
-- `plt.imshow()`: **Function** that displays image data
-- `plt.title()`: **Function** that sets plot title
-- `plt.xlabel()`: **Function** that sets x-axis label
-- `plt.ylabel()`: **Function** that sets y-axis label
-- `plt.colorbar()`: **Function** that adds color bar
-- `plt.show()`: **Function** that displays the plot
+- `plt.figure()`: Function that creates new figure
+- `plt.imshow()`: Function that displays image data
+- `plt.title()`: Function that sets plot title
+- `plt.xlabel()`: Function that sets x-axis label
+- `plt.ylabel()`: Function that sets y-axis label
+- `plt.colorbar()`: Function that adds color bar
+- `plt.show()`: Function that displays the plot
 - `print()`: (already used in ex00)
 
 ### III) New theory points
@@ -182,12 +187,12 @@ So:
   - Array copying: `array.copy()` for safe manipulation
 
 ### IV) Logic used for the exercise
-1. **Load image** using previous `ft_load()` function
-2. **Calculate zoom area** - Define center square region
-3. **Crop image** using array slicing operations
-4. **Convert to grayscale** using manual RGB conversion
-5. **Display results** using matplotlib visualization
-6. **Handle different image dimensions** and channel counts
+1. Load image using previous `ft_load()` function
+2. Calculate zoom area - Define center square region
+3. Crop image using array slicing operations
+4. Convert to grayscale using manual RGB conversion
+5. Display results using matplotlib visualization
+6. Handle different image dimensions and channel counts
 
 
 ## 5. Exercice 04: rotate me
@@ -203,7 +208,7 @@ So:
 - `plt.title()`: (already used in ex03)
 - `plt.xlabel()`: (already used in ex03)
 - `plt.ylabel()`: (already used in ex03)
-- `plt.axis()`: **Function** that controls axis display
+- `plt.axis()`: Function that controls axis display
 - `plt.show()`: (already used in ex03)
 - `print()`: (already used in ex00)
 
@@ -226,13 +231,13 @@ So:
   - Type validation: Ensure NumPy array input
 
 ### IV) Logic used for the exercise
-1. **Load and zoom image** using previous functions
-2. **Validate array dimensions** for proper processing
-3. **Implement manual transpose** using nested loops
-4. **Handle different array shapes** (2D vs 3D)
-5. **Preserve data types** during transformation
-6. **Display rotated image** using matplotlib
-7. **Show shape changes** before and after rotation
+1. Load and zoom image using previous functions
+2. Validate array dimensions for proper processing
+3. Implement manual transpose using nested loops
+4. Handle different array shapes (2D vs 3D)
+5. Preserve data types during transformation
+6. Display rotated image using matplotlib
+7. Show shape changes before and after rotation
 
 
 ## 6. Exercice 05: Pimp my image
@@ -270,13 +275,13 @@ So:
   - Independent filtering: Each filter creates separate copy
 
 ### IV) Logic used for the exercise
-1. **Load image** using `ft_load()` function
-2. **Validate array properties** for image processing
-3. **Create independent copies** using `array.copy()`
-4. **Apply color filters** by zeroing specific channels
-5. **Implement grayscale conversion** using manual averaging
-6. **Display filtered images** using matplotlib
-7. **Preserve original data** throughout processing pipeline
+1. Load image using `ft_load()` function
+2. Validate array properties for image processing
+3. Create independent copies using `array.copy()`
+4. Apply color filters by zeroing specific channels
+5. Implement grayscale conversion using manual averaging
+6. Display filtered images using matplotlib
+7. Preserve original data throughout processing pipeline
 
 ---
 

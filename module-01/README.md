@@ -42,9 +42,10 @@ Numpy, matplotlib, some reexplain
 - `len()`: Built-in function that returns length of a sequence
 - `print()`: Built-in function to display output
 
-### III) 
+### III) External functions
+No external functions used.
 
-### III) New theory points
+### IV) New theory points
 - **Data validation patterns**
   - Type checking: `isinstance(value, (int, float))`
   - Finite value checking: `math.isfinite(value)`
@@ -60,7 +61,7 @@ Numpy, matplotlib, some reexplain
   - `array > limit`: Creates boolean array
   - `.tolist()`: Converts NumPy array back to Python list
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Validate input data - Check types, finiteness, and positivity
 2. Convert Python lists to NumPy arrays using `np.asarray()`
 3. Perform vectorized BMI calculation using NumPy operations
@@ -80,7 +81,10 @@ Numpy, matplotlib, some reexplain
 - `len()`: (already used in ex00)
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **2D array validation**
   - Structure validation: Check if input is list of lists
   - Content validation: Ensure all rows have same size
@@ -98,7 +102,7 @@ Numpy, matplotlib, some reexplain
   - Validate index bounds before slicing
   - Handle edge cases for array boundaries
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Validate 2D array structure - Check if input is proper list of lists
 2. Validate array content - Ensure consistent row sizes
 3. Validate slice indices - Check bounds and types
@@ -123,7 +127,10 @@ Numpy, matplotlib, some reexplain
 - `image.convert()`: Method that converts image color modes
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Image file handling**
   - File existence validation: `os.path.exists()`
   - File format validation: Check supported extensions
@@ -141,7 +148,7 @@ Numpy, matplotlib, some reexplain
   - Data type: uint8 (0-255 range)
   - Channel interpretation: RGB format
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Validate file path - Check existence, format, and string validity
 2. Load image using PIL with `Image.open()`
 3. Convert to RGB mode if necessary using `image.convert()`
@@ -167,7 +174,10 @@ Numpy, matplotlib, some reexplain
 - `plt.show()`: Function that displays the plot
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Image visualization**
   - `matplotlib.pyplot`: Library for creating plots and visualizations
   - `plt.imshow()`: Display 2D image data
@@ -186,7 +196,7 @@ Numpy, matplotlib, some reexplain
   - Channel handling: Check for 2D vs 3D arrays
   - Array copying: `array.copy()` for safe manipulation
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Load image using previous `ft_load()` function
 2. Calculate zoom area - Define center square region
 3. Crop image using array slicing operations
@@ -212,7 +222,10 @@ Numpy, matplotlib, some reexplain
 - `plt.show()`: (already used in ex03)
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Array transposition**
   - Manual transpose: `transposed[j, i] = image[i, j]`
   - NumPy transpose: `array.T` (not used - manual implementation required)
@@ -230,7 +243,7 @@ Numpy, matplotlib, some reexplain
   - Shape analysis: Handle 2D and 3D arrays
   - Type validation: Ensure NumPy array input
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Load and zoom image using previous functions
 2. Validate array dimensions for proper processing
 3. Implement manual transpose using nested loops
@@ -255,7 +268,10 @@ Numpy, matplotlib, some reexplain
 - `plt.show()`: (already used in ex03)
 - `print()`: (already used in ex00)
 
-### III) New theory points
+### III) External functions
+No external functions used.
+
+### IV) New theory points
 - **Image filtering operations**
   - Color channel isolation: `array[:, :, channel] = 0`
   - Channel indexing: RGB = [0, 1, 2] for [Red, Green, Blue]
@@ -274,7 +290,7 @@ Numpy, matplotlib, some reexplain
   - Non-destructive operations: Preserve original data
   - Independent filtering: Each filter creates separate copy
 
-### IV) Logic used for the exercise
+### V) Logic used for the exercise
 1. Load image using `ft_load()` function
 2. Validate array properties for image processing
 3. Create independent copies using `array.copy()`

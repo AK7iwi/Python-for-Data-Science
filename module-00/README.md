@@ -37,25 +37,25 @@ So:
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `set.remove()`: **Method** to remove element from set
-- `set.add()`: **Method** to add element to set
-- `print()`: **Built-in function** to display output
+- `set.remove()`: Method to remove element from set
+- `set.add()`: Method to add element to set
+- `print()`: Built-in function to display output
 
 ### III) New theory points
 - **Basic Data Types**:
-  - **List**: Mutable, ordered collection `["item1", "item2"]`
-  - **Tuple**: Immutable, ordered collection `("item1", "item2")`
-  - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
-  - **Dictionary**: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
+  - List: Mutable, ordered collection `["item1", "item2"]`
+  - Tuple: Immutable, ordered collection `("item1", "item2")`
+  - Set: Mutable, unordered collection of unique elements `{"item1", "item2"}`
+  - Dictionary: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
 
 ### IV) Logic used for the exercise
-1. **Creating** each data type with sample data
-2. **Modifying** each type using their appropriate methods:
+1. Creating each data type with sample data
+2. Modifying each type using their appropriate methods:
    - List: Direct index assignment (mutable)
    - Tuple: Complete reassignment (immutable)
    - Set: Using `remove()` and `add()` methods
    - Dictionary: Key-based assignment
-3. **Displaying** the results to show how each modification affects the data structure
+3. Displaying the results to show how each modification affects the data structure
 
 
 ## 2. Exercice 01: First use of package
@@ -65,9 +65,9 @@ No external libraries used.
 - `datetime`: Built-in library for date/time manipulation
 
 ### II) Built-in functions and methods used
-- `time.time()`: **Module function** that returns seconds since epoch
-- `datetime.now()`: **Class method** that returns current date and time
-- `strftime()`: **Method** that formats datetime objects
+- `time.time()`: Module function that returns seconds since epoch
+- `datetime.now()`: Class method that returns current date and time
+- `strftime()`: Method that formats datetime objects
 - `print()`: (already used in ex00)
 
 ### III) New theory points
@@ -80,11 +80,11 @@ No external libraries used.
     - `{value:.2e}`: Scientific notation
 
 ### IV) Logic used for the exercise
-1. **Import required libraries** using `import time` and `from datetime import datetime`
-2. **Get current time** using `time.time()` and `datetime.now()`
-3. **Format time values** using f-string specifiers for different representations
-4. **Return formatted values** as tuple from function
-5. **Display results** with descriptive output
+1. Import required libraries using `import time` and `from datetime import datetime`
+2. Get current time using `time.time()` and `datetime.now()`
+3. Format time values using f-string specifiers for different representations
+4. Return formatted values as tuple from function
+5. Display results with descriptive output
 
 
 ## 3. Exercice 02: First function python
@@ -93,8 +93,8 @@ No external libraries used.
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `isinstance()`: **Built-in function** that checks if object is instance of a class
-- `type()`: **Built-in function** that returns the type of an object
+- `isinstance()`: Built-in function that checks if object is instance of a class
+- `type()`: Built-in function that returns the type of an object
 - `print()`: (already used in ex00)
 
 ### III) New theory points
@@ -106,12 +106,12 @@ No external libraries used.
 - **Conditional statements**: `if/elif/else` structure
 
 ### IV) Logic used for the exercise
-1. **Define a function** with type hints and documentation
-2. **Use isinstance()** to check object types (list, tuple, set, dict, str, int)
-3. **Print different messages** based on the object type
-4. **Handle special cases** (strings get special message, int returns "Type not found")
-5. **Return a value** (42) from the function
-6. **Import and test** the function with different data types
+1. Define a function with type hints and documentation
+2. Use isinstance() to check object types (list, tuple, set, dict, str, int)
+3. Print different messages based on the object type
+4. Handle special cases (strings get special message, int returns "Type not found")
+5. Return a value (42) from the function
+6. Import and test the function with different data types
 
 
 ## 4. Exercice 03: NULL not found
@@ -123,8 +123,8 @@ No external libraries used.
 - `print()`: (already used in ex00)
 - `isinstance()`: (already used in ex02)
 - `type()`: (already used in ex02)
-- `str()`: **Built-in function** that converts object to string
-- `float()`: **Built-in function** that converts to float type
+- `str()`: Built-in function that converts object to string
+- `float()`: Built-in function that converts to float type
 
 ### III) New theory points
 - **None value**: `None` represents absence of value (like NULL in C)
@@ -136,14 +136,14 @@ No external libraries used.
 - **String conversion**: `str(object)` to convert values for comparison
 
 ### IV) Logic used for the exercise
-1. **Define function** to check different null-like values
-2. **Use `is` operator** to check for `None` (identity comparison)
-3. **Check for NaN** using `isinstance()` and string conversion
-4. **Check for False** using `is` operator for boolean identity
-5. **Check for zero** using `==` operator for value comparison
-6. **Check for empty string** using `==` operator
-7. **Return different codes** (0 for recognized, 1 for unrecognized)
-8. **Test with various null-like values** to demonstrate different cases
+1. Define function to check different null-like values
+2. Use `is` operator to check for `None` (identity comparison)
+3. Check for NaN using `isinstance()` and string conversion
+4. Check for False using `is` operator for boolean identity
+5. Check for zero using `==` operator for value comparison
+6. Check for empty string using `==` operator
+7. Return different codes (0 for recognized, 1 for unrecognized)
+8. Test with various null-like values to demonstrate different cases
 
 
 ## 5. Exercice 04: The Even and the Odd
@@ -153,8 +153,8 @@ No external libraries used.
 
 ### II) Built-in functions and methods used
 - `print()`: (already used in ex00)
-- `len()`: **Built-in function** that returns length of a sequence
-- `int()`: **Built-in function** that converts string to integer
+- `len()`: Built-in function that returns length of a sequence
+- `int()`: Built-in function that converts string to integer
 
 ### III) New theory points
 - **Gets command line arguments**: `sys.argv`
@@ -162,13 +162,13 @@ No external libraries used.
 - **Exception/Error handling**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
 
 ### IV) Logic used for the exercise
-1. **Import sys module** to access command line arguments
-2. **Validate argument count** using `len(sys.argv)` - must be exactly 2
-3. **Check for too many arguments** and raise AssertionError if found
-4. **Extract argument** from `sys.argv[1]` (first user argument)
-5. **Convert string to integer** using `int()` with try/except for ValueError
-6. **Check odd/even** using modulo operator `% 2`
-7. **Handle errors** with specific exception messages
+1. Import sys module to access command line arguments
+2. Validate argument count using `len(sys.argv)` - must be exactly 2
+3. Check for too many arguments and raise AssertionError if found
+4. Extract argument from `sys.argv[1]` (first user argument)
+5. Convert string to integer using `int()` with try/except for ValueError
+6. Check odd/even using modulo operator `% 2`
+7. Handle errors with specific exception messages
 
 
 ## 6. Interlude: From now on you must follow these additional rules
@@ -194,7 +194,7 @@ python -m pip install flake8
 - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
 ### III) Exception/Error handling
-- `try/except` system with specific exception types (like try/catch in C++)
+- `try/except` System with specific exception types (like try/catch in C++)
 - `raise`: Built-in keyword that raises an exception (like throw in C++)
 - `ValueError`: Built-in exception for conversion errors
 - `AssertionError`: Custom exception for validation errors
@@ -220,13 +220,13 @@ Special built-in variable that contains the documentation string (docstring) of 
 ### II) Built-in functions and methods used
 - `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
-- `input()`: **Built-in function** that gets user input from console
-- `sum()`: **Built-in function** that return the sum off all items plus the optional start value
-- `char.isupper()`: **Method** that checks if character is uppercase
-- `char.islower()`: **Method** that checks if character is lowercase
-- `char.isdigit()`: **Method** that checks if character is a digit
-- `char.isspace()`: **Method** that checks if character is whitespace
-- `string.punctuation`: **Module constant** containing all punctuation characters
+- `input()`: Built-in function that gets user input from console
+- `sum()`: Built-in function that return the sum off all items plus the optional start value
+- `char.isupper()`: Method that checks if character is uppercase
+- `char.islower()`: Method that checks if character is lowercase
+- `char.isdigit()`: Method that checks if character is a digit
+- `char.isspace()`: Method that checks if character is whitespace
+- `string.punctuation`: Module constant containing all punctuation characters
 
 ### III) New theory points
 - **Using `if __name__ == "__main__"`**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
@@ -235,12 +235,12 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Basic syntax: `for item in iterable:`
 
 ### IV) Logic used for the exercise
-1. **Validate arguments** - Handle 0, 1, or multiple arguments
-2. **Get input** - Either from command line argument or user input prompt
-3. **Count character types** using generator expressions with `sum()`
-4. **Use string methods** to classify each character (upper, lower, digit, space, punctuation)
-5. **Return counts as tuple** from the counting function
-6. **Display formatted results** with character counts and total length
+1. Validate arguments - Handle 0, 1, or multiple arguments
+2. Get input - Either from command line argument or user input prompt
+3. Count character types using generator expressions with `sum()`
+4. Use string methods to classify each character (upper, lower, digit, space, punctuation)
+5. Return counts as tuple from the counting function
+6. Display formatted results with character counts and total length
 
 
 ## 8. Exercice 06: ft_filter
@@ -252,9 +252,9 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `len()`: (already used in ex04)
 - `int()`: (already used in ex04)
 - `print()`: (already used in ex00)
-- `lambda`: **Built-in keyword** that creates anonymous functions
-- `str.split()`: **Method** that splits string into list of words
-- `filter()`: **Built-in function** that filters iterable based on function
+- `lambda`: Built-in keyword that creates anonymous functions
+- `str.split()`: Method that splits string into list of words
+- `filter()`: Built-in function that filters iterable based on function
 
 ### III) New theory points
 - **Lambda functions**
@@ -272,16 +272,16 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Example: `[item for item in iterable if function(item)]`
 
 ### IV) Logic used for the exercise
-1. **Create custom filter function** `ft_filter()` that mimics built-in `filter()`
-2. **Handle two cases** in the filter function:
+1. Create custom filter function `ft_filter()` that mimics built-in `filter()`
+2. Handle two cases in the filter function:
    - When function is `None`: filter out falsy values
    - When function is provided: apply function to each item
-3. **Use list comprehensions** for filtering logic
-4. **Validate command line arguments** - must be exactly 2 (string and integer)
-5. **Convert string to integer** with error handling
-6. **Use lambda function** with `ft_filter()` to filter words by length
-7. **Split string into words** using `str.split()` method
-8. **Display function documentation** using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point V)
+3. Use list comprehensions for filtering logic
+4. Validate command line arguments - must be exactly 2 (string and integer)
+5. Convert string to integer with error handling
+6. Use lambda function with `ft_filter()` to filter words by length
+7. Split string into words using `str.split()` method
+8. Display function documentation using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point V)
 
 
 ## 9. Exercice 07: Dictionaries SoS
@@ -292,8 +292,8 @@ Special built-in variable that contains the documentation string (docstring) of 
 ### II) Built-in functions and methods used
 - `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
-- `str.upper()`: **Method** that converts string to uppercase
-- `str.rstrip()`: **Method** that removes trailing whitespace
+- `str.upper()`: Method that converts string to uppercase
+- `str.rstrip()`: Method that removes trailing whitespace
 
 ### III) New theory points
 - **Dictionary mapping**
@@ -304,15 +304,15 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Pattern: `result += new_part`
 
 ### IV) Logic used for the exercise
-1. **Create morse code dictionary** with character-to-morse mappings
-2. **Validate command line arguments** - must be exactly 1 string argument
-3. **Convert input to uppercase** using `str.upper()` for case-insensitive processing
-4. **Iterate through each character** in the input string
-5. **Check if character exists** in morse dictionary using `in` operator
-6. **Convert valid characters** to morse code using dictionary lookup
-7. **Handle invalid characters** by raising AssertionError
-8. **Remove trailing whitespace** using `str.rstrip()` from final result
-9. **Display encrypted message**
+1. Create morse code dictionary with character-to-morse mappings
+2. Validate command line arguments - must be exactly 1 string argument
+3. Convert input to uppercase using `str.upper()` for case-insensitive processing
+4. Iterate through each character in the input string
+5. Check if character exists in morse dictionary using `in` operator
+6. Convert valid characters to morse code using dictionary lookup
+7. Handle invalid characters by raising AssertionError
+8. Remove trailing whitespace using `str.rstrip()` from final result
+9. Display encrypted message
 
 
 ## 10. Exercice 08: Loading ...
@@ -324,10 +324,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 ### II) Built-in functions and methods used
 - `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
-- `enumerate()`: **Built-in function** that returns index and value pairs
-- `yield`: **Built-in keyword** that creates generator functions
-- `range()`: **Built-in function** that creates sequence of numbers
-- `sleep()`: **Module function** that pauses execution
+- `enumerate()`: Built-in function that returns index and value pairs
+- `yield`: Built-in keyword that creates generator functions
+- `range()`: Built-in function that creates sequence of numbers
+- `sleep()`: Module function that pauses execution
 
 ### III) New theory points
 - **Generator functions**
@@ -339,14 +339,14 @@ Special built-in variable that contains the documentation string (docstring) of 
   - Useful for tracking position in loops
 
 ### IV) Logic used for the exercise
-1. **Create generator function** `ft_tqdm()` that yields items from range
-2. **Calculate progress metrics** - percentage and bar width
-3. **Build visual progress bar** using string concatenation and padding
-4. **Use carriage return** `\r` to overwrite the same line
-5. **Yield each item** from the range while displaying progress
-6. **Compare with real tqdm** library to show functionality
-7. **Handle progress display** with percentage, bar, and item count
-8. **Add sleep delays** to demonstrate real-time progress updates
+1. Create generator function `ft_tqdm()` that yields items from range
+2. Calculate progress metrics - percentage and bar width
+3. Build visual progress bar using string concatenation and padding
+4. Use carriage return `\r` to overwrite the same line
+5. Yield each item from the range while displaying progress
+6. Compare with real tqdm library to show functionality
+7. Handle progress display with percentage, bar, and item count
+8. Add sleep delays to demonstrate real-time progress updates
 
 
 ## 11. Exercice 09: My first package creation
@@ -357,7 +357,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 
 ### II) Built-in functions and methods used
 - `print()`: (already used in ex00)
-- `list.count()`: **Method** that counts occurrences of item in list
+- `list.count()`: Method that counts occurrences of item in list
 
 ### III) New theory points
 - **Package structure**
@@ -376,24 +376,24 @@ Special built-in variable that contains the documentation string (docstring) of 
   - `from .core import function` for same-package imports
   - Using dots to indicate relative module location
 - **Command summary**
-  - **Build**: python -m build
-  - **Install**: python -m pip install ./dist/ft_package-0.0.1.tar.gz
-  - **Verify**: python -m pip show -v ft_package
-  - **Unbuild**: rm -rf build/ dist/ *.egg-info
-  - **Uninstall**: python -m pip uninstall ft_package
-  - **List of installed packages**: python -m pip list
+  - Build: python -m build
+  - Install: python -m pip install ./dist/ft_package-0.0.1.tar.gz
+  - Verify: python -m pip show -v ft_package
+  - Unbuild: rm -rf build/ dist/ *.egg-info
+  - Uninstall: python -m pip uninstall ft_package
+  - List of installed packages: python -m pip list
 
 ### IV) Logic used for the exercise
-1. **Create package structure** with `ft_package/` directory
-2. **Add `__init__.py`** to make it a proper Python package
-3. **Define core functionality** in `core.py` with `count_in_list()` function
-4. **Configure package metadata** in `pyproject.toml` file
-5. **Set up package imports** in `__init__.py` with `__all__` and `__version__`
-6. **Build the package** using `python -m build` command
-7. **Install the package** locally with `pip install ./dist/ft_package-0.0.1.tar.gz`
-8. **Test the package** by importing and using the functions
-9. **Verify installation** with `pip show -v ft_package`
-10. **Clean up** with uninstall and remove build artifacts
+1. Create package structure with `ft_package/` directory
+2. Add `__init__.py` to make it a proper Python package
+3. Define core functionality in `core.py` with `count_in_list()` function
+4. Configure package metadata in `pyproject.toml` file
+5. Set up package imports in `__init__.py` with `__all__` and `__version__`
+6. Build the package using `python -m build` command
+7. Install the package locally with `pip install ./dist/ft_package-0.0.1.tar.gz`
+8. Test the package by importing and using the functions
+9. Verify installation with `pip show -v ft_package`
+10. Clean up with uninstall and remove build artifacts
 
 ---
 

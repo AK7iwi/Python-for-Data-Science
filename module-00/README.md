@@ -293,8 +293,8 @@ Special built-in variable that contains the documentation string (docstring) of 
 ### IV) Logic used for the exercise
 1. Create custom filter function `ft_filter()` that mimics built-in `filter()`
 2. Handle two cases in the filter function:
-  - When function is `None`: filter out falsy values
-  - When function is provided: apply function to each item
+   - When function is `None`: filter out falsy values
+   - When function is provided: apply function to each item
 3. Use list comprehensions for filtering logic
 4. Validate command line arguments - must be exactly 2 (string and integer)
 5. Convert string to integer with error handling

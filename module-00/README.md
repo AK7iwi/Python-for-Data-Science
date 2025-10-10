@@ -51,10 +51,10 @@ No external libraries used.
 ### IV) Logic used for the exercise
 1. Creating each data type with sample data
 2. Modifying each type using their appropriate methods:
-  - List: Direct index assignment (mutable)
-  - Tuple: Complete reassignment (immutable)
-  - Set: Using `remove()` and `add()` methods
-  - Dictionary: Key-based assignment
+    - List: Direct index assignment (mutable)
+    - Tuple: Complete reassignment (immutable)
+    - Set: Using `remove()` and `add()` methods
+    - Dictionary: Key-based assignment
 3. Displaying the results to show how each modification affects the data structure
 
 

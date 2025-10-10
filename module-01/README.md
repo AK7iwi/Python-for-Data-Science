@@ -34,9 +34,9 @@ So:
 - `sys`: Built-in library for system-specific parameters
 
 ### II) Built-in functions and methods used
-- `isinstance()`: **Built-in function** that checks if object is instance of a class
-- `math.isfinite()`: **Module function** that checks if value is finite
-- `len()`: **Built-in function** that returns length of a sequence
+- `isinstance()`: Built-in function that checks if object is instance of a class
+- `math.isfinite()`: Module function that checks if value is finite
+- `len()`: Built-in function that returns length of a sequence
 - `print()`: (already used in module00) //Explain 
 
 ### III) New theory points
@@ -56,12 +56,12 @@ So:
   - `.tolist()`: Converts NumPy array back to Python list
 
 ### IV) Logic used for the exercise
-1. **Validate input data** - Check types, finiteness, and positivity
-2. **Convert Python lists to NumPy arrays** using `np.asarray()`
-3. **Perform vectorized BMI calculation** using NumPy operations
-4. **Apply limit comparison** using boolean array operations
-5. **Return results as Python lists** using `.tolist()`
-6. **Handle comprehensive error cases** with specific exception messages
+1. Validate input data - Check types, finiteness, and positivity
+2. Convert Python lists to NumPy arrays using `np.asarray()`
+3. Perform vectorized BMI calculation using NumPy operations
+4. Apply limit comparison using boolean array operations
+5. Return results as Python lists using `.tolist()`
+6. Handle comprehensive error cases with specific exception messages
 
 
 ## 2. Exercice 01: 2D array
@@ -94,7 +94,7 @@ So:
   - Handle edge cases for array boundaries
 
 ### IV) Logic used for the exercise
-1. **Validate 2D array structure** - Check if input is proper list of lists
+1. Validate 2D array structure - Check if input is proper list of lists
 2. **Validate array content** - Ensure consistent row sizes
 3. **Validate slice indices** - Check bounds and types
 4. **Convert to NumPy array** using `np.asarray()` for efficient slicing

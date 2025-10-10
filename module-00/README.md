@@ -42,7 +42,7 @@ No external libraries used.
 - `print()`: Built-in function to display output
 
 ### III) New theory points
-- **Basic Data Types**:
+- **Basic Data Types**
   - List: Mutable, ordered collection `["item1", "item2"]`
   - Tuple: Immutable, ordered collection `("item1", "item2")`
   - Set: Mutable, unordered collection of unique elements `{"item1", "item2"}`
@@ -51,10 +51,10 @@ No external libraries used.
 ### IV) Logic used for the exercise
 1. Creating each data type with sample data
 2. Modifying each type using their appropriate methods:
-   - List: Direct index assignment (mutable)
-   - Tuple: Complete reassignment (immutable)
-   - Set: Using `remove()` and `add()` methods
-   - Dictionary: Key-based assignment
+  - List: Direct index assignment (mutable)
+  - Tuple: Complete reassignment (immutable)
+  - Set: Using `remove()` and `add()` methods
+  - Dictionary: Key-based assignment
 3. Displaying the results to show how each modification affects the data structure
 
 
@@ -71,7 +71,8 @@ No external libraries used.
 - `print()`: (already used in ex00)
 
 ### III) New theory points
-- **Library import**: `import lib` or just a specific class `from lib import class`
+- **Library import**
+  - `import lib` or just a specific class `from lib import class`
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
     - `f"Hello {name}, you are {age} years old"`
@@ -98,12 +99,14 @@ No external libraries used.
 - `print()`: (already used in ex00)
 
 ### III) New theory points
-- **Function definition**:
-    - Basic function: `def function_name(parameter):`
-    - Function definition with type: `def function_name(parameter: type) -> return_type:`
-    - Type hints: `object: any` and `-> int` for parameter and return type documentation
-- **Function import**: `from module import function`
-- **Conditional statements**: `if/elif/else` structure
+- **Function definition**
+  - Basic function: `def function_name(parameter):`
+  - Function definition with type: `def function_name(parameter: type) -> return_type:`
+  - Type hints: `object: any` and `-> int` for parameter and return type documentation
+- **Function import**
+  - `from module import function`
+- **Conditional statements** 
+  - `if/elif/else` structure
 
 ### IV) Logic used for the exercise
 1. Define a function with type hints and documentation
@@ -127,13 +130,20 @@ No external libraries used.
 - `float()`: Built-in function that converts to float type
 
 ### III) New theory points
-- **None value**: `None` represents absence of value (like NULL in C)
-- **NaN (Not a Number)**: `float("NaN")` creates a special float value
-- **Boolean False**: `False` as a null-like value
-- **Zero as null**: Integer `0` representing empty/nothing
-- **Empty string**: `""` representing no text
-- **Identity operator**: `is` vs `==` for object comparison
-- **String conversion**: `str(object)` to convert values for comparison
+- **None value**
+  - `None` represents absence of value (like NULL in C)
+- **NaN (Not a Number)**
+  - `float("NaN")` creates a special float value
+- **Boolean False**
+  - `False` as a null-like value
+- **Zero as null**
+  - Integer `0` representing empty/nothing
+- **Empty string**
+  - `""` representing no text
+- **Identity operator**
+  - `is` vs `==` for object comparison
+- **String conversion**
+  - `str(object)` to convert values for comparison
 
 ### IV) Logic used for the exercise
 1. Define function to check different null-like values
@@ -157,9 +167,11 @@ No external libraries used.
 - `int()`: Built-in function that converts string to integer
 
 ### III) New theory points
-- **Gets command line arguments**: `sys.argv`
+- **Gets command line arguments**
+  - `sys.argv`
   - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
-- **Exception/Error handling**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
+- **Exception/Error handling**
+  - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
 
 ### IV) Logic used for the exercise
 1. Import sys module to access command line arguments
@@ -174,8 +186,10 @@ No external libraries used.
 ## 6. Interlude: From now on you must follow these additional rules
 
 ### I) Script vs Module
-- **Script**: File run directly with `python filename.py`
-- **Module**: File imported into another script
+- **Script**
+  - File run directly with `python filename.py`
+- **Module**
+  - File imported into another script
 
 ### II) Norme: Flake8
 ```bash
@@ -185,16 +199,18 @@ python -m pip install flake8
 # Add the local bin directory to your PATH if needed as user
 ```
 
-**Adding to PATH explanation:**
-- When you install packages with `pip install --user`, they are installed in your user directory
-- The executable files (like `flake8`) are placed in `~/.local/bin/` (Linux/Mac)
-- You need to add this directory to your PATH environment variable so the system can find the executable
-- **Linux/Mac**: Add `export PATH="$HOME/.local/bin:$PATH"` to your `~/.bashrc` or `~/.zshrc`
-- **Alternative method**: You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
-- After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
+- **Adding to PATH explanation**
+  - When you install packages with `pip install --user`, they are installed in your user directory
+  - The executable files (like `flake8`) are placed in `~/.local/bin/` (Linux/Mac)
+  - You need to add this directory to your PATH environment variable so the system can find the executable
+- **Linux/Mac**
+  - Add `export PATH="$HOME/.local/bin:$PATH"` to your `~/.bashrc` or `~/.zshrc`
+- **Alternative method**
+  - You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
+  - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
 
 ### III) Exception/Error handling
-- `try/except` System with specific exception types (like try/catch in C++)
+- `try/except`: System with specific exception types (like try/catch in C++)
 - `raise`: Built-in keyword that raises an exception (like throw in C++)
 - `ValueError`: Built-in exception for conversion errors
 - `AssertionError`: Custom exception for validation errors
@@ -229,8 +245,10 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `string.punctuation`: Module constant containing all punctuation characters
 
 ### III) New theory points
-- **Using `if __name__ == "__main__"`**: check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
-- **Loop to iterate over sequences**: `for`
+- **Using `if __name__ == "__main__"`**
+  - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
+- **Loop to iterate over sequences**
+  - `for`
   - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
 

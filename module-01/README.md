@@ -32,9 +32,9 @@ Numpy, matplotlib, some reexplain
 ## 1. Exercice 00: Give my BMI
 
 ### I) Libraries used
+- `sys`: Built-in library for system-specific parameters and functions
 - `numpy`: External library for numerical computing
 - `math`: Built-in library for mathematical functions
-- `sys`: Built-in library for system-specific parameters
 
 ### II) Built-in functions and methods used
 - `isinstance()`: Built-in function that checks if object is instance of a class
@@ -43,20 +43,14 @@ Numpy, matplotlib, some reexplain
 - `print()`: Built-in function to display output
 
 ### III) External functions
-No external functions used.
+- `np.asarray`: 
+- `tolist`: ?? Check 
 
 ### IV) New theory points
-- **Data validation patterns**
-  - Type checking: `isinstance(value, (int, float))`
-  - Finite value checking: `math.isfinite(value)`
-  - Positive value validation: `value > 0`
 - **NumPy array operations**
   - `np.asarray()`: Converts Python lists to NumPy arrays efficiently
   - Vectorized operations: `array1 / array2` performs element-wise division
   - Array broadcasting: Automatic expansion of arrays for operations
-- **BMI calculation formula**
-  - BMI = weight / (height²)
-  - Vectorized calculation using NumPy arrays
 - **Boolean array operations**
   - `array > limit`: Creates boolean array
   - `.tolist()`: Converts NumPy array back to Python list

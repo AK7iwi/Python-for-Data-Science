@@ -23,9 +23,9 @@ def all_thing_is_obj(object: any) -> int:
         elif isinstance(object, str):
             print(f"{object} is in the kitchen : {type(object)}")
         elif isinstance(object, int):
-            print("Type not found")
+            print("Type not found") ## Raise error
         else:
-            print("Type not found")
+            print("Type not found") ## Raise error + merge with top condition
 
         return 42
 

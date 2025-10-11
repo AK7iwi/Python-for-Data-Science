@@ -133,11 +133,11 @@ No external functions used.
 No external libraries used.
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `isinstance()`: (already used in ex02)
 - `type()`: (already used in ex02)
 - `str()`: Built-in function that converts object to string
 - `float()`: Built-in function that converts to float type
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.
@@ -175,9 +175,9 @@ No external functions used.
 - `sys`: Built-in library for system-specific parameters and functions
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `len()`: Built-in function that returns length of a sequence
 - `int()`: Built-in function that converts string to integer
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.
@@ -251,7 +251,6 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `string`: Built-in library for string constants and utilities
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
 - `input()`: Built-in function that gets user input from console
 - `sum()`: Built-in function that return the sum off all items plus the optional start value
@@ -260,6 +259,7 @@ Special built-in variable that contains the documentation string (docstring) of 
 - `char.isdigit()`: Method that checks if character is a digit
 - `char.isspace()`: Method that checks if character is whitespace
 - `string.punctuation`: Module constant containing all punctuation characters
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.
@@ -289,10 +289,10 @@ No external functions used.
 ### II) Built-in functions and methods used
 - `len()`: (already used in ex04)
 - `int()`: (already used in ex04)
-- `print()`: (already used in ex00)
 - `lambda`: Built-in keyword that creates anonymous functions
 - `str.split()`: Method that splits string into list of words
 - `filter()`: Built-in function that filters iterable based on function
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.
@@ -331,10 +331,10 @@ No external functions used.
 - `sys`: (already used in ex04)
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
 - `str.upper()`: Method that converts string to uppercase
 - `str.rstrip()`: Method that removes trailing whitespace
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.
@@ -366,12 +366,12 @@ No external functions used.
 - `tqdm`: External library for progress bars (for comparison)
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `len()`: (already used in ex04)
 - `enumerate()`: Built-in function that returns index and value pairs
 - `yield`: Built-in keyword that creates generator functions
 - `range()`: Built-in function that creates sequence of numbers
 - `sleep()`: Module function that pauses execution
+- `print()`: (already used in ex00)
 
 ### III) External functions
 - `tqdm()`: External function from tqdm library for creating progress bars
@@ -403,8 +403,8 @@ No external functions used.
 - `wheel`: Built-in library for package distribution
 
 ### II) Built-in functions and methods used
-- `print()`: (already used in ex00)
 - `list.count()`: Method that counts occurrences of item in list
+- `print()`: (already used in ex00)
 
 ### III) External functions
 No external functions used.

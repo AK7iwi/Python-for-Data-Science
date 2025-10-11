@@ -69,11 +69,11 @@ def main():
         if number is not None:
             check_odd_even(number)
 
+        return 0
+
     except Exception as e:
         print(f"AssertionError: {e}")
         return 1
-
-    return 0
 
 
 if __name__ == "__main__":

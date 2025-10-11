@@ -27,35 +27,29 @@ So:
 
 ## Introduction
 
-Numpy, matplotlib, some reexplain 
+Numpy, matplotlib
 
 ## 1. Exercice 00: Give my BMI
 
-### I) Libraries used
-- `sys`: Built-in library for system-specific parameters and functions
+### I) New libraries used
 - `numpy`: External library for numerical computing
 - `math`: Built-in library for mathematical functions
 
-### II) Built-in functions and methods used
-- `isinstance()`: Built-in function that checks if object is instance of a class
-- `enumerate`: Built-in function that returns index and value pairs
+### II) New built-in functions and methods used
 - `math.isfinite()`: Module function that checks if value is finite
-- `len()`: Built-in function that returns length of a sequence
-- `print()`: Built-in function to display output
 
-### III) External functions
+### III) New external functions
 - `np.asarray()`: NumPy function that converts Python lists to NumPy 
 - `array.tolist()`: NumPy array method that converts arrays back to Python lists
 
 ### IV) New theory points
 - **NumPy array operations**
   - `np.asarray()`: Converts Python lists to NumPy arrays efficiently
+  - `.tolist()`: Converts NumPy array back to Python list
   - Vectorized operations: `array1 / array2` performs element-wise division
   - Array broadcasting: Automatic expansion of arrays for operations
 - **Boolean array operations**
   - `array > limit`: Creates boolean array
-- **Convert array operations**
-  - `.tolist()`: Converts NumPy array back to Python list
 
 ### V) Logic used for the exercise
 1. Validate input data - Check types, finiteness, and positivity
@@ -63,45 +57,33 @@ Numpy, matplotlib, some reexplain
 3. Perform vectorized BMI calculation using NumPy operations
 4. Apply limit comparison using boolean array operations
 5. Return results as Python lists using `.tolist()`
-6. Handle comprehensive error cases with specific exception messages
 
 
 ## 2. Exercice 01: 2D array
 
 ### I) Libraries used
-- `sys`: (already used in ex00)
-- `numpy`: (already used in ex00)
+No external libraries used.
 
 ### II) Built-in functions and methods used
-- `isinstance()`: (already used in ex00)
-- `len()`: (already used in ex00)
-- `print()`: (already used in ex00)
 
 ### III) External functions
-No external functions used.
+- `array.shape`: NumPy array attribute that returns the dimensions of the array
 
 ### IV) New theory points
-- **2D array validation**
-  - Structure validation: Check if input is list of lists
-  - Content validation: Ensure all rows have same size
-  - Empty row detection: Prevent empty sublists
 - **Array slicing operations**
   - `array[start:end]`: Slice NumPy arrays efficiently
   - Negative indexing: `array[-2]` for second-to-last element
-  - Bounds checking: Validate slice indices
+  - Array slicing: More efficient than Python list slicing
 - **NumPy array properties**
   - `.shape`: Returns dimensions of array
-  - `.tolist()`: Converts NumPy array to Python list
-  - Array slicing: More efficient than Python list slicing
-- **Index normalization**
-  - Convert negative indices to positive equivalents
-  - Validate index bounds before slicing
-  - Handle edge cases for array boundaries
+- **NumPy array type**
+  - `np.ndarray`: NumPy's main array class for n-dimensional arrays
+  - Base class for all NumPy arrays (1D, 2D, 3D, etc.)
 
 ### V) Logic used for the exercise
 1. Validate 2D array structure - Check if input is proper list of lists
 2. Validate array content - Ensure consistent row sizes
-3. Validate slice indices - Check bounds and types
+3. Validate slice indices - Check bounds and types (Index normalization: Convert negative indices to positive equivalents, e.g., -2 becomes len(array) - 2)
 4. Convert to NumPy array using `np.asarray()` for efficient slicing
 5. Perform array slicing using NumPy's optimized slicing
 6. Display shape information before and after slicing
@@ -111,20 +93,17 @@ No external functions used.
 ## 3. Exercice 02: load my image
 
 ### I) Libraries used
-- `numpy`: (already used in ex00)
-- `PIL`: External library for image processing
 - `os`: Built-in library for operating system interface
-- `sys`: (already used in ex00)
+- `PIL`: External library for image processing
 
 ### II) Built-in functions and methods used
-- `os.path.exists()`: Module function that checks if file exists
 - `os.path.splitext()`: Module function that splits filename and extension
-- `Image.open()`: Class method that opens image files
-- `image.convert()`: Method that converts image color modes
-- `print()`: (already used in ex00)
+- `os.path.exists()`: Module function that checks if file exists
 
 ### III) External functions
-No external functions used.
+- `image.open()`: Class method that opens image files
+- `image.mode`: PIL Image attribute that returns the color mode of the image 
+- `image.convert()`: Method that converts image color modes
 
 ### IV) New theory points
 - **Image file handling**
@@ -133,8 +112,8 @@ No external functions used.
   - Path string validation: Ensure non-empty paths
 - **PIL (Python Imaging Library)**
   - `Image.open()`: Load image files
-  - Color mode conversion: `image.convert('RGB')`
   - Image properties: `.mode`, `.size`
+  - Color mode conversion: `image.convert('RGB')`
 - **NumPy array conversion**
   - `np.asarray(image)`: Convert PIL Image to NumPy array
   - Preserves data types: uint8 for image data
@@ -143,6 +122,9 @@ No external functions used.
   - Shape: `(height, width, channels)` for color images
   - Data type: uint8 (0-255 range)
   - Channel interpretation: RGB format
+- **Array manipulation**
+  - Shape analysis: `image.shape[:2]` for height and width
+  - Channel handling: Check for 2D vs 3D arrays
 
 ### V) Logic used for the exercise
 1. Validate file path - Check existence, format, and string validity
@@ -156,11 +138,17 @@ No external functions used.
 ## 4. Exercice 03: zoom on me
 
 ### I) Libraries used
-- `numpy`: (already used in ex00)
 - `matplotlib`: External library for plotting and visualization
-- `sys`: (already used in ex00)
 
 ### II) Built-in functions and methods used
+- `min()`: Built-in function that returns the smallest value from iterable
+
+### III) External functions
+- `np.dot()`: NumPy function that performs matrix multiplication or dot product
+  - Applies formula: `0.299*R + 0.587*G + 0.114*B`
+- `np.uint8`: NumPy data type for 8-bit unsigned integers (0-255 range)
+  - Used with `.astype(np.uint8)` for data type conversion
+- `np.astype()`: NumPy array method that converts data type
 - `plt.figure()`: Function that creates new figure
 - `plt.imshow()`: Function that displays image data
 - `plt.title()`: Function that sets plot title
@@ -168,58 +156,38 @@ No external functions used.
 - `plt.ylabel()`: Function that sets y-axis label
 - `plt.colorbar()`: Function that adds color bar
 - `plt.show()`: Function that displays the plot
-- `print()`: (already used in ex00)
-
-### III) External functions
-No external functions used.
 
 ### IV) New theory points
-- **Image visualization**
-  - `matplotlib.pyplot`: Library for creating plots and visualizations
-  - `plt.imshow()`: Display 2D image data
-  - Color mapping: `cmap='gray'` for grayscale display
-  - Figure sizing: `figsize=(width, height)`
 - **Image processing operations**
-  - Center calculation: `width // 2, height // 2`
-  - Zoom area definition: Calculate crop boundaries
   - Array slicing: `image[start_y:end_y, start_x:end_x]`
 - **Grayscale conversion**
   - RGB to grayscale: Manual conversion using dot product
   - Luminance formula: `0.299*R + 0.587*G + 0.114*B`
   - Data type conversion: `.astype(np.uint8)`
-- **Array manipulation**
-  - Shape analysis: `image.shape[:2]` for height and width
-  - Channel handling: Check for 2D vs 3D arrays
-  - Array copying: `array.copy()` for safe manipulation
+- **Image visualization**
+  - `matplotlib.pyplot`: Library for creating plots and visualizations
+  - `plt.imshow()`: Display 2D image data
+  - Color mapping: `cmap='gray'` for grayscale display
+  - Figure sizing: `figsize=(width, height)`
 
 ### V) Logic used for the exercise
 1. Load image using previous `ft_load()` function
 2. Calculate zoom area - Define center square region
 3. Crop image using array slicing operations
-4. Convert to grayscale using manual RGB conversion
+4. Convert to grayscale using manual RGB conversion (Luminance formula)
 5. Display results using matplotlib visualization
-6. Handle different image dimensions and channel counts
 
 
 ## 5. Exercice 04: rotate me
 
 ### I) Libraries used
-- `numpy`: (already used in ex00)
-- `matplotlib`: (already used in ex03)
-- `sys`: (already used in ex00)
+
 
 ### II) Built-in functions and methods used
-- `plt.figure()`: (already used in ex03)
-- `plt.imshow()`: (already used in ex03)
-- `plt.title()`: (already used in ex03)
-- `plt.xlabel()`: (already used in ex03)
-- `plt.ylabel()`: (already used in ex03)
-- `plt.axis()`: Function that controls axis display
-- `plt.show()`: (already used in ex03)
-- `print()`: (already used in ex00)
+
 
 ### III) External functions
-No external functions used.
+- `np.zeros()`: NumPy function that creates array filled with zeros
 
 ### IV) New theory points
 - **Array transposition**
@@ -237,7 +205,6 @@ No external functions used.
 - **Array validation**
   - Dimension checking: `len(image.shape) < 2`
   - Shape analysis: Handle 2D and 3D arrays
-  - Type validation: Ensure NumPy array input
 
 ### V) Logic used for the exercise
 1. Load and zoom image using previous functions
@@ -252,20 +219,17 @@ No external functions used.
 ## 6. Exercice 05: Pimp my image
 
 ### I) Libraries used
-- `numpy`: (already used in ex00)
-- `matplotlib`: (already used in ex03)
-- `sys`: (already used in ex00)
+
 
 ### II) Built-in functions and methods used
-- `plt.figure()`: (already used in ex03)
-- `plt.imshow()`: (already used in ex03)
-- `plt.title()`: (already used in ex03)
-- `plt.axis()`: (already used in ex04)
-- `plt.show()`: (already used in ex03)
-- `print()`: (already used in ex00)
 
 ### III) External functions
-No external functions used.
+- `array.copy()`: NumPy array method that creates independent copy of array
+- `np.stack()`: NumPy function that stacks arrays along new axis
+  - Combines multiple arrays into single array
+  - Used for creating composite images or channel operations
+  - Maintains array dimensions and data types
+- `plt.axis()`: Matplotlib function that controls axis display properties
 
 ### IV) New theory points
 - **Image filtering operations**

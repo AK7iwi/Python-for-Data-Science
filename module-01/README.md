@@ -38,13 +38,14 @@ Numpy, matplotlib, some reexplain
 
 ### II) Built-in functions and methods used
 - `isinstance()`: Built-in function that checks if object is instance of a class
+- `enumerate`: Built-in function that returns index and value pairs
 - `math.isfinite()`: Module function that checks if value is finite
 - `len()`: Built-in function that returns length of a sequence
 - `print()`: Built-in function to display output
 
 ### III) External functions
-- `np.asarray`: 
-- `tolist`: ?? Check 
+- `np.asarray()`: NumPy function that converts Python lists to NumPy 
+- `array.tolist()`: NumPy array method that converts arrays back to Python lists
 
 ### IV) New theory points
 - **NumPy array operations**
@@ -53,6 +54,7 @@ Numpy, matplotlib, some reexplain
   - Array broadcasting: Automatic expansion of arrays for operations
 - **Boolean array operations**
   - `array > limit`: Creates boolean array
+- **Convert array operations**
   - `.tolist()`: Converts NumPy array back to Python list
 
 ### V) Logic used for the exercise
@@ -67,8 +69,8 @@ Numpy, matplotlib, some reexplain
 ## 2. Exercice 01: 2D array
 
 ### I) Libraries used
-- `numpy`: (already used in ex00)
 - `sys`: (already used in ex00)
+- `numpy`: (already used in ex00)
 
 ### II) Built-in functions and methods used
 - `isinstance()`: (already used in ex00)

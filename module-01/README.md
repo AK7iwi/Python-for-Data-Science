@@ -64,21 +64,23 @@ Numpy, matplotlib
 
 ## 2. Exercice 01: 2D array
 
-### I) Libraries used
-No external libraries used.
+### I) New libraries used
+No new libraries used.
 
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
+No new built-in functions and methods used
 
-### III) External functions
-- `array.shape`: NumPy array attribute that returns the dimensions of the array
+### III) New external functions
+- `array.shape`: NumPy array attribute that returns the dimensions of the array 
 
 ### IV) New theory points
 - **Array slicing operations**
   - `array[start:end]`: Slice NumPy arrays efficiently
-  - Negative indexing: `array[-2]` for second-to-last element
+  - Negative indexing: `array[-1]` for last element, `array[-2]` for second-to-last element, ...
   - Array slicing: More efficient than Python list slicing
 - **NumPy array properties**
   - `.shape`: Returns dimensions of array
+  - `y, x = array.shape()`
 - **NumPy array type**
   - `np.ndarray`: NumPy's main array class for n-dimensional arrays
   - Base class for all NumPy arrays (1D, 2D, 3D, etc.)
@@ -95,15 +97,15 @@ No external libraries used.
 
 ## 3. Exercice 02: load my image
 
-### I) Libraries used
+### I) New libraries used
 - `os`: Built-in library for operating system interface
 - `PIL`: External library for image processing
 
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
 - `os.path.splitext()`: Module function that splits filename and extension
 - `os.path.exists()`: Module function that checks if file exists
 
-### III) External functions
+### III) New external functions
 - `image.open()`: Class method that opens image files
 - `image.mode`: PIL Image attribute that returns the color mode of the image 
 - `image.convert()`: Method that converts image color modes

@@ -29,6 +29,7 @@ So:
 
 Numpy, matplotlib
 
+
 ## 1. Exercice 00: Give my BMI
 
 ### I) New libraries used
@@ -45,11 +46,13 @@ Numpy, matplotlib
 ### IV) New theory points
 - **NumPy array operations**
   - `np.asarray()`: Converts Python lists to NumPy arrays efficiently
-  - `.tolist()`: Converts NumPy array back to Python list
-  - Vectorized operations: `array1 / array2` performs element-wise division
   - Array broadcasting: Automatic expansion of arrays for operations
-- **Boolean array operations**
-  - `array > limit`: Creates boolean array
+    - Allows arrays with different shapes to perform element-wise operations
+    - NumPy automatically aligns dimensions and expands arrays as needed
+    - Enables vectorized operations without manual loops
+  - Vectorized operations: `array1 / array2` performs element-wise division
+  - Boolean array operations: `array > limit` creates boolean array
+  - `.tolist()`: Converts NumPy array back to Python list
 
 ### V) Logic used for the exercise
 1. Validate input data - Check types, finiteness, and positivity

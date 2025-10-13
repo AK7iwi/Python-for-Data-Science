@@ -27,7 +27,12 @@ So:
 
 ## Introduction
 
-Numpy, matplotlib
+This module focuses on array manipulation and visualization using two essential Python libraries:
+
+- **NumPy**: For efficient numerical computing and array operations
+- **Matplotlib**: For data visualization and image display
+
+The exercises progressively introduce concepts from basic array operations (BMI calculations) to advanced image processing (filtering, rotation, and visualization). Each exercise builds upon previous knowledge, demonstrating how NumPy arrays enable vectorized operations and how Matplotlib provides powerful visualization capabilities for data science applications.
 
 
 ## 1. Exercice 00: Give my BMI

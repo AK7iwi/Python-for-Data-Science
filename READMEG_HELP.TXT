@@ -7,7 +7,7 @@
 - Tell Some reexplain across module of Libraries used, Built-in functions and methods used, External functions
 - Explain about validate_args()
 
-Check to be more consice: Delete (already use , ...) if it's often use
+Be more consice: Delete (already use , ...) if it's often use
 
 
 

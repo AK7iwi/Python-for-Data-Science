@@ -1,73 +1,151 @@
-import pandas as pd
-import os
 import sys
+import os
+import pandas as pd
+from validate_args import validate_args
 
 
-def load(path: str) -> pd.DataFrame | None:
+def validate_path_exists(path: str) -> None:
     """
-    Load a CSV dataset and return it with dimensions information.
-    
+    Validate that the file path exists.
+
     Args:
-        path (str): Path to the CSV file
-        
+        path (str): The file path to validate
+
     Returns:
-        pd.DataFrame | None: Loaded dataset or None if error occurs
+        None
 
     Raises:
         FileNotFoundError: If file does not exist
-        PermissionError: If permission is denied to access the file
-        pd.errors.ParserError: If the file cannot be parsed
-        pd.errors.EmptyDataError: If the file is empty
-        Exception: If an unexpected error occurs
+    """
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"File '{path}' not found")
+
+
+def validate_csv_format(path: str) -> None:
+    """
+    Validate that the file has a CSV format.
+
+    Args:
+        path (str): The file path to validate
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If file format is not CSV
+    """
+    if not path.lower().endswith('.csv'):
+        raise ValueError(f"File '{path}' is not a CSV file")
+
+
+def validate_path_string(path: str) -> None:
+    """
+    Validate that the path is a non-empty string.
+
+    Args:
+        path (str): The file path to validate
+
+    Returns:
+        None
+
+    Raises:
+        TypeError: If path is not a string
+        ValueError: If path is empty
+    """
+    if not isinstance(path, str):
+        raise TypeError("Path must be a string")
+    if not path.strip():
+        raise ValueError("Path cannot be empty")
+
+
+def validate_path(path: str) -> None:
+    """
+    Validate that the path is a valid CSV file path.
+
+    Args:
+        path (str): The file path to validate
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    validate_path_string(path)
+    validate_csv_format(path)
+    validate_path_exists(path)
+
+
+def print_dataset_info(dataset: pd.DataFrame) -> None:
+    """
+    Print detailed information about the dataset.
+
+    Args:
+        dataset (pd.DataFrame): The dataset to print information about
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+    print(f"Loading dataset of dimensions {dataset.shape}")
+
+
+def load_csv(path: str) -> pd.DataFrame:
+    """
+    Load a CSV file and return it as a pandas DataFrame.
+
+    Args:
+        path (str): Path to the CSV file
+
+    Returns:
+        pd.DataFrame: Loaded dataset
+
+    Raises:
+        None
+    """
+    return pd.read_csv(path)
+
+
+def load(path: str) -> pd.DataFrame:
+    """
+    Load a CSV dataset and return it with dimensions information.
+
+    Args:
+        path (str): Path to the CSV file
+
+    Returns:
+        pd.DataFrame: Loaded dataset
+
+    Raises:
+        None
     """
     try:
-        # Validate path exists and is a file
-        if not os.path.exists(path):
-            print(f"Error: File '{path}' not found")
-            return None
-            
-        if not os.path.isfile(path):
-            print(f"Error: '{path}' is not a file")
-            return None
-            
-        # Check file extension
-        if not path.lower().endswith('.csv'):
-            print(f"Error: File '{path}' is not a CSV file")
-            return None
-            
-        # Load the CSV file
-        dataset = pd.read_csv(path)
-        
-        # Print dimensions
-        print(f"Loading dataset of dimensions {dataset.shape}")
-        
-        return dataset
-        
-    except pd.errors.EmptyDataError:
-        print(f"Error: File '{path}' is empty")
-        return None
-    except pd.errors.ParserError as e:
-        print(f"Error: Cannot parse CSV file '{path}': {e}")
-        return None
-    except PermissionError:
-        print(f"Error: Permission denied accessing '{path}'")
-        return None
+        validate_path(path)
     except Exception as e:
-        print(f"Error: Unexpected error loading '{path}': {e}")
         return None
-
-
-def main():
-    """Main function to test the load function."""
-    if len(sys.argv) != 2:
-        print("Usage: python load_csv.py <csv_file_path>")
-        return
-        
-    file_path = sys.argv[1]
-    result = load(file_path)
     
-    if result is not None:
-        print(result)
+    dataset = load_csv(path)
+    print_dataset_info(dataset)
+    
+    return dataset
+
+
+def main() -> int:
+    """
+    Main function to test the load function.
+    """
+    try:
+        validate_args()
+        
+        print(load("life_expectancy_years.csv"))
+        
+        return 0
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        return 1
 
 
 if __name__ == "__main__":

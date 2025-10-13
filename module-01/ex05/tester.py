@@ -6,7 +6,7 @@ from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 print("Test 1 - Valid input: Basic input")
 
 try:
-    array = ft_load("landscape.jpg")
+    array = ft_load("../images/landscape.jpg")
     print(array)
 
     ft_invert(array)

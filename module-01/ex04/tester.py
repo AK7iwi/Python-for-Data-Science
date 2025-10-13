@@ -12,7 +12,7 @@ print("--------------------------------")
 print("Test 1 - Valid input: Basic input")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_image = zoom_center_square_to_grayscale(image)
     rotated_image = rotate_image(zoomed_image)
     display_image(rotated_image, "Rotated Image")
@@ -70,7 +70,7 @@ print("--------------------------------")
 print("Test 1 - Valid input: Basic input")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_image = zoom_center_square_to_grayscale(image)
     rotated_image = rotate_image(zoomed_image)
     display_image(rotated_image, "Rotated Image")
@@ -120,7 +120,7 @@ print("--------------------------------")
 print("Test 4 - Invalid title: non-string value")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_image = zoom_center_square_to_grayscale(image)
     rotated_image = rotate_image(zoomed_image)
     display_image(rotated_image, 123)
@@ -134,7 +134,7 @@ print("--------------------------------")
 print("Test 5 - Invalid title: empty string")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_image = zoom_center_square_to_grayscale(image)
     rotated_image = rotate_image(zoomed_image)
     display_image(rotated_image, "")

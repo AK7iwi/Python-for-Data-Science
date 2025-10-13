@@ -184,7 +184,7 @@ def main():
     try:
         validate_args()
 
-        array = ft_load("landscape.jpg")
+        array = ft_load("../images/landscape.jpg")
         print(array)
 
         ft_invert(array)

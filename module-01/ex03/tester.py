@@ -11,7 +11,7 @@ print("--------------------------------")
 print("Test 1 - Valid input: Basic input")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
     display_image(zoomed_grayscale_image, "Zoomed Image")
 
@@ -68,7 +68,7 @@ print("--------------------------------")
 print("Test 1 - Valid input: Basic input")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
     display_image(zoomed_grayscale_image, "Zoomed Image")
 
@@ -117,7 +117,7 @@ print("--------------------------------")
 print("Test 4 - Invalid title: non-string value")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
     display_image(zoomed_grayscale_image, 123)
 
@@ -130,7 +130,7 @@ print("--------------------------------")
 print("Test 5 - Invalid title: empty string")
 
 try:
-    image = ft_load("animal.jpeg")
+    image = ft_load("../images/animal.jpeg")
     zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
     display_image(zoomed_grayscale_image, "")
 

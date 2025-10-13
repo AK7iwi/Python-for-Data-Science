@@ -4,7 +4,7 @@ from load_image import ft_load
 print("Test 1a - Valid input: Basic input")
 
 try:
-    print(ft_load("landscape.jpg"))
+    print(ft_load("../images/landscape.jpg"))
 
 except Exception as e:
     print(f"Error: {e}")

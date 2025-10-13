@@ -170,7 +170,7 @@ def main() -> int:
     try:
         validate_args()
 
-        image = ft_load("animal.jpeg")
+        image = ft_load("../images/animal.jpeg")
         zoomed_image = zoom_center_square_to_grayscale(image)
         print(zoomed_image)
 

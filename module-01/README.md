@@ -184,11 +184,11 @@ No new built-in functions and methods used
 
 ## 5. Exercice 04: rotate me
 
-### I) Libraries used
+### I) New libraries used
+No new libraries used.
 
-
-### II) Built-in functions and methods used
-
+### II) New built-in functions and methods used
+No new built-in functions and methods used
 
 ### III) External functions
 - `np.zeros()`: NumPy function that creates array filled with zeros
@@ -199,16 +199,13 @@ No new built-in functions and methods used
   - NumPy transpose: `array.T` (not used - manual implementation required)
   - Shape transformation: `(rows, cols)` → `(cols, rows)`
 - **Manual array operations**
+  - Array initialization: `np.zeros((cols, rows, channels))`
   - Nested loops: `for i in range(rows): for j in range(cols):`
   - Index swapping: `transposed[j, i] = image[i, j]`
-  - Array initialization: `np.zeros((cols, rows, channels))`
 - **Image rotation concepts**
   - Transpose vs rotation: Transpose swaps dimensions
   - Channel preservation: Maintain RGB channel structure
   - Data type preservation: Keep uint8 format
-- **Array validation**
-  - Dimension checking: `len(image.shape) < 2`
-  - Shape analysis: Handle 2D and 3D arrays
 
 ### V) Logic used for the exercise
 1. Load and zoom image using previous functions

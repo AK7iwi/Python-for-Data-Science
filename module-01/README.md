@@ -103,7 +103,7 @@ No new built-in functions and methods used
 
 ### I) New libraries used
 - `os`: Built-in library for operating system interface
-- `PIL`: External library for image processing
+- `PIL`: External library for loading and processing images
 
 ### II) New built-in functions and methods used
 - `str.strip()`: Built-in string method that removes whitespace from both ends

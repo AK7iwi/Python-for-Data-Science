@@ -118,13 +118,7 @@ def slice_list(family: list, start: int, end: int) -> list:
     sliced = [row[start:end] for row in family[start:end]]
     return sliced
 
-ex02: 
 
-New important lib: 
-a) os: 
-built-in Python library, provides a way to interact with the operating system
-b) PIL:
-standard library for loading and processing images in Python
 
 Image format: 
 
@@ -139,16 +133,6 @@ RGB Format:
 R = Red component (0-255)
 G = Green component (0-255)
 B = Blue component (0-255)
-
-ex03: 
-
-New lib: 
-matplotlib 
-Array manip
-
-ex04/ex05:
-Array manip
-
 
 
 link:

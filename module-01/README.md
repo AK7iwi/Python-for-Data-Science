@@ -170,9 +170,9 @@ No new built-in functions and methods used
   - Data type conversion: `.astype(np.uint8)`
 - **Image visualization**
   - `matplotlib.pyplot`: Library for creating plots and visualizations
+  - `figsize=(width, height)`: Figure sizing
   - `plt.imshow()`: Display 2D image data
-  - Color mapping: `cmap='gray'` for grayscale display
-  - Figure sizing: `figsize=(width, height)`
+  - `cmap='gray'`: Grayscale display
 
 ### V) Logic used for the exercise
 1. Load image using previous `ft_load()` function

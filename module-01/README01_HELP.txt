@@ -1,7 +1,6 @@
 README01:
 
-
-Explain about validate_args()
+Intro: 
 
 Numpy:
 
@@ -66,7 +65,6 @@ ex05: array.copy() better performance than np.asarray and np.array
 
 Parsing with pure python before convert to numpy because convert numpy array change the values types 
 
-import numpy as np
 
 # Mixed int and float -> becomes float
 arr1 = np.array([1, 2.5, 3])
@@ -104,22 +102,7 @@ result = arr8 * 2  # Works! Converts to numbers
 ---------------------------------------------------
 
 
-ex01: 
-
-Slicing method (compare np manip with List manipulation)
-family_array = np.array(family)
-sliced_array = family_array[start:end]
-
-def slice_list(family: list, start: int, end: int) -> list:
-    """
-    Slice a 2D list using list slicing.
-    """
-    # Slice each row, then slice each row ??
-    sliced = [row[start:end] for row in family[start:end]]
-    return sliced
-
-
-
+ex02: (New theory point)
 Image format: 
 
 (257, 450, 3), this represents the dimensions of your image array:
@@ -133,9 +116,3 @@ RGB Format:
 R = Red component (0-255)
 G = Green component (0-255)
 B = Blue component (0-255)
-
-
-link:
-
-Return vs exit
-https://discuss.python.org/t/return-vs-sys-exit/45098/3

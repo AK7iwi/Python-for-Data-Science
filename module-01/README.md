@@ -101,6 +101,7 @@ No new built-in functions and methods used
 - `PIL`: External library for image processing
 
 ### II) New built-in functions and methods used
+- `str.strip()`: Built-in string method that removes whitespace from both ends
 - `os.path.splitext()`: Module function that splits filename and extension
 - `os.path.exists()`: Module function that checks if file exists
 
@@ -111,9 +112,8 @@ No new built-in functions and methods used
 
 ### IV) New theory points
 - **Image file handling**
-  - File existence validation: `os.path.exists()`
   - File format validation: Check supported extensions
-  - Path string validation: Ensure non-empty paths
+  - File existence validation: `os.path.exists()`
 - **PIL (Python Imaging Library)**
   - `Image.open()`: Load image files
   - Image properties: `.mode`, `.size`

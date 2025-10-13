@@ -55,7 +55,7 @@ Numpy, matplotlib
   - `.tolist()`: Converts NumPy array back to Python list
 
 ### V) Logic used for the exercise
-1. Validate input data - Check types, finiteness, and positivity
+1. Validate input data - Check types, finiteness, positivity, ...
 2. Convert Python lists to NumPy arrays using `np.asarray()`
 3. Perform vectorized BMI calculation using NumPy operations
 4. Apply limit comparison using boolean array operations
@@ -79,20 +79,19 @@ No new built-in functions and methods used
   - Negative indexing: `array[-1]` for last element, `array[-2]` for second-to-last element, ...
   - Array slicing: More efficient than Python list slicing
 - **NumPy array properties**
-  - `.shape`: Returns dimensions of array
-  - `y, x = array.shape()`
+  - `array.shape`: Returns dimensions of array
+  - `y, x = array.shape`
 - **NumPy array type**
   - `np.ndarray`: NumPy's main array class for n-dimensional arrays
   - Base class for all NumPy arrays (1D, 2D, 3D, etc.)
 
 ### V) Logic used for the exercise
-1. Validate 2D array structure - Check if input is proper list of lists
-2. Validate array content - Ensure consistent row sizes
-3. Validate slice indices - Check bounds and types (Index normalization: Convert negative indices to positive equivalents, e.g., -2 becomes len(array) - 2)
-4. Convert to NumPy array using `np.asarray()` for efficient slicing
-5. Perform array slicing using NumPy's optimized slicing
-6. Display shape information before and after slicing
-7. Return sliced data as Python list using `.tolist()`
+1. Validate 2D array - Check if input is proper list of lists, ensure consistent row sizes, ...
+2. Validate slice indices - Check bounds and types (Index normalization: Convert negative indices to positive equivalents, e.g., -2 becomes len(array) - 2)
+3. Convert to NumPy array using `np.asarray()` for efficient slicing
+4. Perform array slicing using NumPy's optimized slicing
+5. Display shape information before and after slicing
+6. Return sliced data as Python list using `.tolist()`
 
 
 ## 3. Exercice 02: load my image

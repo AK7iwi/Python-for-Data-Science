@@ -219,10 +219,11 @@ No new built-in functions and methods used
 
 ## 6. Exercice 05: Pimp my image
 
-### I) Libraries used
+### I) New libraries used
+No new libraries used.
 
-
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
+No new built-in functions and methods used
 
 ### III) External functions
 - `array.copy()`: NumPy array method that creates independent copy of array
@@ -236,15 +237,14 @@ No new built-in functions and methods used
 - **Image filtering operations**
   - Color channel isolation: `array[:, :, channel] = 0`
   - Channel indexing: RGB = [0, 1, 2] for [Red, Green, Blue]
-  - Array copying: `array.copy()` for safe manipulation
 - **Color space manipulation**
   - Red filter: Keep only red channel, zero others
   - Green filter: Keep only green channel, zero others
   - Blue filter: Keep only blue channel, zero others
   - Grayscale conversion: Average RGB channels
 - **Array operations**
-  - In-place modification: `array[:, :, 1] = 0`
   - Array copying: `array.copy()` for independent copies
+  - In-place modification: `array[:, :, 1] = 0`
   - Data type preservation: Maintain uint8 format
 - **Image processing pipeline**
   - Load → Validate → Copy → Filter → Display

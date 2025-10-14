@@ -108,17 +108,12 @@ def load_csv(path: str) -> pd.DataFrame:
     Raises:
         None
     """
-    try:
-        dataset = pd.read_csv(path)
-
-    except Exception as e:
-        print(f"ERROR: {e}")
-        return None
+    dataset = pd.read_csv(path)
 
     return dataset
 
 
-def load(path: str) -> pd.DataFrame:
+def load(path: str) -> pd.DataFrame | None:
     """
     Load a CSV dataset and return it with dimensions information.
 
@@ -127,15 +122,22 @@ def load(path: str) -> pd.DataFrame:
 
     Returns:
         pd.DataFrame: Loaded dataset
+        None: If there is an error
 
     Raises:
         None
     """
-    validate_path(path)
-    
-    dataset = load_csv(path)
+    try:
+        validate_path(path)
+
+        dataset = load_csv(path)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+
     print_dataset_info(dataset)
-    
+
     return dataset
 
 
@@ -151,7 +153,7 @@ def main() -> int:
         return 0
         
     except Exception as e:
-        print(f"Error: {e}") # to comment
+        print(f"Error: {e}")
         return 1
 
 

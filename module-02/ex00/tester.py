@@ -7,7 +7,7 @@ try:
     print(load("../csv_files/life_expectancy_years.csv"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -18,7 +18,7 @@ try:
     print(load(123))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -29,7 +29,7 @@ try:
     print(load(""))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -40,7 +40,7 @@ try:
     print(load("invalid.txt"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -51,7 +51,7 @@ try:
     print(load("nonexistent.csv"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -62,7 +62,7 @@ try:
     print(load("../csv_files/"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -73,7 +73,7 @@ try:
     print(load("../csv_files/empty.csv"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -84,7 +84,7 @@ try:
     print(load("../csv_files/parser_error.csv"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")
 
@@ -95,6 +95,6 @@ try:
     print(load("../csv_files/permission_error.csv"))
 
 except Exception as e:
-    print(f"Error: {e}")
+    pass
 
 print("--------------------------------")

@@ -148,12 +148,11 @@ def main() -> int:
     try:
         validate_args()
         
-        print(load("../csv_files/life_expectancy_years.csv"))
-        
+        # print(load("../csv_files/life_expectancy_years.csv"))
+        print(load("../csv_files/empty.csv"))
         return 0
         
-    except Exception as e:
-        print(f"Error: {e}")
+    except Exception:
         return 1
 
 

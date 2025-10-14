@@ -210,7 +210,7 @@ def main() -> int:
     Main function to test give_bmi and apply_limit functions.
     """
     height = [2.71, 1.15]
-    weight = [165.3, 38.4]
+    weight = [165.3]
     limit = 26
 
     try:
@@ -222,8 +222,14 @@ def main() -> int:
 
         return 0
 
+    except ValueError as e:
+        print(f"Value Error: {e}")
+        return 1
+    except TypeError as e:
+        print(f"Type Error: {e}")
+        return 1
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Unexpected Error: {e}")
         return 1
 
 

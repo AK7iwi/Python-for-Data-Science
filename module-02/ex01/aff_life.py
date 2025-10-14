@@ -13,8 +13,6 @@ def get_campus_country() -> str:
     Returns:
         str: Country name for the campus
     """
-    # You can modify this to return the appropriate country
-    # For 42 campuses in France:
     return "France"
 
 
@@ -60,21 +58,14 @@ def plot_life_expectancy(dataset: pd.DataFrame, country: str) -> None:
     
     years_clean, values_clean = zip(*valid_data)
     
-    # Create the plot
     plt.figure(figsize=(12, 8))
     plt.plot(years_clean, values_clean, 'b-', linewidth=2, label=f'Life Expectancy - {country}')
-    
-    # Customize the plot
     plt.title(f'Life Expectancy Over Time - {country}', fontsize=16, fontweight='bold')
     plt.xlabel('Year', fontsize=14)
     plt.ylabel('Life Expectancy (years)', fontsize=14)
     plt.legend(fontsize=12)
     plt.grid(True, alpha=0.3)
-    
-    # Add some styling
     plt.tight_layout()
-    
-    # Show the plot
     plt.show()
 
 
@@ -85,17 +76,14 @@ def main() -> int:
     try:
         validate_args()
         
-        # Load the dataset
         dataset = load("../csv_files/life_expectancy_years.csv")
         if dataset is None:
             print("Error: Failed to load dataset")
             return 1
         
-        # Get the campus country
         country = get_campus_country()
         print(f"Displaying life expectancy data for: {country}")
         
-        # Plot the data
         plot_life_expectancy(dataset, country)
         
         return 0

@@ -210,7 +210,7 @@ def main() -> int:
     Main function to test give_bmi and apply_limit functions.
     """
     height = [2.71, 1.15]
-    weight = [165.3]
+    weight = [165.3, 38.4]
     limit = 26
 
     try:

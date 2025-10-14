@@ -1,7 +1,7 @@
 from load_image import ft_load
 
-# Test 1a - Valid input: Basic input
-print("Test 1a - Valid input: Basic input")
+# Test 1 - Valid input: Basic input
+print("Test 1 - Valid input: Basic input")
 
 try:
     print(ft_load("../images/landscape.jpg"))

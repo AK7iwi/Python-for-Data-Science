@@ -6,7 +6,7 @@ from validate_args import validate_args
 
 def validate_path_exists(path: str) -> None:
     """
-    Validate that the file path exists.
+    Validate that the file path exists and is a file.
 
     Args:
         path (str): The file path to validate
@@ -15,10 +15,13 @@ def validate_path_exists(path: str) -> None:
         None
 
     Raises:
-        FileNotFoundError: If file does not exist
+        FileNotFoundError: If file does not exist or is not a file
     """
     if not os.path.exists(path):
         raise FileNotFoundError(f"File '{path}' not found")
+    
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"'{path}' is not a file")
 
 
 def validate_csv_format(path: str) -> None:
@@ -105,7 +108,14 @@ def load_csv(path: str) -> pd.DataFrame:
     Raises:
         None
     """
-    return pd.read_csv(path)
+    try:
+        dataset = pd.read_csv(path)
+
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return None
+
+    return dataset
 
 
 def load(path: str) -> pd.DataFrame:
@@ -121,10 +131,7 @@ def load(path: str) -> pd.DataFrame:
     Raises:
         None
     """
-    try:
-        validate_path(path)
-    except Exception as e:
-        return None
+    validate_path(path)
     
     dataset = load_csv(path)
     print_dataset_info(dataset)
@@ -139,12 +146,12 @@ def main() -> int:
     try:
         validate_args()
         
-        print(load("life_expectancy_years.csv"))
+        print(load("../csv_files/life_expectancy_years.csv"))
         
         return 0
         
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}") # to comment
         return 1
 
 

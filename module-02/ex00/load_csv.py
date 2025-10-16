@@ -128,17 +128,27 @@ def load(path: str) -> pd.DataFrame | None:
         None
     """
     try:
-        validate_path(path)
-
+        # validate_path(path)
         dataset = load_csv(path)
+        print_dataset_info(dataset)
 
+        return dataset
+
+    # except (FileNotFoundError, ValueError, TypeError) as e:
+    #     print(f"Error: {e}")
+    #     return None
+    except pd.errors.EmptyDataError:
+        print(f"Error: File '{path}' is empty")
+        return None
+    except pd.errors.ParserError as e:
+        print(f"Error: Cannot parse CSV file '{path}': {e}")
+        return None
+    except PermissionError:
+        print(f"Error: Permission denied accessing '{path}'")
+        return None
     except Exception as e:
         print(f"Error: {e}")
         return None
-    else:
-        print_dataset_info(dataset)
-
-    return dataset
 
 
 def main() -> int:

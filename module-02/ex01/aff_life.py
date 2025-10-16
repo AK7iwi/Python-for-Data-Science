@@ -58,6 +58,7 @@ def plot_life_expectancy(dataset: pd.DataFrame, country: str) -> None:
     
     years_clean, values_clean = zip(*valid_data)
     
+    # Display function
     plt.figure(figsize=(12, 8))
     plt.plot(years_clean, values_clean, 'b-', linewidth=2, label=f'Life Expectancy - {country}')
     plt.title(f'Life Expectancy Over Time - {country}', fontsize=16, fontweight='bold')

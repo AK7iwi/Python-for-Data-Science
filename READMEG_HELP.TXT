@@ -15,6 +15,3 @@ link:
 
 Return vs exit
 https://discuss.python.org/t/return-vs-sys-exit/45098/3
-
-try and except best practice:
-https://python.land/deep-dives/python-try-except

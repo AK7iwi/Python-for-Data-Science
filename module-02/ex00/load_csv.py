@@ -4,26 +4,6 @@ import pandas as pd
 from validate_args import validate_args
 
 
-def validate_path_exists(path: str) -> None:
-    """
-    Validate that the file path exists and is a file.
-
-    Args:
-        path (str): The file path to validate
-
-    Returns:
-        None
-
-    Raises:
-        FileNotFoundError: If file does not exist or is not a file
-    """
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"File '{path}' not found")
-    
-    if not os.path.isfile(path):
-        raise FileNotFoundError(f"'{path}' is not a file")
-
-
 def validate_csv_format(path: str) -> None:
     """
     Validate that the file has a CSV format.
@@ -74,9 +54,8 @@ def validate_path(path: str) -> None:
     Raises:
         None
     """
-    validate_path_string(path)
-    validate_csv_format(path)
-    validate_path_exists(path)
+    validate_path_string(path) 
+    validate_csv_format(path) 
 
 
 def print_dataset_info(dataset: pd.DataFrame) -> None:
@@ -95,24 +74,6 @@ def print_dataset_info(dataset: pd.DataFrame) -> None:
     print(f"Loading dataset of dimensions {dataset.shape}")
 
 
-def load_csv(path: str) -> pd.DataFrame:
-    """
-    Load a CSV file and return it as a pandas DataFrame.
-
-    Args:
-        path (str): Path to the CSV file
-
-    Returns:
-        pd.DataFrame: Loaded dataset
-
-    Raises:
-        None
-    """
-    dataset = pd.read_csv(path)
-
-    return dataset
-
-
 def load(path: str) -> pd.DataFrame | None:
     """
     Load a CSV dataset and return it with dimensions information.
@@ -128,26 +89,28 @@ def load(path: str) -> pd.DataFrame | None:
         None
     """
     try:
-        # validate_path(path)
-        dataset = load_csv(path)
+        validate_path(path)
+        dataset = pd.read_csv(path)
         print_dataset_info(dataset)
-
         return dataset
 
-    # except (FileNotFoundError, ValueError, TypeError) as e:
-    #     print(f"Error: {e}")
-    #     return None
-    except pd.errors.EmptyDataError:
-        print(f"Error: File '{path}' is empty")
+    except pd.errors.EmptyDataError as e:
+        print(f"EmptyDataError: {e}")
         return None
     except pd.errors.ParserError as e:
-        print(f"Error: Cannot parse CSV file '{path}': {e}")
+        print(f"ParserError: {e}")
         return None
-    except PermissionError:
-        print(f"Error: Permission denied accessing '{path}'")
+    except (TypeError) as e:
+        print(f"TypeError: {e}")
         return None
-    except Exception as e:
-        print(f"Error: {e}")
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
+    except FileNotFoundError as e:
+        print(f"FileNotFoundError: {e}")
+        return None
+    except PermissionError as e:
+        print(f"PermissionError: {e}")
         return None
 
 
@@ -157,9 +120,7 @@ def main() -> int:
     """
     try:
         validate_args()
-        
-        print(load("../csv_files/life_expectancy_years.csv"))
-
+        print(load("../csv_files/valid_csv/life_expectancy_years.csv"))
         return 0
         
     except Exception:

@@ -72,7 +72,6 @@ def main():
     try:
         formatted_seconds, scientific_notation, formatted_date = format_time()
         display_results(formatted_seconds, scientific_notation, formatted_date)
-
         return 0
 
     except Exception as e:

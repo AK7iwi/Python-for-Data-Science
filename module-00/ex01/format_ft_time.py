@@ -78,6 +78,9 @@ def main() -> int:
 
         return 0
 
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return 1
     except Exception as e:
         print(f"Unexpected error: {e}")
         return 1

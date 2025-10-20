@@ -1,3 +1,5 @@
+import sys
+from validate_args import validate_args
 import time
 from datetime import datetime
 
@@ -13,7 +15,7 @@ def display_results(formatted_seconds: str, scientific_notation: str,
         formatted_date (str): Formatted current date
 
     Returns:
-        None: This function only prints to stdout
+        None
 
     Raises:
         None
@@ -42,20 +44,19 @@ def format_time() -> tuple[str, str, str]:
         None
     """
     # Get current time in seconds since epoch
+    # and format it with comma separators and scientific notation
     current_time = time.time()
-
-    # Format the seconds with comma separators and scientific notation
     formatted_seconds = f"{current_time:,.4f}"
     scientific_notation = f"{current_time:.2e}"
 
-    # Get current date and format it
+    # Get current date and format it in "Month Day Year" format
     current_date = datetime.now()
     formatted_date = current_date.strftime("%b %d %Y")
 
     return formatted_seconds, scientific_notation, formatted_date
 
 
-def main():
+def main() -> int:
     """
     Main function that formats and prints current time information.
     Takes no command line arguments.
@@ -70,14 +71,17 @@ def main():
         None
     """
     try:
+        validate_args()
+
         formatted_seconds, scientific_notation, formatted_date = format_time()
         display_results(formatted_seconds, scientific_notation, formatted_date)
+
         return 0
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Unexpected error: {e}")
         return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

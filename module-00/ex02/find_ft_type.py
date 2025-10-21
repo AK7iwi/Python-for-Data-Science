@@ -24,7 +24,10 @@ def print_type_object(object: any) -> None:
     elif isinstance(object, dict):
         print(f"Dict : {type(object)}")
     elif isinstance(object, str):
-        print(f"{object} is in the kitchen : {type(object)}")
+        if len(object) == 0:
+            raise TypeError("Empty string")
+        else:
+            print(f"{object} is in the kitchen : {type(object)}")
     else:
         raise TypeError("Type not found")
 

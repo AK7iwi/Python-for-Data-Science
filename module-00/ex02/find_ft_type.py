@@ -4,16 +4,16 @@ from validate_args import validate_args
 
 def print_type_object(object: any) -> None:
     """
-    Print type information for the given object.
+    Print the type of the given object.
 
     Args:
-        obj: The object to analyze
+        object (any): The object to print the type of
 
     Returns:
         None
 
     Raises:
-        TypeError: if the type is not handled
+        TypeError: if the type is not found
     """
     if isinstance(object, list):
         print(f"List : {type(object)}")

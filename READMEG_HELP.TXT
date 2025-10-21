@@ -6,7 +6,7 @@
 - Tell sys.exit()
 - Tell I dont follow rules perfectly to have more coherence 
 - Tell Some reexplain across module of Libraries used, Built-in functions and methods used, External functions
-- I use "except Exception as e" because “no uncaught exceptions,” in the subject
+- I use "except Exception as e" to caught unexpected library exception 
 
 Be more consice: Delete (already use , ...) if it's often use
 

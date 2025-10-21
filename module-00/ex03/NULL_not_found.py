@@ -49,6 +49,9 @@ def NULL_not_found(object: any) -> int:
     except TypeError as e:
         print(e)
         return 1
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return 1
 
     return 0
 
@@ -62,7 +65,7 @@ def main() -> int:
     Zero = 0
     Empty = ""
     Fake = False
-    
+
     try:
         validate_args()
 

@@ -34,7 +34,7 @@ def print_type_object(object: any) -> None:
 
 def all_thing_is_obj(object: any) -> int:
     """
-    Print the type of the given object and return 42.
+    Check the type of the given object and return 42.
 
     Args:
         object (any): The object whose type will be printed

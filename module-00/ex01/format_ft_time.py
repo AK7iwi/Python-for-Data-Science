@@ -81,9 +81,6 @@ def main() -> int:
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1
-    except Exception as e:
-        print(f"Unexpected error: {e}")
-        return 1
 
 
 if __name__ == "__main__":

@@ -71,8 +71,11 @@ def main():
 
         return 0
 
-    except Exception as e:
+    except AssertionError as e:
         print(f"AssertionError: {e}")
+        return 1
+    except Exception as e:
+        print(f"Unexpected error: {e}")
         return 1
 
 

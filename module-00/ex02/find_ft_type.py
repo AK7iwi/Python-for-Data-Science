@@ -2,16 +2,16 @@ import sys
 from validate_args import validate_args
 
 
-def  print_type_object(object: any) -> None:
+def print_type_object(object: any) -> None:
     """
     Print type information for the given object.
-    
+
     Args:
         obj: The object to analyze
-        
+
     Returns:
         None
-        
+
     Raises:
         TypeError: if the type is not handled
     """

@@ -1,5 +1,7 @@
 from NULL_not_found import NULL_not_found
 
+# Test 1 - Valid input: Basic input
+print("Test 1 - Valid input: Basic input\n")
 Nothing = None
 Garlic = float("NaN")
 Zero = 0

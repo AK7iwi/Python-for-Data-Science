@@ -47,7 +47,6 @@ def all_thing_is_obj(object: any) -> int:
     """
     try:
         print_type_object(object)
-
     except TypeError as e:
         print(e)
 
@@ -66,7 +65,6 @@ def main() -> int:
     try:
         if not validate_args_for_test():
             return 1
-
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

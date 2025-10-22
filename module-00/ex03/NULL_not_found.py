@@ -64,7 +64,8 @@ def main() -> int:
     Fake = False
 
     try:
-        validate_args_for_test()
+        if not validate_args_for_test():
+            return 1
 
         NULL_not_found(Nothing)
         NULL_not_found(Garlic)

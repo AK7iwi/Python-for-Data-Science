@@ -72,7 +72,6 @@ def main() -> int:
     """
     try:
         validate_args_for_prog()
-
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

@@ -67,19 +67,19 @@ def main() -> int:
         if not validate_args_for_test():
             return 1
 
-        all_thing_is_obj(ft_list)
-        all_thing_is_obj(ft_tuple)
-        all_thing_is_obj(ft_set)
-        all_thing_is_obj(ft_dict)
-        all_thing_is_obj("Brian")
-        all_thing_is_obj("Toto")
-        print(all_thing_is_obj(10))
-
-        return 0
-
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1
+
+    all_thing_is_obj(ft_list)
+    all_thing_is_obj(ft_tuple)
+    all_thing_is_obj(ft_set)
+    all_thing_is_obj(ft_dict)
+    all_thing_is_obj("Brian")
+    all_thing_is_obj("Toto")
+    print(all_thing_is_obj(10))
+
+    return 0
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import sys
 import math
-from validate_args import validate_args
+from validate_args import validate_args_for_test
 
 
 def print_null_type(object: any) -> None:
@@ -64,7 +64,7 @@ def main() -> int:
     Fake = False
 
     try:
-        validate_args()
+        validate_args_for_test()
 
         NULL_not_found(Nothing)
         NULL_not_found(Garlic)

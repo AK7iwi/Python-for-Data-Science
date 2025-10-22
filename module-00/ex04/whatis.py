@@ -1,7 +1,7 @@
 import sys
 
 
-def validate_argument() -> int | None:
+def validate_args() -> int | None:
     """
     Validate command line arguments and return the number.
 
@@ -10,19 +10,18 @@ def validate_argument() -> int | None:
 
     Returns:
         int: The validated integer argument
+        None: If no argument is provided
 
     Raises:
         AssertionError: If more than one argument or argument is not an integer
     """
-    # Check number of arguments
-    if len(sys.argv) != 2:
-        if len(sys.argv) > 2:
-            raise AssertionError("more than one argument is provided")
+    args = sys.argv
+    if len(args) == 1:
         return None
+    elif len(args) > 2:
+        raise AssertionError("more than one argument is provided")
 
-    # Get the argument
-    arg = sys.argv[1]
-
+    arg = args[1]
     try:
         number = int(arg)
     except ValueError:
@@ -65,7 +64,7 @@ def main():
         None
     """
     try:
-        number = validate_argument()
+        number = validate_args()
         if number is not None:
             check_odd_even(number)
 

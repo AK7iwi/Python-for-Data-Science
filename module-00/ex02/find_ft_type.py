@@ -64,7 +64,8 @@ def main() -> int:
     ft_dict = {"Hello": "titi!"}
 
     try:
-        validate_args_for_test()
+        if not validate_args_for_test():
+            return 1
 
         all_thing_is_obj(ft_list)
         all_thing_is_obj(ft_tuple)

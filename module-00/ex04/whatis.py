@@ -38,7 +38,7 @@ def check_odd_even(number: int) -> None:
         number (int): The number to check
 
     Returns:
-        None: This function only prints to stdout
+        None
 
     Raises:
         None
@@ -49,7 +49,7 @@ def check_odd_even(number: int) -> None:
         print("I'm Odd.")
 
 
-def main():
+def main() -> int:
     """
     Main function that checks if a number is odd or even.
     Takes exactly one command line argument: an integer to check.

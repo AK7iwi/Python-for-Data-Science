@@ -45,7 +45,6 @@ def NULL_not_found(object: any) -> int:
     """
     try:
         print_null_type(object)
-
     except TypeError as e:
         print(e)
         return 1
@@ -66,19 +65,18 @@ def main() -> int:
     try:
         if not validate_args_for_test():
             return 1
-
-        NULL_not_found(Nothing)
-        NULL_not_found(Garlic)
-        NULL_not_found(Zero)
-        NULL_not_found(Empty)
-        NULL_not_found(Fake)
-        print(NULL_not_found("Brian"))
-
-        return 0
-
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1
+
+    NULL_not_found(Nothing)
+    NULL_not_found(Garlic)
+    NULL_not_found(Zero)
+    NULL_not_found(Empty)
+    NULL_not_found(Fake)
+    print(NULL_not_found("Brian"))
+
+    return 0
 
 
 if __name__ == "__main__":

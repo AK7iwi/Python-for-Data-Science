@@ -59,20 +59,20 @@ def main() -> int:
 
     Returns:
         int: 0 on success, 1 on error
-
+ 
     Raises:
         None
     """
     try:
         number = validate_args()
-        if number is not None:
-            check_odd_even(number)
-
-        return 0
-
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
+    
+    if number is not None:
+        check_odd_even(number)
+
+    return 0
 
 
 if __name__ == "__main__":

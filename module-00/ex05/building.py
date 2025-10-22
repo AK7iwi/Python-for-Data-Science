@@ -99,17 +99,17 @@ def main():
     """
     try:
         text = validate_args()
-        upper_count, lower_count, digit_count, space_count, punct_count = (
-            count_characters(text))
-        print_results(text, upper_count, lower_count, digit_count, space_count,
-                      punct_count)
-
-        return 0
-
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
+        
+    upper_count, lower_count, digit_count, space_count, punct_count = (
+        count_characters(text))
+    print_results(text, upper_count, lower_count, digit_count, space_count,
+                punct_count)
 
+    return 0
 
+ 
 if __name__ == "__main__":
     sys.exit(main())

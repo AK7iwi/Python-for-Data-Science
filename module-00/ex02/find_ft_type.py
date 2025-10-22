@@ -1,5 +1,5 @@
 import sys
-from validate_args import validate_args
+from validate_args import validate_args_for_test
 
 
 def print_type_object(object: any) -> None:
@@ -64,7 +64,7 @@ def main() -> int:
     ft_dict = {"Hello": "titi!"}
 
     try:
-        validate_args()
+        validate_args_for_test()
 
         all_thing_is_obj(ft_list)
         all_thing_is_obj(ft_tuple)

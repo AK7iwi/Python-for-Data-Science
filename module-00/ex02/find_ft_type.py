@@ -13,7 +13,7 @@ def print_type_object(object: any) -> None:
         None
 
     Raises:
-        TypeError: if the type is not found
+        TypeError: if the type is not found or if the object is an empty string
     """
     if isinstance(object, list):
         print(f"List : {type(object)}")

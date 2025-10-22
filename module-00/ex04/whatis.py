@@ -59,7 +59,7 @@ def main() -> int:
 
     Returns:
         int: 0 on success, 1 on error
- 
+
     Raises:
         None
     """
@@ -68,7 +68,7 @@ def main() -> int:
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
-    
+
     if number is not None:
         check_odd_even(number)
 

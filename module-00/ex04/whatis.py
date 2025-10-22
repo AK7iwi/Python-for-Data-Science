@@ -1,25 +1,6 @@
 import sys
 
 
-def check_odd_even(number: int) -> None:
-    """
-    Check if a number is odd or even and print the result.
-
-    Args:
-        number (int): The number to check
-
-    Returns:
-        None: This function only prints to stdout
-
-    Raises:
-        None
-    """
-    if number % 2 == 0:
-        print("I'm Even.")
-    else:
-        print("I'm Odd.")
-
-
 def validate_argument() -> int | None:
     """
     Validate command line arguments and return the number.
@@ -50,6 +31,25 @@ def validate_argument() -> int | None:
     return number
 
 
+def check_odd_even(number: int) -> None:
+    """
+    Check if a number is odd or even and print the result.
+
+    Args:
+        number (int): The number to check
+
+    Returns:
+        None: This function only prints to stdout
+
+    Raises:
+        None
+    """
+    if number % 2 == 0:
+        print("I'm Even.")
+    else:
+        print("I'm Odd.")
+
+
 def main():
     """
     Main function that checks if a number is odd or even.
@@ -74,10 +74,7 @@ def main():
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
-    except Exception as e:
-        print(f"Unexpected error: {e}")
-        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

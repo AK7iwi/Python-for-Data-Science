@@ -2,6 +2,30 @@ import sys
 import string
 
 
+def validate_args() -> str:
+    """
+    Validate command line arguments and return the text to process.
+
+    Args:
+        None
+
+    Returns:
+        str: The text to count characters from
+
+    Raises:
+        AssertionError: If more than one argument is provided
+    """
+    args = sys.argv
+    if len(args) == 1:
+        text = input("What is the text to count?\n") # try/raise error 
+    elif len(args) > 2:
+        raise AssertionError("more than one argument is provided")
+    else:
+        text = args[1]
+
+    return text
+
+
 def print_results(text: str, upper_count: int, lower_count: int,
                   digit_count: int, space_count: int,
                   punct_count: int) -> None:
@@ -17,7 +41,7 @@ def print_results(text: str, upper_count: int, lower_count: int,
         punct_count (int): Count of punctuation marks
 
     Returns:
-        None: This function only prints to stdout
+        None
 
     Raises:
         None
@@ -58,33 +82,6 @@ def count_characters(text: str) -> tuple[int, int, int, int, int]:
     return upper_count, lower_count, digit_count, space_count, punct_count
 
 
-def validate_argument() -> str:
-    """
-    Validate command line arguments and return the text to process.
-
-    Args:
-        None
-
-    Returns:
-        str: The text to count characters from
-
-    Raises:
-        AssertionError: If more than one argument is provided
-    """
-    # Check number of arguments
-    if len(sys.argv) == 1:
-        # No argument provided, prompt user
-        text = input("What is the text to count?\n")
-    elif len(sys.argv) == 2:
-        # One argument provided
-        text = sys.argv[1]
-    else:
-        # More than one argument
-        raise AssertionError("more than one argument is provided")
-
-    return text
-
-
 def main():
     """
     Main function that counts character types in a string argument.
@@ -101,18 +98,18 @@ def main():
         None
     """
     try:
-        text = validate_argument()
+        text = validate_args()
         upper_count, lower_count, digit_count, space_count, punct_count = (
             count_characters(text))
         print_results(text, upper_count, lower_count, digit_count, space_count,
                       punct_count)
 
-    except Exception as e:
+        return 0
+
+    except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
 
-    return 0
-
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

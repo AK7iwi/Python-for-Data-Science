@@ -73,14 +73,14 @@ def main() -> int:
     try:
         validate_args_for_prog()
 
-        formatted_seconds, scientific_notation, formatted_date = format_time()
-        display_results(formatted_seconds, scientific_notation, formatted_date)
-
-        return 0
-
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1
+
+    formatted_seconds, scientific_notation, formatted_date = format_time()
+    display_results(formatted_seconds, scientific_notation, formatted_date)
+
+    return 0
 
 
 if __name__ == "__main__":

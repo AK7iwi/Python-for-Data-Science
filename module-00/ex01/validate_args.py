@@ -46,13 +46,7 @@ def main() -> int:
     """
     try:
         validate_args_for_prog()
-
-    except ValueError as e:
-        print(f"Error: {e}")
-        return 1
-
-    try:
-        validate_args_for_test()
+        # validate_args_for_test()
 
     except ValueError as e:
         print(f"Error: {e}")

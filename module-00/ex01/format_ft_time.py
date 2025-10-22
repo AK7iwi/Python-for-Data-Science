@@ -1,5 +1,5 @@
 import sys
-from validate_args import validate_args
+from validate_args import validate_args_for_prog
 import time
 from datetime import datetime
 
@@ -71,7 +71,7 @@ def main() -> int:
         None
     """
     try:
-        validate_args()
+        validate_args_for_prog()
 
         formatted_seconds, scientific_notation, formatted_date = format_time()
         display_results(formatted_seconds, scientific_notation, formatted_date)

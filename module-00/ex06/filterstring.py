@@ -15,7 +15,7 @@ def validate_args() -> tuple[str, int]:
             - integer_arg (int): The length threshold for filtering
 
     Raises:
-        AssertionError: If wrong number of arguments
+        AssertionError: If the number of arguments is not 3
         or if the integer argument is not an integer (ValueError exception)
     """
     args = sys.argv

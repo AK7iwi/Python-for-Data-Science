@@ -1,6 +1,28 @@
 import sys
 
 
+def validate_args() -> str:
+    """
+    Validate command line arguments and return the string to encrypt.
+
+    Args:
+        None
+
+    Returns:
+        str: The string argument to convert to morse code
+
+    Raises:
+        AssertionError: If more than one argument is provided
+    """
+    args = sys.argv
+    if len(args) != 2:
+        raise AssertionError("the arguments are bad")
+
+    arg = args[1]
+
+    return arg
+
+
 def get_dict() -> dict[str, str]:
     """
     Returns the nested morse code dictionary.
@@ -15,7 +37,6 @@ def get_dict() -> dict[str, str]:
     Raises:
         None
     """
-    # Dictionary representing the morse code chart
     NESTED_MORSE = {
         " ": "/ ",
         "A": ".- ",
@@ -84,28 +105,7 @@ def encrypt(message: str) -> str:
     return encrypted_message.rstrip()
 
 
-def validate_argument() -> str:
-    """
-    Validate command line arguments and return the string to encrypt.
-
-    Args:
-        None
-
-    Returns:
-        str: The string argument to convert to morse code
-
-    Raises:
-        AssertionError: If the arguments are bad (wrong number)
-    """
-    if len(sys.argv) != 2:
-        raise AssertionError("the arguments are bad")
-
-    arg = sys.argv[1]
-
-    return arg
-
-
-def main():
+def main() -> int:
     """
     Main function that converts a string to morse code.
     Takes one string argument containing alphanumeric characters and spaces.
@@ -120,16 +120,16 @@ def main():
         None
     """
     try:
-        arg = validate_argument()
+        arg = validate_args()
         encrypted_message = encrypt(arg)
-        print(encrypted_message)
-
-    except Exception as e:
+    except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
+
+    print(encrypted_message)
 
     return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

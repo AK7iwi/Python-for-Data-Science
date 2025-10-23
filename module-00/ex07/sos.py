@@ -12,7 +12,7 @@ def validate_args() -> str:
         str: The string argument to convert to morse code
 
     Raises:
-        AssertionError: If more than one argument is provided
+        AssertionError: If the number of arguments is not 2
     """
     args = sys.argv
     if len(args) != 2:

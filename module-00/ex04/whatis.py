@@ -13,7 +13,7 @@ def validate_args() -> int | None:
         None: If no argument is provided
 
     Raises:
-        AssertionError: If more than one argument
+        AssertionError: If the number of arguments is not 2
         or if the argument is not an integer (ValueError exception)
     """
     args = sys.argv

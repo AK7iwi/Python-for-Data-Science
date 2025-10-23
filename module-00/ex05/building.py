@@ -14,10 +14,18 @@ def validate_args() -> str:
 
     Raises:
         AssertionError: If more than one argument is provided
+        or if the input is interrupted (EOFError, KeyboardInterrupt exceptions)
     """
     args = sys.argv
-    if len(args) == 1:
-        text = input("What is the text to count?\n") # try/raise error 
+    if len(args) == 1 or (len(args) == 2 and args[1] == ""):
+        while True:
+            try:
+                text = input("What is the text to count?\n")
+                if text:
+                    break
+                print("Please provide a non-empty text.")
+            except (EOFError, KeyboardInterrupt):
+                raise AssertionError("input was interrupted")
     elif len(args) > 2:
         raise AssertionError("more than one argument is provided")
     else:
@@ -82,7 +90,7 @@ def count_characters(text: str) -> tuple[int, int, int, int, int]:
     return upper_count, lower_count, digit_count, space_count, punct_count
 
 
-def main():
+def main() -> int:
     """
     Main function that counts character types in a string argument.
     Takes zero or one command line argument: an optional string to analyze.
@@ -102,14 +110,14 @@ def main():
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
-        
+
     upper_count, lower_count, digit_count, space_count, punct_count = (
         count_characters(text))
     print_results(text, upper_count, lower_count, digit_count, space_count,
-                punct_count)
+                  punct_count)
 
     return 0
 
- 
+
 if __name__ == "__main__":
     sys.exit(main())

@@ -1,3 +1,8 @@
+import sys
+from time import sleep
+from validate_args import validate_args_for_test
+
+
 def ft_tqdm(lst: range) -> None:
     """
     Custom progress bar function that mimics tqdm behavior.
@@ -15,27 +20,42 @@ def ft_tqdm(lst: range) -> None:
     total = len(lst)
 
     for i, item in enumerate(lst):
-        # Calculate progress percentage
         percentage = int((i + 1) / total * 100)
 
-        # Calculate progress bar width (50 characters)
         bar_width = 50
         filled_width = int((i + 1) / total * bar_width)
 
-        # Create progress bar
         bar = "=" * filled_width
         if filled_width < bar_width:
             bar += ">"
         bar = bar.ljust(bar_width, " ")
 
-        # Create the progress display
         progress_line = f"\r{percentage}%|[{bar}]| {i + 1}/{total}"
 
-        # Print progress (overwrite the same line)
         print(progress_line, end="")
 
-        # Yield the current item
         yield item
 
-    # Print newline at the end
     print()
+
+
+def main() -> int:
+    """
+    Main function to test the ft_tqdm function.
+    """
+    try:
+        if not validate_args_for_test():
+            return 1
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return 1
+
+    for _ in ft_tqdm(range(333)):
+        sleep(0.005)
+    print()
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

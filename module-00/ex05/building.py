@@ -13,7 +13,7 @@ def validate_args() -> str:
         str: The text to count characters from
 
     Raises:
-        AssertionError: If more than one argument is provided
+        AssertionError: If the number of arguments is not 2
         or if the input is interrupted (EOFError, KeyboardInterrupt exceptions)
     """
     args = sys.argv

@@ -1,12 +1,9 @@
 
 
-ex02: 
+ex06:
 
-I dont follow this (but just need to delete the main):
-
-Expected output:
-$>python find_ft_type.py | cat -e
-$>
+ft_filter:
+Exception are not handled because built-in fct don't do it and cant do it.(too complex)
 
 
 try and except best practice:

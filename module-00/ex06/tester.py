@@ -45,8 +45,8 @@ print("list(result): ", list(result))
 
 print("\n--------------------------------\n")
 
-# Test 4 - Invalid input: Non-callable function
-print("Test 4 - Invalid input: Non-callable function\n")
+# Test 4 - "Valid" input: Non-callable function
+print("Test 4 - \"Valid\" input: Non-callable function\n")
 
 list_test = [1, 2, 3, 4, 5]
 
@@ -60,8 +60,8 @@ print("\nft_filter: ", result)
 
 print("\n--------------------------------\n")
 
-# Test 5 - Invalid input: Non-iterable
-print("Test 5 - Invalid input: Non-iterable\n")
+# Test 5 - "Valid" input: Non-iterable
+print("Test 5 - \"Valid\" input: Non-iterable\n")
 
 result = filter(lambda x: x % 2 == 0, "not an iterable")
 print("built-in filter: ", result)
@@ -73,8 +73,8 @@ print("\nft_filter: ", result)
 
 print("\n--------------------------------\n")
 
-# Test 6 - Invalid input: contains non-valid values
-print("Test 6 - Invalid input: contains non-valid values\n")
+# Test 6 - "Valid" input: contains non-valid values
+print("Test 6 - \"Valid\" input: contains non-valid values\n")
 
 list_test = [1, 2, 3, 4, "Kiwi"]
 

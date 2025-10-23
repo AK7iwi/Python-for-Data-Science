@@ -2,8 +2,12 @@
 ex06:
 
 ft_filter:
+explain "Valid" input
 List fct conversion can failed but in the filterstring we know what is passing to list
 so dont need too handle but in the tester its not possible for test04 to test06
+
+ex08:
+explain "Valid" input
 
 try and except best practice:
 https://python.land/deep-dives/python-try-except

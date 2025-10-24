@@ -1,6 +1,7 @@
 README01:
 
-Intro: 
+- Intro 
+- Check link at the bottom
 
 Numpy:
 

@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import math
-from validate_args import validate_args
+from validate_args import validate_args_for_test
 
 
 def validate_measurement_content(values: list[int | float], name: str) -> None:
@@ -160,7 +160,14 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     Raises:
         None
     """
-    validate_data_limit(bmi, limit)
+    try:
+        validate_data_limit(bmi, limit)
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        raise
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        raise
 
     return (np.asarray(bmi) > limit).tolist()
 
@@ -198,7 +205,14 @@ def give_bmi(height: list[int | float],
     Raises:
         None
     """
-    validate_data_bmi(height, weight)
+    try:
+        validate_data_bmi(height, weight)
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        # raise
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        # raise
 
     bmi = calculate_bmi(height, weight)
 
@@ -214,7 +228,8 @@ def main() -> int:
     limit = 26
 
     try:
-        validate_args()
+        if not validate_args_for_test():
+            return 1
 
         bmi = give_bmi(height, weight)
         print(bmi)
@@ -223,10 +238,7 @@ def main() -> int:
         return 0
 
     except ValueError as e:
-        print(f"Value Error: {e}")
-        return 1
-    except TypeError as e:
-        print(f"Type Error: {e}")
+        print(f"ValueError: {e}")
         return 1
 
 

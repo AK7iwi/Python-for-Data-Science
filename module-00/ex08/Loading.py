@@ -1,6 +1,6 @@
 import sys
 from time import sleep
-from validate_args import validate_args_for_test
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def ft_tqdm(lst: range) -> None:
@@ -44,8 +44,9 @@ def main() -> int:
     Main function to test the ft_tqdm function.
     """
     try:
-        if not validate_args_for_test():
-            return 1
+        validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

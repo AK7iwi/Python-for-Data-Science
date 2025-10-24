@@ -1,6 +1,6 @@
 import sys
 import math
-from validate_args import validate_args_for_test
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def print_null_type(object: any) -> None:
@@ -63,8 +63,9 @@ def main() -> int:
     Fake = False
 
     try:
-        if not validate_args_for_test():
-            return 1
+        validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

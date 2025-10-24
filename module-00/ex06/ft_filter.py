@@ -1,6 +1,6 @@
 import sys
 from typing import Iterator
-from validate_args import validate_args_for_test
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def ft_filter(function, iterable) -> Iterator:
@@ -33,11 +33,12 @@ def main() -> int:
     list_test = [1, 2, 3, 4, 5]
 
     try:
-        if not validate_args_for_test():
-            return 1
+        validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
-        return 1
+        return 1   
 
     result = ft_filter(lambda x: x % 2 == 0, list_test)
     print("ft_filter: ", result)

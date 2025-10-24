@@ -228,9 +228,6 @@ def main() -> int:
     except TypeError as e:
         print(f"Type Error: {e}")
         return 1
-    except Exception as e:
-        print(f"Unexpected Error: {e}")
-        return 1
 
 
 if __name__ == "__main__":

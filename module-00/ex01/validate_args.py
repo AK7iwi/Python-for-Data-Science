@@ -1,6 +1,11 @@
 import sys
 
 
+class MissingArgumentsError(Exception):
+    """Custom exception for missing arguments"""
+    pass
+
+
 def validate_args_for_test() -> None:
     """
     Validate the number of arguments for the test of function.
@@ -17,9 +22,9 @@ def validate_args_for_test() -> None:
     """
     args = sys.argv
     if len(args) == 1:
-        raise ValueError()
+        raise MissingArgumentsError()
     elif len(args) > 2 or args[1] != "test":
-        raise ValueError("Invalid arguments")
+        raise ValueError("Expected 2 arguments: script_name and 'test'")
 
 
 def validate_args_for_prog() -> None:
@@ -49,7 +54,9 @@ def main() -> int:
         # validate_args_for_test()
 
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"ValueError: {e}")
+        return 1
+    except MissingArgumentsError:
         return 1
 
     return 0

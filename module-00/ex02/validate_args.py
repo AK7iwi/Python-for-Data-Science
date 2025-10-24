@@ -1,7 +1,7 @@
 import sys
 
 
-def validate_args_for_test() -> bool:
+def validate_args_for_test() -> None:
     """
     Validate the number of arguments for the test of function.
 
@@ -9,7 +9,7 @@ def validate_args_for_test() -> bool:
         None
 
     Returns:
-        bool: True if the arguments are valid, False otherwise
+        None
 
     Raises:
         ValueError: If the number of arguments is not 2
@@ -17,11 +17,9 @@ def validate_args_for_test() -> bool:
     """
     args = sys.argv
     if len(args) == 1:
-        return False
+        raise ValueError()
     elif len(args) > 2 or args[1] != "test":
         raise ValueError("Invalid arguments")
-
-    return True
 
 
 def validate_args_for_prog() -> None:

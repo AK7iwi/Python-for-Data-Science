@@ -63,8 +63,7 @@ def main() -> int:
     ft_dict = {"Hello": "titi!"}
 
     try:
-        if not validate_args_for_test():
-            return 1
+        validate_args_for_test()
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

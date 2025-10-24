@@ -22,3 +22,19 @@ try and except best practice:
 https://python.land/deep-dives/python-try-except
 https://jerrynsh.com/stop-using-exceptions-like-this-in-python/
 https://jerrynsh.com/python-exception-handling-patterns-and-best-practices/
+
+
+Quick Comparison Table
+Syntax	Exception Type	Traceback	Original Context
+raise	Same	Original	✅ Preserved
+raise e	Same	New	❌ Lost
+raise ValueError(e)	New	New	❌ Lost
+raise ValueError("msg")	New	New	❌ Lost
+raise ValueError("msg") from e	New	New + Original	✅ Chained
+
+
+Best Practices
+Use raise when you want to handle but still propagate the same exception
+Use raise e when you want to re-raise from current location
+Use raise ... from e when you want to replace the exception but keep original context
+Avoid raise ValueError(e) - it's usually not what you want

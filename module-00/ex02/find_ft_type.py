@@ -1,5 +1,5 @@
 import sys
-from validate_args import validate_args_for_test
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def print_type_object(object: any) -> None:
@@ -64,6 +64,8 @@ def main() -> int:
 
     try:
         validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

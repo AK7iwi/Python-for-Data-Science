@@ -65,12 +65,13 @@ def main() -> int:
     """
     try:
         number = validate_args()
-        check_odd_even(number)
     except ValueError:
         return 1
     except AssertionError as e:
         print(f"AssertionError: {e}")
         return 1
+
+    check_odd_even(number)
 
     return 0
 

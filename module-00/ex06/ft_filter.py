@@ -38,7 +38,7 @@ def main() -> int:
         return 1
     except ValueError as e:
         print(f"ValueError: {e}")
-        return 1   
+        return 1
 
     result = ft_filter(lambda x: x % 2 == 0, list_test)
     print("ft_filter: ", result)

@@ -85,3 +85,5 @@ print("built-in filter: ", result)
 result = ft_filter(lambda x: x % 2 == 0, list_test)
 print("\nft_filter: ", result)
 # print("list(result): ", list(result))
+
+print("\n--------------------------------\n")

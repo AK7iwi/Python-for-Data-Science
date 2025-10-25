@@ -27,3 +27,5 @@ NULL_not_found(float("-inf"))
 NULL_not_found(2)
 NULL_not_found("Hello")
 NULL_not_found(True)
+
+print("\n--------------------------------\n")

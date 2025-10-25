@@ -33,3 +33,5 @@ print("\n--------------------------------\n")
 print("Test 3 - Invalid input: Empty string\n")
 
 all_thing_is_obj("")
+
+print("\n--------------------------------\n")

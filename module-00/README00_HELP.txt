@@ -29,6 +29,8 @@ EAFP vs LBYL
 
 Mix,...
 
+LBYL allow to have a better message error handling
+
 
 (Re)Raise:
 

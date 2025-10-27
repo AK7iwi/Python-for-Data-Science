@@ -27,6 +27,13 @@ https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/
 
 EAFP vs LBYL
 
+EAFP: 
+Try first: Attempt the operation
+
+LBYL:
+
+Validate first: Check all conditions before computation
+
 Mix,...
 
 LBYL allow to have a better message error handling

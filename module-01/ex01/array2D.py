@@ -24,13 +24,13 @@ def validate_indices_bounds(start: int, end: int, array_length: int) -> None:
 
     # not `>=` for end to allow the last index value
     if start_normalized < 0 or start_normalized >= array_length:
-        raise ValueError(f"Start index {start} is out of bounds "
+        raise IndexError(f"Start index {start} is out of bounds "
                          f"(min: {-array_length}, max: {array_length - 1})")
     elif end_normalized < 0 or end_normalized > array_length:
-        raise ValueError(f"End index {end} is out of bounds "
+        raise IndexError(f"End index {end} is out of bounds "
                          f"(min: {-array_length}, max: {array_length})")
     elif end_normalized < start_normalized:
-        raise ValueError("End index must be greater than start index")
+        raise IndexError("End index must be greater than start index")
 
 
 def validate_indice_type(indice: int, name: str) -> None:
@@ -215,6 +215,9 @@ def slice_me(family: list, start: int, end: int) -> list:
         return None
     except TypeError as e:
         print(f"TypeError: {e}")
+        return None
+    except IndexError as e:
+        print(f"IndexError: {e}")
         return None
 
     family_array, sliced_array = slice_array(family, start, end)

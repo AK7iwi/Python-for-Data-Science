@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import math
-from validate_args import validate_args_for_test
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def validate_measurement_content(values: list[int | float], name: str) -> None:
@@ -23,9 +23,9 @@ def validate_measurement_content(values: list[int | float], name: str) -> None:
     for i, value in enumerate(values):
         if not isinstance(value, (int, float)):
             raise TypeError(f"{name} at index {i} must be int or float")
-        if not math.isfinite(value):
+        elif not math.isfinite(value):
             raise ValueError(f"{name} at index {i} must be finite")
-        if value <= 0:
+        elif value <= 0:
             raise ValueError(f"{name} at index {i} must be positive")
 
 
@@ -47,7 +47,7 @@ def validate_measurement_structure(values: list[int | float],
     """
     if not isinstance(values, list):
         raise TypeError(f"{name} must be a list")
-    if not values:
+    elif not values:
         raise ValueError(f"{name} cannot be empty")
 
 
@@ -85,7 +85,7 @@ def validate_limit(limit: int) -> None:
     """
     if not isinstance(limit, int):
         raise TypeError("Limit must be an integer")
-    if limit < 0:
+    elif limit < 0:
         raise ValueError("Limit must be positive")
 
 
@@ -148,7 +148,7 @@ def validate_data_bmi(height: list[int | float],
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """
-    Apply a limit to BMI values and return boolean list.
+    Apply a limit to BMI values and return boolean list (True if BMI > limit).
 
     Args:
         bmi (list[int | float]): List of BMI values
@@ -156,6 +156,7 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
 
     Returns:
         list[bool]: List of booleans (True if BMI > limit)
+        None: If the data is invalid
 
     Raises:
         None
@@ -164,10 +165,10 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
         validate_data_limit(bmi, limit)
     except ValueError as e:
         print(f"ValueError: {e}")
-        raise
+        return None
     except TypeError as e:
         print(f"TypeError: {e}")
-        raise
+        return None
 
     return (np.asarray(bmi) > limit).tolist()
 
@@ -201,6 +202,7 @@ def give_bmi(height: list[int | float],
 
     Returns:
         list[int | float]: List of BMI values
+        None: If the data is invalid
 
     Raises:
         None
@@ -209,10 +211,10 @@ def give_bmi(height: list[int | float],
         validate_data_bmi(height, weight)
     except ValueError as e:
         print(f"ValueError: {e}")
-        # raise
+        return None
     except TypeError as e:
         print(f"TypeError: {e}")
-        # raise
+        return None
 
     bmi = calculate_bmi(height, weight)
 
@@ -228,18 +230,18 @@ def main() -> int:
     limit = 26
 
     try:
-        if not validate_args_for_test():
-            return 1
-
-        bmi = give_bmi(height, weight)
-        print(bmi)
-        print(apply_limit(bmi, limit))
-
-        return 0
-
+        validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1
+
+    bmi = give_bmi(height, weight)
+    print(bmi, type(bmi))
+    print(apply_limit(bmi, limit))
+
+    return 0
 
 
 if __name__ == "__main__":

@@ -22,7 +22,15 @@ try and except best practice:
 https://python.land/deep-dives/python-try-except
 https://jerrynsh.com/stop-using-exceptions-like-this-in-python/
 https://jerrynsh.com/python-exception-handling-patterns-and-best-practices/
+https://devblogs.microsoft.com/python/idiomatic-python-eafp-versus-lbyl/
 
+
+EAFP vs LBYL
+
+Mix,...
+
+
+(Re)Raise:
 
 Quick Comparison Table
 Syntax	Exception Type	Traceback	Original Context

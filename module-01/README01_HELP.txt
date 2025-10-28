@@ -66,7 +66,6 @@ ex05: array.copy() better performance than np.asarray and np.array
 
 Parsing with pure python before convert to numpy because convert numpy array change the values types 
 
-
 # Mixed int and float -> becomes float
 arr1 = np.array([1, 2.5, 3])
 print(arr1.dtype)  # float64

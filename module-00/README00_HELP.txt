@@ -33,10 +33,11 @@ Try first: Attempt the operation
 LBYL:
 
 Validate first: Check all conditions before computation
+LBYL allow to have a better message error handling
+
 
 Mix,...
 
-LBYL allow to have a better message error handling
 
 
 (Re)Raise:

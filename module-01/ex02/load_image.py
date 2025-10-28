@@ -2,7 +2,7 @@ import sys
 import os
 import numpy as np
 from PIL import Image
-from validate_args import validate_args
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def validate_path_exists(path: str) -> None:
@@ -160,7 +160,17 @@ def ft_load(path: str) -> np.ndarray:
     Raises:
         None
     """
-    validate_path(path)
+    try:
+        validate_path(path)
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except FileNotFoundError as e:
+        print(f"FileNotFoundError: {e}")
+        return None
 
     image = load_image(path)
     print_info(image)
@@ -173,15 +183,16 @@ def main() -> int:
     Main function to test the ft_load function.
     """
     try:
-        validate_args()
-
-        print(ft_load("../images/landscape.jpg"))
-
-        return 0
-
-    except Exception as e:
-        print(f"Error: {e}")
+        validate_args_for_test()
+    except MissingArgumentsError:
         return 1
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return 1
+
+    print(ft_load("../images/landscape.jpg"))
+
+    return 0
 
 
 if __name__ == "__main__":

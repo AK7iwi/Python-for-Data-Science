@@ -1,84 +1,7 @@
 import sys
-import os
-import numpy as np
 from PIL import Image
+import numpy as np
 from validate_args import validate_args_for_test, MissingArgumentsError
-
-
-def validate_path_exists(path: str) -> None:
-    """
-    Validate that the file path exists.
-
-    Args:
-        path (str): The file path to validate
-
-    Returns:
-        None
-
-    Raises:
-        FileNotFoundError: If file does not exist
-    """
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"File '{path}' not found")
-
-
-def validate_image_format(path: str) -> None:
-    """
-    Validate that the file has a supported image format.
-
-    Args:
-        path (str): The file path to validate
-
-    Returns:
-        None
-
-    Raises:
-        ValueError: If file format is not supported
-    """
-    supported_formats = {'.jpg', '.jpeg', '.JPG', '.JPEG'}
-    file_extension = os.path.splitext(path)[1]
-
-    if file_extension not in supported_formats:
-        raise ValueError(f"Unsupported image format: {file_extension}. "
-                         f"Supported formats: JPG, JPEG")
-
-
-def validate_path_string(path: str) -> None:
-    """
-    Validate that the path is a non-empty string.
-
-    Args:
-        path (str): The file path to validate
-
-    Returns:
-        None
-
-    Raises:
-        TypeError: If path is not a string
-        ValueError: If path is empty
-    """
-    if not isinstance(path, str):
-        raise TypeError("Path must be a string")
-    if not path.strip():
-        raise ValueError("Path cannot be empty")
-
-
-def validate_path(path: str) -> None:
-    """
-    Validate that the path is a valid image file path.
-
-    Args:
-        path (str): The file path to validate
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    validate_path_string(path)
-    validate_image_format(path)
-    validate_path_exists(path)
 
 
 def print_image_info(image: np.ndarray) -> None:
@@ -139,12 +62,11 @@ def load_image(path: str) -> np.ndarray:
     Raises:
         None
     """
-    image = Image.open(path)
+    with Image.open(path) as image:
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
 
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-
-    return np.asarray(image)
+        return np.asarray(image)
 
 
 def ft_load(path: str) -> np.ndarray:
@@ -161,18 +83,26 @@ def ft_load(path: str) -> np.ndarray:
         None
     """
     try:
-        validate_path(path)
-    except ValueError as e:
-        print(f"ValueError: {e}")
-        return None
+        image = load_image(path)
     except TypeError as e:
         print(f"TypeError: {e}")
         return None
-    except FileNotFoundError as e:
-        print(f"FileNotFoundError: {e}")
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
+    except AttributeError:
+        print(f"AttributeError: Not a valid image file: '{path}'")
+        return None
+    except FileNotFoundError:
+        print(f"FileNotFoundError: No such file or directory: '{path}'")
+        return None
+    except PermissionError:
+        print(f"PermissionError: Permission denied: '{path}'")
+        return None
+    except Image.UnidentifiedImageError as e:
+        print(f"UnidentifiedImageError: {e}. Probably not an image file.")
         return None
 
-    image = load_image(path)
     print_info(image)
 
     return image
@@ -190,7 +120,7 @@ def main() -> int:
         print(f"ValueError: {e}")
         return 1
 
-    print(ft_load("../images/landscape.jpg"))
+    print(ft_load("../images/valid_images/landscape.jpg"))
 
     return 0
 

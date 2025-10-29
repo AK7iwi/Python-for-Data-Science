@@ -100,7 +100,7 @@ def ft_load(path: str) -> np.ndarray:
         print(f"PermissionError: Permission denied: '{path}'")
         return None
     except Image.UnidentifiedImageError as e:
-        print(f"UnidentifiedImageError: {e}. Probably not an image file.")
+        print(f"UnidentifiedImageError: {e}. Probably not a valid image file.")
         return None
 
     print_info(image)

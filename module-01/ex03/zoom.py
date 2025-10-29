@@ -130,6 +130,7 @@ def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     """
     zoomed_image = zoom_center_square(image)
     zoomed_grayscale_image = convert_to_grayscale(zoomed_image)
+    print_info(zoomed_grayscale_image)
 
     return zoomed_grayscale_image
 
@@ -159,7 +160,6 @@ def main() -> int:
     print(image)
 
     zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
-    print_info(zoomed_grayscale_image)
     print(zoomed_grayscale_image)
 
     display_image(zoomed_grayscale_image)

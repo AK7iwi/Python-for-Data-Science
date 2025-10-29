@@ -2,7 +2,7 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
-from validate_args import validate_args
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 def validate_image_array(image: np.ndarray) -> None:
@@ -59,7 +59,14 @@ def ft_invert(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(array)
+    try:
+        validate_image_array(array)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
 
     inverted = 255 - array
 
@@ -81,7 +88,14 @@ def ft_red(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(array)
+    try:
+        validate_image_array(array)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
 
     # Keep only red channel, set green and blue to 0
     red_filtered = array.copy()
@@ -106,7 +120,14 @@ def ft_green(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(array)
+    try:
+        validate_image_array(array)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
 
     # Keep only green channel, set red and blue to 0
     green_filtered = array.copy()
@@ -131,7 +152,14 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(array)
+    try:
+        validate_image_array(array)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
 
     # Keep only blue channel, set red and green to 0
     blue_filtered = array.copy()
@@ -156,7 +184,14 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(array)
+    try:
+        validate_image_array(array)
+    except TypeError as e:
+        print(f"TypeError: {e}")
+        return None
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return None
 
     # Manual grayscale conversion
     grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3
@@ -182,24 +217,27 @@ def main():
         None
     """
     try:
-        validate_args()
-
-        array = ft_load("../images/landscape.jpg")
-        print(array)
-
-        ft_invert(array)
-        ft_red(array)
-        ft_green(array)
-        ft_blue(array)
-        ft_grey(array)
-
-        print(ft_invert.__doc__)
-
-        return 0
-
-    except Exception as e:
-        print(f"Error: {e}")
+        validate_args_for_test()
+    except MissingArgumentsError:
         return 1
+    except ValueError as e:
+        print(f"ValueError: {e}")
+        return 1
+
+    array = ft_load("../images/valid_images/landscape.jpg")
+    if array is None:
+        return 1
+    print(array)
+
+    ft_invert(array)
+    ft_red(array)
+    ft_green(array)
+    ft_blue(array)
+    ft_grey(array)
+
+    print(ft_invert.__doc__)
+
+    return 0
 
 
 if __name__ == "__main__":

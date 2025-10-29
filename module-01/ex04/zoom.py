@@ -2,74 +2,15 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load, print_image_info
-from validate_args import validate_args
+from validate_args import validate_args_for_prog
 
 
-def validate_title(title: str) -> None:
-    """
-    Validate that the input is a valid title.
-
-    Args:
-        title (str): The title to validate
-
-    Returns:
-        None
-
-    Raises:
-        TypeError: If title is not a string
-        ValueError: If title is empty
-    """
-    if not isinstance(title, str):
-        raise TypeError("Title must be a string")
-    if title == "":
-        raise ValueError("Title must not be empty")
-
-
-def validate_image_array(image: np.ndarray) -> None:
-    """
-    Validate that the input is a valid image array.
-
-    Args:
-        image (np.ndarray): The image to validate
-
-    Returns:
-        None
-
-    Raises:
-        TypeError: If image is not a numpy array
-        ValueError: If image is invalid
-    """
-    if not isinstance(image, np.ndarray):
-        raise TypeError("Image must be a numpy array")
-    if len(image.shape) < 2:
-        raise ValueError("Image must be at least 2D")
-
-
-def validate_data(image: np.ndarray, title: str) -> None:
-    """
-    Validate that the input is a valid image array and title.
-
-    Args:
-        image (np.ndarray): The image to validate
-        title (str): The title to validate
-
-    Returns:
-        None
-
-    Raises:
-        None
-    """
-    validate_image_array(image)
-    validate_title(title)
-
-
-def display_image(image: np.ndarray, title: str) -> None:
+def display_image(image: np.ndarray) -> None:
     """
     Display the image with scale on x and y axis.
 
     Args:
         image (np.ndarray): The image to display
-        title (str): Title for the plot
 
     Returns:
         None
@@ -77,11 +18,9 @@ def display_image(image: np.ndarray, title: str) -> None:
     Raises:
         None
     """
-    validate_data(image, title)
-
     plt.figure(figsize=(10, 8))
     plt.imshow(image, cmap='gray')
-    plt.title(title)
+    plt.title("Zoomed Image")
     plt.xlabel('X axis (pixels)')
     plt.ylabel('Y axis (pixels)')
     plt.colorbar(label='Pixel intensity')
@@ -167,7 +106,6 @@ def zoom_center_square(image: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-
     start_x, start_y, end_x, end_y = define_zoom_area(image)
     zoomed_image = image[start_y:end_y, start_x:end_x]
 
@@ -190,8 +128,6 @@ def zoom_center_square_to_grayscale(image: np.ndarray) -> np.ndarray:
     Raises:
         None
     """
-    validate_image_array(image)
-
     zoomed_image = zoom_center_square(image)
     zoomed_grayscale_image = convert_to_grayscale(zoomed_image)
     print_info(zoomed_grayscale_image)
@@ -213,21 +149,22 @@ def main() -> int:
         None
     """
     try:
-        validate_args()
-
-        image = ft_load("../images/animal.jpeg")
-        print(image)
-
-        zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
-        print(zoomed_grayscale_image)
-
-        display_image(zoomed_grayscale_image, "Zoomed Image")
-
-        return 0
-
-    except Exception as e:
-        print(f"Error: {e}")
+        validate_args_for_prog()
+    except ValueError as e:
+        print(f"ValueError: {e}")
         return 1
+
+    image = ft_load("../images/valid_images/animal.jpeg")
+    if image is None:
+        return 1
+    print(image)
+
+    zoomed_grayscale_image = zoom_center_square_to_grayscale(image)
+    print(zoomed_grayscale_image)
+
+    display_image(zoomed_grayscale_image)
+
+    return 0
 
 
 if __name__ == "__main__":

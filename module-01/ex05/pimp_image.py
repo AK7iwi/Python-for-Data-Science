@@ -193,8 +193,8 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
         print(f"ValueError: {e}")
         return None
 
-    # Manual grayscale conversion
-    grayscale = array[:, :, 0] / 3 + array[:, :, 1] / 3 + array[:, :, 2] / 3
+    # Grayscale conversion using per-pixel mean across channels
+    grayscale = array.mean(axis=2)
     grayscale = grayscale.astype(np.uint8)
     grayscale_3d = np.stack([grayscale, grayscale, grayscale], axis=2)
 

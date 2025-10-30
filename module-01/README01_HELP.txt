@@ -116,3 +116,8 @@ RGB Format:
 R = Red component (0-255)
 G = Green component (0-255)
 B = Blue component (0-255)
+
+
+ex05: 
+
+different way to convert to a grey image because can only use =,/

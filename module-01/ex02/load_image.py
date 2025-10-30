@@ -78,6 +78,7 @@ def ft_load(path: str) -> np.ndarray:
 
     Returns:
         np.ndarray: RGB pixel array of the image
+        None: If there is an error
 
     Raises:
         None

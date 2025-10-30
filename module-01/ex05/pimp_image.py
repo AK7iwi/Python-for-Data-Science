@@ -55,6 +55,7 @@ def ft_invert(array: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: The inverted image array
+        None: If there is an error
 
     Raises:
         None
@@ -84,6 +85,7 @@ def ft_red(array: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: The red-filtered image array
+        None: If there is an error
 
     Raises:
         None
@@ -116,6 +118,7 @@ def ft_green(array: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: The green-filtered image array
+        None: If there is an error
 
     Raises:
         None
@@ -148,6 +151,7 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: The blue-filtered image array
+        None: If there is an error
 
     Raises:
         None
@@ -180,6 +184,7 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
 
     Returns:
         np.ndarray: The grey-filtered image array
+        None: If there is an error
 
     Raises:
         None

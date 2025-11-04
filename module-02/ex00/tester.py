@@ -42,8 +42,8 @@ print(load("../csv_files/invalid_csv/nonexistent.csv"))
 
 print("\n--------------------------------\n")
 
-# Test 5 - Invalid path parameter: file is not a file
-print("Test 5 - Invalid path parameter: file is not a file")
+# Test 5 - Invalid path parameter: file is a directory
+print("Test 5 - Invalid path parameter: file is a directory")
 
 print(load("../csv_files/"))
 

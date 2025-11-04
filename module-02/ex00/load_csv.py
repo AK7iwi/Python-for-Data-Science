@@ -16,6 +16,7 @@ def validate_csv_format(path: str) -> None:
     Raises:
         ValueError: If file format is not CSV
     """
+    # Use to check if it's a directory
     with open(path, 'r'):
         pass
     if not path.lower().endswith('.csv'):

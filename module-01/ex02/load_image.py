@@ -97,6 +97,9 @@ def ft_load(path: str) -> np.ndarray:
     except AttributeError:
         print(f"AttributeError: Not a valid image file: '{path}'")
         return None
+    except IsADirectoryError:
+        print(f"IsADirectoryError: Is a directory: '{path}'")
+        return None
     except FileNotFoundError:
         print(f"FileNotFoundError: No such file or directory: '{path}'")
         return None

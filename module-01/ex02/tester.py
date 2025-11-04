@@ -42,22 +42,29 @@ print(ft_load("../images/invalid_images/subject.pdf"))
 
 print("\n--------------------------------\n")
 
-# Test 5 - Invalid path parameter: file not found
-print("Test 5 - Invalid path parameter: file not found")
+# Test 5 - Invalid path parameter: is a directory
+print("Test 5 - Invalid path parameter: is a directory")
+
+print(ft_load("../images/"))
+
+print("\n--------------------------------\n")
+
+# Test 6 - Invalid path parameter: file not found
+print("Test 6 - Invalid path parameter: file not found")
 
 print(ft_load("../images/invalid_images/nonexistent.jpg"))
 
 print("\n--------------------------------\n")
 
-# Test 6 - Invalid image: no permission
-print("Test 6 - Invalid image: no permission")
+# Test 7 - Invalid image: no permission
+print("Test 7 - Invalid image: no permission")
 
 print(ft_load("../images/invalid_images/no_permission.jpg"))
 
 print("\n--------------------------------\n")
 
-# Test 7 - Invalid image: unidentified image
-print("Test 7 - Invalid image: unidentified image")
+# Test 8 - Invalid image: unidentified image
+print("Test 8 - Invalid image: unidentified image")
 
 print(ft_load("../images/invalid_images/unidentified.jpg"))
 

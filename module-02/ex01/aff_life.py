@@ -29,6 +29,55 @@ def display_graph(years_clean: list[int], values_clean: list[float], country: st
     plt.show()
 
 
+def extract_life_expectancy_values(country_data: pd.DataFrame, years: list[int]) -> list:
+    """
+    Extract life expectancy values for given years.
+    
+    Args:
+        country_data (pd.DataFrame): The country's data row
+        years (list[int]): List of years to extract values for
+        
+    Returns:
+        list: List of life expectancy values (may contain None)
+
+    Raises:
+        None
+    """
+    years_clean = []
+    values_clean = []
+    
+    years_clean = []
+    values_clean = []
+    
+    for year in years:
+        value = country_data[str(year)].iloc[0]
+        if pd.notna(value):
+            years_clean.append(year)
+            values_clean.append(float(value))
+    
+    return years_clean, values_clean
+
+
+def get_country_data(dataset: pd.DataFrame, country: str) -> tuple[pd.DataFrame, list[int]]:
+    """
+    Get the data row for a specific country.
+    
+    Args:
+        dataset (pd.DataFrame): The life expectancy dataset
+        country (str): The country to get data for
+        
+    Returns:
+        tuple[pd.DataFrame, list[int]]: The filtered dataset containing only the country's data and the years
+
+    Raises:
+        None
+    """
+    country_data = dataset[dataset['country'] == country]
+    years = [int(year) for year in country_data.columns if year != 'country']
+
+    return country_data, years
+
+
 def get_life_expectancy(dataset: pd.DataFrame, country: str) -> tuple[list[int], list[float]]:
     """
     Get life expectancy data for a specific country.
@@ -43,36 +92,9 @@ def get_life_expectancy(dataset: pd.DataFrame, country: str) -> tuple[list[int],
     Raises:
         None
     """
-    #Not EAFP
-    if country not in dataset['country'].values:
-        print(f"Error: Country '{country}' not found in dataset")
-        return
-    
-    country_data = dataset[dataset['country'] == country]
-    
-    years = [col for col in dataset.columns if col != 'country']
-    years = [int(year) for year in years if year.isdigit()]
-    
-    life_expectancy = []
-    for year in years:
-        if str(year) in country_data.columns:
-            value = country_data[str(year)].iloc[0]
-            if pd.notna(value):
-                life_expectancy.append(value)
-            else:
-                life_expectancy.append(None)
-        else:
-            life_expectancy.append(None)
-    
-    # Filter out None values and corresponding years
-    valid_data = [(year, value) for year, value in zip(years, life_expectancy) if value is not None]
-    if not valid_data:
-        print(f"Error: No valid data found for {country}")
-        return
-    
-    years_clean, values_clean = zip(*valid_data)
+    country_data, years = get_country_data(dataset, country)
 
-    return years_clean, values_clean
+    return extract_life_expectancy_values(country_data, years)
 
 
 def main() -> int:
@@ -99,7 +121,7 @@ def main() -> int:
         return 1
 
     years_clean, values_clean = get_life_expectancy(dataset, "France")
-    
+
     display_graph(years_clean, values_clean, "France")
 
     return 0

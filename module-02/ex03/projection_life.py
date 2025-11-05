@@ -8,15 +8,16 @@ from validate_args import validate_args_for_prog
 
 def display_graph(
     countries: list[str], life_expectancy: list[float],
-    gdp: list[float]
+    gdp: list[float], year: str
 ) -> None:
     """
-    Display the graph of life expectancy vs GDP for the year 1900.
+    Display the graph of life expectancy vs GDP.
 
     Args:
         countries (list[str]): List of countries
         life_expectancy (list[float]): Life expectancy values
         gdp (list[float]): GDP values
+        year (str): Year of the data
 
     Returns:
         None
@@ -38,7 +39,7 @@ def display_graph(
         )
 
     plt.title(
-        'Life Expectancy vs GDP per Capita (1900)',
+        f'Life Expectancy vs GDP per Capita ({year})',
         fontsize=16, fontweight='bold'
     )
     plt.xlabel(
@@ -59,81 +60,49 @@ def display_graph(
         ),
         verticalalignment='top'
     )
-    plt.legend(['Countries (1900)'], loc='upper right', fontsize=12)
+    plt.legend(['Countries'], loc='upper right', fontsize=12)
     plt.tight_layout()
     plt.show()
 
 
-def parse_gdp_value(value: str) -> float | None:
+def parse_gdp_value(value: str) -> float:
     """
-    Parse GDP value from string format (e.g., "1000", "1500").
+    Parse GDP value from string format (e.g., "1000", "1000.00", "1000.00k").
 
     Args:
         value (str): GDP value as string
 
     Returns:
-        float | None: GDP value as number, or None if invalid
-
-    Raises:
-        None
+        float: GDP value as number
     """
-    if pd.isna(value) or value == '':
-        return None
+    value_str = value.strip()
+    value_float = 0.0
 
-    value_str = str(value).strip()
+    if value_str.endswith('k'):
+        value_float = float(value_str[:-1]) * 1_000
+    else:
+        value_float = float(value_str)
 
-    try:
-        return float(value_str)
-    except ValueError:
-        return None
+    return value_float
 
 
-def extract_gdp_value(
+def extract_value(
     country_data: pd.DataFrame, year: str
-) -> float | None:
+) -> float:
     """
-    Extract GDP value for a specific year.
+    Extract value for a specific year.
 
     Args:
         country_data (pd.DataFrame): The country's data row
         year (str): The year to extract value for
 
     Returns:
-        float | None: GDP value, or None if invalid
+        float: The extracted value
 
     Raises:
         None
     """
-    value = country_data[year].iloc[0]
-    parsed_gdp = parse_gdp_value(value)
-
-    # if parsed_gdp is not None:
-    return parsed_gdp
-
-    # return None
-
-
-def extract_life_expectancy_value(
-    country_data: pd.DataFrame, year: str
-) -> float | None:
-    """
-    Extract life expectancy value for a specific year.
-
-    Args:
-        country_data (pd.DataFrame): The country's data row
-        year (str): The year to extract value for
-
-    Returns:
-        float | None: Life expectancy value, or None if invalid
-
-    Raises:
-        None
-    """
-    value = country_data[year].iloc[0]
-    # if pd.notna(value):
-    return float(value)
-
-    # return None
+    return country_data[year].iloc[0]
 
 
 def get_country_data(
@@ -156,43 +125,18 @@ def get_country_data(
     return dataset[dataset['country'] == country]
 
 
-def get_common_countries(
-    life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame
-) -> set:
-    """
-    Get set of countries that exist in both datasets.
-
-    Args:
-        life_expectancy_df (pd.DataFrame): Life expectancy dataset
-        gdp_df (pd.DataFrame): GDP dataset
-
-    Returns:
-        set: Set of common country names
-
-    Raises:
-        None
-    """
-    life_expectancy_contries = set(life_expectancy_df['country'].values)
-    gdp_countries = set(gdp_df['country'].values)
-
-    print(f"life expectancy contries:\n {life_expectancy_contries}")
-    print(f"gdp contries:\n {gdp_countries}")
-
-    return (
-        set(life_expectancy_df['country'].values) &
-        set(gdp_df['country'].values)
-    )
-
-
-def get_1900_data(
-    life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame
+def extract_countries_data(
+    life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame,
+    year: str, countries: list[str]
 ) -> tuple[list[str], list[float], list[float]]:
     """
-    Extract life expectancy and GDP data for the year 1900.
+    Extract life expectancy and GDP data for a list of countries.
 
     Args:
         life_expectancy_df (pd.DataFrame): Life expectancy dataset
         gdp_df (pd.DataFrame): GDP dataset
+        year (str): Year to extract data for
+        countries (list[str]): List of countries to extract data for
 
     Returns:
         tuple[list[str], list[float], list[float]]: Countries,
@@ -201,28 +145,83 @@ def get_1900_data(
     Raises:
         None
     """
-    countries = []
+    countries_list = []
     life_expectancy = []
     gdp = []
 
-    common_countries = get_common_countries(
-        life_expectancy_df, gdp_df
-    )
-    print(f"Common countries:\n {common_countries}")
-
-    #fct
-    for country in common_countries:
+    for country in countries:
         life_data = get_country_data(life_expectancy_df, country)
-        life_value = extract_life_expectancy_value(life_data, '1900')
+        life_value = extract_value(life_data, year)
 
         gdp_data = get_country_data(gdp_df, country)
-        gdp_value = extract_gdp_value(gdp_data, '1900')
+        gdp_value = extract_value(gdp_data, year)
+        gdp_value = parse_gdp_value(gdp_value)
 
-        countries.append(country)
+        countries_list.append(country)
         life_expectancy.append(life_value)
         gdp.append(gdp_value)
 
-    return countries, life_expectancy, gdp
+    return countries_list, life_expectancy, gdp
+
+
+def get_common_countries(
+    life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame, year: str
+) -> list[str]:
+    """
+    Get list of countries that exist in both datasets and have valid
+    life expectancy data for the given year.
+
+    Args:
+        life_expectancy_df (pd.DataFrame): Life expectancy dataset
+        gdp_df (pd.DataFrame): GDP dataset
+        year (str): Year to check for valid life expectancy data
+
+    Returns:
+        list[str]: List of common country names with valid life expectancy
+
+    Raises:
+        None
+    """
+    common_countries = (
+        set(life_expectancy_df['country'].values) &
+        set(gdp_df['country'].values)
+    )
+
+    valid_countries = []
+    for country in common_countries:
+        country_data = get_country_data(life_expectancy_df, country)
+        value = country_data[year].iloc[0]
+        if pd.notna(value):
+            valid_countries.append(country)
+
+    return valid_countries
+
+
+def get_year_data(
+    life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame, year: str
+) -> tuple[list[str], list[float], list[float]]:
+    """
+    Extract life expectancy and GDP data for a specific year.
+
+    Args:
+        life_expectancy_df (pd.DataFrame): Life expectancy dataset
+        gdp_df (pd.DataFrame): GDP dataset
+        year (str): Year to extract data for
+
+    Returns:
+        tuple[list[str], list[float], list[float]]: Countries,
+        life expectancy, GDP
+
+    Raises:
+        None
+    """
+    common_countries = get_common_countries(
+        life_expectancy_df, gdp_df, year
+    )
+
+    return extract_countries_data(
+        life_expectancy_df, gdp_df, year, common_countries
+    )
 
 
 def main() -> int:
@@ -257,11 +256,12 @@ def main() -> int:
     if gdp_df is None:
         return 1
 
-    countries, life_expectancy, gdp = get_1900_data(
-        life_expectancy_df, gdp_df
+    year = '2025'
+    countries, life_expectancy, gdp = get_year_data(
+        life_expectancy_df, gdp_df, year
     )
 
-    display_graph(countries, life_expectancy, gdp)
+    display_graph(countries, life_expectancy, gdp, year)
 
     return 0
 

@@ -88,6 +88,54 @@ def parse_gdp_value(value: str) -> float | None:
         return None
 
 
+def extract_gdp_value(
+    country_data: pd.DataFrame, year: str
+) -> float | None:
+    """
+    Extract GDP value for a specific year.
+
+    Args:
+        country_data (pd.DataFrame): The country's data row
+        year (str): The year to extract value for
+
+    Returns:
+        float | None: GDP value, or None if invalid
+
+    Raises:
+        None
+    """
+    value = country_data[year].iloc[0]
+    parsed_gdp = parse_gdp_value(value)
+
+    # if parsed_gdp is not None:
+    return parsed_gdp
+
+    # return None
+
+
+def extract_life_expectancy_value(
+    country_data: pd.DataFrame, year: str
+) -> float | None:
+    """
+    Extract life expectancy value for a specific year.
+
+    Args:
+        country_data (pd.DataFrame): The country's data row
+        year (str): The year to extract value for
+
+    Returns:
+        float | None: Life expectancy value, or None if invalid
+
+    Raises:
+        None
+    """
+    value = country_data[year].iloc[0]
+    # if pd.notna(value):
+    return float(value)
+
+    # return None
+
+
 def get_country_data(
     dataset: pd.DataFrame, country: str
 ) -> pd.DataFrame:
@@ -108,60 +156,6 @@ def get_country_data(
     return dataset[dataset['country'] == country]
 
 
-def extract_life_expectancy_value(
-    country_data: pd.DataFrame, year: str
-) -> float | None:
-    """
-    Extract life expectancy value for a specific year.
-
-    Args:
-        country_data (pd.DataFrame): The country's data row
-        year (str): The year to extract value for
-
-    Returns:
-        float | None: Life expectancy value, or None if invalid
-
-    Raises:
-        None
-    """
-    if year not in country_data.columns:
-        return None
-
-    value = country_data[year].iloc[0]
-    if pd.notna(value) and value > 0:
-        return float(value)
-
-    return None
-
-
-def extract_gdp_value(
-    country_data: pd.DataFrame, year: str
-) -> float | None:
-    """
-    Extract GDP value for a specific year.
-
-    Args:
-        country_data (pd.DataFrame): The country's data row
-        year (str): The year to extract value for
-
-    Returns:
-        float | None: GDP value, or None if invalid
-
-    Raises:
-        None
-    """
-    if year not in country_data.columns:
-        return None
-
-    value = country_data[year].iloc[0]
-    parsed_gdp = parse_gdp_value(value)
-
-    if parsed_gdp is not None and parsed_gdp > 0:
-        return parsed_gdp
-
-    return None
-
-
 def get_common_countries(
     life_expectancy_df: pd.DataFrame, gdp_df: pd.DataFrame
 ) -> set:
@@ -178,6 +172,12 @@ def get_common_countries(
     Raises:
         None
     """
+    life_expectancy_contries = set(life_expectancy_df['country'].values)
+    gdp_countries = set(gdp_df['country'].values)
+
+    print(f"life expectancy contries:\n {life_expectancy_contries}")
+    print(f"gdp contries:\n {gdp_countries}")
+
     return (
         set(life_expectancy_df['country'].values) &
         set(gdp_df['country'].values)
@@ -202,27 +202,27 @@ def get_1900_data(
         None
     """
     countries = []
-    life_expectancy_1900 = []
-    gdp_1900 = []
+    life_expectancy = []
+    gdp = []
 
     common_countries = get_common_countries(
         life_expectancy_df, gdp_df
     )
+    print(f"Common countries:\n {common_countries}")
 
+    #fct
     for country in common_countries:
         life_data = get_country_data(life_expectancy_df, country)
         life_value = extract_life_expectancy_value(life_data, '1900')
 
-        if life_value is not None:
-            gdp_data = get_country_data(gdp_df, country)
-            gdp_value = extract_gdp_value(gdp_data, '1900')
+        gdp_data = get_country_data(gdp_df, country)
+        gdp_value = extract_gdp_value(gdp_data, '1900')
 
-            if gdp_value is not None:
-                countries.append(country)
-                life_expectancy_1900.append(life_value)
-                gdp_1900.append(gdp_value)
+        countries.append(country)
+        life_expectancy.append(life_value)
+        gdp.append(gdp_value)
 
-    return countries, life_expectancy_1900, gdp_1900
+    return countries, life_expectancy, gdp
 
 
 def main() -> int:
@@ -257,11 +257,11 @@ def main() -> int:
     if gdp_df is None:
         return 1
 
-    countries, life_expectancy_1900, gdp_1900 = get_1900_data(
+    countries, life_expectancy, gdp = get_1900_data(
         life_expectancy_df, gdp_df
     )
 
-    display_graph(countries, life_expectancy_1900, gdp_1900)
+    display_graph(countries, life_expectancy, gdp)
 
     return 0
 

@@ -130,31 +130,7 @@ def get_country_data(
     return country_data, years
 
 
-def get_data(
-    dataset: pd.DataFrame, country1: str, country2: str
-) -> tuple[list[int], pd.DataFrame, pd.DataFrame]:
-    """
-    Get population data for two countries.
-
-    Args:
-        dataset (pd.DataFrame): The population dataset
-        country1 (str): First country
-        country2 (str): Second country
-
-    Returns:
-        tuple[list[int], pd.DataFrame, pd.DataFrame]: Years,
-        country1 data, country2 data
-
-    Raises:
-        None
-    """
-    country1_data, years = get_country_data(dataset, country1)
-    country2_data, _ = get_country_data(dataset, country2)
-
-    return years, country1_data, country2_data
-
-
-def compare_populations(
+def get_populations_data(
     dataset: pd.DataFrame, country1: str, country2: str
 ) -> tuple[list[int], list[float], list[float]]:
     """
@@ -172,7 +148,8 @@ def compare_populations(
     Raises:
         None
     """
-    years, country1_data, country2_data = get_data(dataset, country1, country2)
+    country1_data, years = get_country_data(dataset, country1)
+    country2_data, _ = get_country_data(dataset, country2)
     pop1 = extract_population_values(country1_data, years)
     pop2 = extract_population_values(country2_data, years)
 
@@ -202,7 +179,7 @@ def main() -> int:
     if dataset is None:
         return 1
 
-    years, pop1, pop2 = compare_populations(dataset, "France", "Belgium")
+    years, pop1, pop2 = get_populations_data(dataset, "France", "Belgium")
 
     display_graph("France", pop1, "Belgium", pop2, years)
 

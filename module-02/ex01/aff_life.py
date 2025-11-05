@@ -89,7 +89,7 @@ def get_country_data(
     return country_data, years
 
 
-def get_life_expectancy(
+def get_life_expectancy_data(
     dataset: pd.DataFrame, country: str
 ) -> tuple[list[int], list[float]]:
     """
@@ -133,7 +133,7 @@ def main() -> int:
     if dataset is None:
         return 1
 
-    years_clean, values_clean = get_life_expectancy(dataset, "France")
+    years_clean, values_clean = get_life_expectancy_data(dataset, "France")
 
     display_graph(years_clean, values_clean, "France")
 

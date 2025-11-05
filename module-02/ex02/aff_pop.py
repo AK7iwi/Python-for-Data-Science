@@ -64,7 +64,7 @@ def parse_population_value(value: str) -> float:
     Raises:
         None
     """
-    value_str = str(value).strip()
+    value_str = value.strip()
     value_float = 0.0
 
     if value_str.endswith('B'):
@@ -97,10 +97,9 @@ def extract_population_values(
     """
     populations = []
     for year in years:
-        if 1800 <= year <= 2050:
-            value = country_data[str(year)].iloc[0]
-            parsed_value = parse_population_value(value)
-            populations.append(parsed_value)
+        value = country_data[str(year)].iloc[0]
+        parsed_value = parse_population_value(value)
+        populations.append(parsed_value)
 
     return populations
 
@@ -149,8 +148,9 @@ def get_populations_data(
         None
     """
     country1_data, years = get_country_data(dataset, country1)
-    country2_data, _ = get_country_data(dataset, country2)
     pop1 = extract_population_values(country1_data, years)
+
+    country2_data, _ = get_country_data(dataset, country2)
     pop2 = extract_population_values(country2_data, years)
 
     return years, pop1, pop2

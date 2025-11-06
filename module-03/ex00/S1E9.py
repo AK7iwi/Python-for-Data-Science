@@ -26,7 +26,7 @@ class Character(ABC):
 
         Returns:
             None
-        
+
         Raises:
             None
         """

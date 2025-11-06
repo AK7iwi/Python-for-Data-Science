@@ -2,6 +2,8 @@
 Module S1E9: Character and Stark classes implementation.
 """
 from abc import ABC, abstractmethod
+import sys
+from validate_args import validate_args_for_prog
 
 
 class Character(ABC):
@@ -94,23 +96,25 @@ def main() -> int:
         None
     """
     try:
-        ned = Stark("Ned")
-        print(ned.__dict__)
-        print(ned.is_alive)
-        ned.die()
-        print(ned.is_alive)
-        print(ned.__doc__)
-        print(ned.__init__.__doc__)
-        print(ned.die.__doc__)
-        print("---")
-        lyanna = Stark("Lyanna", False)
-        print(lyanna.__dict__)
-    except Exception as e:
-        print(f"Error: {e}")
+        validate_args_for_prog()
+    except ValueError as e:
+        print(f"ValueError: {e}")
         return 1
+
+    Ned = Stark("Ned")
+    print(Ned.__dict__)
+    print(Ned.is_alive)
+    Ned.die()
+    print(Ned.is_alive)
+    print(Ned.__doc__)
+    print(Ned.__init__.__doc__)
+    print(Ned.die.__doc__)
+    print("---")
+    Lyanna = Stark("Lyanna", False)
+    print(Lyanna.__dict__)
+
     return 0
 
 
 if __name__ == "__main__":
-    import sys
     sys.exit(main())

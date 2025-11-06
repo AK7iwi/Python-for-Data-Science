@@ -49,7 +49,7 @@ class Character(ABC):
         Raises:
             None
         """
-        pass
+        self.is_alive = False
 
 
 class Stark(Character):
@@ -88,7 +88,7 @@ class Stark(Character):
         Returns:
             None
         """
-        self.is_alive = False
+        super().die()
 
 
 def main() -> int:

@@ -92,7 +92,8 @@ def encrypt(message: str) -> str:
         str: The encrypted message in morse code
 
     Raises:
-        AssertionError: If the message contains invalid characters (KeyError exception)
+        AssertionError: If the message contains invalid characters
+        (KeyError exception)
     """
     NESTED_MORSE = get_dict()
     encrypted_message = ""

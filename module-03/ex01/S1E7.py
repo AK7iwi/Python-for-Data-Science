@@ -45,7 +45,7 @@ class Baratheon(Character):
         Returns:
             None
         """
-        self.is_alive = False
+        super().die()
 
     def __str__(self) -> str:
         """
@@ -113,7 +113,7 @@ class Lannister(Character):
         Returns:
             None
         """
-        self.is_alive = False
+        super().die()
 
     def __str__(self) -> str:
         """

@@ -1,8 +1,8 @@
 """
 Module S1E9: Character and Stark classes implementation.
 """
-from abc import ABC, abstractmethod
 import sys
+from abc import ABC, abstractmethod
 from validate_args import validate_args_for_prog
 
 

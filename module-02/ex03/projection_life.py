@@ -65,17 +65,17 @@ def display_graph(
     plt.show()
 
 
-def parse_gdp_value(value: str) -> float:
+def parse_gdp_value(value: np.int64 | str) -> float:
     """
     Parse GDP value from string format (e.g., "1000", "1000.00", "1000.00k").
 
     Args:
-        value (str): GDP value as string
+        value (np.int64 | str): GDP value as string or integer
 
     Returns:
         float: GDP value as number
     """
-    value_str = value.strip()
+    value_str = str(value).strip()
     value_float = 0.0
 
     if value_str.endswith('k'):
@@ -84,25 +84,6 @@ def parse_gdp_value(value: str) -> float:
         value_float = float(value_str)
 
     return value_float
-
-
-def extract_value(
-    country_data: pd.DataFrame, year: str
-) -> float:
-    """
-    Extract value for a specific year.
-
-    Args:
-        country_data (pd.DataFrame): The country's data row
-        year (str): The year to extract value for
-
-    Returns:
-        float: The extracted value
-
-    Raises:
-        None
-    """
-    return country_data[year].iloc[0]
 
 
 def get_country_data(
@@ -148,17 +129,16 @@ def extract_countries_data(
     countries_list = []
     life_expectancy = []
     gdp = []
-
     for country in countries:
         life_data = get_country_data(life_expectancy_df, country)
-        life_value = extract_value(life_data, year)
+        life_value = life_data[year].iloc[0]
 
         gdp_data = get_country_data(gdp_df, country)
-        gdp_value = extract_value(gdp_data, year)
+        gdp_value = gdp_data[year].iloc[0]
         gdp_value = parse_gdp_value(gdp_value)
 
         countries_list.append(country)
-        life_expectancy.append(life_value)
+        life_expectancy.append(float(life_value))
         gdp.append(gdp_value)
 
     return countries_list, life_expectancy, gdp
@@ -256,7 +236,7 @@ def main() -> int:
     if gdp_df is None:
         return 1
 
-    year = '2025'
+    year = '1900'
     countries, life_expectancy, gdp = get_year_data(
         life_expectancy_df, gdp_df, year
     )

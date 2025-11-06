@@ -26,6 +26,9 @@ class Character(ABC):
 
         Returns:
             None
+        
+        Raises:
+            None
         """
         self.first_name = first_name
         self.is_alive = is_alive
@@ -41,6 +44,9 @@ class Character(ABC):
             None
 
         Returns:
+            None
+
+        Raises:
             None
         """
         pass
@@ -65,6 +71,9 @@ class Stark(Character):
                 Defaults to True.
 
         Returns:
+            None
+
+        Raises:
             None
         """
         super().__init__(first_name, is_alive)

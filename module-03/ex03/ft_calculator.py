@@ -28,7 +28,7 @@ class calculator:
         """
         self.vector = vector
 
-    def __add__(self, object: float) -> None:
+    def __add__(self, object: int | float) -> None:
         """
         Add a scalar to each element of the vector.
 
@@ -46,7 +46,7 @@ class calculator:
 
         return None
 
-    def __mul__(self, object: float) -> None:
+    def __mul__(self, object: int | float) -> None:
         """
         Multiply each element of the vector by a scalar.
 
@@ -64,7 +64,7 @@ class calculator:
 
         return None
 
-    def __sub__(self, object: float) -> None:
+    def __sub__(self, object: int | float) -> None:
         """
         Subtract a scalar from each element of the vector.
 
@@ -82,7 +82,7 @@ class calculator:
 
         return None
 
-    def __truediv__(self, object: float) -> None:
+    def __truediv__(self, object: int | float) -> None:
         """
         Divide each element of the vector by a scalar.
 

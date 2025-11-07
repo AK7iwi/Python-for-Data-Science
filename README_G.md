@@ -137,6 +137,7 @@ Uses super() to call the parent constructor
 self: reference to the current instance of the class. 
 @abstractmethod to create abstract methods. Use abstract method if: Subclass needs a different implementation
 other way its possible to directly user the methods of the parent contructor. Subclass can obvioulsy acces to method and attributes of the parent contructor
+
 obj.__dict__. ex print(Ned.__dict__)
 
 
@@ -239,7 +240,7 @@ Without propreties:
 Joffrey.get_eyes()    # Method call with parentheses
 Joffrey.set_eyes("blue")  # Method call with parentheses
 
-With propreties;
+With propreties:
 
 Joffrey.eyes          # No parentheses (property access)
 Joffrey.eyes = "blue" # Assignment (setter)

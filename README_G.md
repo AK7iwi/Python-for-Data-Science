@@ -21,6 +21,18 @@ or (keyword)
 - ###import 
 precisez que import execute du code 
 
+- ### __name__
+
+__name__ is a special attribute in Python that stores the name of an object as a string
+
+Not just use to create a main 
+
+Summary Table
+Context	What __name__ returns	Example
+Module	Module name or "__main__"	__name__ → "__main__" or "mymodule"
+Class	Class name	Lannister.__name__ → "Lannister"
+Function	Function name	my_func.__name__ → "my_func"
+Object	Object's class name	type(obj).__name__ → "Lannister"
  
 - Exemple 
 Cut exemple code in multiple exemple 
@@ -194,12 +206,8 @@ cersei = Lannister.create_with_motto("Cersei")
 # Output: Created Cersei. Motto: Hear Me Roar!
 
 
+init a deault value directly in the prototype
 __init__(self, first_name: str, is_alive: bool = True)
-
-
-
-
-
 
 
 - Others

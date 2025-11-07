@@ -9,3 +9,8 @@ print("---")
 v3 = calculator([10.0, 15.0, 20.0])
 v3 - 5
 v3 / 5
+
+# Test division by zero
+print("\nTest division by zero")
+v4 = calculator([10.0, 15.0, 20.0])
+v4 / 0

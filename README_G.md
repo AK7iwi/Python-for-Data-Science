@@ -252,6 +252,9 @@ a) The method doesn't need instance data (no self). So its doesnt modify the pas
 b) The method is logically related to the class but doesn't need an object
 c) It's like a "normal" fct
 
+Use @staticmethod when the method is a utility that doesn't need object state.
+Use __init__ + instance methods when the object needs to store and modify state.
+
 
 - Others
 

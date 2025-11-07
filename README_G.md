@@ -202,19 +202,47 @@ class Lannister(Character):
         print(f"Created {first_name}. Motto: {cls.house_words}")
         return character
 
-cersei = Lannister.create_with_motto("Cersei")
+Cersei = Lannister.create_with_motto("Cersei")
 # Output: Created Cersei. Motto: Hear Me Roar!
 
 
-init a deault value directly in the prototype
+init a default value directly in the prototype
 __init__(self, first_name: str, is_alive: bool = True)
-
 
 
 MRO:
 
 super() uses the Method Resolution Order (MRO)
+King.__init__()
+  └─> super().__init__() → Baratheon.__init__()
+        └─> super().__init__() → Lannister.__init__()
+              └─> super().__init__() → Character.__init__()
 
+
+King.__init__()
+  └─> super().__init__() → Baratheon.__init__()
+        └─> super().__init__() → Lannister.__init__()
+              └─> super().__init__() → Character.__init__()
+                    (sets first_name, is_alive)
+              (Lannister sets: family_name="Lannister", eyes="blue", hairs="light")
+        (Baratheon sets: family_name="Baratheon", eyes="brown", hairs="dark") ← OVERWRITES!
+  (King saves to _eyes, _hairs)
+
+
+@propreties: 
+methods to modify and get attributes
+
+Ex: 
+
+Without propreties:
+
+Joffrey.get_eyes()    # Method call with parentheses
+Joffrey.set_eyes("blue")  # Method call with parentheses
+
+With propreties;
+
+Joffrey.eyes          # No parentheses (property access)
+Joffrey.eyes = "blue" # Assignment (setter)
 
 
 - Others

@@ -29,6 +29,9 @@ class Baratheon(Character):
 
         Returns:
             None
+
+        Raises:
+            None
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
@@ -44,6 +47,9 @@ class Baratheon(Character):
 
         Returns:
             None
+
+        Raises:
+            None
         """
         super().die()
 
@@ -57,6 +63,9 @@ class Baratheon(Character):
         Returns:
             str: String representation in the format
                  "Vector: ('family_name', 'eyes', 'hairs')"
+
+        Raises:
+            None
         """
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
@@ -70,6 +79,9 @@ class Baratheon(Character):
         Returns:
             str: String representation in the format
                  "Vector: ('family_name', 'eyes', 'hairs')"
+
+        Raises:
+            None
         """
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
@@ -97,6 +109,9 @@ class Lannister(Character):
 
         Returns:
             None
+
+        Raises:
+            None
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
@@ -112,6 +127,9 @@ class Lannister(Character):
 
         Returns:
             None
+
+        Raises:
+            None
         """
         super().die()
 
@@ -125,6 +143,9 @@ class Lannister(Character):
         Returns:
             str: String representation in the format
                  "Vector: ('family_name', 'eyes', 'hairs')"
+
+        Raises:
+            None
         """
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
@@ -138,6 +159,9 @@ class Lannister(Character):
         Returns:
             str: String representation in the format
                  "Vector: ('family_name', 'eyes', 'hairs')"
+
+        Raises:
+            None
         """
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 

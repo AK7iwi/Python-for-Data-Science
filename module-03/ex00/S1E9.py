@@ -87,6 +87,9 @@ class Stark(Character):
 
         Returns:
             None
+        
+        Raises:
+            None
         """
         super().die()
 

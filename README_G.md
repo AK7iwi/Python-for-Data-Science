@@ -194,9 +194,7 @@ cersei = Lannister.create_with_motto("Cersei")
 # Output: Created Cersei. Motto: Hear Me Roar!
 
 
-
-
-
+__init__(self, first_name: str, is_alive: bool = True)
 
 
 

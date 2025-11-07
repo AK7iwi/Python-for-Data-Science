@@ -210,6 +210,13 @@ init a deault value directly in the prototype
 __init__(self, first_name: str, is_alive: bool = True)
 
 
+
+MRO:
+
+super() uses the Method Resolution Order (MRO)
+
+
+
 - Others
 
 - Improve the struct, more coherence (sort the point)

@@ -246,6 +246,13 @@ Joffrey.eyes          # No parentheses (property access)
 Joffrey.eyes = "blue" # Assignment (setter)
 
 
+@staticmethod
+
+a) The method doesn't need instance data (no self). So its doesnt modify the passed param
+b) The method is logically related to the class but doesn't need an object
+c) It's like a "normal" fct
+
+
 - Others
 
 - Improve the struct, more coherence (sort the point)

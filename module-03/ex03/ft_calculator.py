@@ -44,8 +44,6 @@ class calculator:
         self.vector = [x + object for x in self.vector]
         print(self.vector)
 
-        return None
-
     def __mul__(self, object: int | float) -> None:
         """
         Multiply each element of the vector by a scalar.
@@ -62,8 +60,6 @@ class calculator:
         self.vector = [x * object for x in self.vector]
         print(self.vector)
 
-        return None
-
     def __sub__(self, object: int | float) -> None:
         """
         Subtract a scalar from each element of the vector.
@@ -79,8 +75,6 @@ class calculator:
         """
         self.vector = [x - object for x in self.vector]
         print(self.vector)
-
-        return None
 
     def __truediv__(self, object: int | float) -> None:
         """
@@ -102,8 +96,6 @@ class calculator:
             return None
 
         print(self.vector)
-
-        return None
 
 
 def main() -> int:

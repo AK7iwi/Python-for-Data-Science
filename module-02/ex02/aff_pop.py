@@ -179,9 +179,11 @@ def main() -> int:
     if dataset is None:
         return 1
 
-    years, pop1, pop2 = get_populations_data(dataset, "France", "Belgium")
+    country1 = "France"
+    country2 = "Belgium"
+    years, pop1, pop2 = get_populations_data(dataset, country1, country2)
 
-    display_graph("France", pop1, "Belgium", pop2, years)
+    display_graph(country1, pop1, country2, pop2, years)
 
     return 0
 

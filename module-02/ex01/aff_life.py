@@ -133,9 +133,10 @@ def main() -> int:
     if dataset is None:
         return 1
 
-    years_clean, values_clean = get_life_expectancy_data(dataset, "France")
+    country = "France"
+    years_clean, values_clean = get_life_expectancy_data(dataset, country)
 
-    display_graph(years_clean, values_clean, "France")
+    display_graph(years_clean, values_clean, country)
 
     return 0
 

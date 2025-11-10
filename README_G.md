@@ -129,17 +129,26 @@ raise
 - with (keyword)
 
 
+
+Pandas/ pd.DataFrame
+
+
+
+Compare method between list, numpy.array, pd.DataFrame
 --------------------------------------
 
 OOP
 
 Uses super() to call the parent constructor
+
 self: reference to the current instance of the class. 
-@abstractmethod to create abstract methods. Use abstract method if: Subclass needs a different implementation
-other way its possible to directly user the methods of the parent contructor. Subclass can obvioulsy acces to method and attributes of the parent contructor
+
+@abstractmethod to create abstract methods. 
+Use abstract method if subclass needs a different implementation because must be implemented in a subclass.
+abstract methods often use pass
+Possible to directly user the methods of the parent contructor. Subclass can obvioulsy acces to method and attributes of the parent contructor
 
 obj.__dict__. ex print(Ned.__dict__)
-
 
 __str__ and __repr__ are special methods (also called "dunder methods" or "magic methods") just like __init__
 
@@ -254,6 +263,123 @@ c) It's like a "normal" fct
 
 Use @staticmethod when the method is a utility that doesn't need object state.
 Use __init__ + instance methods when the object needs to store and modify state.
+
+
+public, protected, private:
+
+link:
+https://www.geeksforgeeks.org/python/access-modifiers-in-python-public-private-and-protected/
+
+
+Only convention and for best practices
+
+a) public:
+
+Members (variables or methods) declared as public can be accessed from anywhere in the program.
+
+By default, all members are public in Python
+
+class Geek:
+    def __init__(self, name, age):
+        self.geekName = name      
+        self.geekAge = age        
+    def displayAge(self):        
+        print("Age:", self.geekAge)
+
+obj = Geek("R2J", 20)
+
+print("Name:", obj.geekName)
+obj.displayAge()
+
+Output:
+Name: R2J
+Age: 20
+
+
+b) protected:
+
+A member is considered protected if its name starts with a single underscore (_)
+
+Convention only: It suggests that the member should not be accessed outside the class except by subclasses. Meant to be used within the class and subclasses.
+
+Still, Python allows direct access if explicitly called.
+
+class Student:
+    def __init__(self, name, roll, branch):
+        self._name = name            
+        self._roll = roll           
+        self._branch = branch       
+
+    def _displayRollAndBranch(self): 
+        print("Roll:", self._roll)
+        print("Branch:", self._branch)
+
+
+class Geek(Student):
+    def displayDetails(self):
+        print("Name:", self._name)  
+        self._displayRollAndBranch() 
+
+
+obj = Geek("R2J", 1706256, "IT")
+obj.displayDetails()
+
+Output:
+Name: R2J
+Roll: 1706256
+Branch: IT
+
+c) private: 
+
+A member is private if its name starts with double underscores (__).
+
+Meant to be used only in the class
+
+Python does not enforce strict privacy — instead, it uses Name Mangling.
+
+The interpreter renames __var → _ClassName__var internally.
+
+class Geek:
+    def __init__(self, name, roll, branch):
+        self.__name = name         
+        self.__roll = roll          
+        self.__branch = branch     
+
+    def __displayDetails(self):     
+        print("Name:", self.__name)
+        print("Roll:", self.__roll)
+        print("Branch:", self.__branch)
+
+    def accessPrivateFunction(self):
+        self.__displayDetails()    
+
+
+obj = Geek("R2J", 1706256, "CSE")
+
+obj.accessPrivateFunction()
+
+print(obj._Geek__name)
+
+
+Output:
+Name: R2J
+Roll: 1706256
+Branch: CSE
+R2J
+
+
+
+
+__post__init__
+
+
+
+
+
+
+
+
+
 
 
 - Others

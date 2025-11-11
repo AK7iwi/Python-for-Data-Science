@@ -12,6 +12,7 @@ class calculator:
     All methods are static and can be called without instantiating the class.
     """
 
+    # ==================== Methods ==================== #
     @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
         """

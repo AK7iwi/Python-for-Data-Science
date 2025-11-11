@@ -28,6 +28,7 @@ class calculator:
         """
         self.vector = vector
 
+    # ==================== Methods ==================== #
     def __add__(self, object: int | float) -> None:
         """
         Add a scalar to each element of the vector.

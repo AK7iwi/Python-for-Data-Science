@@ -64,11 +64,7 @@ class Baratheon(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("family_name must be a string")
-        if not value.strip():
-            raise ValueError("family_name cannot be empty")
-
+        self._validate_string_attribute(value, "family_name")
         self._family_name = value
 
     @property
@@ -93,11 +89,7 @@ class Baratheon(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("eyes must be a string")
-        if not value.strip():
-            raise ValueError("eyes cannot be empty")
-
+        self._validate_string_attribute(value, "eyes")
         self._eyes = value
 
     @property
@@ -122,11 +114,7 @@ class Baratheon(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("hairs must be a string")
-        if not value.strip():
-            raise ValueError("hairs cannot be empty")
-
+        self._validate_string_attribute(value, "hairs")
         self._hairs = value
 
     # ==================== Methods ==================== #
@@ -236,11 +224,7 @@ class Lannister(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("family_name must be a string")
-        if not value.strip():
-            raise ValueError("family_name cannot be empty")
-
+        self._validate_string_attribute(value, "family_name")
         self._family_name = value
 
     @property
@@ -265,11 +249,7 @@ class Lannister(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("eyes must be a string")
-        if not value.strip():
-            raise ValueError("eyes cannot be empty")
-
+        self._validate_string_attribute(value, "eyes")
         self._eyes = value
 
     @property
@@ -294,11 +274,7 @@ class Lannister(Character):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("hairs must be a string")
-        if not value.strip():
-            raise ValueError("hairs cannot be empty")
-
+        self._validate_string_attribute(value, "hairs")
         self._hairs = value
 
     # ==================== Methods ==================== #

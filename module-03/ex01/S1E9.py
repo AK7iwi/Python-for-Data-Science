@@ -58,11 +58,7 @@ class Character(ABC):
             TypeError: If value is not a string.
             ValueError: If value is empty.
         """
-        if not isinstance(value, str):
-            raise TypeError("first_name must be a string")
-        if not value.strip():
-            raise ValueError("first_name cannot be empty")
-
+        self._validate_string_attribute(value, "first_name")
         self._first_name = value
 
     @property
@@ -86,12 +82,22 @@ class Character(ABC):
         Raises:
             TypeError: If value is not a boolean.
         """
-        if not isinstance(value, bool):
-            raise TypeError("is_alive must be a boolean")
-
+        self._validate_boolean_attribute(value, "is_alive")
         self._is_alive = value
 
     # ==================== Methods ==================== #
+    @staticmethod
+    def _validate_string_attribute(value: str, attribute_name: str) -> None:
+        if not isinstance(value, str):
+            raise TypeError(f"{attribute_name} must be a string")
+        if not value.strip():
+            raise ValueError(f"{attribute_name} cannot be empty")
+
+    @staticmethod
+    def _validate_boolean_attribute(value: bool, attribute_name: str) -> None:
+        if not isinstance(value, bool):
+            raise TypeError(f"{attribute_name} must be a boolean")
+
     @abstractmethod
     def die(self) -> None:
         """

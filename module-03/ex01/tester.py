@@ -60,8 +60,8 @@ except (TypeError, ValueError) as e:
 
 print("\n--------------------------------\n")
 
-# Test 4a - Previous propreties"
-print("Test 4a - Previous propreties\n")
+# Test 4a - Previous propreties (from Character class)"
+print("Test 4a - Previous propreties (from Character class)\n")
 
 try:
     Robert = Baratheon("Robert")

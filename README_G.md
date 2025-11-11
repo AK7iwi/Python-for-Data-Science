@@ -240,7 +240,7 @@ King.__init__()
 
 
 @propreties: 
-methods to modify and get attributes
+methods to modify and get attributes. @property decorator allows you to define getter, setter, and deleter methods for attributes.
 
 Ex: 
 

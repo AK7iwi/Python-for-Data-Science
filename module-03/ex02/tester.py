@@ -13,16 +13,6 @@ print(Joffrey.__dict__)
 
 print("\n--------------------------------\n")
 
-# Test 6 - Valid input: test die
-print("Test 6 - Valid input: Die\n")
-
-Joffrey.die()
-print(Joffrey.is_alive)
-print(Joffrey.__dict__)
-
-print("\n--------------------------------\n")
-
-
 # Test 2 - Invalid input: Invalid eyes type
 print("Test 2 - Invalid input: Invalid eyes type\n")
 
@@ -35,8 +25,8 @@ except (TypeError, ValueError) as e:
 
 print("\n--------------------------------\n")
 
-# Test 3a - Properties
-print("Test 3a - Properties\n")
+# Test 3 - Properties
+print("Test 3 - Properties\n")
 
 try:
     Joffrey = King("Joffrey")
@@ -51,6 +41,12 @@ try:
     print(Joffrey.family_name)
     print(Joffrey.eyes)
     print(Joffrey.hairs)
+    print(Joffrey.__dict__)
+    Joffrey.is_alive = True
+    print(Joffrey.is_alive)
+    print(Joffrey.__dict__)
+    Joffrey.die()
+    print(Joffrey.is_alive)
     print(Joffrey.__dict__)
     Joffrey.eyes = ["Ouille"]
     print(Joffrey.__dict__)

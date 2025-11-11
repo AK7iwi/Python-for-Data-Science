@@ -37,73 +37,8 @@ class King(Baratheon, Lannister):
             None
         """
         super().__init__(first_name, is_alive)
-        self._eyes = self.eyes
-        self._hairs = self.hairs
 
-    @property
-    def eyes(self) -> str:
-        """
-        Property getter for eye color.
-
-        Args:
-            None
-
-        Returns:
-            str: The eye color.
-
-        Raises:
-            None
-        """
-        return self._eyes
-
-    @eyes.setter
-    def eyes(self, color: str) -> None:
-        """
-        Property setter for eye color.
-
-        Args:
-            color (str): The new eye color.
-
-        Returns:
-            None
-
-        Raises:
-            None
-        """
-        self._eyes = color
-
-    @property
-    def hairs(self) -> str:
-        """
-        Property getter for hair color.
-
-        Args:
-            None
-
-        Returns:
-            str: The hair color.
-
-        Raises:
-            None
-        """
-        return self._hairs
-
-    @hairs.setter
-    def hairs(self, color: str) -> None:
-        """
-        Property setter for hair color.
-
-        Args:
-            color (str): The new hair color.
-
-        Returns:
-            None
-
-        Raises:
-            None
-        """
-        self._hairs = color
-
+    # ==================== Methods ==================== #
     def get_eyes(self) -> str:
         """
         Get the eye color of the King (uses the eyes property).

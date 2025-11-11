@@ -18,7 +18,7 @@ ex02:
 
 @propreties method: rewrite of default attributes
 
-
+setter and getter for the exercice
 ex03: 
 
 

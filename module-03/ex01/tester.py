@@ -74,3 +74,16 @@ except (TypeError, ValueError) as e:
     print(f"{type(e).__name__}: {e}")
 
 print("\n--------------------------------\n")
+
+# Test 4 - Invalid input: Invalid family_name"
+print("Test 4 - Invalid input: Invalid family_name\n")
+
+try:
+    Robert = Baratheon("Robert")
+    print(Robert.__dict__)
+    Robert.family_name = 55
+    print(Robert.__dict__)
+except (TypeError, ValueError) as e:
+    print(f"{type(e).__name__}: {e}")
+
+print("\n--------------------------------\n")

@@ -31,12 +31,103 @@ class Baratheon(Character):
             None
 
         Raises:
-            None
+            TypeError: If first_name is not a string, is_alive is not
+                a boolean, family_name is not a string, eyes is not a string,
+                or hairs is not a string.
+            ValueError: If first_name, family_name, eyes, or hairs is empty.
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
         self.eyes = "brown"
         self.hairs = "dark"
+
+    # ==================== Properties ==================== #
+    @property
+    def family_name(self) -> str:
+        """
+        Get the family name of the Baratheon character.
+
+        Returns:
+            str: The family name.
+        """
+        return self._family_name
+
+    @family_name.setter
+    def family_name(self, value: str) -> None:
+        """
+        Set the family name of the Baratheon character with validation.
+
+        Args:
+            value (str): The family name to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("family_name must be a string")
+        if not value.strip():
+            raise ValueError("family_name cannot be empty")
+
+        self._family_name = value
+
+    @property
+    def eyes(self) -> str:
+        """
+        Get the eye color of the Baratheon character.
+
+        Returns:
+            str: The eye color.
+        """
+        return self._eyes
+
+    @eyes.setter
+    def eyes(self, value: str) -> None:
+        """
+        Set the eye color of the Baratheon character with validation.
+
+        Args:
+            value (str): The eye color to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("eyes must be a string")
+        if not value.strip():
+            raise ValueError("eyes cannot be empty")
+
+        self._eyes = value
+
+    @property
+    def hairs(self) -> str:
+        """
+        Get the hair color of the Baratheon character.
+
+        Returns:
+            str: The hair color.
+        """
+        return self._hairs
+
+    @hairs.setter
+    def hairs(self, value: str) -> None:
+        """
+        Set the hair color of the Baratheon character with validation.
+
+        Args:
+            value (str): The hair color to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("hairs must be a string")
+        if not value.strip():
+            raise ValueError("hairs cannot be empty")
+
+        self._hairs = value
 
     # ==================== Methods ==================== #
     def die(self) -> None:
@@ -112,12 +203,103 @@ class Lannister(Character):
             None
 
         Raises:
-            None
+            TypeError: If first_name is not a string, is_alive is not
+                a boolean, family_name is not a string, eyes is not a string,
+                or hairs is not a string.
+            ValueError: If first_name, family_name, eyes, or hairs is empty.
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
         self.eyes = "blue"
         self.hairs = "light"
+
+    # ==================== Properties ==================== #
+    @property
+    def family_name(self) -> str:
+        """
+        Get the family name of the Lannister character.
+
+        Returns:
+            str: The family name.
+        """
+        return self._family_name
+
+    @family_name.setter
+    def family_name(self, value: str) -> None:
+        """
+        Set the family name of the Lannister character with validation.
+
+        Args:
+            value (str): The family name to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("family_name must be a string")
+        if not value.strip():
+            raise ValueError("family_name cannot be empty")
+
+        self._family_name = value
+
+    @property
+    def eyes(self) -> str:
+        """
+        Get the eye color of the Lannister character.
+
+        Returns:
+            str: The eye color.
+        """
+        return self._eyes
+
+    @eyes.setter
+    def eyes(self, value: str) -> None:
+        """
+        Set the eye color of the Lannister character with validation.
+
+        Args:
+            value (str): The eye color to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("eyes must be a string")
+        if not value.strip():
+            raise ValueError("eyes cannot be empty")
+
+        self._eyes = value
+
+    @property
+    def hairs(self) -> str:
+        """
+        Get the hair color of the Lannister character.
+
+        Returns:
+            str: The hair color.
+        """
+        return self._hairs
+
+    @hairs.setter
+    def hairs(self, value: str) -> None:
+        """
+        Set the hair color of the Lannister character with validation.
+
+        Args:
+            value (str): The hair color to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("hairs must be a string")
+        if not value.strip():
+            raise ValueError("hairs cannot be empty")
+
+        self._hairs = value
 
     # ==================== Methods ==================== #
     def die(self) -> None:

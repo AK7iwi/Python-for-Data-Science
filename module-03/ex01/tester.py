@@ -67,6 +67,7 @@ try:
     Robert = Baratheon("Robert")
     print(Robert.__dict__)
     Robert.first_name = "Gerard"
+    print(Robert.__dict__)
     Robert.is_alive = 55
     print(Robert.__dict__)
 except (TypeError, ValueError) as e:

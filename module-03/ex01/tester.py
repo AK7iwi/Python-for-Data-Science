@@ -80,7 +80,9 @@ print("Test 4b - Propreties\n")
 try:
     Robert = Baratheon("Robert")
     print(Robert.__dict__)
-    Robert.family_name = 55
+    Robert.family_name = "Rashford"
+    print(Robert.__dict__)
+    Robert.eyes = 55
     print(Robert.__dict__)
 except (TypeError, ValueError) as e:
     print(f"{type(e).__name__}: {e}")

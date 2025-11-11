@@ -34,8 +34,8 @@ except (TypeError, ValueError) as e:
 
 print("\n--------------------------------\n")
 
-# Test 3 - Invalid input: Invalid first_name for "create_lannister"
-print("Test 3 - Invalid input: Invalid first_name for 'create_lannister'\n")
+# Test 3 - Invalid input: Invalid is_alive for "create_lannister"
+print("Test 3 - Invalid input: Invalid is_alive for 'create_lannister'\n")
 
 try:
     Robert = Baratheon("Robert")
@@ -52,7 +52,7 @@ try:
     print(Cersei.__str__)
     print(Cersei.is_alive)
     print("---")
-    Jaine = Lannister.create_lannister([5, 11], True)
+    Jaine = Lannister.create_lannister("Jaine", "True")
     name_info = (Jaine.first_name, type(Jaine).__name__)
     print(f"Name : {name_info}, Alive : {Jaine.is_alive}")
 except (TypeError, ValueError) as e:

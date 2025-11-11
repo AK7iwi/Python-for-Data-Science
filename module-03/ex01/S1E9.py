@@ -28,11 +28,70 @@ class Character(ABC):
             None
 
         Raises:
-            None
+            TypeError: If first_name is not a string
+                or is_alive is not a boolean.
+            ValueError: If first_name is empty.
         """
         self.first_name = first_name
         self.is_alive = is_alive
 
+    # ==================== Properties ==================== #
+    @property
+    def first_name(self) -> str:
+        """
+        Get the first name of the character.
+
+        Returns:
+            str: The first name of the character.
+        """
+        return self._first_name
+
+    @first_name.setter
+    def first_name(self, value: str) -> None:
+        """
+        Set the first name of the character with validation.
+
+        Args:
+            value (str): The first name to set.
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
+        if not isinstance(value, str):
+            raise TypeError("first_name must be a string")
+        if not value.strip():
+            raise ValueError("first_name cannot be empty")
+
+        self._first_name = value
+
+    @property
+    def is_alive(self) -> bool:
+        """
+        Get the alive status of the character.
+
+        Returns:
+            bool: Whether the character is alive.
+        """
+        return self._is_alive
+
+    @is_alive.setter
+    def is_alive(self, value: bool) -> None:
+        """
+        Set the alive status of the character with validation.
+
+        Args:
+            value (bool): The alive status to set.
+
+        Raises:
+            TypeError: If value is not a boolean.
+        """
+        if not isinstance(value, bool):
+            raise TypeError("is_alive must be a boolean")
+
+        self._is_alive = value
+
+    # ==================== Methods ==================== #
     @abstractmethod
     def die(self) -> None:
         """
@@ -49,7 +108,7 @@ class Character(ABC):
         Raises:
             None
         """
-        self.is_alive = False
+        pass
 
 
 class Stark(Character):
@@ -74,10 +133,13 @@ class Stark(Character):
             None
 
         Raises:
-            None
+            TypeError: If first_name is not a string
+                or is_alive is not a boolean.
+            ValueError: If first_name is empty.
         """
         super().__init__(first_name, is_alive)
 
+    # ==================== Methods ==================== #
     def die(self) -> None:
         """
         Set the Stark character's is_alive attribute to False.
@@ -91,7 +153,7 @@ class Stark(Character):
         Raises:
             None
         """
-        super().die()
+        self.is_alive = False
 
 
 def main() -> int:

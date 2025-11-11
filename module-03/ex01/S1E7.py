@@ -38,6 +38,7 @@ class Baratheon(Character):
         self.eyes = "brown"
         self.hairs = "dark"
 
+    # ==================== Methods ==================== #
     def die(self) -> None:
         """
         Set the Baratheon character's is_alive attribute to False.
@@ -51,7 +52,7 @@ class Baratheon(Character):
         Raises:
             None
         """
-        super().die()
+        self.is_alive = False
 
     def __str__(self) -> str:
         """
@@ -118,6 +119,7 @@ class Lannister(Character):
         self.eyes = "blue"
         self.hairs = "light"
 
+    # ==================== Methods ==================== #
     def die(self) -> None:
         """
         Set the Lannister character's is_alive attribute to False.
@@ -131,7 +133,7 @@ class Lannister(Character):
         Raises:
             None
         """
-        super().die()
+        self.is_alive = False
 
     def __str__(self) -> str:
         """

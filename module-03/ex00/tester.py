@@ -32,50 +32,41 @@ print("\n--------------------------------\n")
 # Test 3 - Invalid input: Invalid arguments type
 print("Test 3 - Invalid input: Invalid arguments type\n")
 
-try:
-    Kiwi = Stark([5, 6, 7], 7)
-    print(Kiwi.__dict__)
-    print(Kiwi.is_alive)
-    Kiwi.die()
-    print(Kiwi.is_alive)
-    print(Kiwi.__doc__)
-    print(Kiwi.__init__.__doc__)
-    print(Kiwi.die.__doc__)
-except (TypeError, ValueError) as e:
-    print(f"{type(e).__name__}: {e}")
+Kiwi = Stark([5, 6, 7])
+print(Kiwi.__dict__)
+print(Kiwi.is_alive)
+Kiwi.die()
+print(Kiwi.is_alive)
+print(Kiwi.__doc__)
+print(Kiwi.__init__.__doc__)
+print(Kiwi.die.__doc__)
 
 print("\n--------------------------------\n")
 
 # Test 4 - Invalid input: Empty first name
 print("Test 4 - Invalid input: Empty first name\n")
 
-try:
-    Kiwi = Stark("", True)
-    print(Kiwi.__dict__)
-    print(Kiwi.is_alive)
-    Kiwi.die()
-    print(Kiwi.is_alive)
-    print(Kiwi.__doc__)
-    print(Kiwi.__init__.__doc__)
-    print(Kiwi.die.__doc__)
-except (TypeError, ValueError) as e:
-    print(f"{type(e).__name__}: {e}")
+Kiwi = Stark("", True)
+print(Kiwi.__dict__)
+print(Kiwi.is_alive)
+Kiwi.die()
+print(Kiwi.is_alive)
+print(Kiwi.__doc__)
+print(Kiwi.__init__.__doc__)
+print(Kiwi.die.__doc__)
 
 print("\n--------------------------------\n")
 
 # Test 5 - Invalid input: Invalid is_alive argument
 print("Test 5 - Invalid input: Invalid is_alive argument\n")
 
-try:
-    Kiwi = Stark("Kiwi", "True")
-    print(Kiwi.__dict__)
-    print(Kiwi.is_alive)
-    Kiwi.die()
-    print(Kiwi.is_alive)
-    print(Kiwi.__doc__)
-    print(Kiwi.__init__.__doc__)
-    print(Kiwi.die.__doc__)
-except (TypeError, ValueError) as e:
-    print(f"{type(e).__name__}: {e}")
+Kiwi = Stark("Kiwi", "True")
+print(Kiwi.__dict__)
+print(Kiwi.is_alive)
+Kiwi.die()
+print(Kiwi.is_alive)
+print(Kiwi.__doc__)
+print(Kiwi.__init__.__doc__)
+print(Kiwi.die.__doc__)
 
 print("\n--------------------------------\n")

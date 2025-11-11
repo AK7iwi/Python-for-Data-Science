@@ -28,7 +28,8 @@ class Character(ABC):
             None
 
         Raises:
-            TypeError: If first_name is not a string or is_alive is not a boolean.
+            TypeError: If first_name is not a string
+                or is_alive is not a boolean.
             ValueError: If first_name is empty.
         """
         self.first_name = first_name
@@ -60,6 +61,7 @@ class Character(ABC):
             raise TypeError("first_name must be a string")
         if not value.strip():
             raise ValueError("first_name cannot be empty")
+
         self._first_name = value
 
     @property
@@ -85,6 +87,7 @@ class Character(ABC):
         """
         if not isinstance(value, bool):
             raise TypeError("is_alive must be a boolean")
+
         self._is_alive = value
 
     @abstractmethod
@@ -128,7 +131,8 @@ class Stark(Character):
             None
 
         Raises:
-            TypeError: If first_name is not a string or is_alive is not a boolean.
+            TypeError: If first_name is not a string
+                or is_alive is not a boolean.
             ValueError: If first_name is empty.
         """
         super().__init__(first_name, is_alive)

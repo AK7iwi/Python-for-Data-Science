@@ -35,6 +35,7 @@ class Character(ABC):
         self.first_name = first_name
         self.is_alive = is_alive
 
+    # ==================== Properties ==================== #
     @property
     def first_name(self) -> str:
         """
@@ -90,6 +91,7 @@ class Character(ABC):
 
         self._is_alive = value
 
+    # ==================== Methods ==================== #
     @abstractmethod
     def die(self) -> None:
         """
@@ -137,6 +139,7 @@ class Stark(Character):
         """
         super().__init__(first_name, is_alive)
 
+    # ==================== Methods ==================== #
     def die(self) -> None:
         """
         Set the Stark character's is_alive attribute to False.

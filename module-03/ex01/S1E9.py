@@ -23,14 +23,6 @@ class Character(ABC):
             first_name (str): The first name of the character.
             is_alive (bool, optional): Whether the character is alive.
                 Defaults to True.
-
-        Returns:
-            None
-
-        Raises:
-            TypeError: If first_name is not a string
-                or is_alive is not a boolean.
-            ValueError: If first_name is empty.
         """
         self.first_name = first_name
         self.is_alive = is_alive
@@ -55,8 +47,7 @@ class Character(ABC):
             value (str): The first name to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "first_name")
         self._first_name = value
@@ -80,7 +71,7 @@ class Character(ABC):
             value (bool): The alive status to set.
 
         Raises:
-            TypeError: If value is not a boolean.
+            None
         """
         self._validate_boolean_attribute(value, "is_alive")
         self._is_alive = value
@@ -88,6 +79,20 @@ class Character(ABC):
     # ==================== Methods ==================== #
     @staticmethod
     def _validate_string_attribute(value: str, attribute_name: str) -> None:
+        """
+        Validate a string attribute.
+
+        Args:
+            value (str): The value to validate.
+            attribute_name (str): The name of the attribute.
+
+        Returns:
+            None
+
+        Raises:
+            TypeError: If value is not a string.
+            ValueError: If value is empty.
+        """
         if not isinstance(value, str):
             raise TypeError(f"{attribute_name} must be a string")
         if not value.strip():
@@ -95,6 +100,19 @@ class Character(ABC):
 
     @staticmethod
     def _validate_boolean_attribute(value: bool, attribute_name: str) -> None:
+        """
+        Validate a boolean attribute.
+
+        Args:
+            value (bool): The value to validate.
+            attribute_name (str): The name of the attribute.
+
+        Returns:
+            None
+
+        Raises:
+            TypeError: If value is not a boolean.
+        """
         if not isinstance(value, bool):
             raise TypeError(f"{attribute_name} must be a boolean")
 
@@ -122,8 +140,7 @@ class Stark(Character):
     Class representing a Stark character, inheriting from Character.
 
     Attributes:
-        first_name (str): The first name of the Stark character.
-        is_alive (bool): Whether the Stark character is alive.
+        None
     """
 
     def __init__(self, first_name: str, is_alive: bool = True) -> None:
@@ -134,14 +151,6 @@ class Stark(Character):
             first_name (str): The first name of the Stark character.
             is_alive (bool, optional): Whether the Stark character is alive.
                 Defaults to True.
-
-        Returns:
-            None
-
-        Raises:
-            TypeError: If first_name is not a string
-                or is_alive is not a boolean.
-            ValueError: If first_name is empty.
         """
         super().__init__(first_name, is_alive)
 

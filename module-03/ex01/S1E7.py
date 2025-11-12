@@ -11,8 +11,6 @@ class Baratheon(Character):
     Class representing a Baratheon character, inheriting from Character.
 
     Attributes:
-        first_name (str): The first name of the Baratheon character.
-        is_alive (bool): Whether the Baratheon character is alive.
         family_name (str): The family name, always 'Baratheon'.
         eyes (str): Eye color, always 'brown'.
         hairs (str): Hair color, always 'dark'.
@@ -26,15 +24,6 @@ class Baratheon(Character):
             first_name (str): The first name of the Baratheon character.
             is_alive (bool, optional): Whether the Baratheon character
                 is alive. Defaults to True.
-
-        Returns:
-            None
-
-        Raises:
-            TypeError: If first_name is not a string, is_alive is not
-                a boolean, family_name is not a string, eyes is not a string,
-                or hairs is not a string.
-            ValueError: If first_name, family_name, eyes, or hairs is empty.
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
@@ -61,8 +50,7 @@ class Baratheon(Character):
             value (str): The family name to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "family_name")
         self._family_name = value
@@ -86,8 +74,7 @@ class Baratheon(Character):
             value (str): The eye color to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "eyes")
         self._eyes = value
@@ -111,8 +98,7 @@ class Baratheon(Character):
             value (str): The hair color to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "hairs")
         self._hairs = value
@@ -171,8 +157,6 @@ class Lannister(Character):
     Class representing a Lannister character, inheriting from Character.
 
     Attributes:
-        first_name (str): The first name of the Lannister character.
-        is_alive (bool): Whether the Lannister character is alive.
         family_name (str): The family name, always 'Lannister'.
         eyes (str): Eye color, always 'blue'.
         hairs (str): Hair color, always 'light'.
@@ -186,15 +170,6 @@ class Lannister(Character):
             first_name (str): The first name of the Lannister character.
             is_alive (bool, optional): Whether the Lannister character
                 is alive. Defaults to True.
-
-        Returns:
-            None
-
-        Raises:
-            TypeError: If first_name is not a string, is_alive is not
-                a boolean, family_name is not a string, eyes is not a string,
-                or hairs is not a string.
-            ValueError: If first_name, family_name, eyes, or hairs is empty.
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
@@ -221,8 +196,7 @@ class Lannister(Character):
             value (str): The family name to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "family_name")
         self._family_name = value
@@ -246,8 +220,7 @@ class Lannister(Character):
             value (str): The eye color to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "eyes")
         self._eyes = value
@@ -271,8 +244,7 @@ class Lannister(Character):
             value (str): The hair color to set.
 
         Raises:
-            TypeError: If value is not a string.
-            ValueError: If value is empty.
+            None
         """
         self._validate_string_attribute(value, "hairs")
         self._hairs = value

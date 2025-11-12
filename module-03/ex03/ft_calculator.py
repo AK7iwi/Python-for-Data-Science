@@ -19,12 +19,6 @@ class calculator:
 
         Args:
             vector (list[float]): The vector to perform operations on.
-
-        Returns:
-            None
-
-        Raises:
-            None
         """
         self.vector = vector
 

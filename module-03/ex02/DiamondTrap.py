@@ -14,11 +14,7 @@ class King(Baratheon, Lannister):
     resolved by Python's C3 linearization (Method Resolution Order).
 
     Attributes:
-        first_name (str): The first name of the King.
-        is_alive (bool): Whether the King is alive.
-        family_name (str): The family name.
-        eyes (str): Eye color.
-        hairs (str): Hair color.
+        None
     """
 
     def __init__(self, first_name: str, is_alive: bool = True) -> None:
@@ -29,12 +25,6 @@ class King(Baratheon, Lannister):
             first_name (str): The first name of the King.
             is_alive (bool, optional): Whether the King is alive.
                 Defaults to True.
-
-        Returns:
-            None
-
-        Raises:
-            None
         """
         super().__init__(first_name, is_alive)
 

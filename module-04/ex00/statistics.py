@@ -6,29 +6,114 @@ from typing import Any
 from validate_args import validate_args_for_test, MissingArgumentsError
 
 
+class Data:
+    """
+    Class representing validated and formatted statistical data.
+
+    This class handles data validation, formatting, and storage.
+
+    Attributes:
+        values (list[float]): Sorted data values.
+        size (int): Number of data points.
+    """
+
+    def __init__(self, raw_data: list[Any]) -> None:
+        """
+        Initialize the Data instance with validation and formatting.
+
+        Args:
+            raw_data (list[Any]): Raw input data to be validated and formatted.
+        """
+        self.values = raw_data
+
+    # ==================== Properties ==================== #
+    @property
+    def values(self) -> list[float]:
+        """
+        Get the sorted data values.
+
+        Returns:
+            list[float]: Sorted data values.
+
+        Raises:
+            None
+        """
+        return self._values
+
+    @values.setter
+    def values(self, raw_data: list[Any]) -> None:
+        """
+        Set and validate the data values.
+
+        Args:
+            raw_data (list[Any]): Raw input data to validate and format.
+
+        Returns:
+            None
+
+        Raises:
+            ValueError: If raw_data is empty.
+            TypeError: If raw_data contains non-numeric values.
+        """
+        self._validate_data(raw_data)
+        self._values = sorted(float(x) for x in raw_data)
+
+    @property
+    def size(self) -> int:
+        """
+        Get the number of data points.
+
+        Returns:
+            int: Number of data points.
+
+        Raises:
+            None
+        """
+        return len(self._values)
+
+    # ==================== Methods ==================== #
+    @staticmethod
+    def _validate_data(raw_data: list[Any]) -> None:
+        """
+        Validate the raw data input.
+
+        Args:
+            raw_data (list[Any]): Raw input data to validate.
+
+        Returns:
+            None
+
+        Raises:
+            ValueError: If raw_data is empty.
+            TypeError: If raw_data contains non-numeric values.
+        """
+        if len(raw_data) == 0:
+            raise ValueError()
+
+        for item in raw_data:
+            if not isinstance(item, (int, float)):
+                raise TypeError()
+
+
 class StatisticsCalculator:
     """
     Class for calculating statistical measures on data.
 
     This class encapsulates statistical calculations using
     object-oriented programming principles.
+
+    Attributes:
+        data (Data): The Data instance containing validated data.
     """
 
-    def __init__(self, data: list[float]) -> None:
+    def __init__(self, data: Data) -> None:
         """
-        Initialize the calculator with data.
+        Initialize the calculator with validated Data instance.
 
         Args:
-            data (list[float]): The data to calculate statistics on.
-
-        Returns:
-            None
-
-        Raises:
-            None
+            data (Data): The Data instance to calculate statistics on.
         """
-        self.data = sorted(data)
-        self.n = len(self.data)
+        self.data = data
 
     def calculate_mean(self) -> float:
         """
@@ -43,7 +128,7 @@ class StatisticsCalculator:
         Raises:
             None
         """
-        return sum(self.data) / self.n
+        return sum(self.data.values) / self.data.size
 
     def calculate_median(self) -> float:
         """
@@ -58,12 +143,15 @@ class StatisticsCalculator:
         Raises:
             None
         """
-        if self.n % 2 == 0:
-            mid1 = self.data[self.n // 2 - 1]
-            mid2 = self.data[self.n // 2]
+        n = self.data.size
+        values = self.data.values
+
+        if n % 2 == 0:
+            mid1 = values[n // 2 - 1]
+            mid2 = values[n // 2]
             return (mid1 + mid2) / 2
 
-        return self.data[self.n // 2]
+        return values[n // 2]
 
     def calculate_quartile(self) -> list[float]:
         """
@@ -78,12 +166,15 @@ class StatisticsCalculator:
         Raises:
             None
         """
-        q1_index = int(self.n * 0.25)
-        q3_index = int(self.n * 0.75)
-        q1_index = min(q1_index, self.n - 1)
-        q3_index = min(q3_index, self.n - 1)
+        n = self.data.size
+        values = self.data.values
 
-        return [float(self.data[q1_index]), float(self.data[q3_index])]
+        q1_index = int(n * 0.25)
+        q3_index = int(n * 0.75)
+        q1_index = min(q1_index, n - 1)
+        q3_index = min(q3_index, n - 1)
+
+        return [float(values[q1_index]), float(values[q3_index])]
 
     def calculate_variance(self) -> float:
         """
@@ -99,7 +190,8 @@ class StatisticsCalculator:
             None
         """
         mean = self.calculate_mean()
-        return sum((x - mean) ** 2 for x in self.data) / self.n
+
+        return sum((x - mean) ** 2 for x in self.data.values) / self.data.size
 
     def calculate_std(self) -> float:
         """
@@ -116,7 +208,7 @@ class StatisticsCalculator:
         """
         return self.calculate_variance() ** 0.5
 
-    def get_statistic(self, stat_name: str) -> Any:
+    def get_statistic(self, stat_name: str) -> float | list[float]:
         """
         Get a statistic by name.
 
@@ -137,28 +229,14 @@ class StatisticsCalculator:
             "std": self.calculate_std,
         }
 
-        if stat_name not in stat_methods:
-            raise ValueError(f"Unknown statistic: {stat_name}")
-
         return stat_methods[stat_name]()
-
-
-def validate_args(args: list[Any], kwargs: dict[str, Any]) -> None:
-    """
-    Validate the arguments and keyword arguments.
-    """
-    if len(args) == 0:
-        for _ in kwargs.values():
-            print("ERROR")
-        return
-
 
 
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
     """
     Calculate various statistics on the provided data.
 
-    Uses OOP principles internally via StatisticsCalculator class.
+    Uses OOP principles internally via Data and StatisticsCalculator classes.
 
     Args:
         *args: Variable number of numeric values to calculate statistics on.
@@ -171,37 +249,21 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     Raises:
         None
     """
-    #validate fct, data class
-    if len(args) == 0:
-        for _ in kwargs.values():
-            print("ERROR")
-        return
-
     try:
-        data = [float(x) for x in args]
+        data = Data(list(args))
     except (ValueError, TypeError):
         for _ in kwargs.values():
             print("ERROR")
-        return
-
-    if len(data) == 0:
-        for _ in kwargs.values():
-            print("ERROR")
-        return
+        return None
 
     calculator = StatisticsCalculator(data)
-
-    valid_stats = {"mean", "median", "quartile", "std", "var"}
-
     for stat_name in kwargs.values():
-        if stat_name not in valid_stats:
-            continue
-
         try:
             result = calculator.get_statistic(stat_name)
-            print(f"{stat_name} : {result}")
-        except Exception:
-            print("ERROR")
+        except KeyError:
+            continue
+        
+        print(f"{stat_name} : {result}")
 
 
 def main() -> int:

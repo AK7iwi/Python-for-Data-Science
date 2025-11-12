@@ -1,13 +1,14 @@
 import sys
+from typing import Any
 from validate_args import validate_args_for_test, MissingArgumentsError
 
 
-def print_type_object(object: any) -> None:
+def print_type_object(object: Any) -> None:
     """
     Print the type of the given object.
 
     Args:
-        object (any): The object to print the type of
+        object (Any): The object to print the type of
 
     Returns:
         None
@@ -32,12 +33,12 @@ def print_type_object(object: any) -> None:
         raise TypeError("Type not found")
 
 
-def all_thing_is_obj(object: any) -> int:
+def all_thing_is_obj(object: Any) -> int:
     """
     Check the type of the given object and return 42.
 
     Args:
-        object (any): The object whose type will be printed
+        object (Any): The object whose type will be printed
 
     Returns:
         int: Always returns 42

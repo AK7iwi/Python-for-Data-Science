@@ -112,7 +112,7 @@ No external functions used.
 - **Function definition**
   - Basic function: `def function_name(parameter):`
   - Function definition with type: `def function_name(parameter: type) -> return_type:`
-  - Type hints: `object: any` and `-> int` for parameter and return type documentation
+  - Type hints: `object: Any` and `-> int` for parameter and return type documentation
 - **Function import**
   - `from module import function`
 - **Conditional statements**

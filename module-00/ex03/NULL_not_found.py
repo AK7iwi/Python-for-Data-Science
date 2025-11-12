@@ -1,14 +1,15 @@
 import sys
 import math
+from typing import Any
 from validate_args import validate_args_for_test, MissingArgumentsError
 
 
-def print_null_type(object: any) -> None:
+def print_null_type(object: Any) -> None:
     """
     Print the type of the null-like object.
 
     Args:
-        object (any): The null-like object to print the type of
+        object (Any): The null-like object to print the type of
 
     Returns:
         None
@@ -30,12 +31,12 @@ def print_null_type(object: any) -> None:
         raise TypeError("Type not Found")
 
 
-def NULL_not_found(object: any) -> int:
+def NULL_not_found(object: Any) -> int:
     """
     Check the type of null-like objects and print their information.
 
     Args:
-        object (any): The object to check for null-like properties
+        object (Any): The object to check for null-like properties
 
     Returns:
         int: 0 for recognized null types, 1 for unrecognized types

@@ -10,6 +10,14 @@ The type hints are just documentation
 two type of parameter:
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
 
+list[float]              # ✅ Correct - list of any number of floats
+list[float, ...]         # ❌ INVALID syntax - don't use this!
+
+tuple[float]             # ✅ Means: tuple with EXACTLY ONE float
+tuple[float, float]      # ✅ Means: tuple with EXACTLY TWO floats
+tuple[float, ...]        # ✅ Means: tuple with ANY NUMBER of floats
+tuple[float, int, str]   # ✅ Means: tuple with exactly these 3 types in order
+
 
 - ###if/elif/else
 Test the diff between if,if and if,elif,...
@@ -375,9 +383,17 @@ __post__init__
 
 
 
+(*args, **kwargs)
 
+args type:  <class 'tuple'>
+kwargs type:  <class 'dict'>
 
-
+print("args: ", args)
+print("args[0]: ", args[0])
+print("kwargs: ", kwargs)
+print("kwargs.keys(): ", kwargs.keys())
+print("kwargs.items(): ", kwargs.items())
+print("kwargs.values(): ", kwargs.values())
 
 
 

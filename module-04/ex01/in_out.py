@@ -1,8 +1,52 @@
 """
-Module in_out: Closure functions for mathematical operations.
+Module in_out: MathOperations class and closure functions.
 """
 import sys
 from validate_args import validate_args_for_test, MissingArgumentsError
+
+
+class MathOperations:
+    """
+    Class containing mathematical operations.
+
+    This class provides static methods for mathematical calculations.
+
+    Attributes:
+        None
+    """
+
+    # ==================== Methods ==================== #
+    @staticmethod
+    def square(x: int | float) -> int | float:
+        """
+        Calculate the square of a number.
+
+        Args:
+            x (int | float): The number to square.
+
+        Returns:
+            int | float: The square of x.
+
+        Raises:
+            None
+        """
+        return x * x
+
+    @staticmethod
+    def pow(x: int | float) -> int | float:
+        """
+        Calculate the exponentiation of a number by itself.
+
+        Args:
+            x (int | float): The number to exponentiate.
+
+        Returns:
+            int | float: x raised to the power of x.
+
+        Raises:
+            None
+        """
+        return x ** x
 
 
 def square(x: int | float) -> int | float:
@@ -18,7 +62,7 @@ def square(x: int | float) -> int | float:
     Raises:
         None
     """
-    return x * x
+    return MathOperations.square(x)
 
 
 def pow(x: int | float) -> int | float:
@@ -34,7 +78,7 @@ def pow(x: int | float) -> int | float:
     Raises:
         None
     """
-    return x ** x
+    return MathOperations.pow(x)
 
 
 def outer(x: int | float, function) -> object:

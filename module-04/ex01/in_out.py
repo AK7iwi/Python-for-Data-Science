@@ -9,7 +9,8 @@ class MathOperations:
     """
     Class containing mathematical operations.
 
-    This class provides static methods for mathematical calculations.
+    This class provides static methods for mathematical calculations
+    and closure creation.
 
     Attributes:
         None
@@ -47,6 +48,44 @@ class MathOperations:
             None
         """
         return x ** x
+
+    @staticmethod
+    def outer(x: int | float, function) -> object:
+        """
+        Create a closure that applies a function repeatedly to a value.
+
+        Args:
+            x (int | float): The initial value.
+            function: The function to apply to the value.
+
+        Returns:
+            object: An inner function that applies the function to the
+                current value and returns the result.
+
+        Raises:
+            None
+        """
+        count = 0
+
+        def inner() -> float:
+            """
+            Apply the function to the current value and return the result.
+
+            Args:
+                None
+
+            Returns:
+                float: The result of applying the function.
+
+            Raises:
+                None
+            """
+            nonlocal count, x
+            count += 1
+            x = function(x)
+            return x
+
+        return inner
 
 
 def square(x: int | float) -> int | float:
@@ -96,27 +135,7 @@ def outer(x: int | float, function) -> object:
     Raises:
         None
     """
-    count = 0
-
-    def inner() -> float:
-        """
-        Apply the function to the current value and return the result.
-
-        Args:
-            None
-
-        Returns:
-            float: The result of applying the function.
-
-        Raises:
-            None
-        """
-        nonlocal count, x
-        count += 1
-        x = function(x)
-        return x
-
-    return inner
+    return MathOperations.outer(x, function)
 
 
 def main() -> int:

@@ -1,5 +1,5 @@
 """
-Module statistics: Statistical calculations using OOP principles.
+Module statistics: Data and StatisticsCalculator classes implementation.
 """
 import sys
 from typing import Any
@@ -22,7 +22,8 @@ class Data:
         Initialize the Data instance with validation and formatting.
 
         Args:
-            raw_data (list[Any]): Raw input data to be validated and formatted.
+            raw_data (list[Any]): Raw input data to be validated and
+                formatted.
         """
         self.values = raw_data
 
@@ -34,9 +35,6 @@ class Data:
 
         Returns:
             list[float]: Sorted data values.
-
-        Raises:
-            None
         """
         return self._values
 
@@ -48,12 +46,8 @@ class Data:
         Args:
             raw_data (list[Any]): Raw input data to validate and format.
 
-        Returns:
-            None
-
         Raises:
-            ValueError: If raw_data is empty.
-            TypeError: If raw_data contains non-numeric values.
+            None
         """
         self._validate_data(raw_data)
         self._values = sorted(float(x) for x in raw_data)
@@ -65,9 +59,6 @@ class Data:
 
         Returns:
             int: Number of data points.
-
-        Raises:
-            None
         """
         return len(self._values)
 
@@ -114,6 +105,8 @@ class StatisticsCalculator:
             data (Data): The Data instance to calculate statistics on.
         """
         self.data = data
+
+    # ==================== Methods ==================== #
 
     def calculate_mean(self) -> float:
         """
@@ -171,8 +164,6 @@ class StatisticsCalculator:
 
         q1_index = int(n * 0.25)
         q3_index = int(n * 0.75)
-        q1_index = min(q1_index, n - 1)
-        q3_index = min(q3_index, n - 1)
 
         return [float(values[q1_index]), float(values[q3_index])]
 
@@ -216,10 +207,10 @@ class StatisticsCalculator:
             stat_name (str): Name of the statistic to calculate.
 
         Returns:
-            Any: The calculated statistic value.
+            float | list[float]: The calculated statistic value.
 
         Raises:
-            ValueError: If stat_name is not a valid statistic.
+            None
         """
         stat_methods = {
             "mean": self.calculate_mean,
@@ -262,7 +253,7 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
             result = calculator.get_statistic(stat_name)
         except KeyError:
             continue
-        
+
         print(f"{stat_name} : {result}")
 
 

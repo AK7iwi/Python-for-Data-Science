@@ -3,7 +3,7 @@ Module DiamondTrap: King class with multiple inheritance.
 """
 import sys
 from S1E7 import Baratheon, Lannister
-from validate_args import validate_args_for_prog
+from validate_args import validate_args_for_test, MissingArgumentsError
 
 
 class King(Baratheon, Lannister):
@@ -104,7 +104,9 @@ def main() -> int:
         None
     """
     try:
-        validate_args_for_prog()
+        validate_args_for_test()
+    except MissingArgumentsError:
+        return 1
     except ValueError as e:
         print(f"ValueError: {e}")
         return 1

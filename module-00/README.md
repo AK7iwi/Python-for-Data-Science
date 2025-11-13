@@ -26,31 +26,50 @@ This learning guide follows a progressive and logical structure where concepts a
 
 So:
 - Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
-- Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
 - There are additional resources at the end if you want to explore a concept in more depth
 
 ## Introduction
 
+Module 00 is an introductory module designed to cover the fundamental building blocks of Python programming. This module progressively introduces essential concepts including:
+
+- **Basic data types**: lists, tuples, sets, and dictionaries
+- **Functions**: definitions, type hints, and documentation
+- **Imports**: using built-in libraries and creating custom packages
+- **Command-line arguments**: handling user input with sys.argv
+- **Error handling**: managing exceptions and validating inputs
+- **Advanced features**: generators, list comprehensions, and lambda functions
+
 
 ## 1. Exercice 00: First python script
 
-### I) Libraries used
-No external libraries used.
+### I) New libraries used
+No new libraries used.
 
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
+- `list[index]`: Index notation to access/modify list elements
+- `dict[key]`: Key notation to access/modify dictionary values
 - `set.remove()`: Method to remove element from set
 - `set.add()`: Method to add element to set
 - `print()`: Built-in function to display output
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
 - **Basic Data Types**
-  - List: Mutable, ordered collection `["item1", "item2"]`
-  - Tuple: Immutable, ordered collection `("item1", "item2")`
-  - Set: Mutable, unordered collection of unique elements `{"item1", "item2"}`
-  - Dictionary: Mutable, key-value pairs `{"key1": "value2", "key2": "value2"}`
+  - **List**: Mutable, ordered collection `["item1", "item2"]`
+    - Can be modified using index assignment: `list[0] = "new_value"`
+  - **Tuple**: Immutable, ordered collection `("item1", "item2")`
+    - Cannot be modified; must reassign entire tuple: `tuple = ("new1", "new2")`
+  - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
+    - Modified using methods: `add()`, `remove()`, `discard()`
+  - **Dictionary**: Mutable, key-value pairs `{"key1": "value1", "key2": "value2"}`
+    - Can be modified using key assignment: `dict["key"] = "new_value"`
+
+- **Mutability vs Immutability**
+  - **Mutable objects**: Can be changed after creation (list, set, dict)
+  - **Immutable objects**: Cannot be changed after creation (tuple, str, int, float)
+  - Attempting to modify immutable objects creates new objects instead
 
 ### V) Logic used for the exercise
 1. Creating each data type with sample data
@@ -64,386 +83,695 @@ No external functions used.
 
 ## 2. Exercice 01: First use of package
 
-### I) Libraries used
+### I) New libraries used
+- `sys`: Built-in library for system-specific parameters and functions
 - `time`: Built-in library for time operations
 - `datetime`: Built-in library for date/time manipulation
 
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
 - `time.time()`: Module function that returns seconds since epoch
 - `datetime.now()`: Class method that returns current date and time
-- `strftime()`: Method that formats datetime objects
-- `print()`: (already used in ex00)
+- `strftime()`: Method that formats datetime objects to string
+- `sys.exit()`: Function that exits program with a return code
 
-### III) External functions
-No external functions used.
+### III) New external functions
+- `validate_args_for_prog()`: Custom function to validate command line arguments
 
 ### IV) New theory points
 - **Library import**
-  - `import lib` or just a specific class `from lib import class`
+  - `import lib`: Import entire library
+  - `from lib import class`: Import specific class/function from library
+  
 - **F-string (formatted string literal)**
   - Allow you to embed expressions inside string literals using curly braces `{}`
-    - `f"Hello {name}, you are {age} years old"`
+    - Example: `f"Hello {name}, you are {age} years old"`
   - Can format numbers with specifiers:
     - `{value:,.4f}`: Comma separator with 4 decimal places
-    - `{value:.2e}`: Scientific notation
+    - `{value:.2e}`: Scientific notation (exponential)
+
+- **Tuple unpacking**
+  - Assigning multiple values from tuple: `a, b, c = function_returning_tuple()`
+  - Must match number of elements returned
 
 ### V) Logic used for the exercise
-1. Import required libraries using `import time` and `from datetime import datetime`
-2. Get current time using `time.time()` and `datetime.now()`
-3. Format time values using f-string specifiers for different representations
-4. Return formatted values as tuple from function
-5. Display results with descriptive output
+1. Import required libraries: `sys`, `time`, `datetime`, and custom validation module
+2. Validate command line arguments using try/except block
+3. Create `format_time()` function that:
+   - Gets current time in seconds since epoch using `time.time()`
+   - Formats seconds with comma separator and scientific notation using f-string specifiers
+   - Gets current date using `datetime.now()`
+   - Formats date using `strftime()` method with `"%b %d %Y"` format
+   - Returns all three formatted values as a tuple
+4. Unpack returned tuple using tuple unpacking: `a, b, c = format_time()`
+5. Display results using `display_results()` function with f-strings
+6. Exit program with appropriate return code using `sys.exit()`
 
 
 ## 3. Exercice 02: First function python
 
-### I) Libraries used
-No external libraries used.
+### I) New libraries used
+- `typing`: Built-in library for type hints (importing `Any` type)
 
-### II) Built-in functions and methods used
+### II) New built-in functions and methods used
 - `isinstance()`: Built-in function that checks if object is instance of a class
 - `type()`: Built-in function that returns the type of an object
-- `print()`: (already used in ex00)
+- `len()`: Built-in function that returns length of an object
+- `raise`: Built-in keyword that raises an exception
 
-### III) External functions
-No external functions used.
+### III) New external functions
+- `validate_args_for_test()`: Custom function to validate test arguments
+- `MissingArgumentsError`: Custom exception class for missing arguments
 
 ### IV) New theory points
 - **Function definition**
   - Basic function: `def function_name(parameter):`
-  - Function definition with type: `def function_name(parameter: type) -> return_type:`
-  - Type hints: `object: Any` and `-> int` for parameter and return type documentation
-- **Function import**
-  - `from module import function`
+  - Function with type hints: `def function_name(parameter: type) -> return_type:`
+  - Type hints document expected parameter and return types
+  
+- **The `Any` type**
+  - `Any` from `typing` module accepts any type of object
+  - Usage: `def func(object: Any) -> None:`
+  - Useful when function can handle multiple types
+
 - **Conditional statements**
-  - `if/elif/else` structure
+  - `if/elif/else` structure for branching logic
+  - `elif` allows multiple conditions to be checked sequentially
+  - `else` handles all remaining cases
+
+- **Exception handling with try/except**
+  - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III) for complete exception handling documentation
 
 ### V) Logic used for the exercise
-1. Define a function with type hints and documentation
-2. Use isinstance() to check object types (list, tuple, set, dict, str, int)
-3. Print different messages based on the object type
-4. Handle special cases (strings get special message, int returns "Type not found")
-5. Return a value (42) from the function
-6. Import and test the function with different data types
+1. Import required modules: `sys`, `typing.Any`, and validation functions
+2. Define `print_type_object()` function with `Any` type hint:
+   - Use `isinstance()` to check if object is list, tuple, set, or dict
+   - Print appropriate message with object type using `type()`
+   - Special handling for strings: check if empty using `len()`, raise TypeError if empty
+   - Raise TypeError for unrecognized types
+3. Define `all_thing_is_obj()` function that:
+   - Calls `print_type_object()` wrapped in try/except
+   - Catches TypeError exceptions and prints error message
+   - Always returns 42
+4. Create test data with different data types
+5. Validate arguments using custom validation function
+6. Test function with various data types (list, tuple, set, dict, strings, integer)
+7. Exit program with appropriate return code
 
 
 ## 4. Exercice 03: NULL not found
 
-### I) Libraries used
-No external libraries used.
+### I) New libraries used
+- `math`: Built-in library for mathematical functions
 
-### II) Built-in functions and methods used
-- `isinstance()`: (already used in ex02)
-- `type()`: (already used in ex02)
-- `str()`: Built-in function that converts object to string
-- `float()`: Built-in function that converts to float type
-- `print()`: (already used in ex00)
+### II) New built-in functions and methods used
+- `float()`: Built-in function that converts to float type or creates special values
+- `math.isnan()`: Module function that checks if a float is NaN (Not a Number)
+- `is`: Identity operator to check if two variables reference the same object
+- `==`: Equality operator to check if two values are equal
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
-- **None value**
-  - `None` represents absence of value (like NULL in C)
-- **NaN (Not a Number)**
-  - `float("NaN")` creates a special float value
-- **Boolean False**
-  - `False` as a null-like value
-- **Zero as null**
-  - Integer `0` representing empty/nothing
-- **Empty string**
-  - `""` representing no text
-- **Identity operator**
-  - `is` vs `==` for object comparison
-- **String conversion**
-  - `str(object)` to convert values for comparison
+- **Null-like values in Python**
+  - **None**: Represents absence of value (like NULL in C/C++)
+  - **NaN**: `float("NaN")` creates a "Not a Number" special float value
+  - **False**: Boolean false value
+  - **Zero**: Integer `0` representing no quantity
+  - **Empty string**: `""` representing no text content
+
+- **Identity operator `is`**
+  - Checks if two variables reference the same object in memory
+  - Different from `==` which checks if values are equal
+  - Used for: `None`, `True`, `False` (singleton objects)
+  - Example: `x is None` (correct), not `x == None`
+
+- **Equality operator `==`**
+  - Checks if two values are equal (not necessarily same object)
+  - Used for comparing values: numbers, strings, etc.
+  - Example: `x == 0` checks if x has value 0
+
+- **Boolean type checking**
+  - `bool` is a subclass of `int` in Python
+  - `False == 0` is `True` (value equality)
+  - `False is False` checks boolean identity specifically
+  - Must check `isinstance(object, bool)` before checking identity to distinguish from `0`
+
+- **Checking for NaN**
+  - Cannot use `==` or `is` to check for NaN
+  - `math.isnan()` is the proper way to detect NaN values
+  - NaN is the only value where `x != x` is True
 
 ### V) Logic used for the exercise
-1. Define function to check different null-like values
-2. Use `is` operator to check for `None` (identity comparison)
-3. Check for NaN using `isinstance()` and string conversion
-4. Check for False using `is` operator for boolean identity
-5. Check for zero using `==` operator for value comparison
-6. Check for empty string using `==` operator
-7. Return different codes (0 for recognized, 1 for unrecognized)
-8. Test with various null-like values to demonstrate different cases
+1. Import required modules: `sys`, `math`, `typing.Any`, and validation functions
+2. Define `print_null_type()` function to identify null-like values:
+   - Check for `None` using `is` operator (identity check)
+   - Check for NaN using `isinstance(object, float)` and `math.isnan()`
+   - Check for `False` using `isinstance(object, bool)` and `is False` (order matters!)
+   - Check for zero using `isinstance(object, int)` and `== 0`
+   - Check for empty string using `isinstance(object, str)` and `len(object) == 0`
+   - Raise TypeError for unrecognized types
+3. Define `NULL_not_found()` function that:
+   - Calls `print_null_type()` wrapped in try/except
+   - Returns 0 for recognized null-like values
+   - Returns 1 for unrecognized types
+4. Create test variables with different null-like values
+5. Test with: None, NaN, 0, empty string, False, and a non-null value
+6. Exit program with appropriate return code
 
 
 ## 5. Exercice 04: The Even and the Odd
 
-### I) Libraries used
-- `sys`: Built-in library for system-specific parameters and functions
+### I) New libraries used
+No new libraries used.
 
-### II) Built-in functions and methods used
-- `len()`: Built-in function that returns length of a sequence
+### II) New built-in functions and methods used
 - `int()`: Built-in function that converts string to integer
-- `print()`: (already used in ex00)
+- `%` (modulo operator): Returns remainder of division
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
-- **Gets command line arguments**
-  - `sys.argv`
-  - Example: `python script.py arg1 arg2`, sys.arg[0] = script.py, sys.arg[1] = arg1, sys.arg[2] = arg2
-- **Exception/Error handling**
-  - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III)
+- **Command line arguments with `sys.argv`**
+  - `sys.argv` is a list containing command line arguments
+  - `sys.argv[0]` is always the script name
+  - `sys.argv[1]`, `sys.argv[2]`, etc. are user-provided arguments
+  - Example: `python script.py arg1 arg2`
+    - `sys.argv[0]` = `"script.py"`
+    - `sys.argv[1]` = `"arg1"`
+    - `sys.argv[2]` = `"arg2"`
+  - All arguments are received as strings
+
+- **Modulo operator `%`**
+  - Returns the remainder of division
+  - Syntax: `a % b` returns remainder when a is divided by b
+  - Common use: Check if number is even/odd
+    - `number % 2 == 0` → even
+    - `number % 2 == 1` → odd
+
+- **Exception handling with try/except**
+  - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III) for complete exception handling documentation
 
 ### V) Logic used for the exercise
-1. Import sys module to access command line arguments
-2. Validate argument count using `len(sys.argv)` - must be exactly 2
-3. Check for too many arguments and raise AssertionError if found
-4. Extract argument from `sys.argv[1]` (first user argument)
-5. Convert string to integer using `int()` with try/except for ValueError
-6. Check odd/even using modulo operator `% 2`
-7. Handle errors with specific exception messages
+1. Import `sys` module to access command line arguments
+2. Define `validate_args()` function that:
+   - Checks if no arguments provided (`len(args) == 1`) → raise ValueError (silent)
+   - Checks if too many arguments (`len(args) > 2`) → raise AssertionError with message
+   - Extracts first user argument from `sys.argv[1]`
+   - Converts string to integer using `int()` in try/except block
+   - Catches ValueError and raises AssertionError if conversion fails
+   - Returns validated integer
+3. Define `check_odd_even()` function that:
+   - Uses modulo operator `% 2` to check remainder
+   - Prints "I'm Even." if remainder is 0
+   - Prints "I'm Odd." if remainder is not 0
+4. Main function handles exceptions:
+   - Catches ValueError silently (no arguments provided)
+   - Catches AssertionError and prints error message
+   - Returns appropriate exit codes
+5. Exit program using `sys.exit()` with return code
 
 
 ## 6. Interlude: From now on you must follow these additional rules
 
 ### I) Script vs Module
-- **Script**
-  - File run directly with `python filename.py`
-- **Module**
-  - File imported into another script
+
+**Script:**
+- File run directly with `python filename.py`
+- Contains executable code that runs when the file is executed
+- Typically includes `if __name__ == "__main__":` block
+
+**Module:**
+- File imported into another script using `import` or `from ... import ...`
+- Provides reusable functions, classes, or variables
+- Code at module level runs when imported
 
 ### II) Norme: Flake8
+
+**Installation:**
 ```bash
 pip install flake8
 # or
 python -m pip install flake8
-# Add the local bin directory to your PATH if needed as user
 ```
 
-- **Adding to PATH explanation**
-  - When you install packages with `pip install --user`, they are installed in your user directory
-  - The executable files (like `flake8`) are placed in `~/.local/bin/` (Linux/Mac)
-  - You need to add this directory to your PATH environment variable so the system can find the executable
-- **Linux/Mac**
-  - Add `export PATH="$HOME/.local/bin:$PATH"` to your `~/.bashrc` or `~/.zshrc`
-- **Alternative method**
-  - You can also uncomment (remove the #) the existing PATH line in your `~/.zshrc` file that already contains this export
-  - After adding to PATH, restart your terminal or run `source ~/.zshrc` (Linux/Mac)
+**Adding to PATH (if needed for user installation):**
+
+When you install packages with `pip install --user`, executables are placed in `~/.local/bin/` (Linux/Mac) and need to be in your PATH.
+
+**Linux/Mac Setup:**
+1. Add to your shell configuration file (`~/.bashrc` or `~/.zshrc`):
+   ```bash
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+
+2. Alternative: Uncomment the existing PATH line in your `~/.zshrc` if it already contains this export
+
+3. Apply changes:
+   ```bash
+   source ~/.zshrc   # or source ~/.bashrc
+   ```
+   Or restart your terminal
 
 ### III) Exception/Error handling
-- `try/except`: System with specific exception types (like try/catch in C++)
-- `raise`: Built-in keyword that raises an exception (like throw in C++)
-- `ValueError`: Built-in exception for conversion errors
-- `AssertionError`: Custom exception for validation errors
+
+**Basic Syntax:**
+- **`try/except`**: System for handling exceptions (like try/catch in C++)
+  - `try:` block contains code that might raise exceptions
+  - `except ExceptionType:` catches specific exception types
+  - Multiple except blocks can handle different exceptions
+  - `except ExceptionType as e:` captures exception object for error messages
+
+**Raising Exceptions:**
+- **`raise`**: Built-in keyword that raises an exception (like throw in C++)
+  - Syntax: `raise ExceptionType("error message")`
+  - Used to signal errors or invalid states
+
+**Common Exception Types:**
+- **`ValueError`**: Raised when a function receives correct type but inappropriate value
+  - Example: `int("abc")` raises ValueError
+  - Common in type conversion failures
+  
+- **`TypeError`**: Raised when operation is performed on inappropriate type
+  - Example: Calling non-callable object, wrong number of arguments
+  
+- **`AssertionError`**: Raised for assertion failures
+  - Used to signal invalid program state or bad input
+  - Commonly used for input validation
 
 ### IV) `__name__`
 
-Special built-in variable in Python that contains the name of the current module
+**Definition:**
+- Special built-in variable in Python that contains the name of the current module
 
-```python
-if __name__ == "__main__"
-```
+**Usage:**
+- When a Python file is run directly: `__name__` is set to `"__main__"`
+- When a Python file is imported as a module: `__name__` is set to the module's name
+
+**Purpose:**
+- Allows code to be both importable (as a module) and executable (as a script)
+- Functions can be imported without running the script's main code
 
 ### V) `__doc__`
 
-Special built-in variable that contains the documentation string (docstring) of a function, class, or module. If you write a description for your function (written with triple quotes `"""` right after function definition), you can read it with `print(function.__doc__)`
+**Definition:**
+- Special built-in variable that contains the documentation string (docstring) of a function, class, or module
+
+**Docstring Format:**
+- Written with triple quotes `"""..."""`
+- Placed immediately after function, class, or module definition
+- First line should be a brief summary
+
+**Purpose:**
+- Documents code behavior and usage
+- Accessible at runtime via `__doc__` attribute (print(my_function.__doc__))
+- Used by help() function and documentation generators
 
 
 ## 7. Exercice 05: First standalone program python
 
-### I) Libraries used
-- `sys`: (already used in ex04)
+### I) New libraries used
 - `string`: Built-in library for string constants and utilities
 
-### II) Built-in functions and methods used
-- `len()`: (already used in ex04)
+### II) New built-in functions and methods used
 - `input()`: Built-in function that gets user input from console
-- `sum()`: Built-in function that return the sum off all items plus the optional start value
+- `sum()`: Built-in function that returns sum of all items in an iterable
 - `char.isupper()`: Method that checks if character is uppercase
 - `char.islower()`: Method that checks if character is lowercase
 - `char.isdigit()`: Method that checks if character is a digit
 - `char.isspace()`: Method that checks if character is whitespace
 - `string.punctuation`: Module constant containing all punctuation characters
-- `print()`: (already used in ex00)
+- `in`: Membership operator to check if item exists in a sequence
+- `break`: Statement to exit a loop prematurely
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
 - **Using `if __name__ == "__main__"`**
   - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point IV)
-- **Loop to iterate over sequences**
-  - `for`
-  - Loop keyword used to iterate over sequences (lists, tuples, strings, etc.)
+
+- **For loop**
+  - Used to iterate over sequences (lists, tuples, strings, etc.)
   - Basic syntax: `for item in iterable:`
+  - Each iteration, `item` takes the next value from the iterable
+  
+- **While loop**
+  - Repeats code block while condition is True
+  - Syntax: `while condition:`
+  - Useful for input validation with user prompts
+  - Can create infinite loop with `while True:` (use `break` to exit)
+
+- **Generator expressions**
+  - Compact way to create iterables on-the-fly
+  - Syntax: `(expression for item in iterable if condition)`
+  - Memory efficient - generates values one at a time
+  - Example: `sum(1 for char in text if char.isupper())`
+  - Similar to list comprehensions but with parentheses instead of brackets
+
+- **Membership operator `in`**
+  - Checks if value exists in a sequence
+  - Returns `True` or `False`
+  - Example: `'a' in 'apple'` returns `True`
+  - Works with strings, lists, tuples, sets, dictionaries
+
+- **Additional exception types**
+  - **EOFError**: Raised when `input()` hits end-of-file (Ctrl+D on Unix, Ctrl+Z on Windows)
+  - **KeyboardInterrupt**: Raised when user interrupts execution (Ctrl+C)
+  - Used to handle input interruptions gracefully
 
 ### V) Logic used for the exercise
-1. Validate arguments - Handle 0, 1, or multiple arguments
-2. Get input - Either from command line argument or user input prompt
-3. Count character types using generator expressions with `sum()`
-4. Use string methods to classify each character (upper, lower, digit, space, punctuation)
-5. Return counts as tuple from the counting function
-6. Display formatted results with character counts and total length
+1. Import required modules: `sys` and `string`
+2. Define `validate_args()` function that:
+   - Checks if no argument or empty string provided → prompt user with `input()`
+   - Uses `while True:` loop to repeatedly prompt until valid input
+   - Catches `EOFError` and `KeyboardInterrupt` exceptions for input interruptions
+   - Uses `break` to exit loop when valid text is entered
+   - Checks if too many arguments → raise AssertionError
+   - Returns validated text string
+3. Define `count_characters()` function that:
+   - Uses generator expressions with `sum()` to count each character type
+   - Iterates through text once for each type: upper, lower, digit, space
+   - Uses `in` operator to check if character is in `string.punctuation`
+   - Returns tuple with all five counts
+4. Define `print_results()` function to display formatted output
+5. Main function orchestrates:
+   - Validates arguments with try/except
+   - Unpacks tuple from `count_characters()`
+   - Calls `print_results()` with all counts
+6. Exit program using `sys.exit()` with return code
 
 
 ## 8. Exercice 06: ft_filter
 
-### I) Libraries used
-- `sys`: (already used in ex04)
+### I) New libraries used
+- `typing`: Built-in library for type hints (importing `Iterator` type)
 
-### II) Built-in functions and methods used
-- `len()`: (already used in ex04)
-- `int()`: (already used in ex04)
+### II) New built-in functions and methods used
 - `lambda`: Built-in keyword that creates anonymous functions
 - `str.split()`: Method that splits string into list of words
 - `filter()`: Built-in function that filters iterable based on function
-- `print()`: (already used in ex00)
+- `list()`: Built-in function that converts an iterable to a list
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
 - **Lambda functions**
   - Anonymous functions created with `lambda` keyword
   - Syntax: `lambda arguments: expression`
+  - Can take multiple arguments: `lambda x, y: x + y`
+  - Returns result of expression automatically (no `return` statement)
   - Used for simple, one-time operations
   - Example: `lambda x: len(x) > 5`
+
 - **Higher-order functions**
   - Functions that take other functions as parameters
-  - `filter(function, iterable)` pattern
-- **List comprehension**
-  - Concise way to create lists from iterables
-  - Syntax: `[expression for item in iterable if condition]`
-  - More efficient than traditional loops for simple operations
-  - Example: `[item for item in iterable if function(item)]`
+  - `filter(function, iterable)` returns iterator of items where function returns True
+  - Common pattern: `filter(lambda x: condition, iterable)`
+  - Can also accept `None` as function: filters out falsy values
+
+- **Iterators and the `Iterator` type**
+  - Iterator: Object that produces values one at a time
+  - Can be converted to list using `list(iterator)`
+  - Generator expressions return iterators
+  - `Iterator` type hint from `typing` module documents iterator return types
+
+- **Falsy values**
+  - Values that evaluate to `False` in boolean context
+  - Include: `None`, `False`, `0`, `0.0`, `""`, `[]`, `{}`, `()`
+  - Used with `if item:` or `filter(None, iterable)` to remove falsy values
 
 ### V) Logic used for the exercise
-1. Create custom filter function `ft_filter()` that mimics built-in `filter()`
-2. Handle two cases in the filter function:
-   - When function is `None`: filter out falsy values
-   - When function is provided: apply function to each item
-3. Use list comprehensions for filtering logic
-4. Validate command line arguments - must be exactly 2 (string and integer)
-5. Convert string to integer with error handling
-6. Use lambda function with `ft_filter()` to filter words by length
-7. Split string into words using `str.split()` method
-8. Display function documentation using `__doc__` attribute. Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point V)
+1. **File: ft_filter.py** - Create custom filter function:
+   - Define `ft_filter(function, iterable)` with `Iterator` return type hint
+   - Handle two cases using conditional expression:
+     - If `function is None`: return generator expression filtering falsy values `(item for item in iterable if item)`
+     - If function provided: return generator expression applying function `(item for item in iterable if function(item))`
+   - Return iterator (generator expression), not a list
+   
+2. **File: filterstring.py** - Main program:
+   - Import `ft_filter` from ft_filter module
+   - Define `validate_args()` function:
+     - Check exactly 3 arguments (script name + 2 args)
+     - Extract string and integer arguments from `sys.argv`
+     - Convert second argument to integer with try/except
+     - Return tuple of validated arguments
+   - In main function:
+     - Validate arguments with exception handling
+     - Split input string into list of words using `str.split()`
+     - Create lambda function `lambda x: len(x) > integer_arg` to check word length
+     - Apply `ft_filter()` with lambda and word list
+     - Convert iterator result to list using `list()` for display
+3. Test function demonstrates usage and compares with built-in `filter()`
 
 
 ## 9. Exercice 07: Dictionaries SoS
 
-### I) Libraries used
-- `sys`: (already used in ex04)
+### I) New libraries used
+No new libraries used.
 
-### II) Built-in functions and methods used
-- `len()`: (already used in ex04)
+### II) New built-in functions and methods used
 - `str.upper()`: Method that converts string to uppercase
 - `str.rstrip()`: Method that removes trailing whitespace
-- `print()`: (already used in ex00)
+- `dict[key]`: Dictionary access using square bracket notation
+- `+=`: Augmented assignment operator for string concatenation
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
-- **Dictionary mapping**
-  - Using dictionaries to map characters to their representations
-  - Key-value pairs for character-to-morse code conversion
-- **String concatenation in loops**
-  - Building strings by concatenating in loops
-  - Pattern: `result += new_part`
+- **Dictionary as lookup table**
+  - Dictionaries used to map keys to values for fast lookups
+  - Access values using square bracket notation: `dict[key]`
+  - Raises `KeyError` if key doesn't exist
+  - Common use: translation tables, configuration mappings
+  - Example: `morse_code = {"A": ".-", "B": "-..."}`
+
+- **String concatenation with `+=`**
+  - Augmented assignment operator: `result += new_part`
+  - Shorthand for `result = result + new_part`
+  - Builds strings incrementally in loops
+  - Example: Building morse code character by character
+
+- **KeyError exception**
+  - Raised when accessing non-existent dictionary key
+  - Can be caught with try/except to handle invalid lookups
+  - Alternative: use `dict.get(key, default)` to avoid exception
 
 ### V) Logic used for the exercise
-1. Create morse code dictionary with character-to-morse mappings
-2. Validate command line arguments - must be exactly 1 string argument
-3. Convert input to uppercase using `str.upper()` for case-insensitive processing
-4. Iterate through each character in the input string
-5. Check if character exists in morse dictionary using `in` operator
-6. Convert valid characters to morse code using dictionary lookup
-7. Handle invalid characters by raising AssertionError
-8. Remove trailing whitespace using `str.rstrip()` from final result
-9. Display encrypted message
+1. Import `sys` module for command line arguments
+2. Define `validate_args()` function:
+   - Check exactly 2 arguments (script name + 1 string argument)
+   - Raise AssertionError if wrong number of arguments
+   - Return string argument
+3. Define `get_dict()` function:
+   - Create dictionary mapping uppercase letters, digits, and space to morse code
+   - Each morse code representation includes trailing space for separation
+   - Return morse code dictionary
+4. Define `encrypt()` function:
+   - Get morse code dictionary
+   - Initialize empty result string
+   - Convert input message to uppercase using `str.upper()`
+   - Iterate through each character with for loop
+   - For each character:
+     - Try to look up morse code using `dict[key]` access
+     - Concatenate morse code to result using `+=` operator
+     - Catch `KeyError` for invalid characters and raise AssertionError
+   - Remove trailing whitespace using `str.rstrip()` from final result
+   - Return encrypted message
+5. Main function orchestrates:
+   - Validate arguments with try/except for AssertionError
+   - Call encrypt function
+   - Display encrypted message
+6. Exit program using `sys.exit()` with return code
 
 
 ## 10. Exercice 08: Loading ...
 
-### I) Libraries used
-- `time`: (already used in ex01)
-- `tqdm`: External library for progress bars (for comparison)
+### I) New libraries used
+- `time`: Built-in library for time operations (importing `sleep` function)
+- `tqdm`: External library for progress bars (for comparison only)
 
-### II) Built-in functions and methods used
-- `len()`: (already used in ex04)
-- `enumerate()`: Built-in function that returns index and value pairs
+### II) New built-in functions and methods used
+- `enumerate()`: Built-in function that returns (index, value) pairs from iterable
 - `yield`: Built-in keyword that creates generator functions
 - `range()`: Built-in function that creates sequence of numbers
-- `sleep()`: Module function that pauses execution
-- `print()`: (already used in ex00)
+- `sleep()`: Function from time module that pauses execution for specified seconds
+- `str.ljust()`: Method that left-justifies string with padding
+- `*` (string multiplication): Operator to repeat strings (e.g., `"=" * 5` = `"====="`)
+- `print()` with `end` parameter: Print without default newline
 
-### III) External functions
-- `tqdm()`: External function from tqdm library for creating progress bars
+### III) New external functions
+- `tqdm()`: External function from tqdm library for creating progress bars (comparison only)
 
 ### IV) New theory points
-- **Generator functions**
+- **Generator functions with `yield`**
   - Functions that use `yield` instead of `return`
   - Create iterators that can be paused and resumed
-  - Memory efficient for large data sets
-- **Enumerate function**
+  - Each call to `yield` produces one value and suspends execution
+  - Function state is preserved between yields
+  - Memory efficient - generates values on-demand rather than storing all at once
+  - Perfect for progress bars, data streams, large datasets
+  - Example: Generator can process millions of items using minimal memory
+
+- **The `enumerate()` function**
   - `enumerate(iterable)` returns (index, value) pairs
-  - Useful for tracking position in loops
+  - Starts counting from 0 by default
+  - Syntax: `for i, item in enumerate(iterable):`
+  - Useful for tracking position while iterating
+  - Can specify start value: `enumerate(iterable, start=1)`
+
+- **String multiplication and formatting**
+  - String multiplication: `"x" * n` creates string repeated n times
+  - `str.ljust(width, fillchar)`: Left-justifies string with padding
+  - Example: `"abc".ljust(10, " ")` → `"abc       "`
+  - Useful for creating visual elements like progress bars
+
+- **Print parameters**
+  - `print(text, end="")`: Prevents automatic newline after printing
+  - Default `end="\n"` adds newline; `end=""` prints inline
+  - Allows continuous updates on same line when combined with `\r`
 
 ### V) Logic used for the exercise
-1. Create generator function `ft_tqdm()` that yields items from range
-2. Calculate progress metrics - percentage and bar width
-3. Build visual progress bar using string concatenation and padding
-4. Use carriage return `\r` to overwrite the same line
-5. Yield each item from the range while displaying progress
-6. Compare with real tqdm library to show functionality
-7. Handle progress display with percentage, bar, and item count
-8. Add sleep delays to demonstrate real-time progress updates
+1. Import required modules: `sys`, `time.sleep`, and validation functions
+2. Define `ft_tqdm()` generator function with `range` parameter:
+   - Get total count using `len(lst)` on range object
+   - Use `enumerate(lst)` to iterate with both index and item
+   - For each iteration:
+     - Calculate percentage: `(i + 1) / total * 100`
+     - Calculate filled width for visual bar: `(i + 1) / total * bar_width`
+     - Build bar string:
+       - Use string multiplication: `"=" * filled_width` for filled portion
+       - Add `">"` at the end if not complete
+       - Use `str.ljust(bar_width, " ")` to pad to full width
+     - Create progress line with f-string: `"\r{percentage}%|[{bar}]| {i + 1}/{total}"`
+     - Print with `end=""` to avoid newline (allows overwriting with `\r`)
+     - **Yield** item to calling code (makes this a generator)
+   - Print final newline after loop completes
+3. Main function:
+   - Validate arguments with try/except
+   - Use `ft_tqdm(range(333))` in for loop
+   - Each iteration calls `sleep(0.005)` to simulate work
+   - Progress bar updates automatically on each yield
+4. Demonstrates generator function creating live-updating progress display
 
 
 ## 11. Exercice 09: My first package creation
 
-### I) Libraries used
-- `setuptools`: Built-in library for package building
-- `wheel`: Built-in library for package distribution
+### I) New libraries used
+No new libraries used in the package code itself.
 
-### II) Built-in functions and methods used
+**Build tools required (installed separately):**
+- `setuptools`: Tool for package building
+- `wheel`: Tool for creating wheel distributions
+- `build`: Modern Python package build tool
+
+### II) New built-in functions and methods used
 - `list.count()`: Method that counts occurrences of item in list
-- `print()`: (already used in ex00)
 
-### III) External functions
-No external functions used.
+### III) New external functions
+No new external functions used.
 
 ### IV) New theory points
-- **Package structure**
-  - `__init__.py` file makes directory a Python package
-  - `__all__` list defines public API of the package
-  - `__version__` variable stores package version
-- **Package configuration**
-  - `pyproject.toml` file for modern Python packaging
-  - Project metadata (name, version, description, license)
-  - Build system requirements and classifiers
-- **Package distribution**
-  - Building packages with `python -m build`
-  - Installing local packages with `pip install`
-  - Package verification and management
+
+- **Python Package Structure**
+  - **Package directory**: Contains `__init__.py` to mark as package
+  - **`__init__.py`**: Makes directory importable as Python package
+    - Can be empty or contain initialization code
+    - Defines package's public API with `__all__`
+    - Can set `__version__` for version tracking
+  - **Module docstring**: Triple-quoted string at top of `__init__.py` documenting package
+  
 - **Relative imports**
-  - `from .core import function` for same-package imports
-  - Using dots to indicate relative module location
-- **Command summary**
-  - Build: python -m build
-  - Install: python -m pip install ./dist/ft_package-0.0.1.tar.gz
-  - Verify: python -m pip show -v ft_package
-  - Unbuild: rm -rf build/ dist/ *.egg-info
-  - Uninstall: python -m pip uninstall ft_package
-  - List of installed packages: python -m pip list
+  - `from .module import function`: Import from same package
+  - `.` refers to current package directory
+  - `..` would refer to parent package
+  - Example: `from .core import count_in_list`
+
+- **`__all__` list**
+  - Defines public API of package/module
+  - Lists names that are exported when using `from package import *`
+  - Example: `__all__ = ["count_in_list"]`
+  - Good practice for controlling what users can access
+
+- **`__version__` attribute**
+  - Convention for storing package version
+  - Typically set in `__init__.py`
+  - Accessible as `package.__version__`
+  - Should match version in `pyproject.toml`
+
+- **`pyproject.toml` configuration**
+  - Modern standard for Python project configuration (PEP 518)
+  - Replaces old `setup.py` approach
+  - **Key sections:**
+    - `[build-system]`: Specifies build requirements (setuptools, wheel)
+    - `[project]`: Project metadata (name, version, description, license)
+    - `requires-python`: Minimum Python version
+    - `classifiers`: Package categorization for PyPI
+
+- **Package building and distribution**
+  - **Build command**: `python -m build`
+    - Creates both `.tar.gz` (source) and `.whl` (wheel) distributions
+    - Output goes to `dist/` directory
+  - **Install command**: `pip install ./dist/package-version.tar.gz`
+  - **Verify installation**: `pip show -v package_name`
+  - **Uninstall**: `pip uninstall package_name`
+  - **List packages**: `pip list`
+
+- **Build artifacts**
+  - `dist/`: Contains built package files (.tar.gz and .whl)
+  - `build/`: Temporary build directory
+  - `*.egg-info/`: Package metadata directory
+  - Clean up with: `rm -rf build/ dist/ *.egg-info`
 
 ### V) Logic used for the exercise
-1. Create package structure with `ft_package/` directory
-2. Add `__init__.py` to make it a proper Python package
-3. Define core functionality in `core.py` with `count_in_list()` function
-4. Configure package metadata in `pyproject.toml` file
-5. Set up package imports in `__init__.py` with `__all__` and `__version__`
-6. Build the package using `python -m build` command
-7. Install the package locally with `pip install ./dist/ft_package-0.0.1.tar.gz`
-8. Test the package by importing and using the functions
-9. Verify installation with `pip show -v ft_package`
-10. Clean up with uninstall and remove build artifacts
+
+**1. Create package structure:**
+```
+ex09/
+├── ft_package/
+│   ├── __init__.py      # Package initialization
+│   └── core.py          # Core functionality
+├── pyproject.toml       # Package configuration
+├── README.md            # Package documentation
+└── LICENSE              # License file
+```
+
+**2. File: `ft_package/core.py`**
+- Import `Any` type from `typing` module
+- Define `count_in_list(lst: list, item: Any) -> int` function
+- Function wraps `list.count()` method
+- Add docstring with Args, Returns, and Raises sections
+
+**3. File: `ft_package/__init__.py`**
+- Add module-level docstring describing package
+- Import function from core module: `from .core import count_in_list`
+- Define `__all__ = ["count_in_list"]` to expose public API
+- Set `__version__ = "0.0.1"` for version tracking
+
+**4. File: `pyproject.toml`**
+- Configure `[build-system]` with setuptools and wheel requirements
+- Define `[project]` metadata:
+  - Package name, version, description
+  - README file, Python version requirement
+  - License and classifiers for package categorization
+
+**5. Build and distribute:**
+- Install build tools: `python -m pip install --upgrade build wheel`
+- Build package: `python -m build` (creates `dist/` directory)
+- Install locally: `pip install ./dist/ft_package-0.0.1.tar.gz`
+- Test by importing: `from ft_package import count_in_list`
+- Verify: `pip show -v ft_package`
+
+**6. Package lifecycle commands:**
+- Build: `python -m build`
+- Install: `pip install ./dist/ft_package-0.0.1.tar.gz`
+- Verify: `pip show -v ft_package`
+- Uninstall: `pip uninstall ft_package`
+- Clean: `rm -rf build/ dist/ *.egg-info`
+- List installed: `pip list`
 
 ---
 

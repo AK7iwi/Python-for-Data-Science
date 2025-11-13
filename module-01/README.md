@@ -21,7 +21,6 @@ This learning guide follows a progressive and logical structure where concepts a
 
 So:
 - Theory points and some advanced concepts may be used before their detailed explanation appears in later exercises
-- Cross-references like "(already used in ex00)" indicate when a concept was previously introduced
 - There are additional resources at the end if you want to explore a concept in more depth
 
 
@@ -31,8 +30,6 @@ This module focuses on array manipulation and visualization using two essential 
 
 - **NumPy**: For efficient numerical computing and array operations
 - **Matplotlib**: For data visualization and image display
-
-The exercises progressively introduce concepts from basic array operations (BMI calculations) to advanced image processing (filtering, rotation, and visualization). Each exercise builds upon previous knowledge, demonstrating how NumPy arrays enable vectorized operations and how Matplotlib provides powerful visualization capabilities for data science applications.
 
 
 ## 1. Exercice 00: Give my BMI

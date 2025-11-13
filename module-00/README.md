@@ -46,8 +46,6 @@ Module 00 is an introductory module designed to cover the fundamental building b
 No new libraries used.
 
 ### II) New built-in functions and methods used
-- `list[index]`: Index notation to access/modify list elements
-- `dict[key]`: Key notation to access/modify dictionary values
 - `set.remove()`: Method to remove element from set
 - `set.add()`: Method to add element to set
 - `print()`: Built-in function to display output
@@ -58,7 +56,7 @@ No new external functions used.
 ### IV) New theory points
 - **Basic Data Types**
   - **List**: Mutable, ordered collection `["item1", "item2"]`
-    - Can be modified using index assignment: `list[0] = "new_value"`
+    - Can be modified using index assignment: `list[index] = "new_value"`
   - **Tuple**: Immutable, ordered collection `("item1", "item2")`
     - Cannot be modified; must reassign entire tuple: `tuple = ("new1", "new2")`
   - **Set**: Mutable, unordered collection of unique elements `{"item1", "item2"}`
@@ -186,8 +184,6 @@ No new external functions used.
 ### II) New built-in functions and methods used
 - `float()`: Built-in function that converts to float type or creates special values
 - `math.isnan()`: Module function that checks if a float is NaN (Not a Number)
-- `is`: Identity operator to check if two variables reference the same object
-- `==`: Equality operator to check if two values are equal
 
 ### III) New external functions
 No new external functions used.
@@ -247,7 +243,6 @@ No new libraries used.
 
 ### II) New built-in functions and methods used
 - `int()`: Built-in function that converts string to integer
-- `%` (modulo operator): Returns remainder of division
 
 ### III) New external functions
 No new external functions used.
@@ -402,8 +397,6 @@ When you install packages with `pip install --user`, executables are placed in `
 - `char.isdigit()`: Method that checks if character is a digit
 - `char.isspace()`: Method that checks if character is whitespace
 - `string.punctuation`: Module constant containing all punctuation characters
-- `in`: Membership operator to check if item exists in a sequence
-- `break`: Statement to exit a loop prematurely
 
 ### III) New external functions
 No new external functions used.
@@ -421,7 +414,7 @@ No new external functions used.
   - Repeats code block while condition is True
   - Syntax: `while condition:`
   - Useful for input validation with user prompts
-  - Can create infinite loop with `while True:` (use `break` to exit)
+  - Can create infinite loop with `while True:` (use `break` to exit a loop prematurely)
 
 - **Generator expressions**
   - Compact way to create iterables on-the-fly
@@ -469,7 +462,6 @@ No new external functions used.
 - `typing`: Built-in library for type hints (importing `Iterator` type)
 
 ### II) New built-in functions and methods used
-- `lambda`: Built-in keyword that creates anonymous functions
 - `str.split()`: Method that splits string into list of words
 - `filter()`: Built-in function that filters iterable based on function
 - `list()`: Built-in function that converts an iterable to a list
@@ -535,8 +527,6 @@ No new libraries used.
 ### II) New built-in functions and methods used
 - `str.upper()`: Method that converts string to uppercase
 - `str.rstrip()`: Method that removes trailing whitespace
-- `dict[key]`: Dictionary access using square bracket notation
-- `+=`: Augmented assignment operator for string concatenation
 
 ### III) New external functions
 No new external functions used.
@@ -600,7 +590,6 @@ No new external functions used.
 - `range()`: Built-in function that creates sequence of numbers
 - `sleep()`: Function from time module that pauses execution for specified seconds
 - `str.ljust()`: Method that left-justifies string with padding
-- `*` (string multiplication): Operator to repeat strings (e.g., `"=" * 5` = `"====="`)
 - `print()` with `end` parameter: Print without default newline
 
 ### III) New external functions

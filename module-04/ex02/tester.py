@@ -3,6 +3,7 @@ from callLimit import callLimit
 # Test 1a - Valid input: Basic input
 print("Test 1a - Valid input: Basic input\n")
 
+
 @callLimit(3)
 def f():
     print("f()")
@@ -21,6 +22,7 @@ print("\n--------------------------------\n")
 
 # Test b - Valid input: Basic input
 print("Test 1b - Valid input: Basic input\n")
+
 
 @callLimit(3)
 def f():

@@ -137,7 +137,6 @@ raise
 - with (keyword)
 
 
-
 Pandas/ pd.DataFrame
 
 
@@ -376,14 +375,18 @@ Branch: CSE
 R2J
 
 
-
+@dataclass
+@dataclass is a class decorator that automatically generates special methods for you, including
+__init__() ✨
+__repr__()
+__eq__()
 
 __post__init__
 
 
-
-
 (*args, **kwargs)
+
+-----------------------------------------------------
 
 args type:  <class 'tuple'>
 kwargs type:  <class 'dict'>
@@ -396,6 +399,61 @@ print("kwargs.items(): ", kwargs.items())
 print("kwargs.values(): ", kwargs.values())
 
 
+nonlocal:
+
+Similar as static var in C
+
+C with static:
+
+int counter() {
+    static int count = 0;  // Initialized only once
+    count++;
+    return count;
+}
+
+counter(); // returns 1
+counter(); // returns 2
+counter(); // returns 3
+
+Python with nonlocal:
+
+def outer():
+    count = 0  # Initialized when outer() is called
+    def inner():
+        nonlocal count
+        count += 1
+        return count
+    return inner
+
+my_counter = outer()
+my_counter()  # returns 1
+my_counter()  # returns 2
+my_counter()  # returns 3
+
+
+Difference: 
+
+counter1 = outer()  # counter1 has its own count
+counter2 = outer()  # counter2 has its own count (independent!)
+
+counter1()  # 1
+counter1()  # 2
+counter2()  # 1  ← Independent! Not 3!
+
+
+nonlocal vs static: Similar in that both preserve state, but nonlocal allows multiple independent instances while C's static is shared across all calls
+
+
+outer/inner fct
+
+
+custom decorator: 
+
+https://realpython.com/primer-on-python-decorators/
+
+# Level 1: Takes DECORATOR parameters
+# Level 2: Takes the FUNCTION to decorate
+# Level 3: Takes FUNCTION's arguments
 
 
 - Others

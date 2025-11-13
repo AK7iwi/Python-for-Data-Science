@@ -14,4 +14,5 @@ another_counter = outer(1.5, pow)
 print(another_counter())
 print(another_counter())
 print(another_counter())
+
 print("\n--------------------------------\n")

@@ -140,6 +140,30 @@ This module focuses on Object-Oriented Programming (OOP) in Python:
   - Used with properties: store in `_attribute`, access via property
   - Not enforced by Python, just a convention
 
+- **Public, protected, and private attributes**
+  - Python uses naming conventions to indicate access levels (not enforced by language)
+  - **Public attributes**: No underscore prefix
+    - Example: `self.name`, `self.value`
+    - Intended for external use
+    - Part of public API of the class
+    - Can be accessed directly: `instance.name`
+  - **Protected attributes**: Single underscore prefix `_`
+    - Example: `self._first_name`, `self._is_alive`
+    - Convention: "internal use" - shouldn't be accessed outside class/subclasses
+    - Not enforced - still accessible but signals "use at your own risk"
+    - Often used with `@property` to provide controlled access
+    - Python doesn't prevent access: `instance._first_name` works but discouraged
+  - **Private attributes**: Double underscore prefix `__` (name mangling)
+    - Example: `self.__secret`
+    - Python performs name mangling: `__secret` becomes `_ClassName__secret`
+    - Makes it harder (but not impossible) to access from outside
+    - Rarely used - single underscore is usually sufficient
+    - Can still be accessed: `instance._ClassName__secret`
+  - **Important**: These are conventions, not restrictions
+    - Python philosophy: "We're all consenting adults here"
+    - Developers trusted to respect conventions
+    - Use underscores to communicate intent, not enforce access control
+
 - **The `@staticmethod` decorator**
   - Defines method that doesn't require instance (`self`) or class reference
   - Syntax: `@staticmethod` above method definition

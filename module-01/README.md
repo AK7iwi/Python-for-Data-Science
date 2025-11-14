@@ -389,12 +389,7 @@ No new libraries used.
   - Ensures consistency when creating new arrays
 
 - **Manual array manipulation with loops**
-  - Nested loops for 2D array traversal:
-    ```python
-    for i in range(rows):      # Iterate over rows
-        for j in range(cols):  # Iterate over columns
-            new_array[j, i] = old_array[i, j]
-    ```
+  - Nested loops for 2D array traversal
   - Index swapping: `[j, i]` instead of `[i, j]` performs transpose
   - Slower than vectorized NumPy operations
   - Useful for understanding underlying mechanics

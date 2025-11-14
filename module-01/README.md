@@ -37,13 +37,10 @@ This module focuses on array manipulation and visualization using two essential 
 ### I) New libraries used
 - `numpy`: External library for numerical computing and array operations
 
-### II) New built-in functions and methods used
-- `math.isfinite()`: Checks if a float value is finite (not inf or nan)
-- `|` (Union type): Type hint operator for multiple possible types (e.g., `int | float`)
-- `**` (power operator): Exponentiation operator (e.g., `x ** 2` = x squared)
-- `>` (greater than): Comparison operator, creates boolean array with numpy
+### II) New built-in functions, methods, attributes used
+- `math.isfinite()`: Math module function that checks if a float value is finite (not inf or nan)
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `np.asarray()`: Converts input (list, tuple, etc.) to NumPy array
 - `array.tolist()`: Converts NumPy array back to Python list
 
@@ -114,13 +111,11 @@ This module focuses on array manipulation and visualization using two essential 
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
-- `[start:end]`: Slice notation for extracting sub-sequences
-- Negative indexing: Access elements from end using negative numbers
+### II) New built-in functions, methods, attributes used
+No new built-in functions, methods, or attributes used.
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `array.shape`: NumPy array attribute returning tuple of dimensions (rows, columns)
-- `array[start:end]`: NumPy array slicing, returns view of subset
 
 ### IV) New theory points
 
@@ -184,15 +179,13 @@ No new libraries used.
 ### I) New libraries used
 - `PIL` (Pillow): External library for image loading and processing
 
-### II) New built-in functions and methods used
-- `with` statement: Context manager for resource management
-- `shape[:2]`: Array slicing to get first two dimensions
+### II) New built-in functions, methods, attributes used
+No new built-in functions, methods, or attributes used.
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `Image.open()`: Opens and identifies image file
 - `image.mode`: PIL Image attribute returning color mode (e.g., 'RGB', 'L', 'RGBA')
 - `image.convert()`: Converts image to different color mode
-- `len(shape)`: Gets number of dimensions in array shape
 
 ### IV) New theory points
 
@@ -271,22 +264,18 @@ No new libraries used.
 ### I) New libraries used
 - `matplotlib.pyplot`: External library for data visualization and plotting
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `min()`: Returns smallest value from multiple arguments or iterable
-- `//` (floor division): Integer division operator (rounds down)
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `np.dot()`: Performs dot product or matrix multiplication
 - `array.astype()`: Converts array to specified data type
-- `np.uint8`: NumPy data type for 8-bit unsigned integers (0-255)
 - `plt.figure()`: Creates new figure for plotting
 - `plt.imshow()`: Displays image data as 2D array
 - `plt.title()`: Sets title for plot
 - `plt.xlabel()` / `plt.ylabel()`: Sets axis labels
 - `plt.colorbar()`: Adds colorbar to plot
 - `plt.show()`: Displays all created figures
-- `array[y1:y2, x1:x2]`: 2D array slicing for image cropping
-- `array[..., :3]`: Ellipsis slicing for first 3 channels
 
 ### IV) New theory points
 
@@ -370,11 +359,10 @@ No new libraries used.
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `range()`: Creates sequence of numbers for iteration
-- Nested for loops: Iterating over 2D array with `for i in range():`
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `np.zeros()`: Creates new array filled with zeros
 - `array.dtype`: NumPy array attribute returning data type
 
@@ -451,16 +439,14 @@ No new libraries used.
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
-- `-` (subtraction): Arithmetic operator for array operations (e.g., `255 - array`)
-- `<` (less than): Comparison operator for validation
+### II) New built-in functions, methods, attributes used
+No new built-in functions, methods, or attributes used.
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `array.copy()`: Creates independent copy of array (not a view)
 - `array.mean()`: Calculates mean along specified axis
 - `np.stack()`: Stacks arrays along new axis
 - `plt.axis()`: Controls axis display (e.g., `'off'` to hide axes)
-- `array[:, :, channel]`: 3D array slicing to access specific color channel
 
 ### IV) New theory points
 

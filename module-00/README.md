@@ -45,12 +45,12 @@ Module 00 is an introductory module designed to cover the fundamental building b
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `set.remove()`: Method to remove element from set
 - `set.add()`: Method to add element to set
 - `print()`: Built-in function to display output
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 No new external functions used.
 
 ### IV) New theory points
@@ -86,13 +86,13 @@ No new external functions used.
 - `time`: Built-in library for time operations
 - `datetime`: Built-in library for date/time manipulation
 
-### II) New built-in functions and methods used
-- `time.time()`: Module function that returns seconds since epoch
-- `datetime.now()`: Class method that returns current date and time
-- `strftime()`: Method that formats datetime objects to string
-- `sys.exit()`: Function that exits program with a return code
+### II) New built-in functions, methods, attributes used
+- `time.time()`: Time module function that returns seconds since epoch
+- `datetime.now()`: Datetime class method that returns current date and time
+- `strftime()`: Datetime object method that formats datetime to string
+- `sys.exit()`: Sys module function that exits program with a return code
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `validate_args_for_prog()`: Custom function to validate command line arguments
 
 ### IV) New theory points
@@ -130,15 +130,13 @@ No new external functions used.
 ### I) New libraries used
 - `typing`: Built-in library for type hints (importing `Any` type)
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `isinstance()`: Built-in function that checks if object is instance of a class
 - `type()`: Built-in function that returns the type of an object
 - `len()`: Built-in function that returns length of an object
-- `raise`: Built-in keyword that raises an exception
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `validate_args_for_test()`: Custom function to validate test arguments
-- `MissingArgumentsError`: Custom exception class for missing arguments
 
 ### IV) New theory points
 - **Function definition**
@@ -156,7 +154,7 @@ No new external functions used.
   - `elif` allows multiple conditions to be checked sequentially
   - `else` handles all remaining cases
 
-- **Exception handling with try/except**
+- **Exception handling with try/except/raise**
   - Check [Interlude](#6-interlude-from-now-on-you-must-follow-these-additional-rules) (point III) for complete exception handling documentation
 
 ### V) Logic used for the exercise
@@ -181,12 +179,12 @@ No new external functions used.
 ### I) New libraries used
 - `math`: Built-in library for mathematical functions
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `float()`: Built-in function that converts to float type or creates special values
-- `math.isnan()`: Module function that checks if a float is NaN (Not a Number)
+- `math.isnan()`: Math module function that checks if a float is NaN (Not a Number)
 
-### III) New external functions
-No new external functions used.
+### III) New external functions, methods, attributes used
+No new external functions, methods, or attributes used.
 
 ### IV) New theory points
 - **Null-like values in Python**
@@ -241,10 +239,10 @@ No new external functions used.
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `int()`: Built-in function that converts string to integer
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 No new external functions used.
 
 ### IV) New theory points
@@ -389,17 +387,17 @@ When you install packages with `pip install --user`, executables are placed in `
 ### I) New libraries used
 - `string`: Built-in library for string constants and utilities
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `input()`: Built-in function that gets user input from console
 - `sum()`: Built-in function that returns sum of all items in an iterable
-- `char.isupper()`: Method that checks if character is uppercase
-- `char.islower()`: Method that checks if character is lowercase
-- `char.isdigit()`: Method that checks if character is a digit
-- `char.isspace()`: Method that checks if character is whitespace
-- `string.punctuation`: Module constant containing all punctuation characters
+- `str.isupper()`: String method that checks if character is uppercase
+- `str.islower()`: String method that checks if character is lowercase
+- `str.isdigit()`: String method that checks if character is a digit
+- `str.isspace()`: String method that checks if character is whitespace
+- `string.punctuation`: String module constant containing all punctuation characters
 
-### III) New external functions
-No new external functions used.
+### III) New external functions, methods, attributes used
+No new external functions, methods, or attributes used.
 
 ### IV) New theory points
 - **Using `if __name__ == "__main__"`**
@@ -461,12 +459,12 @@ No new external functions used.
 ### I) New libraries used
 - `typing`: Built-in library for type hints (importing `Iterator` type)
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `str.split()`: Method that splits string into list of words
 - `filter()`: Built-in function that filters iterable based on function
 - `list()`: Built-in function that converts an iterable to a list
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 No new external functions used.
 
 ### IV) New theory points
@@ -524,11 +522,11 @@ No new external functions used.
 ### I) New libraries used
 No new libraries used.
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `str.upper()`: Method that converts string to uppercase
 - `str.rstrip()`: Method that removes trailing whitespace
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 No new external functions used.
 
 ### IV) New theory points
@@ -584,15 +582,14 @@ No new external functions used.
 - `time`: Built-in library for time operations (importing `sleep` function)
 - `tqdm`: External library for progress bars (for comparison only)
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `enumerate()`: Built-in function that returns (index, value) pairs from iterable
-- `yield`: Built-in keyword that creates generator functions
 - `range()`: Built-in function that creates sequence of numbers
-- `sleep()`: Function from time module that pauses execution for specified seconds
-- `str.ljust()`: Method that left-justifies string with padding
-- `print()` with `end` parameter: Print without default newline
+- `str.ljust()`: String method that left-justifies string with padding
+- `print()`: Built-in function (using `end` parameter for inline printing)
+- `time.sleep()`: Time module function that pauses execution for specified seconds
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 - `tqdm()`: External function from tqdm library for creating progress bars (comparison only)
 
 ### IV) New theory points
@@ -657,10 +654,10 @@ No new libraries used in the package code itself.
 - `wheel`: Tool for creating wheel distributions
 - `build`: Modern Python package build tool
 
-### II) New built-in functions and methods used
+### II) New built-in functions, methods, attributes used
 - `list.count()`: Method that counts occurrences of item in list
 
-### III) New external functions
+### III) New external functions, methods, attributes used
 No new external functions used.
 
 ### IV) New theory points
